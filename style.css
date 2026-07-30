@@ -655,7 +655,8 @@ span {
     .main5_admins_img {
         width: 120px;
         height: 120px;
-        border-radius: 50%;
+        border-radius: 0;         /* Τις κάνει τετράγωνες (αν θέλεις ελαφρώς στρογγυλεμένες γωνίες βάλτε 8px) */
+        object-fit: cover;        /* Εξασφαλίζει ότι η εικόνα δεν παραμορφώνεται */
         margin-top: 1.5rem;
     }
 
