@@ -455,6 +455,7 @@ span {
     margin-top: 1.5rem;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.05);
+} 
     
 .main5_admins_img {
     width: 20%;            /* Μειώθηκε από 40% σε 25% (μπορείς να βάλεις π.χ. 20% για ακόμα πιο μικρές) */
