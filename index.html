@@ -4,32 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    
-    <!-- ΤΙΤΛΟΣ ΣΕΛΙΔΑΣ -->
     <title>PGG Legacy - SMP & RP Server</title>
-    
     <link rel="icon" type="image/png" href="media/favicon.png">
-    
-    <!-- AOS Library CSS (Για Animations) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- Σύνδεση με το εξωτερικό αρχείο CSS -->
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-
-    <!-- ELEMENTS ΓΙΑ ΤΑ ANIMATIONS ΠΟΝΤΙΚΙΟΥ (Μόνο Desktop) -->
     <div class="custom-cursor" id="cursor"></div>
     <div class="cursor-glow" id="cursorGlow"></div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- NAVBAR (Desktop) -->
     <nav class="desktop_navbar">
       <a href="#"><img class="desktop_navbar_logo_img" src="media/logo_small.svg" alt="logo"></a>
-      
       <a href="#rules" class="desktop_navbar_link scroll">Rules</a>
       <a href="#discord" class="desktop_navbar_link scroll">Community</a>
       <a href="#about" class="desktop_navbar_link scroll">About Us</a>
@@ -37,8 +24,6 @@
           <a href="#join" class="desktop_navbar_link2 scroll">Join Us!</a>
       </div>
     </nav>
-
-    <!-- NAVBAR (Mobile) -->
     <div class="mobile_navbar">
       <a href="#" class="mobile_navbar_logo_img_a">
         <img class="mobile_navbar_logo_img" src="media/logo_small.svg" alt="logo">
@@ -46,7 +31,6 @@
       <div class="icon" onclick="toggleMobileMenu()">
           <i class="fa fa-bars" id="menuIcon"></i>
       </div>
-      
       <div id="mobile_navbar_links">
           <a class="mobile_navbar_link scroll" onclick="toggleMobileMenu()" href="#rules">Rules</a>
           <a class="mobile_navbar_link scroll" onclick="toggleMobileMenu()" href="#discord">Community</a>
@@ -54,87 +38,65 @@
           <a class="mobile_navbar_link scroll" onclick="toggleMobileMenu()" href="#join">Join Us</a>
       </div>
     </div>
-
     <div class="mainflex">
-      <!-- MAIN HERO SECTION -->
       <div class="main1" data-aos="fade" data-aos-duration="1200">
         <a class="main1_logo_a" href="#">
           <img class="main1_logo" src="media/logo.svg" alt="PGG Legacy Logo" data-aos="zoom-in" data-aos-delay="200">
         </a>
-        
         <div class="main1_description" data-aos="fade-up" data-aos-delay="400">
           <span>Ζήσε την απόλυτη<br>εμπειρία</span>
           <span class="main1_actcent"> SMP &amp; Roleplay</span>.
         </div>
-
         <div class="main1_ipcopier_div" data-aos="fade-up" data-aos-delay="600">
           <button class="main1_ipcopier" onclick="copyText('play.PGGlegacy.gr')" type="button">
             <span class="main1_ipcopier_text1">play.PGGlegacy.gr</span>
             <span class="main1_ipcopier_text2" id="player-count">Φόρτωση παικτών...</span>
           </button>
         </div>
-
         <a href="#more" class="scroll" aria-label="Scroll Down">
           <img alt="downarrow" class="main1_downarrow" src="media/downarrow.png">
         </a>
       </div>
-
       <div id="more"></div>
-
-      <!-- FEATURES SECTION -->
       <div class="main2">
         <h2 class="headline" data-aos="fade-up">Τι προσφέρουμε</h2>
-        
         <div class="main2_features_div">
-          
           <div class="main2_feature" data-aos="fade-up" data-aos-delay="100">
             <img class="main2_feature_img" alt="Custom Plugins" src="media/feature1.webp">
             <div class="main2_feature_headline">Custom RP Plugins</div>
             <div class="main2_feature_text">Αποκλειστικά plugins φτιαγμένα από την ομάδα μας! Συστήματα Αστυνομίας, Ταυτότητες, Ανώνυμα Μηνύματα &amp; RP mechanics.</div>
           </div>
-
           <div class="main2_feature" data-aos="fade-up" data-aos-delay="200">
             <img class="main2_feature_img" alt="Realistic Seasons" src="media/feature2.webp">
             <div class="main2_feature_headline">Ρεαλιστικές Εποχές</div>
             <div class="main2_feature_text">Ζήσε την αλλαγή των 4 εποχών σε πραγματικό χρόνο. Το περιβάλλον, ο καιρός και το gameplay προσαρμόζονται αναλόγως!</div>
           </div>
-
           <div class="main2_feature" data-aos="fade-up" data-aos-delay="300">
             <img class="main2_feature_img" alt="Custom Terrain" src="media/feature3.webp">
             <div class="main2_feature_headline">Custom World Generation</div>
             <div class="main2_feature_text">Ένας πανέμορφος κόσμος με εντυπωσιακό terrain generation, νέα biomes και τοπία που κάνουν την εξερεύνηση μοναδική.</div>
           </div>
-
         </div>
       </div>
-
-      <!-- RULES SECTION -->
       <div id="rules"></div>
       <div class="main2">
         <h2 class="headline" data-aos="fade-up">Κανόνες του Server</h2>
         <div class="main2_features_div">
-          
           <div class="main2_feature" data-aos="zoom-in" data-aos-delay="100">
             <div class="main2_feature_headline">1. Σεβασμός</div>
             <div class="main2_feature_text">Να είστε κόσμιοι στο chat. Απαγορεύεται το toxic behavior, το hate speech και η παρενόχληση.</div>
           </div>
-
           <div class="main2_feature" data-aos="zoom-in" data-aos-delay="200">
             <div class="main2_feature_headline">2. No Cheating / Hacks</div>
             <div class="main2_feature_text">Απαγορεύεται η χρήση hacks, X-Ray, mods που δίνουν πλεονέκτημα ή η εκμετάλλευση bugs.</div>
           </div>
-
           <div class="main2_feature" data-aos="zoom-in" data-aos-delay="300">
             <div class="main2_feature_headline">3. Fair RP &amp; No Griefing</div>
             <div class="main2_feature_text">Σεβαστείτε τα κατασκευάσματα των άλλων και τηρήστε τους κανόνες του Roleplay (In-Character / Out-Of-Character).</div>
           </div>
-
         </div>
       </div>
-
       <div id="discord"></div>
-
-      <!-- DISCORD SECTION -->
       <div class="main4">
         <h2 class="headline" data-aos="fade-up">Μπες στο Discord</h2>
         <div class="main4_dc_div" data-aos="fade-up" data-aos-duration="800">
@@ -152,16 +114,10 @@
           </div>
         </div>
       </div>
-
       <div id="about"></div>
-
-      <!-- STAFF SECTION -->
-<!-- STAFF SECTION -->
       <div class="main5">
         <h2 class="headline" data-aos="fade-up">Η Ομάδα μας</h2>
         <div class="main5_admin_div">
-          
-          <!-- Member 1 -->
           <div class="main5_admins_div" data-aos="zoom-in" data-aos-delay="100">
             <img class="main5_admins_img" alt="Admin Avatar" src="media/admin1.png">
             <div class="main5_admins_description_div">
@@ -170,8 +126,6 @@
               <div class="main5_admins_description">Admin &amp; Event Plannerr</div>
             </div>
           </div>
-
-          <!-- Member 2 -->
           <div class="main5_admins_div" data-aos="zoom-in" data-aos-delay="200">
             <img class="main5_admins_img" alt="Admin Avatar" src="media/admin2.png">
             <div class="main5_admins_description_div">
@@ -180,8 +134,6 @@
               <div class="main5_admins_description">Admin &amp; Develope</div>
             </div>
           </div>
-
-          <!-- Member 3 -->
           <div class="main5_admins_div" data-aos="zoom-in" data-aos-delay="300">
             <img class="main5_admins_img" alt="Admin Avatar" src="media/admin3.png">
             <div class="main5_admins_description_div">
@@ -190,13 +142,9 @@
               <div class="main5_admins_description">Admin &amp; Community Manager</div>
             </div>
           </div>
-
         </div>
       </div>
-
       <div id="join"></div>
-
-      <!-- HOW TO JOIN SECTION -->
       <div class="main3">
         <h2 class="headline" data-aos="fade-up">Πώς να μπεις</h2>
         <div class="main3_join_div_div">
@@ -216,26 +164,19 @@
         </div>
       </div>
     </div>
-
     <footer class="copyright_div">
       <a href="#" class="copyright">© 2026 PGG Legacy - All rights reserved.</a>
     </footer>
-
-    <!-- SCRIPTS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      // AOS Init
       AOS.init({
         duration: 800, 
         once: true,
-        disable: window.innerWidth < 768 // Απενεργοποίηση βαριών animations σε παλιά κινητά
+        disable: window.innerWidth < 768
       });
-
-      // Toggle Mobile Navigation Menu
       function toggleMobileMenu() {
         const menu = document.getElementById("mobile_navbar_links");
-        const icon = document.getElementById("menuIcon");
-        
+        const icon = document.getElementById("menuIcon");    
         if (menu.style.display === "flex") {
             menu.style.display = "none";
             icon.className = "fa fa-bars";
@@ -244,20 +185,15 @@
             icon.className = "fa fa-times";
         }
       }
-
-      // Mouse Custom Cursor Script (Μόνο αν υπάρχει ποντίκι)
       if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
         const cursor = document.getElementById('cursor');
         const glow = document.getElementById('cursorGlow');
-
         document.addEventListener('mousemove', (e) => {
           cursor.style.left = e.clientX + 'px';
           cursor.style.top = e.clientY + 'px';
-          
           glow.style.left = e.clientX + 'px';
           glow.style.top = e.clientY + 'px';
         });
-
         document.querySelectorAll('.main2_feature').forEach(card => {
           card.addEventListener('mousemove', e => {
             const rect = card.getBoundingClientRect();
@@ -268,8 +204,6 @@
           });
         });
       }
-
-      // Copy IP Function
       function copyText(ip) {
         navigator.clipboard.writeText(ip).then(() => {
           $('.main1_popup').remove();
@@ -281,8 +215,6 @@
           }, 1500);
         });
       }
-
-      // Smooth Scroll
       document.querySelectorAll('.scroll').forEach(function(link) {
         link.addEventListener('click', function(event) {
           event.preventDefault();
@@ -295,8 +227,6 @@
           }
         });
       });
-
-      // Fetch Server Status
       const SERVER_IP = 'play.PGGlegacy.gr';
       fetch(`https://api.mcstatus.io/v2/status/java/${SERVER_IP}`)
         .then(response => response.json())
