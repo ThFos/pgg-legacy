@@ -742,3 +742,42 @@ span {
                  0 0 30px rgba(107, 45, 216, 0.3);
 }
 
+/* Styling για τη Φόρμα Αστυνομίας */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input, 
+.form-group textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 12px;
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: #5865F2; /* Discord/Accent χρώμα κατά το κλικ */
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 10px rgba(88, 101, 242, 0.2);
+}
+
+.police-form button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
