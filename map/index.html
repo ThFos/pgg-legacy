@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Map - PGG Legacy</title>
+    
+    <link rel="icon" type="image/png" href="media/favicon.png">
+    <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #121212;
+        }
+
+        .map-container {
+            width: 100%;
+            height: calc(100vh - 5.2rem);
+            margin-top: 5.2rem;
+            border: none;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .map-container {
+                height: calc(100vh - 60px);
+                margin-top: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ANIMATIONS ΠΟΝΤΙΚΙΟΥ -->
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- NAVBAR (Desktop) -->
+    <nav class="desktop_navbar">
+      <a href="index.html"><img class="desktop_navbar_logo_img" src="media/logo_small.svg" alt="logo"></a>
+      <a href="index.html#rules" class="desktop_navbar_link">Rules</a>
+      <a href="index.html#discord" class="desktop_navbar_link">Community</a>
+      <a href="index.html#about" class="desktop_navbar_link">About Us</a>
+      <a href="map.html" class="desktop_navbar_link" style="color: var(--accent1); font-weight: bold;">Server Map</a>
+      <a href="police-apps.html" class="desktop_navbar_link" style="color: #ffcc00; font-weight: bold;">Police Applications</a>
+      <div class="desktop_navbar_link2_div">
+          <a href="index.html#join" class="desktop_navbar_link2">Join Us!</a>
+      </div>
+    </nav>
+
+    <!-- NAVBAR (Mobile) -->
+    <div class="mobile_navbar">
+      <a href="index.html" class="mobile_navbar_logo_img_a">
+        <img class="mobile_navbar_logo_img" src="media/logo_small.svg" alt="logo">
+      </a>
+      <div class="icon" onclick="toggleMobileMenu()">
+          <i class="fa fa-bars" id="menuIcon"></i>
+      </div>
+      <div id="mobile_navbar_links">
+          <a class="mobile_navbar_link" href="index.html#rules">Rules</a>
+          <a class="mobile_navbar_link" href="index.html#discord">Community</a>
+          <a class="mobile_navbar_link" href="index.html#about">About Us</a>
+          <a class="mobile_navbar_link" href="map.html" style="color: var(--accent1); font-weight: bold;">Server Map</a>
+          <a class="mobile_navbar_link" href="police-apps.html" style="color: #ffcc00; font-weight: bold;">Police Apps</a>
+          <a class="mobile_navbar_link" href="index.html#join">Join Us</a>
+      </div>
+    </div>
+
+    <!-- MAP CONTAINER -->
+    <div class="map-container">
+        <iframe src="https://map.pgglegacy.gr/" title="Minecraft Server Map"></iframe>
+    </div>
+
+    <script>
+      function toggleMobileMenu() {
+        const menu = document.getElementById("mobile_navbar_links");
+        const icon = document.getElementById("menuIcon");
+        if (menu.style.display === "flex") {
+            menu.style.display = "none";
+            icon.className = "fa fa-bars";
+        } else {
+            menu.style.display = "flex";
+            icon.className = "fa fa-times";
+        }
+      }
+
+      // Custom Cursor Script
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        const cursor = document.getElementById('cursor');
+        const glow = document.getElementById('cursorGlow');
+        document.addEventListener('mousemove', (e) => {
+          cursor.style.left = e.clientX + 'px';
+          cursor.style.top = e.clientY + 'px';
+          glow.style.left = e.clientX + 'px';
+          glow.style.top = e.clientY + 'px';
+        });
+      }
+
+      // ================= PROTECT PAGE (NO RIGHT CLICK / NO INSPECT) =================
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'F12' || e.keyCode === 123) {
+          e.preventDefault();
+        }
+        if (e.ctrlKey && e.shiftKey && (['I', 'i', 'J', 'j', 'C', 'c'].includes(e.key) || [73, 74, 67].includes(e.keyCode))) {
+          e.preventDefault();
+        }
+        if (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.keyCode === 85)) {
+          e.preventDefault();
+        }
+        if (e.ctrlKey && (e.key === 'S' || e.key === 's' || e.keyCode === 83)) {
+          e.preventDefault();
+        }
+        if (e.ctrlKey && (e.key === 'C' || e.key === 'c' || e.keyCode === 67)) {
+          e.preventDefault();
+        }
+      });
+
+      document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+      });
+    </script>
+</body>
+</html>
