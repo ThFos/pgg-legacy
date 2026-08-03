@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>PGG Legacy - SMP & RP Server</title>
+    <title>PGG Legacy - SMP &amp; RP Server</title>
     <link rel="icon" type="image/png" href="media/favicon.png">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
@@ -36,7 +36,6 @@
           <a class="mobile_navbar_link scroll" onclick="toggleMobileMenu()" href="#rules">Rules</a>
           <a class="mobile_navbar_link scroll" onclick="toggleMobileMenu()" href="#discord">Community</a>
           <a class="mobile_navbar_link scroll" onclick="toggleMobileMenu()" href="#about">About Us</a>
-          <!-- ΠΡΟΣΘΗΚΗ: Σύνδεσμος Αιτήσεων στη Mobile Navbar -->
           <a class="mobile_navbar_link" href="police-apps.html" style="color: #ffcc00; font-weight: bold;">Police Apps</a>
           <a class="mobile_navbar_link scroll" onclick="toggleMobileMenu()" href="#join">Join Us</a>
       </div>
@@ -67,9 +66,7 @@
           <div class="main2_feature" data-aos="fade-up" data-aos-delay="100">
             <img class="main2_feature_img" alt="Custom Plugins" src="media/feature1.webp">
             <div class="main2_feature_headline">Custom RP Plugins</div>
-            <div class="main2_feature_text">
-              Αποκλειστικά plugins φτιαγμένα από την ομάδα μας! Συστήματα Αστυνομίας, Ταυτότητες, Ανώνυμα Μηνύματα &amp; RP mechanics.
-            </div>
+            <div class="main2_feature_text">Αποκλειστικά plugins φτιαγμένα από την ομάδα μας! Συστήματα Αστυνομίας, Ταυτότητες, Ανώνυμα Μηνύματα &amp; RP mechanics.</div>
           </div>
           <div class="main2_feature" data-aos="fade-up" data-aos-delay="200">
             <img class="main2_feature_img" alt="Realistic Seasons" src="media/feature2.webp">
@@ -81,13 +78,28 @@
             <div class="main2_feature_headline">Custom World Generation</div>
             <div class="main2_feature_text">Ένας πανέμορφος κόσμος με εντυπωσιακό terrain generation, νέα biomes και τοπία που κάνουν την εξερεύνηση μοναδική.</div>
           </div>
+          <div class="main2_feature" data-aos="fade-up" data-aos-delay="400">
+            <img class="main2_feature_img" alt="Custom Heads" src="media/feature4.webp">
+            <div class="main2_feature_headline">Custom Heads &amp; Decoration</div>
+            <div class="main2_feature_text">Διακόσμησε τον χώρο σου με εκατοντάδες μοναδικά custom heads! Από τρόφιμα και έπιπλα μέχρι σπάνια collectibles για να ξεχωρίσεις.</div>
+          </div>
+          <div class="main2_feature" data-aos="fade-up" data-aos-delay="500">
+            <img class="main2_feature_img" alt="Hitman and Black Market" src="media/feature5.webp">
+            <div class="main2_feature_headline">Hitman</div>
+            <div class="main2_feature_text">Επικήρυξε παίκτες με Diamonds, λάβε μέρος στο Black Market event για σπάνιο οπλισμό ή γίνε ο μυστικός Hitman της πόλης!</div>
+          </div>
+          <div class="main2_feature" data-aos="fade-up" data-aos-delay="600">
+            <img class="main2_feature_img" alt="Blood Moon" src="media/feature6.webp">
+            <div class="main2_feature_headline">Blood Moon</div>
+            <div class="main2_feature_text">Όταν η νύχτα κοκκινίζει, τα τέρατα δυναμώνουν! Επιβίωσε από τις επικίνδυνες επιθέσεις και κέρδισε σπάνια custom rewards.</div>
+          </div>
         </div>
       </div>
       <div id="rules"></div>
       <div class="main2">
         <h2 class="headline" data-aos="fade-up">Κανόνες του Server</h2>
         <h3 class="headline" data-aos="fade-up" style="font-size: 1.8rem; margin-top: 40px; color: #fff;">SMP Rules (Gameplay)</h3>
-        <div class="main2_features_div">   
+        <div class="main2_features_div">
           <div class="main2_feature" data-aos="zoom-in" data-aos-delay="100">
             <div class="main2_feature_headline">1. No Cheats</div>
             <div class="main2_feature_text">Απαγορεύεται αυστηρά κάθε είδους hack, X-Ray, Fly, Kill-Aura ή mods που δίνουν άδικο πλεονέκτημα.</div>
@@ -287,6 +299,29 @@
         .catch(() => {
           document.getElementById('player-count').innerText = 'Πάτησε για αντιγραφή IP';
         });
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'F12' || e.keyCode === 123) {
+          e.preventDefault();
+        }
+        if (e.ctrlKey && e.shiftKey && (['I', 'i', 'J', 'j', 'C', 'c'].includes(e.key) || [73, 74, 67].includes(e.keyCode))) {
+          e.preventDefault();
+        }
+        if (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.keyCode === 85)) {
+          e.preventDefault();
+        }
+        if (e.ctrlKey && (e.key === 'S' || e.key === 's' || e.keyCode === 83)) {
+          e.preventDefault();
+        }
+        if (e.ctrlKey && (e.key === 'C' || e.key === 'c' || e.keyCode === 67)) {
+          e.preventDefault();
+        }
+      });
+      document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+      });
     </script>
   </body>
 </html>
