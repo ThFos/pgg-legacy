@@ -13,11 +13,11 @@ try {
     $pdo = new PDO("mysql:host=$db_host;dbname=$db_name;charset=utf8", $db_user, $db_pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Αλλάξε τα ονόματα των πινάκων αν στο phpMyAdmin διαφέρουν (π.χ. sr_player_skins)
+    // Διόρθωση: Σύνδεση με το sr_player_skins αντί για sr_skins
     $stmt = $pdo->prepare("
-        SELECT s.Value 
+        SELECT ps.Value 
         FROM sr_players p 
-        JOIN sr_skins s ON LOWER(p.Skin) = LOWER(s.Nick) 
+        JOIN sr_player_skins ps ON LOWER(p.Skin) = LOWER(ps.Nick) 
         WHERE LOWER(p.Nick) = LOWER(?)
     ");
     $stmt->execute([$player]);
@@ -35,10 +35,10 @@ try {
         }
     }
 } catch (Exception $e) {
-    // Καταγραφή σφάλματος στα logs του Render χωρίς να καταρρεύσει η σελίδα
+    // Καταγραφή σφάλματος στα logs του Render χωρίς να κολλάει η σελίδα
     error_log("Database Error: " . $e->getMessage());
 }
 
-// Fallback: Αν δεν βρεθεί skin στη βάση, ζήτα το skin με το όνομα του παίκτη (αντί για Steve)
+// Fallback: Επιστροφή avatar με βάση το όνομα του παίκτη αν δεν υπάρχει ακόμα στη βάση
 header("Location: https://mc-heads.net/avatar/" . urlencode($player) . "/64");
 exit;
