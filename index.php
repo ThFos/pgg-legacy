@@ -29,11 +29,15 @@ try {
 
             header("Location: https://visage.surgeplay.com/face/64/" . $skinHash);
             exit;
+        } else {
+            echo "JSON decoded, but no skin URL found.";
+            exit;
         }
+    } else {
+        echo "No skin found in DB for player: " . htmlspecialchars($player);
+        exit;
     }
 } catch (Exception $e) {
-    // Fallback σε περίπτωση σφάλματος σύνδεσης
+    echo "Database Error: " . $e->getMessage();
+    exit;
 }
-
-header("Location: https://mc-heads.net/avatar/" . urlencode($player) . "/64");
-exit;
