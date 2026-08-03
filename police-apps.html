@@ -14,12 +14,12 @@
     <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Σύνδεση με το εξωτερικό αρχείο CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
 
-    <!-- ELEMENTS ΓΙΑ ΤΑ ANIMATIONS ΠΟΝΤΙΚΙΟΥ -->
+    <!-- ANIMATIONS ΠΟΝΤΙΚΙΟΥ -->
     <div class="custom-cursor" id="cursor"></div>
     <div class="cursor-glow" id="cursorGlow"></div>
 
@@ -31,6 +31,8 @@
       <a href="index.html#rules" class="desktop_navbar_link">Rules</a>
       <a href="index.html#discord" class="desktop_navbar_link">Community</a>
       <a href="index.html#about" class="desktop_navbar_link">About Us</a>
+      <a href="map.html" class="desktop_navbar_link">Server Map</a>
+      <a href="police-apps.html" class="desktop_navbar_link" style="color: #ffcc00; font-weight: bold;">Police Applications</a>
       <div class="desktop_navbar_link2_div">
           <a href="index.html#join" class="desktop_navbar_link2">Join Us!</a>
       </div>
@@ -48,80 +50,63 @@
           <a class="mobile_navbar_link" href="index.html#rules">Rules</a>
           <a class="mobile_navbar_link" href="index.html#discord">Community</a>
           <a class="mobile_navbar_link" href="index.html#about">About Us</a>
+          <a class="mobile_navbar_link" href="map.html">Server Map</a>
+          <a class="mobile_navbar_link" href="police-apps.html" style="color: #ffcc00; font-weight: bold;">Police Apps</a>
           <a class="mobile_navbar_link" href="index.html#join">Join Us</a>
       </div>
     </div>
 
     <div class="mainflex" style="margin-top: 120px;">
-      
-      <!-- SECTION ΦΟΡΜΑΣ -->
       <div class="main2">
         <h2 class="headline" data-aos="fade-up">Κατάταξη στην Αστυνομία</h2>
         <p class="main1_actcent" data-aos="fade-up" data-aos-delay="100" style="text-align:center; font-size:1.2rem; margin-bottom:40px;">
           Συμπληρώστε την παρακάτω φόρμα για να εξεταστεί η αίτησή σας από το Staff.
         </p>
         
-        <!-- FORM CONTAINER -->
         <div class="main2_features_div" style="justify-content: center;">
           <div class="main2_feature" data-aos="zoom-in" data-aos-delay="200" style="width: 100%; max-width: 600px; text-align: left; cursor: default;">
-            
-            <!-- Σύνδεση με Web3Forms -->
             <form action="https://api.web3forms.com/submit" method="POST" class="police-form">
-              
-              <!-- Το Access Key σου -->
               <input type="hidden" name="access_key" value="d8fdfcc5-2890-4965-8b66-8d859e92fd29">
-              
-              <!-- Ανακατεύθυνση σε σελίδα "Επιτυχίας" -->
               <input type="hidden" name="redirect" value="https://pgglegacy.gr/">
 
-              <!-- Discord Username -->
               <div class="form-group">
                 <label for="discord_tag">Discord Username</label>
                 <input type="text" id="discord_tag" name="Discord Tag" placeholder="π.χ. mpamiasdl" required>
               </div>
 
-              <!-- In-Game Name -->
               <div class="form-group">
                 <label for="ign">In-Game Name (Minecraft Name)</label>
                 <input type="text" id="ign" name="In-Game Name" placeholder="π.χ. ThFos" required>
               </div>
 
-              <!-- Ηλικία -->
               <div class="form-group">
                 <label for="age">Ηλικία (OOC)</label>
                 <input type="number" id="age" name="Age" min="12" max="99" placeholder="π.χ. 18" required>
               </div>
 
-              <!-- Ώρες ενασχόλησης -->
               <div class="form-group">
                 <label for="hours">Πόσες ώρες μπορείς να διαθέσεις την εβδομάδα</label>
                 <input type="text" id="hours" name="Available Hours" placeholder="π.χ. 10-15 ώρες" required>
               </div>
 
-              <!-- Εμπειρία από RP / Αστυνομία -->
               <div class="form-group">
                 <label for="experience">Έχεις προηγούμενη εμπειρία ως Αστυνομικός σε RP;</label>
-                <textarea id="experience" name="Experience" rows="4" placeholder="Περίγραψε την εμπειρία σου σε άλλους servers που έχεις παίξει..." required></textarea>
+                <textarea id="experience" name="Experience" rows="4" placeholder="Περίγραψε την εμπειρία σου σε άλλους servers..." required></textarea>
               </div>
 
-              <!-- Λόγος αίτησης -->
               <div class="form-group">
                 <label for="reason">Γιατί θέλεις να μπεις στο σώμα της Αστυνομίας;</label>
-                <textarea id="reason" name="Reason for Joining" rows="4" placeholder="Ανέλυσε τους λόγους για τους οποίους πρέπει να επιλέξουμε εσένα..." required></textarea>
+                <textarea id="reason" name="Reason for Joining" rows="4" placeholder="Ανέλυσε τους λόγους..." required></textarea>
               </div>
 
-              <!-- Κουμπί Υποβολής -->
               <div style="text-align: center; margin-top: 25px;">
                 <button type="submit" class="main3_join_title" style="background: var(--accent-color, #5865F2); color: white; border: none; padding: 12px 35px; border-radius: 8px; cursor: pointer; font-size: 1.1rem; font-family: 'Space Grotesk', sans-serif; transition: 0.3s; box-shadow: 0 4px 15px rgba(88,101,242,0.3);">
                   Υποβολή Αίτησης
                 </button>
               </div>
-
             </form>
-
           </div>
         </div>
-
       </div>
     </div>
 
@@ -134,7 +119,6 @@
     <script>
       AOS.init({ duration: 800, once: true });
 
-      // Έλεγχος Spam & Κρυφό Reset Link
       document.addEventListener("DOMContentLoaded", function() {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('reset') === 'true') {
@@ -152,7 +136,7 @@
         }
       });
 
-      document.querySelector(".police-form").addEventListener("submit", function(e) {
+      document.querySelector(".police-form").addEventListener("submit", function() {
         localStorage.setItem("police_app_submitted", "true");
       });
 
@@ -168,7 +152,6 @@
         }
       }
 
-      // Custom Cursor Logic
       if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
         const cursor = document.getElementById('cursor');
         const glow = document.getElementById('cursorGlow');
@@ -180,32 +163,13 @@
         });
       }
 
-      // ================= PROTECT PAGE (NO RIGHT CLICK / NO INSPECT) =================
-      document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-      });
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'F12' || e.keyCode === 123) {
-          e.preventDefault();
-        }
-        if (e.ctrlKey && e.shiftKey && (['I', 'i', 'J', 'j', 'C', 'c'].includes(e.key) || [73, 74, 67].includes(e.keyCode))) {
-          e.preventDefault();
-        }
-        if (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.keyCode === 85)) {
-          e.preventDefault();
-        }
-        if (e.ctrlKey && (e.key === 'S' || e.key === 's' || e.keyCode === 83)) {
-          e.preventDefault();
-        }
-        if (e.ctrlKey && (e.key === 'C' || e.key === 'c' || e.keyCode === 67)) {
+      document.addEventListener('contextmenu', e => e.preventDefault());
+      document.addEventListener('keydown', e => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key.toUpperCase())) || (e.ctrlKey && ['U','S','C'].includes(e.key.toUpperCase()))) {
           e.preventDefault();
         }
       });
-
-      document.addEventListener('dragstart', function(e) {
-        e.preventDefault();
-      });
+      document.addEventListener('dragstart', e => e.preventDefault());
     </script>
   </body>
 </html>
