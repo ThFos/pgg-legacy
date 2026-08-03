@@ -6,13 +6,14 @@ $db_name = 'customer_1492946_Skins';
 $db_user = 'customer_1492946_Skins';
 $db_pass = 'C21Hyiqqm1Q.^cuc.fsyflMI';
 
-$player = isset($_GET['name']) ? trim($_GET['name']) : 'MHF_Steve';
+// Αν δεν δοθεί όνομα, βάλε default Steve
+$player = isset($_GET['name']) && !empty(trim($_GET['name'])) ? trim($_GET['name']) : 'MHF_Steve';
 
 try {
     $pdo = new PDO("mysql:host=$db_host;dbname=$db_name;charset=utf8", $db_user, $db_pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Προσαρμοσε τα ονοματα των πινακων παρακατω αν στο phpMyAdmin διαφερουν
+    // Αλλάξε τα ονόματα των πινάκων αν στο phpMyAdmin διαφέρουν (π.χ. sr_player_skins)
     $stmt = $pdo->prepare("
         SELECT s.Value 
         FROM sr_players p 
@@ -28,15 +29,16 @@ try {
             $skinUrl = $json['textures']['SKIN']['url'];
             $skinHash = basename($skinUrl);
 
+            // Επιστροφή custom skin από το Visage
             header("Location: https://visage.surgeplay.com/face/64/" . $skinHash);
             exit;
         }
     }
 } catch (Exception $e) {
-    // Καταγραφή σφάλματος εσωτερικά
+    // Καταγραφή σφάλματος στα logs του Render χωρίς να καταρρεύσει η σελίδα
     error_log("Database Error: " . $e->getMessage());
 }
 
-// Fallback στο mc-heads avatar αν δεν βρεθεί το skin ή αν αποτύχει η βάση
+// Fallback: Αν δεν βρεθεί skin στη βάση, ζήτα το skin με το όνομα του παίκτη (αντί για Steve)
 header("Location: https://mc-heads.net/avatar/" . urlencode($player) . "/64");
 exit;
