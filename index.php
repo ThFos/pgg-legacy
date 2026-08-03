@@ -4,7 +4,7 @@ header("Access-Control-Allow-Origin: *");
 $db_host = 'uk03-sql.pebblehost.com';
 $db_name = 'customer_1492946_Skins';
 $db_user = 'customer_1492946_Skins';
-$db_pass = 'C21Hyiqm1Q.^cuc.fsyfIMI';
+$db_pass = 'C21Hyiqqm1Q.^cuc.fsyflMI';
 
 $player = isset($_GET['name']) ? trim($_GET['name']) : 'MHF_Steve';
 
