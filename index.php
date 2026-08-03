@@ -12,6 +12,7 @@ try {
     $pdo = new PDO("mysql:host=$db_host;dbname=$db_name;charset=utf8", $db_user, $db_pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    // Προσαρμοσε τα ονοματα των πινακων παρακατω αν στο phpMyAdmin διαφερουν
     $stmt = $pdo->prepare("
         SELECT s.Value 
         FROM sr_players p 
@@ -29,15 +30,13 @@ try {
 
             header("Location: https://visage.surgeplay.com/face/64/" . $skinHash);
             exit;
-        } else {
-            echo "JSON decoded, but no skin URL found.";
-            exit;
         }
-    } else {
-        echo "No skin found in DB for player: " . htmlspecialchars($player);
-        exit;
     }
 } catch (Exception $e) {
-    echo "Database Error: " . $e->getMessage();
-    exit;
+    // Καταγραφή σφάλματος εσωτερικά
+    error_log("Database Error: " . $e->getMessage());
 }
+
+// Fallback στο mc-heads avatar αν δεν βρεθεί το skin ή αν αποτύχει η βάση
+header("Location: https://mc-heads.net/avatar/" . urlencode($player) . "/64");
+exit;
