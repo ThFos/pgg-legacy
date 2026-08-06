@@ -94,20 +94,25 @@
             border-color: rgba(255, 255, 255, 0.15);
         }
 
+        /* Top 1: Deep Diamond Color */
         .list-item.rank-1 {
+            border-color: rgba(0, 180, 216, 0.7);
+            box-shadow: 0 0 20px rgba(0, 180, 216, 0.2);
+            background: linear-gradient(90deg, rgba(0, 180, 216, 0.08) 0%, var(--background1) 100%);
+        }
+
+        /* Top 2: Gold Color */
+        .list-item.rank-2 {
             border-color: rgba(255, 215, 0, 0.6);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.15);
             background: linear-gradient(90deg, rgba(255, 215, 0, 0.06) 0%, var(--background1) 100%);
         }
 
-        .list-item.rank-2 {
+        /* Top 3: Silver Color */
+        .list-item.rank-3 {
             border-color: rgba(192, 192, 192, 0.5);
             box-shadow: 0 0 15px rgba(192, 192, 192, 0.1);
-        }
-
-        .list-item.rank-3 {
-            border-color: rgba(205, 127, 50, 0.5);
-            box-shadow: 0 0 15px rgba(205, 127, 50, 0.1);
+            background: linear-gradient(90deg, rgba(192, 192, 192, 0.06) 0%, var(--background1) 100%);
         }
 
         .item-rank {
@@ -292,9 +297,18 @@
                   let rankColor = '#b0b8d0';
                   let rankClass = '';
 
-                  if (rank === 1) { rankColor = '#ffd700'; rankClass = 'rank-1'; }
-                  else if (rank === 2) { rankColor = '#c0c0c0'; rankClass = 'rank-2'; }
-                  else if (rank === 3) { rankColor = '#cd7f32'; rankClass = 'rank-3'; }
+                  if (rank === 1) { 
+                      rankColor = '#00b4d8'; // Deeper Diamond color
+                      rankClass = 'rank-1'; 
+                  }
+                  else if (rank === 2) { 
+                      rankColor = '#ffd700'; // Gold color
+                      rankClass = 'rank-2'; 
+                  }
+                  else if (rank === 3) { 
+                      rankColor = '#c0c0c0'; // Silver color
+                      rankClass = 'rank-3'; 
+                  }
 
                   const itemHTML = `
                       <div class="list-item ${rankClass}">
