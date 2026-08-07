@@ -30,6 +30,20 @@
             margin-bottom: 10px;
         }
 
+        /* Styling για το λογότυπο Top Players */
+        .top-players-logo-container {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        .top-players-logo {
+            max-width: 380px;
+            width: 90%;
+            height: auto;
+            display: inline-block;
+        }
+
         .leaderboard-subtitle {
             text-align: center;
             color: rgba(255, 255, 255, 0.7);
@@ -171,6 +185,9 @@
                 font-size: 0.9rem;
                 padding: 6px 10px;
             }
+            .top-players-logo {
+                max-width: 280px;
+            }
         }
     </style>
 </head>
@@ -219,10 +236,17 @@
     <div class="mainflex" style="margin-top: 120px;">
       <div class="main2" style="min-height: 80vh; justify-content: center;">
         <div class="leaderboard-container">
+            
+            <!-- Κύριο Logo PGG Legacy -->
             <div class="leaderboard-logo-container" data-aos="zoom-in">
                 <img src="/media/logo.svg" alt="PGG Legacy Logo" class="main1_logo">
             </div>
-            <h2 class="headline" data-aos="fade-up">TOP PLAYERS</h2>
+
+            <!-- Logo Top Players -->
+            <div class="top-players-logo-container" data-aos="fade-up" data-aos-delay="50">
+                <img src="/media/topplayers.svg" alt="Top Players" class="top-players-logo">
+            </div>
+
             <p class="leaderboard-subtitle" data-aos="fade-up" data-aos-delay="100">
                 Οι παίκτες με τις περισσότερες ώρες στον PGG Legacy Server
             </p>
