@@ -3,14 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Server Map - PGG Legacy</title>
     
+    <!-- Βασικά SEO Meta Tags -->
+    <title>PGG Legacy - Server Map | Δυναμικός Χάρτης Minecraft</title>
+    <meta name="description" content="Δείτε σε πραγματικό χρόνο τον live 3D/2D χάρτη του PGG Legacy Minecraft server. Εξερευνήστε τις περιοχές, τα κτίρια και τους παίκτες online!">
+    <meta name="keywords" content="PGG Legacy map, Dynmap, Minecraft server map, play.pgglegacy.gr map, live minecraft map">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="PGG Legacy">
+    <meta name="theme-color" content="#5865F2">
+    <link rel="canonical" href="https://pgglegacy.gr/map">
+
+    <!-- Preconnect για ταχύτερη φόρτωση εξωτερικών CDNs & Χάρτη -->
+    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://map.pgglegacy.gr" crossorigin>
+
+    <!-- Open Graph / Social Media & Discord Previews -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pgglegacy.gr/map">
+    <meta property="og:title" content="PGG Legacy - Server Map | Δυναμικός Χάρτης">
+    <meta property="og:description" content="Δείτε σε πραγματικό χρόνο τον live χάρτη του PGG Legacy Minecraft Server!">
+    <meta property="og:image" content="https://pgglegacy.gr/media/banner.png">
+    <meta property="og:site_name" content="PGG Legacy">
+    <meta property="og:locale" content="el_GR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://pgglegacy.gr/map">
+    <meta name="twitter:title" content="PGG Legacy - Server Map | Δυναμικός Χάρτης">
+    <meta name="twitter:description" content="Δείτε σε πραγματικό χρόνο τον live χάρτη του PGG Legacy Minecraft Server!">
+    <meta name="twitter:image" content="https://pgglegacy.gr/media/banner.png">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="/media/favicon.png">
+    
+    <!-- External CSS -->
     <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <!-- CSS -->
+    <!-- Global CSS -->
     <link rel="stylesheet" href="/style.css">
+
     <style>
         body, html {
             margin: 0;
@@ -18,6 +51,19 @@
             height: 100%;
             overflow: hidden;
             background-color: #121212;
+        }
+
+        /* Κρυφό H1 για SEO χωρίς να επηρεάζει το design */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
         .map-container {
@@ -44,61 +90,81 @@
 <body>
 
     <!-- ANIMATIONS ΠΟΝΤΙΚΙΟΥ -->
-    <div class="custom-cursor" id="cursor"></div>
-    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
+    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
-    <!-- NAVBAR (Desktop) -->
-    <nav class="desktop_navbar">
-      <a href="/"><img class="desktop_navbar_logo_img" src="/media/logo_small.svg" alt="logo"></a>
-      <a href="/#rules" class="desktop_navbar_link">Rules</a>
-      <a href="/#discord" class="desktop_navbar_link">Community</a>
-      <a href="/#about" class="desktop_navbar_link">About Us</a>
-      <a href="/map" class="desktop_navbar_link" style="color: var(--accent1); font-weight: bold;">Server Map</a>
-      <a href="/leaderboard" class="desktop_navbar_link" style="color: #5865F2; font-weight: bold;">Leaderboard</a>
-      <a href="/police" class="desktop_navbar_link" style="color: #ffcc00; font-weight: bold;">Police Applications</a>
-      <div class="desktop_navbar_link2_div">
-          <a href="/#join" class="desktop_navbar_link2">Join Us!</a>
-      </div>
-    </nav>
+    <!-- NAVBARS (Header) -->
+    <header>
+      <!-- NAVBAR (Desktop) -->
+      <nav class="desktop_navbar" aria-label="Main Navigation">
+        <a href="/" aria-label="Αρχική Σελίδα PGG Legacy">
+          <img class="desktop_navbar_logo_img" src="/media/logo_small.svg" alt="PGG Legacy Logo">
+        </a>
+        <a href="/#rules" class="desktop_navbar_link">Rules</a>
+        <a href="/#discord" class="desktop_navbar_link">Community</a>
+        <a href="/#about" class="desktop_navbar_link">About Us</a>
+        <a href="/map" class="desktop_navbar_link" style="color: var(--accent1); font-weight: bold;">Server Map</a>
+        <a href="/leaderboard" class="desktop_navbar_link" style="color: #5865F2; font-weight: bold;">Leaderboard</a>
+        <a href="/police" class="desktop_navbar_link" style="color: #ffcc00; font-weight: bold;">Police Applications</a>
+        <div class="desktop_navbar_link2_div">
+            <a href="/#join" class="desktop_navbar_link2">Join Us!</a>
+        </div>
+      </nav>
 
-    <!-- NAVBAR (Mobile) -->
-    <div class="mobile_navbar">
-      <a href="/" class="mobile_navbar_logo_img_a">
-        <img class="mobile_navbar_logo_img" src="/media/logo_small.svg" alt="logo">
-      </a>
-      <div class="icon" onclick="toggleMobileMenu()">
-          <i class="fa fa-bars" id="menuIcon"></i>
-      </div>
-      <div id="mobile_navbar_links">
-          <a class="mobile_navbar_link" href="/#rules">Rules</a>
-          <a class="mobile_navbar_link" href="/#discord">Community</a>
-          <a class="mobile_navbar_link" href="/#about">About Us</a>
-          <a class="mobile_navbar_link" href="/map" style="color: var(--accent1); font-weight: bold;">Server Map</a>
-          <a class="mobile_navbar_link" href="/leaderboard" style="color: #5865F2; font-weight: bold;">Leaderboard</a>
-          <a class="mobile_navbar_link" href="/police" style="color: #ffcc00; font-weight: bold;">Police Apps</a>
-          <a class="mobile_navbar_link" href="/#join">Join Us</a>
-      </div>
-    </div>
+      <!-- NAVBAR (Mobile) -->
+      <nav class="mobile_navbar" aria-label="Mobile Navigation">
+        <a href="/" class="mobile_navbar_logo_img_a" aria-label="Αρχική Σελίδα PGG Legacy">
+          <img class="mobile_navbar_logo_img" src="/media/logo_small.svg" alt="PGG Legacy Logo">
+        </a>
+        <button class="icon" id="menuBtn" onclick="toggleMobileMenu()" aria-label="Άνοιγμα μενού" aria-expanded="false" style="background:none;border:none;color:inherit;cursor:pointer;">
+            <i class="fa fa-bars" id="menuIcon"></i>
+        </button>
+        <div id="mobile_navbar_links">
+            <a class="mobile_navbar_link" onclick="toggleMobileMenu()" href="/#rules">Rules</a>
+            <a class="mobile_navbar_link" onclick="toggleMobileMenu()" href="/#discord">Community</a>
+            <a class="mobile_navbar_link" onclick="toggleMobileMenu()" href="/#about">About Us</a>
+            <a class="mobile_navbar_link" href="/map" style="color: var(--accent1); font-weight: bold;">Server Map</a>
+            <a class="mobile_navbar_link" onclick="toggleMobileMenu()" href="/leaderboard" style="color: #5865F2; font-weight: bold;">Leaderboard</a>
+            <a class="mobile_navbar_link" onclick="toggleMobileMenu()" href="/police" style="color: #ffcc00; font-weight: bold;">Police Apps</a>
+            <a class="mobile_navbar_link" onclick="toggleMobileMenu()" href="/#join">Join Us</a>
+        </div>
+      </nav>
+    </header>
 
-    <!-- MAP CONTAINER -->
-    <div class="map-container">
-        <iframe src="https://map.pgglegacy.gr/" title="Minecraft Server Map"></iframe>
-    </div>
+    <!-- MAIN MAP CONTENT -->
+    <main>
+        <h1 class="sr-only">PGG Legacy - Dynamic Server Map</h1>
+        <div class="map-container">
+            <iframe 
+                src="https://map.pgglegacy.gr/" 
+                title="Minecraft Server Map" 
+                allowfullscreen 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </main>
 
+    <!-- SCRIPTS -->
     <script>
       function toggleMobileMenu() {
         const menu = document.getElementById("mobile_navbar_links");
         const icon = document.getElementById("menuIcon");
-        if (menu.style.display === "flex") {
+        const btn = document.getElementById("menuBtn");
+        
+        const isExpanded = menu.style.display === "flex";
+        if (isExpanded) {
             menu.style.display = "none";
             icon.className = "fa fa-bars";
+            btn.setAttribute("aria-expanded", "false");
         } else {
             menu.style.display = "flex";
             icon.className = "fa fa-times";
+            btn.setAttribute("aria-expanded", "true");
         }
       }
 
-      // Custom Cursor Script
+      // Exact Custom Cursor Logic from index.html
       if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
         const cursor = document.getElementById('cursor');
         const glow = document.getElementById('cursorGlow');
@@ -111,31 +177,21 @@
       }
 
       // ================= PROTECT PAGE (NO RIGHT CLICK / NO INSPECT) =================
-      document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-      });
+      document.addEventListener('contextmenu', e => e.preventDefault());
 
-      document.addEventListener('keydown', function(e) {
+      document.addEventListener('keydown', e => {
         if (e.key === 'F12' || e.keyCode === 123) {
           e.preventDefault();
         }
-        if (e.ctrlKey && e.shiftKey && (['I', 'i', 'J', 'j', 'C', 'c'].includes(e.key) || [73, 74, 67].includes(e.keyCode))) {
+        if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) {
           e.preventDefault();
         }
-        if (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.keyCode === 85)) {
-          e.preventDefault();
-        }
-        if (e.ctrlKey && (e.key === 'S' || e.key === 's' || e.keyCode === 83)) {
-          e.preventDefault();
-        }
-        if (e.ctrlKey && (e.key === 'C' || e.key === 'c' || e.keyCode === 67)) {
+        if (e.ctrlKey && ['U', 'S', 'C'].includes(e.key.toUpperCase())) {
           e.preventDefault();
         }
       });
 
-      document.addEventListener('dragstart', function(e) {
-        e.preventDefault();
-      });
+      document.addEventListener('dragstart', e => e.preventDefault());
     </script>
 </body>
 </html>
