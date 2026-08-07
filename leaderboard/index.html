@@ -5,8 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     
-    <title>PGG Legacy - Leaderboard</title>
-    
+    <!-- Βασικά SEO Meta Tags -->
+    <title>PGG Legacy - Leaderboard | Κορυφαίοι Παίκτες</title>
+    <meta name="description" content="Δείτε τους κορυφαίους παίκτες με τις περισσότερες ώρες παιχνιδιού στον PGG Legacy Minecraft Server. Εβδομαδιαία και συνολικά στατιστικά playtime!">
+    <meta name="keywords" content="PGG Legacy leaderboard, top players minecraft, play.pgglegacy.gr stats, ελληνικός minecraft server leaderboard">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="PGG Legacy">
+    <meta name="theme-color" content="#5865F2">
+    <link rel="canonical" href="https://pgglegacy.gr/leaderboard">
+
+    <!-- Preconnect για ταχύτερη φόρτωση εξωτερικών CDNs -->
+    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://ajax.googleapis.com" crossorigin>
+
+    <!-- Open Graph / Social Media & Discord Previews -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pgglegacy.gr/leaderboard">
+    <meta property="og:title" content="PGG Legacy - Leaderboard | Κορυφαίοι Παίκτες">
+    <meta property="og:description" content="Δείτε ποιοι παίκτες κυριαρχούν στον PGG Legacy! Εβδομαδιαίο &amp; All-time Playtime Leaderboard.">
+    <meta property="og:image" content="https://pgglegacy.gr/media/banner.png">
+    <meta property="og:site_name" content="PGG Legacy">
+    <meta property="og:locale" content="el_GR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://pgglegacy.gr/leaderboard">
+    <meta name="twitter:title" content="PGG Legacy - Leaderboard | Κορυφαίοι Παίκτες">
+    <meta name="twitter:description" content="Δείτε ποιοι παίκτες κυριαρχούν στον PGG Legacy! Εβδομαδιαίο &amp; All-time Playtime Leaderboard.">
+    <meta name="twitter:image" content="https://pgglegacy.gr/media/banner.png">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="/media/favicon.png">
     
     <!-- Libraries CSS -->
@@ -194,57 +224,64 @@
 <body>
 
     <!-- ANIMATIONS ΠΟΝΤΙΚΙΟΥ -->
-    <div class="custom-cursor" id="cursor"></div>
-    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
+    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- NAVBARS (Header) -->
+    <header>
+      <!-- NAVBAR (Desktop) -->
+      <nav class="desktop_navbar" aria-label="Main Navigation">
+        <a href="/" aria-label="Αρχική Σελίδα PGG Legacy">
+          <img class="desktop_navbar_logo_img" src="/media/logo_small.svg" alt="PGG Legacy Logo">
+        </a>
+        <a href="/#rules" class="desktop_navbar_link">Rules</a>
+        <a href="/#discord" class="desktop_navbar_link">Community</a>
+        <a href="/#about" class="desktop_navbar_link">About Us</a>
+        <a href="/map" class="desktop_navbar_link">Server Map</a>
+        <a href="/leaderboard" class="desktop_navbar_link" style="color: var(--accent1); font-weight: bold;">Leaderboard</a>
+        <a href="/police" class="desktop_navbar_link" style="color: #ffcc00;">Police Applications</a>
+        <div class="desktop_navbar_link2_div">
+            <a href="/#join" class="desktop_navbar_link2">Join Us!</a>
+        </div>
+      </nav>
 
-    <!-- NAVBAR (Desktop) -->
-    <nav class="desktop_navbar">
-      <a href="/"><img class="desktop_navbar_logo_img" src="/media/logo_small.svg" alt="PGG"></a>
-      <a href="/#rules" class="desktop_navbar_link">Rules</a>
-      <a href="/#discord" class="desktop_navbar_link">Community</a>
-      <a href="/#about" class="desktop_navbar_link">About Us</a>
-      <a href="/map" class="desktop_navbar_link">Server Map</a>
-      <a href="/leaderboard" class="desktop_navbar_link" style="color: var(--accent1); font-weight: bold;">Leaderboard</a>
-      <a href="/police" class="desktop_navbar_link" style="color: #ffcc00;">Police Applications</a>
-      <div class="desktop_navbar_link2_div">
-          <a href="/#join" class="desktop_navbar_link2">Join Us!</a>
-      </div>
-    </nav>
-
-    <!-- NAVBAR (Mobile) -->
-    <div class="mobile_navbar">
-      <a href="/" class="mobile_navbar_logo_img_a">
-        <img class="mobile_navbar_logo_img" src="/media/logo_small.svg" alt="PGG">
-      </a>
-      <div class="icon" onclick="toggleMobileMenu()">
-          <i class="fa fa-bars" id="menuIcon"></i>
-      </div>
-      <div id="mobile_navbar_links">
-          <a class="mobile_navbar_link" onclick="toggleMobileMenu()" href="/#rules">Rules</a>
-          <a class="mobile_navbar_link" onclick="toggleMobileMenu()" href="/#discord">Community</a>
-          <a class="mobile_navbar_link" onclick="toggleMobileMenu()" href="/#about">About Us</a>
-          <a class="mobile_navbar_link" href="/map">Server Map</a>
-          <a class="mobile_navbar_link" href="/leaderboard" style="color: var(--accent1); font-weight: bold;">Leaderboard</a>
-          <a class="mobile_navbar_link" href="/police" style="color: #ffcc00;">Police Apps</a>
-          <a class="mobile_navbar_link" onclick="toggleMobileMenu()" href="/#join">Join Us</a>
-      </div>
-    </div>
+      <!-- NAVBAR (Mobile) -->
+      <nav class="mobile_navbar" aria-label="Mobile Navigation">
+        <a href="/" class="mobile_navbar_logo_img_a" aria-label="Αρχική Σελίδα PGG Legacy">
+          <img class="mobile_navbar_logo_img" src="/media/logo_small.svg" alt="PGG Legacy Logo">
+        </a>
+        <button class="icon" onclick="toggleMobileMenu()" aria-label="Άνοιγμα μενού" aria-expanded="false" style="background:none;border:none;color:inherit;cursor:pointer;">
+            <i class="fa fa-bars" id="menuIcon"></i>
+        </button>
+        <div id="mobile_navbar_links">
+            <a class="mobile_navbar_link" onclick="toggleMobileMenu()" href="/#rules">Rules</a>
+            <a class="mobile_navbar_link" onclick="toggleMobileMenu()" href="/#discord">Community</a>
+            <a class="mobile_navbar_link" onclick="toggleMobileMenu()" href="/#about">About Us</a>
+            <a class="mobile_navbar_link" href="/map">Server Map</a>
+            <a class="mobile_navbar_link" href="/leaderboard" style="color: var(--accent1); font-weight: bold;">Leaderboard</a>
+            <a class="mobile_navbar_link" href="/police" style="color: #ffcc00;">Police Apps</a>
+            <a class="mobile_navbar_link" onclick="toggleMobileMenu()" href="/#join">Join Us</a>
+        </div>
+      </nav>
+    </header>
 
     <!-- MAIN CONTENT -->
-    <div class="mainflex" style="margin-top: 120px;">
-      <div class="main2" style="min-height: 80vh; justify-content: center;">
+    <main class="mainflex" style="margin-top: 120px;">
+      <section class="main2" style="min-height: 80vh; justify-content: center;">
         <div class="leaderboard-container">
             
             <!-- Κύριο Logo PGG Legacy -->
             <div class="leaderboard-logo-container" data-aos="zoom-in">
-                <img src="/media/logo.svg" alt="PGG Legacy Logo" class="main1_logo">
+                <a href="/" aria-label="PGG Legacy - Αρχική">
+                    <img src="/media/logo.svg" alt="PGG Legacy Logo" class="main1_logo">
+                </a>
             </div>
 
-            <!-- Logo Top Players -->
+            <!-- Logo Top Players (H1 για SEO) -->
             <div class="top-players-logo-container" data-aos="fade-up" data-aos-delay="50">
-                <img src="/media/topplayers.svg" alt="Top Players" class="top-players-logo">
+                <h1 style="margin: 0; padding: 0;">
+                    <img src="/media/topplayers.svg" alt="Top Players Leaderboard - PGG Legacy" class="top-players-logo">
+                </h1>
             </div>
 
             <p class="leaderboard-subtitle" data-aos="fade-up" data-aos-delay="100">
@@ -260,14 +297,15 @@
                 <!-- Dynamic Rows Loaded Here -->
             </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
 
     <footer class="copyright_div" style="margin-top: 0;">
-      <a href="#" class="copyright">© 2026 PGG Legacy - All rights reserved.</a>
+      <p class="copyright">© 2026 PGG Legacy - All rights reserved.</p>
     </footer>
 
     <!-- SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init({ duration: 800, once: true, disable: window.innerWidth < 768 });
