@@ -1,11 +1,3 @@
-/* ========================================
-   BLOG STYLES - PGG Legacy
-   Χωρίς αλλαγές στο style.css
-   ======================================== */
-
-/* ========================================
-   BLOG HERO
-   ======================================== */
 .blog-hero {
   padding: 8rem 1rem 3rem;
   width: 100%;
@@ -17,8 +9,9 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  min-height: 220px;
+  contain: layout style;
 }
-
 .blog-hero-subtitle {
   font-size: clamp(1rem, 2.5vw, 1.3rem);
   color: #b0b0b0;
@@ -26,16 +19,12 @@
   margin-top: 0.5rem;
   padding: 0 1rem;
 }
-
-/* ========================================
-   BLOG INDEX GRID
-   ======================================== */
 .blog-index-section {
   width: 100%;
   background-color: var(--background2);
   padding: 3rem 1rem 5rem;
+  contain: layout;
 }
-
 .blog-grid {
   display: flex;
   flex-wrap: wrap;
@@ -44,10 +33,6 @@
   max-width: 1000px;
   margin: 0 auto;
 }
-
-/* ========================================
-   BLOG CARD
-   ======================================== */
 .blog-card {
   background-color: var(--background1);
   border-radius: var(--roundness);
@@ -57,13 +42,12 @@
   overflow: hidden;
   transition: transform 0.3s ease, border-color 0.3s ease;
   position: relative;
+  contain: layout style;
 }
-
 .blog-card:hover {
   transform: translateY(-4px);
   border-color: var(--accent1);
 }
-
 .blog-card-link {
   text-decoration: none;
   color: inherit;
@@ -71,25 +55,26 @@
   flex-direction: column;
   height: 100%;
 }
-
 .blog-card-img-wrapper {
   width: 100%;
-  aspect-ratio: 2/1;
+  aspect-ratio: 2 / 1;
   overflow: hidden;
+  background-color: var(--background2);
 }
-
 .blog-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
   transition: transform 0.4s ease;
+  will-change: transform;
 }
-
 .blog-card:hover .blog-card-img {
   transform: scale(1.04);
 }
-
+.blog-card:not(:hover) .blog-card-img {
+  will-change: auto;
+}
 .blog-card-body {
   padding: 1.5rem;
   display: flex;
@@ -97,7 +82,6 @@
   gap: 0.6rem;
   flex: 1;
 }
-
 .blog-card-tag {
   display: inline-block;
   background-color: var(--accent2_transp);
@@ -111,7 +95,6 @@
   letter-spacing: 0.5px;
   width: fit-content;
 }
-
 .blog-card-title {
   font-size: 1.3rem;
   font-weight: 700;
@@ -119,14 +102,12 @@
   margin: 0;
   line-height: 1.3;
 }
-
 .blog-card-excerpt {
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
   margin: 0;
 }
-
 .blog-card-read-more {
   color: var(--accent1);
   font-size: 0.95rem;
@@ -134,24 +115,15 @@
   margin-top: auto;
   padding-top: 0.8rem;
 }
-
-/* ========================================
-   ARTICLE PAGE WRAPPER
-   ======================================== */
 .blog-article-wrapper {
   width: 100%;
   max-width: 780px;
   margin: 0 auto;
   padding: 7rem 1.5rem 4rem;
 }
-
-/* ========================================
-   BREADCRUMB
-   ======================================== */
 .blog-breadcrumb {
   margin-bottom: 2rem;
 }
-
 .blog-breadcrumb-list {
   list-style: none;
   padding: 0;
@@ -162,36 +134,28 @@
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.5);
 }
-
 .blog-breadcrumb-list a {
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   transition: color 0.2s;
 }
-
 .blog-breadcrumb-list a:hover {
   color: var(--accent1);
 }
-
 .blog-breadcrumb-list [aria-current="page"] {
   color: rgba(255, 255, 255, 0.85);
 }
-
-/* ========================================
-   ARTICLE HEADER
-   ======================================== */
 .blog-article-header {
   margin-bottom: 2rem;
 }
-
 .blog-article-title {
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 800;
   color: #fff;
   margin: 0.8rem 0 0.6rem;
   line-height: 1.2;
+  font-display: swap;
 }
-
 .blog-article-meta {
   display: flex;
   gap: 0.6rem;
@@ -199,29 +163,22 @@
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.55);
 }
-
-/* ========================================
-   ARTICLE BANNER IMAGE
-   ======================================== */
 .blog-article-banner {
   width: 100%;
   height: auto;
   border-radius: var(--roundness);
   margin-bottom: 2.5rem;
   object-fit: cover;
-  aspect-ratio: 9/4;
+  aspect-ratio: 9 / 4;
   display: block;
+  background-color: var(--background2);
+  content-visibility: visible;
 }
-
-/* ========================================
-   ARTICLE CONTENT TYPOGRAPHY
-   ======================================== */
 .blog-article-content {
   font-size: 1.05rem;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.88);
 }
-
 .blog-article-content h2 {
   font-size: clamp(1.3rem, 3vw, 1.8rem);
   font-weight: 700;
@@ -229,38 +186,34 @@
   margin: 2.5rem 0 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid rgba(107, 45, 216, 0.3);
+  scroll-margin-top: 5rem;
 }
-
 .blog-article-content p {
   margin: 0 0 1.2rem;
 }
-
-.blog-article-content ul {
+.blog-article-content ul,
+.blog-article-content ol {
   padding-left: 1.5rem;
   margin: 0 0 1.2rem;
 }
-
-.blog-article-content ul li {
+.blog-article-content ul li,
+.blog-article-content ol li {
   margin-bottom: 0.5rem;
   line-height: 1.7;
 }
-
 .blog-article-content a {
   color: #a855f7;
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: color 0.2s;
 }
-
 .blog-article-content a:hover {
   color: var(--accent1);
 }
-
 .blog-article-content strong {
   color: #fff;
   font-weight: 700;
 }
-
 .blog-article-content code {
   background-color: rgba(107, 45, 216, 0.15);
   border: 1px solid rgba(107, 45, 216, 0.25);
@@ -270,7 +223,6 @@
   color: #c084fc;
   font-family: 'Courier New', Courier, monospace;
 }
-
 kbd {
   display: inline-block;
   background-color: rgba(255, 255, 255, 0.08);
@@ -282,10 +234,6 @@ kbd {
   color: rgba(255, 255, 255, 0.85);
   font-family: 'Courier New', Courier, monospace;
 }
-
-/* ========================================
-   INFO BOX
-   ======================================== */
 .blog-info-box {
   display: flex;
   gap: 0.85rem;
@@ -299,16 +247,11 @@ kbd {
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.85);
 }
-
 .blog-info-icon {
   font-size: 1.3rem;
   flex-shrink: 0;
   margin-top: 0.05rem;
 }
-
-/* ========================================
-   CTA BOX
-   ======================================== */
 .blog-cta-box {
   margin: 3rem 0 1rem;
   background: rgba(107, 45, 216, 0.12);
@@ -321,14 +264,12 @@ kbd {
   align-items: center;
   gap: 0.5rem;
 }
-
 .blog-cta-box p {
   font-size: 1.2rem;
   font-weight: 700;
   color: #fff;
   margin: 0;
 }
-
 .blog-cta-ip {
   font-size: 1.5rem;
   font-weight: 800;
@@ -336,16 +277,11 @@ kbd {
   text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
   letter-spacing: 0.5px;
 }
-
-/* ========================================
-   BACK TO BLOG LINK
-   ======================================== */
 .blog-back-link {
   margin-top: 3rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
-
 .blog-back-link a {
   color: var(--accent1);
   text-decoration: none;
@@ -353,15 +289,9 @@ kbd {
   font-size: 1rem;
   transition: color 0.2s;
 }
-
 .blog-back-link a:hover {
   color: #a855f7;
 }
-
-/* ========================================
-   SECTION TITLE DIVIDER
-   (Commands & Seasons articles)
-   ======================================== */
 .cmd-section-title {
   display: flex;
   align-items: center;
@@ -375,14 +305,9 @@ kbd {
   padding-bottom: 0.5rem;
   border-bottom: 1px solid rgba(107, 45, 216, 0.2);
 }
-
 .cmd-section-title span {
   font-size: 1.3rem;
 }
-
-/* ========================================
-   QUICK NAV PILLS
-   ======================================== */
 .cmd-quicknav {
   display: flex;
   flex-wrap: wrap;
@@ -394,7 +319,6 @@ kbd {
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: var(--roundness);
 }
-
 .cmd-quicknav span {
   font-size: 0.85rem;
   font-weight: 700;
@@ -403,7 +327,6 @@ kbd {
   letter-spacing: 0.5px;
   margin-right: 0.3rem;
 }
-
 .cmd-quicknav a {
   display: inline-block;
   background-color: rgba(107, 45, 216, 0.15);
@@ -417,34 +340,28 @@ kbd {
   transition: background-color 0.2s, border-color 0.2s, color 0.2s;
   white-space: nowrap;
 }
-
 .cmd-quicknav a:hover {
   background-color: rgba(107, 45, 216, 0.35);
   border-color: var(--accent1);
   color: #fff;
 }
-
-/* ========================================
-   COMMANDS TABLE
-   ======================================== */
 .cmd-table-wrapper {
   width: 100%;
   overflow-x: auto;
   margin: 0.5rem 0 1.5rem;
   border-radius: var(--roundness);
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
 }
-
 .cmd-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.95rem;
   min-width: 360px;
 }
-
 .cmd-table thead tr {
   background-color: rgba(107, 45, 216, 0.2);
 }
-
 .cmd-table th {
   text-align: left;
   padding: 0.7rem 1rem;
@@ -455,7 +372,6 @@ kbd {
   color: rgba(255, 255, 255, 0.6);
   border-bottom: 1px solid rgba(107, 45, 216, 0.3);
 }
-
 .cmd-table td {
   padding: 0.65rem 1rem;
   color: rgba(255, 255, 255, 0.82);
@@ -463,19 +379,15 @@ kbd {
   vertical-align: top;
   line-height: 1.6;
 }
-
 .cmd-table tbody tr {
   transition: background-color 0.15s;
 }
-
 .cmd-table tbody tr:hover {
   background-color: rgba(107, 45, 216, 0.08);
 }
-
 .cmd-table tbody tr:last-child td {
   border-bottom: none;
 }
-
 .cmd-table code {
   background-color: rgba(107, 45, 216, 0.15);
   border: 1px solid rgba(107, 45, 216, 0.25);
@@ -486,10 +398,6 @@ kbd {
   font-family: 'Courier New', Courier, monospace;
   white-space: nowrap;
 }
-
-/* ========================================
-   SEASON CARDS
-   ======================================== */
 .blog-season-card {
   background-color: rgba(255, 255, 255, 0.03);
   border-left: 4px solid var(--accent1);
@@ -497,44 +405,33 @@ kbd {
   padding: 1.2rem 1.4rem;
   margin: 0.8rem 0 2rem;
 }
-
 .blog-season-card p {
   margin: 0 0 0.8rem;
 }
-
 .blog-season-card ul {
   padding-left: 1.3rem;
   margin: 0 0 0.8rem;
 }
-
 .blog-season-card ul li {
   margin-bottom: 0.4rem;
   line-height: 1.6;
 }
-
 .blog-season-card.spring {
   border-left-color: #86efac;
   background: linear-gradient(135deg, rgba(134, 239, 172, 0.07) 0%, transparent 100%);
 }
-
 .blog-season-card.summer {
   border-left-color: #fcd34d;
   background: linear-gradient(135deg, rgba(252, 211, 77, 0.07) 0%, transparent 100%);
 }
-
 .blog-season-card.autumn {
   border-left-color: #fb923c;
   background: linear-gradient(135deg, rgba(251, 146, 60, 0.07) 0%, transparent 100%);
 }
-
 .blog-season-card.winter {
   border-left-color: #93c5fd;
   background: linear-gradient(135deg, rgba(147, 197, 253, 0.07) 0%, transparent 100%);
 }
-
-/* ========================================
-   EVENT DATE BADGE
-   ======================================== */
 .event-date-badge {
   display: inline-block;
   font-size: 0.75rem;
@@ -549,10 +446,6 @@ kbd {
   letter-spacing: 0.3px;
   white-space: nowrap;
 }
-
-/* ========================================
-   EVENT CALENDAR DOT
-   ======================================== */
 .event-dot {
   display: inline-block;
   width: 10px;
@@ -562,17 +455,12 @@ kbd {
   flex-shrink: 0;
   vertical-align: middle;
 }
-
-/* ========================================
-   EVENT LOOT GRID
-   ======================================== */
 .event-loot-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 0.8rem;
 }
-
 .event-loot-grid span {
   background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -582,54 +470,86 @@ kbd {
   color: rgba(255, 255, 255, 0.8);
   white-space: nowrap;
 }
-
-/* ========================================
-   MOBILE RESPONSIVE
-   ======================================== */
+[data-aos] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
 @media (max-width: 768px) {
   .blog-hero {
     padding: 6rem 1rem 2.5rem;
+    min-height: 180px;
   }
-
   .blog-article-wrapper {
     padding: 5.5rem 1rem 3rem;
   }
-
   .blog-card {
     max-width: 100%;
   }
-
   .blog-article-content h2 {
     margin-top: 2rem;
+    scroll-margin-top: 4rem;
   }
-
   .blog-cta-box {
     padding: 1.5rem 1rem;
   }
-
   .cmd-quicknav {
     padding: 0.8rem 1rem;
   }
-
   .blog-season-card {
     padding: 1rem 1.1rem;
   }
 }
-
 @media (max-width: 480px) {
   .event-date-badge {
     display: block;
     width: fit-content;
     margin: 0.4rem 0 0;
   }
-
   .event-loot-grid span {
     font-size: 0.82rem;
     padding: 0.25rem 0.6rem;
   }
-
   .cmd-quicknav a {
     font-size: 0.78rem;
     padding: 0.2rem 0.55rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .blog-card,
+  .blog-card-img,
+  [data-aos],
+  .cmd-quicknav a,
+  .blog-back-link a {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+@media print {
+  .desktop_navbar,
+  .mobile_navbar,
+  .custom-cursor,
+  .cursor-glow,
+  .blog-cta-box,
+  .cmd-quicknav {
+    display: none !important;
+  }
+  .blog-article-wrapper {
+    padding: 1rem;
+    max-width: 100%;
+  }
+  .blog-article-content a {
+    color: #000;
+    text-decoration: underline;
   }
 }

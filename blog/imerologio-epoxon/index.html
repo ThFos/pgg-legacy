@@ -4,16 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://www.google-analytics.com">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8"></script>
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://fonts.bunny.net">
+    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+    <link rel="preload" href="/style.css" as="style">
+    <link rel="preload" href="/blog/blog.css" as="style">
+    <link rel="preload" href="/media/logo_small.svg" as="image">
+    <link rel="preload" href="/blog/media/blogbanner3.webp" as="image" fetchpriority="high">
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-49NVHWZZV8');
+      gtag('config', 'G-49NVHWZZV8', { 'send_page_view': false });
+      window.addEventListener('load', function() {
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8';
+        s.async = true;
+        document.head.appendChild(s);
+        s.onload = function() { gtag('event', 'page_view'); };
+      });
     </script>
-
     <title>Ημερολόγιο Εποχών & Καιρού | PGG Legacy Blog</title>
     <meta name="description" content="Μάθε πώς λειτουργεί το σύστημα εποχών και καιρού στον PGG Legacy. Χριστούγεννα, Halloween, Πάσχα, Heatwave και πολλά άλλα seasonal events!">
     <meta name="keywords" content="PGG Legacy εποχές, minecraft seasons server, minecraft events, PGG Legacy halloween christmas easter, minecraft seasonal server greek">
@@ -21,7 +32,6 @@
     <meta name="author" content="PGG Legacy">
     <meta name="theme-color" content="#5865F2">
     <link rel="canonical" href="https://pgglegacy.gr/blog/imerologio-epoxon/">
-
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://pgglegacy.gr/blog/imerologio-epoxon/">
     <meta property="og:title" content="Ημερολόγιο Εποχών & Καιρού | PGG Legacy Blog">
@@ -33,15 +43,12 @@
     <meta property="article:author" content="PGG Legacy">
     <meta property="article:section" content="Οδηγός">
     <meta property="article:tag" content="Seasons, Events, Minecraft">
-
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://pgglegacy.gr/blog/imerologio-epoxon/">
     <meta name="twitter:title" content="Ημερολόγιο Εποχών & Καιρού | PGG Legacy Blog">
     <meta name="twitter:description" content="Μάθε πώς λειτουργεί το σύστημα εποχών και καιρού στον PGG Legacy. Χριστούγεννα, Halloween, Πάσχα, Heatwave και πολλά άλλα seasonal events!">
     <meta name="twitter:image" content="https://pgglegacy.gr/media/banner.png">
-
     <link rel="icon" type="image/png" href="/media/favicon.png">
-
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -73,7 +80,6 @@
       }
     }
     </script>
-
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -85,19 +91,16 @@
       ]
     }
     </script>
-
-    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
-    <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet"></noscript>
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/blog/blog.css">
   </head>
   <body>
-
     <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
     <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-
     <nav class="desktop_navbar" aria-label="Desktop Navigation">
-      <a href="/"><img class="desktop_navbar_logo_img" src="/media/logo_small.svg" alt="PGG Legacy" width="152" height="40"></a>
+      <a href="/"><img class="desktop_navbar_logo_img" src="/media/logo_small.svg" alt="PGG Legacy" width="152" height="40" fetchpriority="high"></a>
       <a href="/#rules" class="desktop_navbar_link">Rules</a>
       <a href="/#discord" class="desktop_navbar_link">Community</a>
       <a href="/#about" class="desktop_navbar_link">About Us</a>
@@ -108,13 +111,12 @@
         <a href="/#join" class="desktop_navbar_link2">Join Us!</a>
       </div>
     </nav>
-
     <nav class="mobile_navbar" aria-label="Mobile Navigation">
       <a href="/" class="mobile_navbar_logo_img_a">
-        <img class="mobile_navbar_logo_img" src="/media/logo_small.svg" alt="PGG Legacy" width="152" height="40">
+        <img class="mobile_navbar_logo_img" src="/media/logo_small.svg" alt="PGG Legacy" width="152" height="40" fetchpriority="high">
       </a>
       <button class="icon" aria-expanded="false" aria-controls="mobile_navbar_links" aria-label="Άνοιγμα μενού">
-        <svg id="menuIcon" viewBox="0 0 24 24" width="24" height="24" fill="white">
+        <svg id="menuIcon" viewBox="0 0 24 24" width="24" height="24" fill="white" aria-hidden="true">
           <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
         </svg>
       </button>
@@ -128,10 +130,8 @@
         <a class="mobile_navbar_link" href="/#join">Join Us</a>
       </div>
     </nav>
-
     <main class="mainflex">
       <article class="blog-article-wrapper">
-
         <nav class="blog-breadcrumb" aria-label="Breadcrumb">
           <ol class="blog-breadcrumb-list">
             <li><a href="/">Αρχική</a></li>
@@ -141,7 +141,6 @@
             <li aria-current="page">Ημερολόγιο Εποχών &amp; Καιρού</li>
           </ol>
         </nav>
-
         <header class="blog-article-header" data-aos="fade-up">
           <span class="blog-card-tag">Οδηγός</span>
           <h1 class="blog-article-title">Ημερολόγιο Εποχών &amp; Events</h1>
@@ -151,24 +150,21 @@
             <time datetime="2026-04-16">16 Απριλίου 2026</time>
           </div>
         </header>
-
         <img
           src="/blog/media/blogbanner3.webp"
           alt="Ημερολόγιο Εποχών και Events - PGG Legacy"
           class="blog-article-banner"
           width="900"
           height="400"
-          loading="lazy"
+          loading="eager"
+          fetchpriority="high"
+          decoding="sync"
           data-aos="fade-up"
           data-aos-delay="100">
-
         <div class="blog-article-content" data-aos="fade-up" data-aos-delay="200">
-
           <p>
             Ένα από τα πιο μοναδικά χαρακτηριστικά του PGG Legacy είναι το <strong>σύστημα εποχών και events σε πραγματικό χρόνο</strong>. Ο κόσμος αλλάζει ανάλογα με την εποχή του χρόνου, φέρνοντας μοναδικά events, ειδικούς κανόνες και αποκλειστικά rewards.
           </p>
-
-          <!-- QUICK NAV ΕΠΟΧΩΝ -->
           <div class="cmd-quicknav">
             <span>Events:</span>
             <a href="#ev-newyear">Νέο Έτος</a>
@@ -181,11 +177,8 @@
             <a href="#ev-weekly">Εβδομαδιαία</a>
             <a href="#ev-daily">Καθημερινά</a>
           </div>
-
-          <!-- CALENDAR TABLE -->
           <h2>📅 Ετήσιο Ημερολόγιο Events</h2>
           <p>Παρακάτω βλέπεις μια επισκόπηση όλων των events ανά μήνα:</p>
-
           <div class="cmd-table-wrapper">
             <table class="cmd-table">
               <thead>
@@ -244,46 +237,30 @@
               </tbody>
             </table>
           </div>
-
-          <!-- ============================== -->
-          <!-- DATED EVENTS -->
-          <!-- ============================== -->
           <div class="cmd-section-title">
             <span>📆</span> Ετήσια Events
           </div>
-
-          <!-- ΝΕΟΝ ΕΤΟΣ -->
           <h2 id="ev-newyear">🎆 Καλή Χρονιά! <span class="event-date-badge">1 Ιανουαρίου</span></h2>
           <div class="blog-season-card" style="border-left-color:#93c5fd; background: linear-gradient(135deg, rgba(147,197,253,0.07) 0%, transparent 100%);">
-            <p>
-              Η αλλαγή του χρόνου γιορτάζεται με πυροτεχνήματα σε όλο τον κόσμο! Τα χωριά γεμίζουν από εορταστικά fireworks boxes, και ο κόσμος φωτίζεται για μία νύχτα.
-            </p>
+            <p>Η αλλαγή του χρόνου γιορτάζεται με πυροτεχνήματα σε όλο τον κόσμο! Τα χωριά γεμίζουν από εορταστικά fireworks boxes, και ο κόσμος φωτίζεται για μία νύχτα.</p>
             <ul>
               <li>🎆 <strong>Firework boxes</strong> εμφανίζονται σε όλο τον κόσμο</li>
               <li>🏘️ Κατευθύνσου σε κοντινό χωριό για τις γιορτές</li>
               <li>🌐 Ανακοίνωση στον server: <em>"Καλή χρονιά!"</em></li>
             </ul>
           </div>
-
-          <!-- WINTER FROST -->
           <h2 id="ev-frost">❄️ Winter Harvest Frost <span class="event-date-badge">1–31 Ιανουαρίου</span></h2>
           <div class="blog-season-card winter">
-            <p>
-              Ο παγετός του Ιανουαρίου επηρεάζει τις καλλιέργειες! Οι φυτείες αναπτύσσονται πιο αργά λόγω του κρύου, κάνοντας τα τρόφιμα πολυτιμότερα.
-            </p>
+            <p>Ο παγετός του Ιανουαρίου επηρεάζει τις καλλιέργειες! Οι φυτείες αναπτύσσονται πιο αργά λόγω του κρύου, κάνοντας τα τρόφιμα πολυτιμότερα.</p>
             <ul>
               <li>❄️ <strong>Μειωμένος ρυθμός ανάπτυξης</strong> καλλιεργειών (randomTickSpeed: 1)</li>
               <li>🌾 <strong>Tip:</strong> Αποθήκευσε τρόφιμα πριν ξεκινήσει ο Ιανουάριος</li>
               <li>💰 Τα τρόφιμα γίνονται πιο <strong>πολύτιμα στο market</strong></li>
             </ul>
           </div>
-
-          <!-- ΠΑΣΧΑ -->
           <h2 id="ev-easter">🐣 Πάσχα <span class="event-date-badge">20–24 Απριλίου</span></h2>
           <div class="blog-season-card spring">
-            <p>
-              Ο κόσμος γεμίζει από κρυμμένα πασχαλινά αυγά με rewards! Αλλά πρόσεχε — τη νύχτα κυκλοφορούν επικίνδυνα Killer Bunnies...
-            </p>
+            <p>Ο κόσμος γεμίζει από κρυμμένα πασχαλινά αυγά με rewards! Αλλά πρόσεχε — τη νύχτα κυκλοφορούν επικίνδυνα Killer Bunnies...</p>
             <ul>
               <li>🥚 <strong>Easter Eggs</strong> κρυμμένα σε όλο τον κόσμο (κάθε 4 chunks)</li>
               <li>🐇 <strong>Killer Bunnies</strong> εμφανίζονται (10% spawn rate)</li>
@@ -297,13 +274,9 @@
               <span>🎪 Name Tag</span><span>🐴 Saddle</span><span>🌾 Hay Bales</span>
             </div>
           </div>
-
-          <!-- HEATWAVE -->
           <h2 id="ev-heatwave">🔥 The Great Heatwave <span class="event-date-badge">1–31 Ιουλίου</span></h2>
           <div class="blog-season-card summer">
-            <p>
-              Ο ήλιος του Ιουλίου καίει τα πάντα! Ο καιρός είναι συνεχώς ηλιόλουστος και η θερμοκρασία φτάνει στα όρια της.
-            </p>
+            <p>Ο ήλιος του Ιουλίου καίει τα πάντα! Ο καιρός είναι συνεχώς ηλιόλουστος και η θερμοκρασία φτάνει στα όρια της.</p>
             <ul>
               <li>☀️ <strong>Αδιάκοπη ηλιοφάνεια</strong> — ο καιρός κλειδώνει σε clear</li>
               <li>💧 <strong>Tip:</strong> Τα αποθέματα νερού γίνονται πολύτιμα</li>
@@ -311,12 +284,9 @@
             </ul>
           </div>
 
-          <!-- SPOOKY OCTOBER -->
           <h2 id="ev-spooky">🎃 Spooky October <span class="event-date-badge">1–31 Οκτωβρίου</span></h2>
           <div class="blog-season-card autumn">
-            <p>
-              Όλος ο Οκτώβριος είναι αφιερωμένος στο τρόμο! Ο κόσμος γίνεται πιο επικίνδυνος και τα τέρατα ισχυρότερα.
-            </p>
+            <p>Όλος ο Οκτώβριος είναι αφιερωμένος στο τρόμο! Ο κόσμος γίνεται πιο επικίνδυνος και τα τέρατα ισχυρότερα.</p>
             <ul>
               <li>💀 <strong>Hard difficulty</strong> ενεργοποιείται για όλο τον μήνα</li>
               <li>👹 Τα mobs έχουν <strong>περισσότερο damage και HP</strong></li>
@@ -324,13 +294,9 @@
               <li>🎃 Ιδανική εποχή για <strong>RP horror scenarios</strong></li>
             </ul>
           </div>
-
-          <!-- HALLOWEEN -->
           <h2 id="ev-halloween">👻 Halloween <span class="event-date-badge">31 Οκτ – 2 Νοε</span></h2>
           <div class="blog-season-card" style="border-left-color:#a78bfa; background: linear-gradient(135deg, rgba(167,139,250,0.07) 0%, transparent 100%);">
-            <p>
-              Το Halloween φέρνει τα πιο επικίνδυνα νύχτα του χρόνου. Τα mobs αποκτούν ειδικές ικανότητες και ο κόσμος γεμίζει από αποκριάτικες απειλές!
-            </p>
+            <p>Το Halloween φέρνει τα πιο επικίνδυνα νύχτα του χρόνου. Τα mobs αποκτούν ειδικές ικανότητες και ο κόσμος γεμίζει από αποκριάτικες απειλές!</p>
             <ul>
               <li>🔮 <strong>Witches</strong> με επιπλέον potions: Blindness, Confusion, Wither, Levitation κ.ά.</li>
               <li>👥 <strong>Duplicating Mobs</strong> — mobs που αναπαράγονται (7% chance)</li>
@@ -346,13 +312,9 @@
               <div>Μείνε ενημερωμένος στο Discord για RP events κατά τη διάρκεια του Halloween!</div>
             </div>
           </div>
-
-          <!-- ΧΡΙΣΤΟΥΓΕΝΝΑ -->
           <h2 id="ev-christmas">🎄 Χριστούγεννα <span class="event-date-badge">25–28 Δεκεμβρίου</span></h2>
           <div class="blog-season-card" style="border-left-color:#86efac; background: linear-gradient(135deg, rgba(134,239,172,0.07) 0%, transparent 100%);">
-            <p>
-              Τα Χριστούγεννα είναι η πιο γιορταστική εποχή του server! Χριστουγεννιάτικα δέντρα εμφανίζονται στον κόσμο, χιονίζει παντού και δώρα είναι κρυμμένα για τους παίκτες.
-            </p>
+            <p>Τα Χριστούγεννα είναι η πιο γιορταστική εποχή του server! Χριστουγεννιάτικα δέντρα εμφανίζονται στον κόσμο, χιονίζει παντού και δώρα είναι κρυμμένα για τους παίκτες.</p>
             <ul>
               <li>🎄 <strong>Christmas Trees</strong> σε όλον τον κόσμο</li>
               <li>✨ <strong>Night Particles</strong> — μαγικά σωματίδια τη νύχτα</li>
@@ -367,106 +329,83 @@
               <span>⚗️ Nether Wart</span><span>🔱 Blaze Rod</span><span>⭐ Magma Cream</span>
             </div>
           </div>
-
-          <!-- ============================== -->
-          <!-- WEEKLY EVENTS -->
-          <!-- ============================== -->
           <div class="cmd-section-title">
             <span>📅</span> Εβδομαδιαία Events
           </div>
-
-          <!-- MERCHANT MONDAY -->
           <h2 id="ev-weekly">🛒 Merchant Monday <span class="event-date-badge">Κάθε Δευτέρα</span></h2>
           <div class="blog-season-card" style="border-left-color:#fcd34d; background: linear-gradient(135deg, rgba(252,211,77,0.07) 0%, transparent 100%);">
-            <p>
-              Κάθε Δευτέρα, <strong>Wandering Traders</strong> εμφανίζονται σε όλο τον κόσμο με ειδικές προσφορές! Βρες τους και κάνε τις αγορές σου πριν φύγουν.
-            </p>
+            <p>Κάθε Δευτέρα, <strong>Wandering Traders</strong> εμφανίζονται σε όλο τον κόσμο με ειδικές προσφορές! Βρες τους και κάνε τις αγορές σου πριν φύγουν.</p>
             <ul>
               <li>🗺️ <strong>Wandering Traders</strong> spawnaρουν κοντά σε παίκτες</li>
               <li>⏰ Παραμένουν για <strong>24 ώρες</strong> (24000 ticks)</li>
               <li>💰 Ιδανική ευκαιρία για σπάνια items</li>
             </ul>
           </div>
-
-          <!-- ============================== -->
-          <!-- DAILY EVENTS -->
-          <!-- ============================== -->
           <div class="cmd-section-title">
             <span>🌅</span> Καθημερινά Events
           </div>
-
-          <!-- LUCKY MORNING -->
           <h2 id="ev-daily">🌅 Lucky Morning <span class="event-date-badge">Κάθε μέρα</span></h2>
           <div class="blog-season-card" style="border-left-color:#6ee7b7; background: linear-gradient(135deg, rgba(110,231,183,0.07) 0%, transparent 100%);">
-            <p>
-              Κάθε πρωί, κάθε παίκτης online λαμβάνει ένα δώρο για καλή αρχή της μέρας!
-            </p>
+            <p>Κάθε πρωί, κάθε παίκτης online λαμβάνει ένα δώρο για καλή αρχή της μέρας!</p>
             <ul>
               <li>🍞 <strong>Δωρεάν Bread</strong> για κάθε παίκτη κάθε πρωί</li>
               <li>💬 Actionbar μήνυμα: <em>"Καλή μέρα! Ένα σάντουιτς για εσένα!"</em></li>
             </ul>
           </div>
-
           <div class="blog-info-box">
             <span class="blog-info-icon">💡</span>
             <div>
               <strong>Tip:</strong> Χρησιμοποίησε <code>/season</code> για να δεις την τρέχουσα εποχή και τα ενεργά events σε πραγματικό χρόνο!
             </div>
           </div>
-
           <div class="blog-cta-box">
             <p>Ζήσε τα events από κοντά!</p>
             <strong class="blog-cta-ip">play.PGGlegacy.gr</strong>
             <a href="https://discord.gg/Ks7NtXhtwV" target="_blank" rel="noopener noreferrer" class="discord-btn" style="margin-top:1rem; display:inline-block;">Discord για Event Updates →</a>
           </div>
-
         </div>
-
         <div class="blog-back-link">
           <a href="/blog/">← Πίσω στο Blog</a>
         </div>
-
       </article>
     </main>
-
     <footer class="copyright_div">
       <p class="copyright">© <span id="copyright-year"></span> PGG Legacy - All rights reserved.</p>
     </footer>
-
     <script defer>
       document.addEventListener("DOMContentLoaded", function () {
         const yearEl = document.getElementById('copyright-year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
-
         if (window.innerWidth > 768) {
           const obs = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('aos-animate'); obs.unobserve(e.target); } });
-          }, { threshold: 0.1 });
+          }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
           document.querySelectorAll('[data-aos]').forEach(el => obs.observe(el));
         } else {
           document.querySelectorAll('[data-aos]').forEach(el => el.classList.add('aos-animate'));
         }
-
         const btn = document.querySelector('.icon');
         if (btn) btn.addEventListener('click', toggleMobileMenu);
-
         if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
           const cursor = document.getElementById('cursor');
           const glow = document.getElementById('cursorGlow');
+          let rafId;
           document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
-            glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px';
-          });
+            cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(() => {
+              cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
+              glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px';
+            });
+          }, { passive: true });
         }
       });
-
       function toggleMobileMenu() {
         const menu = document.getElementById("mobile_navbar_links");
         const btn = document.querySelector('.icon');
         const icon = document.getElementById("menuIcon");
         const isOpen = menu.style.display === "flex";
         menu.style.display = isOpen ? "none" : "flex";
-        btn.setAttribute('aria-expanded', !isOpen);
+        btn.setAttribute('aria-expanded', String(!isOpen));
         icon.innerHTML = isOpen
           ? '<path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>'
           : '<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>';
