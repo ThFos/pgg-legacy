@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.google-analytics.com">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -83,11 +84,10 @@
     </script>
     
     <!-- Preload resources -->
-    <link rel="preload" href="style.css" as="style">
     <link rel="preload" 
-      href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" 
-      as="style" 
-      crossorigin>
+      href="media/logo.svg" 
+      as="image"
+      fetchpriority="high">
     <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
     
     <!-- Fonts -->
@@ -154,7 +154,14 @@
       <!-- MAIN HERO SECTION -->
       <section id="hero" class="main1" data-aos="fade" data-aos-duration="1200">
         <a class="main1_logo_a" href="#">
-          <img class="main1_logo" src="media/logo.svg" alt="PGG Legacy - Ελληνικός Minecraft RP Server Logo" data-aos="zoom-in" data-aos-delay="200" width="450" height="150">
+          <img class="main1_logo" 
+                src="media/logo.svg" 
+                alt="PGG Legacy - Ελληνικός Minecraft RP Server Logo" 
+                data-aos="zoom-in" 
+                data-aos-delay="200" 
+                width="450" 
+                height="150"
+                fetchpriority="high">
         </a>
         
         <!-- Αφαίρεση inline style (Χρήση CSS) -->
@@ -320,7 +327,7 @@
         <h2 class="headline" data-aos="fade-up">Η Ομάδα μας</h2>
         <div class="main5_admin_div">
           <div class="main5_admins_div" data-aos="zoom-in" data-aos-delay="100">
-            <img class="main5_admins_img" alt="MPAMIASDL - Admin στον PGG Legacy Minecraft server" src="media/admin1.png" width="120" height="120" loading="lazy">
+            <img class="main5_admins_img" alt="MPAMIASDL - Admin στον PGG Legacy Minecraft server" src="media/admin1.webp" width="120" height="120" loading="lazy">
             <div class="main5_admins_description_div">
               <div class="main5_admins_description_rank main5_admins_description_rank_owner">[Admin]</div>
               <span class="main5_admins_description_title">MPAMIASDL</span>
@@ -329,7 +336,7 @@
           </div>
 
           <div class="main5_admins_div" data-aos="zoom-in" data-aos-delay="200">
-            <img class="main5_admins_img" alt="ThFos - Admin στον PGG Legacy Minecraft server" src="media/admin2.png" width="120" height="120" loading="lazy">
+            <img class="main5_admins_img" alt="ThFos - Admin στον PGG Legacy Minecraft server" src="media/admin2.webp" width="120" height="120" loading="lazy">
             <div class="main5_admins_description_div">
               <div class="main5_admins_description_rank main5_admins_description_rank_owner">[Admin]</div>
               <span class="main5_admins_description_title">ThFos</span>
@@ -338,7 +345,7 @@
           </div>
 
           <div class="main5_admins_div" data-aos="zoom-in" data-aos-delay="300">
-            <img class="main5_admins_img" alt="kon212121 - Admin στον PGG Legacy Minecraft server" src="media/admin3.png" width="120" height="120" loading="lazy">
+            <img class="main5_admins_img" alt="kon212121 - Admin στον PGG Legacy Minecraft server" src="media/admin3.webp" width="120" height="120" loading="lazy">
             <div class="main5_admins_description_div">
               <div class="main5_admins_description_rank main5_admins_description_rank_owner">[Admin]</div>
               <span class="main5_admins_description_title">kon212121</span>

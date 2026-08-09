@@ -702,6 +702,7 @@ span {
 
 .main1_ipcopier, .discord-btn {
     animation: neonPulse 2.5s infinite ease-in-out;
+    will-change: box-shadow;
 }
 
 @keyframes floatLogo {
@@ -712,6 +713,7 @@ span {
 
 .main1_logo {
     animation: floatLogo 4s ease-in-out infinite;
+    will-change: transform;
 }
 
 .main2_feature {
