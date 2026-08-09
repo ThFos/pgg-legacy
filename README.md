@@ -57,3 +57,19 @@
 ## 🛠️ Tech Stack
 
 ### Frontend
+| Τεχνολογία | Χρήση |
+|---|---|
+| HTML5 / CSS3 | Δομή & Styling |
+| JavaScript (Vanilla) | Interactivity |
+| AOS Library | Scroll Animations |
+| Space Grotesk Font | Typography |
+| Schema.org | SEO Structured Data |
+
+### External APIs
+| API | Χρήση |
+|---|---|
+| mcstatus.io | Live Server Status |
+| Web3Forms | Police Form Submissions |
+| Render.com | Leaderboard API |
+| mc-heads.net | Player Avatars |
+| Dynmap | Live Map |

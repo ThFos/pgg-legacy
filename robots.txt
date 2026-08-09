@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /media/
 
-# Σύνδεσμος για το Sitemap σου
 Sitemap: https://pgglegacy.gr/sitemap.xml
