@@ -913,3 +913,35 @@ span {
     color: #ffcc00 !important;
     font-weight: bold;
 }
+
+/* AOS Αντικατάσταση με CSS + Intersection Observer */
+[data-aos] {    
+    opacity: 0;    
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-aos="fade-up"] {    
+    transform: translateY(30px);
+}
+
+[data-aos="fade"] {    
+    transform: none;
+}
+
+[data-aos="zoom-in"] {    
+    transform: scale(0.9);
+}
+
+[data-aos].aos-animate {    
+    opacity: 1;    
+    transform: translateY(0) scale(1);
+}
+
+/* Mobile: Απενεργοποίησε animations */
+@media (max-width: 768px) {    
+    [data-aos] {        
+        opacity: 1 !important;        
+        transform: none !important;        
+        transition: none !important;    
+    }
+}

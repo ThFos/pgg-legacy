@@ -96,8 +96,6 @@
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- AOS Library -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" media="print" onload="this.media='all'">
   </head>
   <body>
 
@@ -164,7 +162,6 @@
                 fetchpriority="high">
         </a>
         
-        <!-- Αφαίρεση inline style (Χρήση CSS) -->
         <h1 class="main1_description" 
           data-aos="fade-up" 
           data-aos-delay="400">
@@ -311,9 +308,8 @@
                ·Μάθε πρώτος για τα updates <br> 
                ・Λάβε μέρος σε RP Events 
             </div>
-            <!-- Βελτιωμένο Discord Button (άμεσο <a> αντί για nested div) -->
             <a href="https://discord.gg/Ks7NtXhtwV" 
-               class="main4_dc_button_a main4_dc_button"
+               class="discord-btn"
                target="_blank" 
                rel="noopener noreferrer">
               Join Discord
@@ -385,19 +381,29 @@
     </footer>
 
     <!-- SCRIPTS στο τέλος του Body για Performance -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script defer>
-      // AOS initialization on window load
-      window.addEventListener('load', function() {
-        if(typeof AOS !== 'undefined') {
-          AOS.init({ duration: 800, once: true, disable: window.innerWidth < 768 });
-        }
-      });
-
       document.addEventListener("DOMContentLoaded", function() {
         // Copyright year
         const yearEl = document.getElementById('copyright-year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+        // ✅ Νέο: Intersection Observer για animations (Desktop vs Mobile)
+        if (window.innerWidth > 768) {
+          const animObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('aos-animate');
+                animObserver.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.1 });
+          document.querySelectorAll('[data-aos]')
+            .forEach(el => animObserver.observe(el));
+        } else {
+          // Mobile: Εμφάνισε όλα αμέσως
+          document.querySelectorAll('[data-aos]')
+            .forEach(el => el.classList.add('aos-animate'));
+        }
 
         // Mobile menu event listener assignment
         const mobileMenuIcon = document.querySelector('.icon');
