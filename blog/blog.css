@@ -1,17 +1,38 @@
+/* ==========================================================================
+   PGG LEGACY — blog.css
+   Styles αποκλειστικά για το Blog section
+   ========================================================================== */
+
+/* ── Μεταβλητές (fallback αν δεν φορτωθεί το base.css) ──────────────────── */
+:root {
+  --accent1:        #6b2dd8;
+  --accent2:        #521eb8;
+  --accent2-transp: rgba(82, 30, 184, 0.33);
+  --background1:    #1a1921;
+  --background2:    #121117;
+  --roundness:      0.75rem;
+  --transition-std: 0.3s ease;
+}
+
+/* ==========================================================================
+   BLOG HERO
+   ========================================================================== */
+
 .blog-hero {
   padding: 8rem 1rem 3rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(0, 0, 0, 0.65) url('/blog/media/hero-bg.webp');
+  background:
+    rgba(0, 0, 0, 0.65)
+    url('/blog/media/hero-bg.webp')
+    center / cover
+    no-repeat;
   background-blend-mode: darken;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   min-height: 220px;
-  contain: layout style;
 }
+
 .blog-hero-subtitle {
   font-size: clamp(1rem, 2.5vw, 1.3rem);
   color: #b0b0b0;
@@ -19,12 +40,17 @@
   margin-top: 0.5rem;
   padding: 0 1rem;
 }
+
+/* ==========================================================================
+   BLOG INDEX — Grid & Cards
+   ========================================================================== */
+
 .blog-index-section {
   width: 100%;
-  background-color: var(--background2);
+  background-color: var(--background2, #121117);
   padding: 3rem 1rem 5rem;
-  contain: layout;
 }
+
 .blog-grid {
   display: flex;
   flex-wrap: wrap;
@@ -33,21 +59,24 @@
   max-width: 1000px;
   margin: 0 auto;
 }
+
+/* ── Blog Card ────────────────────────────────────────────────────────────── */
 .blog-card {
-  background-color: var(--background1);
+  background-color: var(--background1, #1a1921);
   border-radius: var(--roundness);
   border: 1px solid rgba(255, 255, 255, 0.05);
   width: 100%;
   max-width: 420px;
   overflow: hidden;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition: transform var(--transition-std), border-color var(--transition-std);
   position: relative;
-  contain: layout style;
 }
+
 .blog-card:hover {
   transform: translateY(-4px);
   border-color: var(--accent1);
 }
+
 .blog-card-link {
   text-decoration: none;
   color: inherit;
@@ -55,26 +84,26 @@
   flex-direction: column;
   height: 100%;
 }
+
 .blog-card-img-wrapper {
   width: 100%;
   aspect-ratio: 2 / 1;
   overflow: hidden;
-  background-color: var(--background2);
+  background-color: var(--background2, #121117);
 }
+
 .blog-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
   transition: transform 0.4s ease;
-  will-change: transform;
 }
+
 .blog-card:hover .blog-card-img {
   transform: scale(1.04);
 }
-.blog-card:not(:hover) .blog-card-img {
-  will-change: auto;
-}
+
 .blog-card-body {
   padding: 1.5rem;
   display: flex;
@@ -82,9 +111,11 @@
   gap: 0.6rem;
   flex: 1;
 }
+
+/* ── Card Elements ────────────────────────────────────────────────────────── */
 .blog-card-tag {
   display: inline-block;
-  background-color: var(--accent2_transp);
+  background-color: var(--accent2-transp);
   border: 1px solid var(--accent1);
   color: #c084fc;
   font-size: 0.8rem;
@@ -95,6 +126,7 @@
   letter-spacing: 0.5px;
   width: fit-content;
 }
+
 .blog-card-title {
   font-size: 1.3rem;
   font-weight: 700;
@@ -102,12 +134,14 @@
   margin: 0;
   line-height: 1.3;
 }
+
 .blog-card-excerpt {
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
   margin: 0;
 }
+
 .blog-card-read-more {
   color: var(--accent1);
   font-size: 0.95rem;
@@ -115,15 +149,23 @@
   margin-top: auto;
   padding-top: 0.8rem;
 }
+
+/* ==========================================================================
+   BLOG ARTICLE
+   ========================================================================== */
+
 .blog-article-wrapper {
   width: 100%;
   max-width: 780px;
   margin: 0 auto;
   padding: 7rem 1.5rem 4rem;
 }
+
+/* ── Breadcrumb ───────────────────────────────────────────────────────────── */
 .blog-breadcrumb {
   margin-bottom: 2rem;
 }
+
 .blog-breadcrumb-list {
   list-style: none;
   padding: 0;
@@ -134,28 +176,32 @@
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.5);
 }
+
 .blog-breadcrumb-list a {
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   transition: color 0.2s;
 }
-.blog-breadcrumb-list a:hover {
-  color: var(--accent1);
-}
+
+.blog-breadcrumb-list a:hover { color: var(--accent1); }
+
 .blog-breadcrumb-list [aria-current="page"] {
   color: rgba(255, 255, 255, 0.85);
 }
+
+/* ── Article Header ───────────────────────────────────────────────────────── */
 .blog-article-header {
   margin-bottom: 2rem;
 }
+
 .blog-article-title {
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 800;
   color: #fff;
   margin: 0.8rem 0 0.6rem;
   line-height: 1.2;
-  font-display: swap;
 }
+
 .blog-article-meta {
   display: flex;
   gap: 0.6rem;
@@ -163,6 +209,8 @@
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.55);
 }
+
+/* ── Banner Image ─────────────────────────────────────────────────────────── */
 .blog-article-banner {
   width: 100%;
   height: auto;
@@ -171,14 +219,19 @@
   object-fit: cover;
   aspect-ratio: 9 / 4;
   display: block;
-  background-color: var(--background2);
-  content-visibility: visible;
+  background-color: var(--background2, #121117);
 }
+
+/* ==========================================================================
+   ARTICLE CONTENT — Typography
+   ========================================================================== */
+
 .blog-article-content {
   font-size: 1.05rem;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.88);
 }
+
 .blog-article-content h2 {
   font-size: clamp(1.3rem, 3vw, 1.8rem);
   font-weight: 700;
@@ -188,32 +241,34 @@
   border-bottom: 1px solid rgba(107, 45, 216, 0.3);
   scroll-margin-top: 5rem;
 }
-.blog-article-content p {
-  margin: 0 0 1.2rem;
-}
+
+.blog-article-content p { margin: 0 0 1.2rem; }
+
 .blog-article-content ul,
 .blog-article-content ol {
   padding-left: 1.5rem;
   margin: 0 0 1.2rem;
 }
-.blog-article-content ul li,
-.blog-article-content ol li {
+
+.blog-article-content li {
   margin-bottom: 0.5rem;
   line-height: 1.7;
 }
+
 .blog-article-content a {
   color: #a855f7;
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: color 0.2s;
 }
-.blog-article-content a:hover {
-  color: var(--accent1);
-}
+
+.blog-article-content a:hover { color: var(--accent1); }
+
 .blog-article-content strong {
   color: #fff;
   font-weight: 700;
 }
+
 .blog-article-content code {
   background-color: rgba(107, 45, 216, 0.15);
   border: 1px solid rgba(107, 45, 216, 0.25);
@@ -223,6 +278,7 @@
   color: #c084fc;
   font-family: 'Courier New', Courier, monospace;
 }
+
 kbd {
   display: inline-block;
   background-color: rgba(255, 255, 255, 0.08);
@@ -234,6 +290,12 @@ kbd {
   color: rgba(255, 255, 255, 0.85);
   font-family: 'Courier New', Courier, monospace;
 }
+
+/* ==========================================================================
+   UI COMPONENTS — Callouts, CTA, Back Link
+   ========================================================================== */
+
+/* ── Info Box ─────────────────────────────────────────────────────────────── */
 .blog-info-box {
   display: flex;
   gap: 0.85rem;
@@ -247,11 +309,24 @@ kbd {
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.85);
 }
+
+.blog-info-box.warning {
+  border-color: rgba(255, 204, 0, 0.3);
+  background-color: rgba(255, 204, 0, 0.05);
+}
+
+.blog-info-box.compact {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
 .blog-info-icon {
   font-size: 1.3rem;
   flex-shrink: 0;
   margin-top: 0.05rem;
 }
+
+/* ── CTA Box ──────────────────────────────────────────────────────────────── */
 .blog-cta-box {
   margin: 3rem 0 1rem;
   background: rgba(107, 45, 216, 0.12);
@@ -264,12 +339,14 @@ kbd {
   align-items: center;
   gap: 0.5rem;
 }
+
 .blog-cta-box p {
   font-size: 1.2rem;
   font-weight: 700;
   color: #fff;
   margin: 0;
 }
+
 .blog-cta-ip {
   font-size: 1.5rem;
   font-weight: 800;
@@ -277,11 +354,35 @@ kbd {
   text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
   letter-spacing: 0.5px;
 }
+
+.blog-cta-btn,
+.discord-btn {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent1);
+  color: #fff;
+  border-radius: var(--roundness);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: filter var(--transition-std), transform var(--transition-std);
+  border: 1px solid var(--accent1);
+}
+
+.blog-cta-btn:hover,
+.discord-btn:hover {
+  filter: brightness(1.15);
+  transform: translateY(-2px);
+}
+
+/* ── Back Link ────────────────────────────────────────────────────────────── */
 .blog-back-link {
   margin-top: 3rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
+
 .blog-back-link a {
   color: var(--accent1);
   text-decoration: none;
@@ -289,9 +390,14 @@ kbd {
   font-size: 1rem;
   transition: color 0.2s;
 }
-.blog-back-link a:hover {
-  color: #a855f7;
-}
+
+.blog-back-link a:hover { color: #a855f7; }
+
+/* ==========================================================================
+   COMMANDS — Tables, Section Titles, Quick Nav
+   ========================================================================== */
+
+/* ── Section Title ────────────────────────────────────────────────────────── */
 .cmd-section-title {
   display: flex;
   align-items: center;
@@ -305,9 +411,10 @@ kbd {
   padding-bottom: 0.5rem;
   border-bottom: 1px solid rgba(107, 45, 216, 0.2);
 }
-.cmd-section-title span {
-  font-size: 1.3rem;
-}
+
+.cmd-section-title span { font-size: 1.3rem; }
+
+/* ── Quick Nav ────────────────────────────────────────────────────────────── */
 .cmd-quicknav {
   display: flex;
   flex-wrap: wrap;
@@ -319,6 +426,7 @@ kbd {
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: var(--roundness);
 }
+
 .cmd-quicknav span {
   font-size: 0.85rem;
   font-weight: 700;
@@ -327,6 +435,7 @@ kbd {
   letter-spacing: 0.5px;
   margin-right: 0.3rem;
 }
+
 .cmd-quicknav a {
   display: inline-block;
   background-color: rgba(107, 45, 216, 0.15);
@@ -340,28 +449,33 @@ kbd {
   transition: background-color 0.2s, border-color 0.2s, color 0.2s;
   white-space: nowrap;
 }
+
 .cmd-quicknav a:hover {
   background-color: rgba(107, 45, 216, 0.35);
   border-color: var(--accent1);
   color: #fff;
 }
+
+/* ── Table ────────────────────────────────────────────────────────────────── */
 .cmd-table-wrapper {
   width: 100%;
   overflow-x: auto;
   margin: 0.5rem 0 1.5rem;
   border-radius: var(--roundness);
   -webkit-overflow-scrolling: touch;
-  overscroll-behavior-x: contain;
 }
+
 .cmd-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.95rem;
   min-width: 360px;
 }
+
 .cmd-table thead tr {
   background-color: rgba(107, 45, 216, 0.2);
 }
+
 .cmd-table th {
   text-align: left;
   padding: 0.7rem 1rem;
@@ -372,6 +486,7 @@ kbd {
   color: rgba(255, 255, 255, 0.6);
   border-bottom: 1px solid rgba(107, 45, 216, 0.3);
 }
+
 .cmd-table td {
   padding: 0.65rem 1rem;
   color: rgba(255, 255, 255, 0.82);
@@ -379,15 +494,19 @@ kbd {
   vertical-align: top;
   line-height: 1.6;
 }
+
 .cmd-table tbody tr {
   transition: background-color 0.15s;
 }
+
 .cmd-table tbody tr:hover {
   background-color: rgba(107, 45, 216, 0.08);
 }
+
 .cmd-table tbody tr:last-child td {
   border-bottom: none;
 }
+
 .cmd-table code {
   background-color: rgba(107, 45, 216, 0.15);
   border: 1px solid rgba(107, 45, 216, 0.25);
@@ -398,6 +517,12 @@ kbd {
   font-family: 'Courier New', Courier, monospace;
   white-space: nowrap;
 }
+
+/* ==========================================================================
+   SEASONS & EVENTS
+   ========================================================================== */
+
+/* ── Season Cards ─────────────────────────────────────────────────────────── */
 .blog-season-card {
   background-color: rgba(255, 255, 255, 0.03);
   border-left: 4px solid var(--accent1);
@@ -405,33 +530,19 @@ kbd {
   padding: 1.2rem 1.4rem;
   margin: 0.8rem 0 2rem;
 }
-.blog-season-card p {
-  margin: 0 0 0.8rem;
-}
-.blog-season-card ul {
-  padding-left: 1.3rem;
-  margin: 0 0 0.8rem;
-}
-.blog-season-card ul li {
-  margin-bottom: 0.4rem;
-  line-height: 1.6;
-}
-.blog-season-card.spring {
-  border-left-color: #86efac;
-  background: linear-gradient(135deg, rgba(134, 239, 172, 0.07) 0%, transparent 100%);
-}
-.blog-season-card.summer {
-  border-left-color: #fcd34d;
-  background: linear-gradient(135deg, rgba(252, 211, 77, 0.07) 0%, transparent 100%);
-}
-.blog-season-card.autumn {
-  border-left-color: #fb923c;
-  background: linear-gradient(135deg, rgba(251, 146, 60, 0.07) 0%, transparent 100%);
-}
-.blog-season-card.winter {
-  border-left-color: #93c5fd;
-  background: linear-gradient(135deg, rgba(147, 197, 253, 0.07) 0%, transparent 100%);
-}
+
+.blog-season-card p   { margin: 0 0 0.8rem; }
+.blog-season-card ul  { padding-left: 1.3rem; margin: 0 0 0.8rem; }
+.blog-season-card li  { margin-bottom: 0.4rem; line-height: 1.6; }
+
+.blog-season-card.spring  { border-left-color: #86efac; background: linear-gradient(135deg, rgba(134,239,172,0.07) 0%, transparent 100%); }
+.blog-season-card.summer  { border-left-color: #fcd34d; background: linear-gradient(135deg, rgba(252,211,77,0.07)  0%, transparent 100%); }
+.blog-season-card.autumn  { border-left-color: #fb923c; background: linear-gradient(135deg, rgba(251,146,60,0.07)  0%, transparent 100%); }
+.blog-season-card.winter  { border-left-color: #93c5fd; background: linear-gradient(135deg, rgba(147,197,253,0.07) 0%, transparent 100%); }
+.blog-season-card.spooky  { border-left-color: #a78bfa; background: linear-gradient(135deg, rgba(167,139,250,0.07) 0%, transparent 100%); }
+.blog-season-card.merchant{ border-left-color: #fde68a; background: linear-gradient(135deg, rgba(253,230,138,0.07) 0%, transparent 100%); }
+
+/* ── Event Date Badge ─────────────────────────────────────────────────────── */
 .event-date-badge {
   display: inline-block;
   font-size: 0.75rem;
@@ -446,6 +557,8 @@ kbd {
   letter-spacing: 0.3px;
   white-space: nowrap;
 }
+
+/* ── Event Dots ───────────────────────────────────────────────────────────── */
 .event-dot {
   display: inline-block;
   width: 10px;
@@ -455,12 +568,24 @@ kbd {
   flex-shrink: 0;
   vertical-align: middle;
 }
+
+.event-dot.blue   { background: #93c5fd; }
+.event-dot.pink   { background: #f9a8d4; }
+.event-dot.yellow { background: #fcd34d; }
+.event-dot.orange { background: #fb923c; }
+.event-dot.purple { background: #a78bfa; }
+.event-dot.green  { background: #86efac; }
+.event-dot.gold   { background: #fde68a; }
+.event-dot.mint   { background: #6ee7b7; }
+
+/* ── Loot Grid ────────────────────────────────────────────────────────────── */
 .event-loot-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 0.8rem;
 }
+
 .event-loot-grid span {
   background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -470,71 +595,103 @@ kbd {
   color: rgba(255, 255, 255, 0.8);
   white-space: nowrap;
 }
+
+/* ── Steps List ───────────────────────────────────────────────────────────── */
+.blog-steps-list {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.blog-steps-list li { margin-bottom: 0.6rem; }
+
+/* ==========================================================================
+   AOS ANIMATIONS
+   ========================================================================== */
+
 [data-aos] {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
 [data-aos].aos-animate {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
 @media (max-width: 768px) {
   .blog-hero {
     padding: 6rem 1rem 2.5rem;
     min-height: 180px;
   }
+
   .blog-article-wrapper {
     padding: 5.5rem 1rem 3rem;
   }
+
   .blog-card {
     max-width: 100%;
   }
+
   .blog-article-content h2 {
     margin-top: 2rem;
     scroll-margin-top: 4rem;
   }
+
   .blog-cta-box {
     padding: 1.5rem 1rem;
   }
+
   .cmd-quicknav {
     padding: 0.8rem 1rem;
   }
+
   .blog-season-card {
     padding: 1rem 1.1rem;
   }
 }
+
 @media (max-width: 480px) {
   .event-date-badge {
     display: block;
     width: fit-content;
     margin: 0.4rem 0 0;
   }
+
   .event-loot-grid span {
     font-size: 0.82rem;
     padding: 0.25rem 0.6rem;
   }
+
   .cmd-quicknav a {
     font-size: 0.78rem;
     padding: 0.2rem 0.55rem;
   }
 }
+
+/* ==========================================================================
+   ACCESSIBILITY & PRINT
+   ========================================================================== */
+
 @media (prefers-reduced-motion: reduce) {
   .blog-card,
   .blog-card-img,
   [data-aos],
   .cmd-quicknav a,
-  .blog-back-link a {
+  .blog-back-link a,
+  .blog-cta-btn,
+  .discord-btn {
     transition: none !important;
     animation: none !important;
     transform: none !important;
     opacity: 1 !important;
   }
-  [data-aos] {
-    opacity: 1 !important;
-    transform: none !important;
-  }
 }
+
 @media print {
   .desktop_navbar,
   .mobile_navbar,
@@ -544,10 +701,12 @@ kbd {
   .cmd-quicknav {
     display: none !important;
   }
+
   .blog-article-wrapper {
     padding: 1rem;
     max-width: 100%;
   }
+
   .blog-article-content a {
     color: #000;
     text-decoration: underline;

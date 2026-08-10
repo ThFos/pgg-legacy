@@ -1,0 +1,94 @@
+/* ================================================================
+   RESPONSIVE — Mobile First Optimizations
+   ================================================================ */
+
+@media (max-width: 768px) {
+  /* Navbar */
+  .desktop_navbar { display: none; }
+  .mobile_navbar  { display: flex; }
+
+  /* Hero */
+  .main1 { padding-top: 5rem; }
+
+  /* Feature Cards */
+  .main2_feature {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  /* Team */
+  .main5_admins_div {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .main5_admins_img {
+    width: 90px;
+    height: 90px;
+    padding: 0.75rem;
+  }
+  .main5_admins_description_div {
+    width: 100%;
+    padding: 1.25rem;
+    align-items: center;
+  }
+
+  /* Map */
+  .map-info-bar {
+    top: 60px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: 6px 12px;
+  }
+  .map-info-desc { display: none; }
+  .map-container {
+    height: calc(100vh - 60px - 42px);
+    margin-top: calc(60px + 42px);
+  }
+
+  /* Leaderboard */
+  .leaderboard-main { margin-top: 80px; }
+  .police-main      { margin-top: 80px; }
+  .list-item        { padding: 0.75rem 1rem; }
+  .item-rank        { font-size: 1.2rem; width: 42px; }
+  .item-head        { width: 36px; height: 36px; margin-right: 0.75rem; }
+  .item-username    { font-size: 0.95rem; }
+  .item-time        { font-size: 0.85rem; padding: 0.4rem 0.75rem; }
+  .top-players-logo { max-width: 260px; }
+
+  /* AOS: disable on mobile για performance */
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ── Small phones ─────────────────────────────────────────────── */
+@media (max-width: 400px) {
+  .main1_description { font-size: 1.6rem; }
+  .main3_join_row    { font-size: 0.95rem; }
+  .item-time         { display: none; }
+}
+
+/* ── Reduced Motion ───────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── High contrast support ────────────────────────────────────── */
+@media (forced-colors: active) {
+  .main1_ipcopier,
+  .discord-btn,
+  .desktop_navbar_link2_div {
+    border: 2px solid ButtonText;
+  }
+}

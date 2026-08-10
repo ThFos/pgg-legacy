@@ -1,213 +1,143 @@
 <!DOCTYPE html>
 <html lang="el">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-49NVHWZZV8');
-    </script>
-    <title>PGG Legacy | Server Map</title>
-    <meta name="description" content="Δείτε σε πραγματικό χρόνο τον live χάρτη του PGG Legacy Minecraft server. Εξερευνήστε τις περιοχές, τα κτίρια και τους παίκτες online!">
-    <meta name="keywords" content="PGG Legacy map, Dynmap, Minecraft server map, play.pgglegacy.gr map, live minecraft map">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="PGG Legacy">
-    <meta name="theme-color" content="#5865F2">
-    <link rel="canonical" href="https://pgglegacy.gr/map">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pgglegacy.gr/map">
-    <meta property="og:title" content="PGG Legacy | Server Map">
-    <meta property="og:description" content="Δείτε σε πραγματικό χρόνο τον live χάρτη του PGG Legacy Minecraft Server!">
-    <meta property="og:image" content="https://pgglegacy.gr/media/banner.png">
-    <meta property="og:site_name" content="PGG Legacy">
-    <meta property="og:locale" content="el_GR">
-    <link rel="preconnect" href="https://map.pgglegacy.gr" crossorigin>
-    <link rel="icon" type="image/png" href="/media/favicon.png">
-    <link rel="preload" href="/style.css" as="style">
-    <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-            background-color: #121212;
-        }
-        body.menu-open {
-            overflow: auto;
-        }
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-        .map-info-bar {
-            position: fixed;
-            top: 5.2rem;
-            left: 0;
-            width: 100%;
-            background: rgba(18, 17, 23, 0.92);
-            backdrop-filter: blur(10px);
-            padding: 8px 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            z-index: 50;
-            border-bottom: 1px solid rgba(107, 45, 216, 0.3);
-        }
-        .map-info-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            color: #fff;
-            margin: 0;
-            white-space: nowrap;
-        }
-        .map-info-desc {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
-        .map-container {
-            width: 100%;
-            height: calc(100vh - 5.2rem - 50px);
-            margin-top: calc(5.2rem + 50px);
-            border: none;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        @media only screen and (max-width: 768px) {
-            .map-info-bar {
-                top: 60px;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 2px;
-                padding: 6px 15px;
-            }
-            .map-info-desc {
-                display: none;
-            }
-            .map-container {
-                height: calc(100vh - 60px - 45px);
-                margin-top: calc(60px + 45px);
-            }
-        }
-    </style>
-  </head>
-  <body>
-    <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
-    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-    <nav class="desktop_navbar" aria-label="Desktop Navigation">
-      <a href="/">
-        <img class="desktop_navbar_logo_img" src="/media/logo_small.svg" alt="PGG Legacy - Ελληνικός Minecraft RP Server" width="152" height="40">
-      </a>
-      <a href="/#rules" class="desktop_navbar_link">Rules</a>
-      <a href="/#discord" class="desktop_navbar_link">Community</a>
-      <a href="/#about" class="desktop_navbar_link">About Us</a>
-      <a href="/map" class="desktop_navbar_link nav-highlight-purple">Server Map</a>
-      <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
-      <a href="/police" class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
-      <div class="desktop_navbar_link2_div">
-          <a href="/#join" class="desktop_navbar_link2">Join Us!</a>
-      </div>
-    </nav>
-    <nav class="mobile_navbar" aria-label="Mobile Navigation">
-      <a href="/" class="mobile_navbar_logo_img_a">
-        <img class="mobile_navbar_logo_img" src="/media/logo_small.svg" alt="PGG Legacy - Ελληνικός Minecraft RP Server" width="152" height="40">
-      </a>
-      <button class="icon" aria-expanded="false" aria-controls="mobile_navbar_links" aria-label="Άνοιγμα μενού">
-        <svg id="menuIcon" class="menu-icon" viewBox="0 0 24 24" width="24" height="24" fill="white">
-          <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
-        </svg>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-49NVHWZZV8', { anonymize_ip: true });
+  </script>
+
+  <title>PGG Legacy | Live Server Map</title>
+  <meta name="description" content="Δείτε σε πραγματικό χρόνο τον live χάρτη του PGG Legacy Minecraft server!">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="PGG Legacy">
+  <meta name="theme-color" content="#6b2dd8">
+  <link rel="canonical" href="https://pgglegacy.gr/map">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pgglegacy.gr/map">
+  <meta property="og:title" content="PGG Legacy | Live Server Map">
+  <meta property="og:description" content="Δείτε σε πραγματικό χρόνο τον live χάρτη του PGG Legacy Minecraft Server!">
+  <meta property="og:image" content="https://pgglegacy.gr/media/banner.png">
+  <meta property="og:site_name" content="PGG Legacy">
+  <meta property="og:locale" content="el_GR">
+
+  <link rel="preconnect" href="https://map.pgglegacy.gr" crossorigin>
+  <link rel="dns-prefetch" href="https://map.pgglegacy.gr">
+  <link rel="icon" type="image/png" href="../media/favicon.png">
+  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+  <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/hero.css">
+  <link rel="stylesheet" href="../css/sections.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/cursor.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  
+  <!-- Cookies CSS -->
+  <link rel="stylesheet" href="../css/cookies.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="../css/cookies.css"></noscript>
+</head>
+<body class="map-page">
+  <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <nav class="desktop_navbar" aria-label="Κύριο μενού">
+    <a href="/" aria-label="PGG Legacy - Αρχική">
+      <img class="desktop_navbar_logo_img" src="../media/logo_small.svg"
+           alt="PGG Legacy Logo" width="152" height="40">
+    </a>
+    <a href="/#rules"      class="desktop_navbar_link">Rules</a>
+    <a href="/#discord"    class="desktop_navbar_link">Community</a>
+    <a href="/#about"      class="desktop_navbar_link">About Us</a>
+    <a href="/map"         class="desktop_navbar_link nav-highlight-purple" aria-current="page">Server Map</a>
+    <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
+    <a href="/police"      class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
+    <div class="desktop_navbar_link2_div">
+      <a href="/#join" class="desktop_navbar_link2">Join Us!</a>
+    </div>
+  </nav>
+
+  <nav class="mobile_navbar" aria-label="Κινητό μενού">
+    <a href="/" class="mobile_navbar_logo_img_a" aria-label="PGG Legacy - Αρχική">
+      <img class="mobile_navbar_logo_img" src="../media/logo_small.svg"
+           alt="PGG Legacy Logo" width="152" height="40">
+    </a>
+    <button class="icon" aria-expanded="false"
+            aria-controls="mobile_navbar_links"
+            aria-label="Άνοιγμα μενού πλοήγησης">
+      <svg id="menuIcon" viewBox="0 0 24 24" width="24" height="24"
+           fill="white" aria-hidden="true" focusable="false">
+        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+      </svg>
+    </button>
+    <div id="mobile_navbar_links" role="menu">
+      <a class="mobile_navbar_link"        href="/#rules"      role="menuitem">Rules</a>
+      <a class="mobile_navbar_link"        href="/#discord"    role="menuitem">Community</a>
+      <a class="mobile_navbar_link"        href="/#about"      role="menuitem">About Us</a>
+      <a class="mobile_navbar_link nav-highlight-purple" href="/map"         role="menuitem">Server Map</a>
+      <a class="mobile_navbar_link nav-highlight-blue"   href="/leaderboard" role="menuitem">Leaderboard</a>
+      <a class="mobile_navbar_link nav-highlight-gold"   href="/police"      role="menuitem">Police Apps</a>
+      <a class="mobile_navbar_link"        href="/#join"       role="menuitem">Join Us</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="map-info-bar">
+      <h1 class="map-info-title">🗺️ PGG Legacy — Live Server Map</h1>
+      <p class="map-info-desc">Εξερευνήστε τον κόσμο του PGG Legacy σε πραγματικό χρόνο</p>
+    </div>
+
+    <div class="map-container">
+      <iframe
+        src="https://map.pgglegacy.gr/"
+        title="PGG Legacy Live Minecraft Server Map — Dynmap"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        sandbox="allow-scripts allow-same-origin allow-forms">
+        <p>
+          Το πρόγραμμα περιήγησής σας δεν υποστηρίζει iframes.
+          <a href="https://map.pgglegacy.gr/" target="_blank" rel="noopener noreferrer">
+            Δείτε τον χάρτη εδώ.
+          </a>
+        </p>
+      </iframe>
+    </div>
+  </main>
+  
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" role="region" aria-label="Συναίνεση Cookies">
+    <div class="cookie-text">
+      <strong>🍪 Cookies &amp; Απόρρητο</strong><br>
+      Χρησιμοποιούμε cookies για ανώνυμα στατιστικά επισκεψιμότητας (Google Analytics) και για την ομαλή λειτουργία του site. 
+      Διαβάστε την <a href="/privacy">Πολιτική Απορρήτου</a> μας.
+    </div>
+    <div class="cookie-buttons">
+      <button id="accept-cookies" class="cookie-btn-accept" type="button">
+        Αποδοχή
       </button>
-      <div id="mobile_navbar_links">
-          <a class="mobile_navbar_link" href="/#rules">Rules</a>
-          <a class="mobile_navbar_link" href="/#discord">Community</a>
-          <a class="mobile_navbar_link" href="/#about">About Us</a>
-          <a class="mobile_navbar_link nav-highlight-purple" href="/map">Server Map</a>
-          <a class="mobile_navbar_link nav-highlight-blue" href="/leaderboard">Leaderboard</a>
-          <a class="mobile_navbar_link nav-highlight-gold" href="/police">Police Apps</a>
-          <a class="mobile_navbar_link" href="/#join">Join Us</a>
-      </div>
-    </nav>
-    <main>
-      <div class="map-info-bar">
-        <h1 class="map-info-title">
-            🗺️ PGG Legacy – Live Server Map
-        </h1>
-        <span class="map-info-desc">
-            Εξερευνήστε τον κόσμο του PGG Legacy 
-            Minecraft Server σε πραγματικό χρόνο
-        </span>
-      </div>
-      <div class="map-container">
-            <iframe 
-                src="https://map.pgglegacy.gr/" 
-                title="PGG Legacy Live Minecraft Server Map" 
-                allowfullscreen 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-                <p>
-                    <a href="https://map.pgglegacy.gr/" 
-                        target="_blank" rel="noopener noreferrer"> 
-                        Δείτε τον χάρτη εδώ 
-                    </a>
-                </p>
-            </iframe>
-      </div>
-    </main>
-    <script defer>
-      document.addEventListener("DOMContentLoaded", function() {
-        // Mobile Menu Setup
-        const mobileMenuIcon = document.querySelector('.icon');
-        if (mobileMenuIcon) {
-          mobileMenuIcon.addEventListener('click', toggleMobileMenu);
-        }
-        document.querySelectorAll('#mobile_navbar_links a').forEach(link => {
-            link.addEventListener('click', () => {
-                const menu = document.getElementById("mobile_navbar_links");
-                if(menu.style.display === "flex") toggleMobileMenu();
-            });
-        });
-        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-          const cursor = document.getElementById('cursor');
-          const glow = document.getElementById('cursorGlow');
-          document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            glow.style.left = e.clientX + 'px';
-            glow.style.top = e.clientY + 'px';
-          });
-        }
-      });
-      function toggleMobileMenu() {
-        const menu = document.getElementById("mobile_navbar_links");
-        const btn = document.querySelector('.icon');
-        const iconSvg = document.getElementById("menuIcon");
-        const isOpen = menu.style.display === "flex";
-        
-        menu.style.display = isOpen ? "none" : "flex";
-        btn.setAttribute('aria-expanded', !isOpen);
-        document.body.classList.toggle('menu-open', !isOpen);
-        
-        iconSvg.innerHTML = isOpen
-          ? '<path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>'
-          : '<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>';
-      }
-    </script>
-  </body>
+      <button id="decline-cookies" class="cookie-btn-decline" type="button">
+        Απόρριψη
+      </button>
+    </div>
+  </div>
+
+  <footer class="copyright_div">
+    <p class="copyright">
+      &copy; <span id="copyright-year"></span> PGG Legacy — All rights reserved.
+    </p>
+  </footer>
+
+  <script src="../js/script.js" defer></script>
+</body>
 </html>

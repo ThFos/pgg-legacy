@@ -1,441 +1,569 @@
 <!DOCTYPE html>
 <html lang="el">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://www.google-analytics.com">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-49NVHWZZV8');
-    </script>
-    <title>PGG Legacy | Ελληνικός Minecraft RP & SMP Server</title>
-    <meta name="description" content="Γνωρίστε τον PGG Legacy, τον κορυφαίο ελληνικό Minecraft server για Roleplay & SMP! Custom plugins, ρεαλιστικές εποχές, μοναδικά events. IP: play.pgglegacy.gr">
-    <meta name="keywords" content="PGG Legacy, Minecraft server greek, ελληνικός minecraft server, minecraft rp server, minecraft smp greece, PGG legacy ip, play.pgglegacy.gr">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="PGG Legacy">
-    <meta name="theme-color" content="#5865F2">
-    <link rel="canonical" href="https://pgglegacy.gr/">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pgglegacy.gr/">
-    <meta property="og:title" content="PGG Legacy | Ελληνικός Minecraft RP & SMP Server">
-    <meta property="og:description" content="Γνωρίστε τον PGG Legacy, τον κορυφαίο ελληνικό Minecraft server για Roleplay & SMP! Custom plugins, ρεαλιστικές εποχές, μοναδικά events. IP: play.pgglegacy.gr">
-    <meta property="og:image" content="https://pgglegacy.gr/media/banner.png">
-    <meta property="og:site_name" content="PGG Legacy">
-    <meta property="og:locale" content="el_GR">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://pgglegacy.gr/">
-    <meta name="twitter:title" content="PGG Legacy | Ελληνικός Minecraft RP & SMP Server">
-    <meta name="twitter:description" content="Γνωρίστε τον PGG Legacy, τον κορυφαίο ελληνικό Minecraft server για Roleplay & SMP! Custom plugins, ρεαλιστικές εποχές, μοναδικά events. IP: play.pgglegacy.gr">
-    <meta name="twitter:image" content="https://pgglegacy.gr/media/banner.png">
-    <link rel="icon" type="image/png" href="media/favicon.png">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "VideoGame",
-      "name": "PGG Legacy Minecraft Server",
-      "url": "https://pgglegacy.gr",
-      "image": "https://pgglegacy.gr/media/banner.png",
-      "description": "Ελληνικός Minecraft SMP & Roleplay Server με custom plugins, ρεαλιστικές εποχές και ενεργή κοινότητα.",
-      "genre": ["Role-playing game", "Survival"],
-      "gamePlatform": "PC",
-      "inLanguage": "el-GR",
-      "author": {
-        "@type": "Organization",
-        "name": "PGG Legacy",
-        "url": "https://pgglegacy.gr"
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "PGG Legacy",
-      "url": "https://pgglegacy.gr",
-      "logo": "https://pgglegacy.gr/media/logo.svg",
-      "description": "Ελληνικός Minecraft RP & SMP Server",
-      "sameAs": [
-        "https://discord.gg/Ks7NtXhtwV"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer support",
-        "availableLanguage": "Greek"
-      }
-    }
-    </script>
-    <link rel="preload" 
-      href="media/logo.svg" 
-      as="image"
-      fetchpriority="high">
-    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+  <!-- DNS Prefetch & Preconnect -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+  <link rel="dns-prefetch" href="https://api.mcstatus.io">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+
+  <title>PGG Legacy | Ελληνικός Minecraft RP &amp; SMP Server</title>
+  <meta name="description" content="Γνωρίστε τον PGG Legacy, τον κορυφαίο ελληνικό Minecraft server για Roleplay &amp; SMP! Custom plugins, ρεαλιστικές εποχές, μοναδικά events. IP: play.pgglegacy.gr">
+  <meta name="keywords" content="PGG Legacy, Minecraft server greek, ελληνικός minecraft server, minecraft rp server, minecraft smp greece, play.pgglegacy.gr">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="PGG Legacy">
+  <meta name="theme-color" content="#6b2dd8">
+  <link rel="canonical" href="https://pgglegacy.gr/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pgglegacy.gr/">
+  <meta property="og:title" content="PGG Legacy | Ελληνικός Minecraft RP &amp; SMP Server">
+  <meta property="og:description" content="Γνωρίστε τον PGG Legacy, τον κορυφαίο ελληνικό Minecraft server!">
+  <meta property="og:image" content="https://pgglegacy.gr/media/banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="PGG Legacy">
+  <meta property="og:locale" content="el_GR">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PGG Legacy | Ελληνικός Minecraft RP &amp; SMP Server">
+  <meta name="twitter:description" content="Γνωρίστε τον PGG Legacy, τον κορυφαίο ελληνικό Minecraft server!">
+  <meta name="twitter:image" content="https://pgglegacy.gr/media/banner.png">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "PGG Legacy Minecraft Server",
+    "url": "https://pgglegacy.gr",
+    "image": "https://pgglegacy.gr/media/banner.png",
+    "description": "Ελληνικός Minecraft SMP & Roleplay Server.",
+    "genre": ["Role-playing game", "Survival"],
+    "gamePlatform": "PC",
+    "inLanguage": "el-GR",
+    "author": { "@type": "Organization", "name": "PGG Legacy", "url": "https://pgglegacy.gr" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "PGG Legacy",
+    "url": "https://pgglegacy.gr",
+    "logo": "https://pgglegacy.gr/media/logo.svg",
+    "sameAs": ["https://discord.gg/Ks7NtXhtwV"],
+    "contactPoint": { "@type": "ContactPoint", "contactType": "customer support", "availableLanguage": "Greek" }
+  }
+  </script>
+
+  <!-- Critical Resource Preloads -->
+  <link rel="preload" href="/media/logo.svg" as="image" fetchpriority="high">
+  <link rel="preload" href="/media/hero-bg.webp" as="image" fetchpriority="high">
+  <link rel="icon" type="image/png" href="/media/favicon.png">
+
+  <!-- Fonts - Non-blocking -->
+  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+  <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
     <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
-    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-    <nav class="desktop_navbar" aria-label="Desktop Navigation">
-      <a href="./">
-        <img class="desktop_navbar_logo_img" src="media/logo_small.svg" alt="PGG Legacy - Ελληνικός Minecraft RP Server" width="152" height="40">
-      </a>
-      <a href="#rules" class="desktop_navbar_link scroll">Rules</a>
-      <a href="#discord" class="desktop_navbar_link scroll">Community</a>
-      <a href="#about" class="desktop_navbar_link scroll">About Us</a>
-      <a href="/map" class="desktop_navbar_link">Server Map</a>
-      <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
-      <a href="/police" class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
-      <div class="desktop_navbar_link2_div">
-          <a href="#join" class="desktop_navbar_link2 scroll">Join Us!</a>
-      </div>
-    </nav>
-    <nav class="mobile_navbar" aria-label="Mobile Navigation">
-      <a href="/" class="mobile_navbar_logo_img_a">
-        <img class="mobile_navbar_logo_img" src="media/logo_small.svg" alt="PGG Legacy - Ελληνικός Minecraft RP Server" width="152" height="40">
-      </a>
-      <button class="icon" 
-              aria-expanded="false" 
-              aria-controls="mobile_navbar_links"
-              aria-label="Άνοιγμα μενού">
-        <svg id="menuIcon" class="menu-icon" viewBox="0 0 24 24" width="24" height="24" fill="white">
-          <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
-        </svg>
-      </button>
-      <div id="mobile_navbar_links">
-          <a class="mobile_navbar_link scroll" href="#rules">Rules</a>
-          <a class="mobile_navbar_link scroll" href="#discord">Community</a>
-          <a class="mobile_navbar_link scroll" href="#about">About Us</a>
-          <a class="mobile_navbar_link" href="/map">Server Map</a>
-          <a class="mobile_navbar_link nav-highlight-blue" href="/leaderboard">Leaderboard</a>
-          <a class="mobile_navbar_link nav-highlight-gold" href="/police">Police Apps</a>
-          <a class="mobile_navbar_link scroll" href="#join">Join Us</a>
-      </div>
-    </nav>
-    <main class="mainflex">
-      <section id="hero" class="main1" data-aos="fade" data-aos-duration="1200">
-        <a class="main1_logo_a" href="#">
-          <img class="main1_logo" 
-                src="media/logo.svg" 
-                alt="PGG Legacy - Ελληνικός Minecraft RP Server Logo" 
-                data-aos="zoom-in" 
-                data-aos-delay="200" 
-                width="450" 
-                height="150"
-                fetchpriority="high">
-        </a>
-        <h1 class="main1_description" 
-          data-aos="fade-up" 
-          data-aos-delay="400">
-          PGG Legacy
-          <span class="hero-subtitle">
-            Ελληνικός Minecraft RP &amp; SMP Server
-            <small class="hero-ip">play.pgglegacy.gr</small>
+  </noscript>
+
+  <!-- Critical CSS inline (base + navbar) -->
+  <style>
+    :root {
+      --nice-padding: 6rem;
+      --roundness: 0.75rem;
+      --accent1: #6b2dd8;
+      --accent2: #521eb8;
+      --accent2-transp: rgba(82, 30, 184, 0.33);
+      --bg1: #1a1921;
+      --bg2: #121117;
+      --text-muted: rgba(255, 255, 255, 0.7);
+      --border-subtle: rgba(255, 255, 255, 0.05);
+      --transition-std: 0.3s ease;
+      color-scheme: dark;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: var(--bg1);
+      color: #fff;
+    }
+    body.menu-open { overflow: hidden; }
+    img { -webkit-user-drag: none; user-drag: none; max-width: 100%; }
+    ul { list-style: none; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0;
+      margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+      white-space: nowrap; border: 0;
+    }
+    :focus-visible { outline: 2px solid var(--accent1); outline-offset: 3px; border-radius: 4px; }
+    #hero, #features, #rules, #discord, #about, #join { scroll-margin-top: 5.5rem; }
+    .headline {
+      color: #fff;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      text-align: center;
+      font-weight: 700;
+      padding: 0 1rem;
+      margin-top: 2rem;
+    }
+    .mainflex { display: flex; flex-direction: column; align-items: center; width: 100%; }
+    .copyright_div {
+      width: 100%; display: flex; justify-content: center;
+      padding: 1.5rem 1rem; background: #000; text-align: center;
+    }
+    .copyright { color: var(--text-muted); font-size: 0.9rem; }
+    .copyright a { color: var(--text-muted); text-decoration: underline; transition: color 0.2s ease; }
+    .copyright a:hover { color: #fff; }
+    
+    /* Navbar Critical */
+    .desktop_navbar {
+      position: fixed; inset: 0 0 auto 0;
+      display: flex; height: 5.2rem;
+      align-items: center; justify-content: center;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      z-index: 100; gap: 0.2rem;
+    }
+    .desktop_navbar_logo_img { width: 9.5rem; height: auto; padding: 0 1.5rem 0 2rem; }
+    .desktop_navbar_link {
+      font-size: 1.05rem; padding: 0.8rem 1rem;
+      text-decoration: none; color: #fff; white-space: nowrap;
+    }
+    .desktop_navbar_link2_div {
+      font-size: 1.05rem; padding: 0.5rem 1rem;
+      margin-left: auto; margin-right: 2rem; font-weight: 700;
+      border: 1px solid var(--accent1); border-radius: var(--roundness);
+      white-space: nowrap;
+    }
+    .desktop_navbar_link2 { color: #fff; text-decoration: none; }
+    .nav-highlight-blue { color: #5865F2 !important; font-weight: 700; }
+    .nav-highlight-gold { color: #ffcc00 !important; font-weight: 700; }
+    .mobile_navbar { display: none; }
+    /* Hero Critical */
+    .main1 {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      width: 100%; min-height: 90vh;
+      padding: calc(var(--nice-padding) + 2rem) 1rem 3rem;
+      background: rgba(0, 0, 0, 0.65) url('/media/hero-bg.webp') center / cover no-repeat;
+      background-blend-mode: darken; gap: 1.5rem;
+    }
+    /* AOS initial state */
+    [data-aos] { opacity: 0; transition: opacity 0.8s ease, transform 0.8s ease; }
+    [data-aos="fade-up"] { transform: translateY(28px); }
+    [data-aos="zoom-in"] { transform: scale(0.92); }
+    [data-aos].aos-animate { opacity: 1; transform: translateY(0) scale(1); }
+    @media (max-width: 768px) {
+      .desktop_navbar { display: none; }
+      .mobile_navbar {
+        display: flex; position: fixed; inset: 0 0 auto 0;
+        height: 60px; align-items: center; justify-content: space-between;
+        padding: 0 1rem; background: rgba(18, 17, 23, 0.9);
+        backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-subtle);
+        z-index: 100;
+      }
+      [data-aos] { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
+
+  <!-- Non-critical CSS - Deferred -->
+  <link rel="stylesheet" href="/css/sections.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/pages.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/cookies.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/cursor.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/animations.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/responsive.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/navbar.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/hero.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="/css/sections.css">
+    <link rel="stylesheet" href="/css/pages.css">
+    <link rel="stylesheet" href="/css/cookies.css">
+    <link rel="stylesheet" href="/css/cursor.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/hero.css">
+  </noscript>
+</head>
+<body>
+  <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <nav class="desktop_navbar" aria-label="Κύριο μενού">
+    <a href="/" aria-label="PGG Legacy - Αρχική">
+      <img class="desktop_navbar_logo_img" src="/media/logo_small.svg"
+           alt="PGG Legacy Logo" width="152" height="40" fetchpriority="high">
+    </a>
+    <a href="#rules" class="desktop_navbar_link scroll">Rules</a>
+    <a href="#discord" class="desktop_navbar_link scroll">Community</a>
+    <a href="#about" class="desktop_navbar_link scroll">About Us</a>
+    <a href="/map" class="desktop_navbar_link">Server Map</a>
+    <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
+    <a href="/police" class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
+    <div class="desktop_navbar_link2_div">
+      <a href="#join" class="desktop_navbar_link2 scroll">Join Us!</a>
+    </div>
+  </nav>
+
+  <nav class="mobile_navbar" aria-label="Κινητό μενού">
+    <a href="/" class="mobile_navbar_logo_img_a" aria-label="PGG Legacy - Αρχική">
+      <img class="mobile_navbar_logo_img" src="/media/logo_small.svg"
+           alt="PGG Legacy Logo" width="152" height="40">
+    </a>
+    <button class="icon" aria-expanded="false"
+            aria-controls="mobile_navbar_links"
+            aria-label="Άνοιγμα μενού πλοήγησης">
+      <svg id="menuIcon" viewBox="0 0 24 24" width="24" height="24"
+           fill="white" aria-hidden="true" focusable="false">
+        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+      </svg>
+    </button>
+    <div id="mobile_navbar_links" role="menu">
+      <a class="mobile_navbar_link scroll" href="#rules" role="menuitem">Rules</a>
+      <a class="mobile_navbar_link scroll" href="#discord" role="menuitem">Community</a>
+      <a class="mobile_navbar_link scroll" href="#about" role="menuitem">About Us</a>
+      <a class="mobile_navbar_link" href="/map" role="menuitem">Server Map</a>
+      <a class="mobile_navbar_link nav-highlight-blue" href="/leaderboard" role="menuitem">Leaderboard</a>
+      <a class="mobile_navbar_link nav-highlight-gold" href="/police" role="menuitem">Police Apps</a>
+      <a class="mobile_navbar_link scroll" href="#join" role="menuitem">Join Us</a>
+    </div>
+  </nav>
+
+  <main class="mainflex">
+    <section id="hero" class="main1" aria-labelledby="hero-title">
+      <img class="main1_logo" src="/media/logo.svg" alt=""
+           aria-hidden="true" width="450" height="150"
+           fetchpriority="high" data-aos="zoom-in" data-aos-delay="200">
+      <h1 id="hero-title" class="main1_description"
+          data-aos="fade-up" data-aos-delay="400">
+        PGG Legacy
+        <span class="hero-subtitle">
+          Ελληνικός Minecraft RP &amp; SMP Server
+          <small class="hero-ip">play.pgglegacy.gr</small>
+        </span>
+      </h1>
+      <div class="main1_ipcopier_div" data-aos="fade-up" data-aos-delay="600">
+        <button class="main1_ipcopier" id="ip-copy-btn" type="button"
+                aria-label="Αντιγραφή Server IP: play.PGGlegacy.gr">
+          <span class="main1_ipcopier_text1" aria-hidden="true">play.PGGlegacy.gr</span>
+          <span class="main1_ipcopier_text2" id="player-count"
+                aria-live="polite" aria-atomic="true">
+            Φόρτωση παικτών...
           </span>
-        </h1>
-        <div class="main1_ipcopier_div" data-aos="fade-up" data-aos-delay="600">
-          <button class="main1_ipcopier" onclick="copyText('play.PGGlegacy.gr')" type="button">
-            <span class="main1_ipcopier_text1">play.PGGlegacy.gr</span>
-            <span class="main1_ipcopier_text2" id="player-count">Φόρτωση παικτών...</span>
-          </button>
+        </button>
+      </div>
+      <a href="#features" class="scroll" aria-label="Μετάβαση στα χαρακτηριστικά">
+        <img class="main1_downarrow" src="/media/downarrow.png"
+             alt="" aria-hidden="true" width="41" height="24">
+      </a>
+    </section>
+
+    <section id="features" class="main2" aria-labelledby="features-title">
+      <h2 id="features-title" class="headline" data-aos="fade-up">Τι προσφέρουμε</h2>
+      <div class="main2_features_div">
+
+        <article class="main2_feature" data-aos="fade-up" data-aos-delay="100">
+          <video class="main2_feature_img" autoplay muted loop playsinline
+                 width="400" height="180" aria-hidden="true"
+                 preload="none" data-poster="/media/feature1-poster.webp"
+                 oncontextmenu="return false;">
+            <source src="/media/feature1.mp4" type="video/mp4">
+          </video>
+          <h3 class="main2_feature_headline">Custom RP Plugins</h3>
+          <p class="main2_feature_text">
+            Αποκλειστικά plugins φτιαγμένα από την ομάδα μας!
+            Συστήματα Αστυνομίας, Ταυτότητες, Ανώνυμα Μηνύματα &amp; RP mechanics.
+          </p>
+        </article>
+
+        <article class="main2_feature" data-aos="fade-up" data-aos-delay="200">
+          <video class="main2_feature_img" autoplay muted loop playsinline
+                 width="400" height="180" aria-hidden="true"
+                 preload="none" data-poster="/media/feature2-poster.webp"
+                 oncontextmenu="return false;">
+            <source src="/media/feature2.mp4" type="video/mp4">
+          </video>
+          <h3 class="main2_feature_headline">Ρεαλιστικές Εποχές</h3>
+          <p class="main2_feature_text">
+            Ζήσε την αλλαγή των 4 εποχών σε πραγματικό χρόνο.
+            Το περιβάλλον, ο καιρός και το gameplay προσαρμόζονται αναλόγως!
+          </p>
+        </article>
+
+        <article class="main2_feature" data-aos="fade-up" data-aos-delay="300">
+          <video class="main2_feature_img" autoplay muted loop playsinline
+                 width="400" height="180" aria-hidden="true"
+                 preload="none" data-poster="/media/feature3-poster.webp"
+                 oncontextmenu="return false;">
+            <source src="/media/feature3.mp4" type="video/mp4">
+          </video>
+          <h3 class="main2_feature_headline">Custom World Generation</h3>
+          <p class="main2_feature_text">
+            Ένας πανέμορφος κόσμος με εντυπωσιακό terrain generation, νέα biomes
+            και τοπία που κάνουν την εξερεύνηση μοναδική.
+          </p>
+        </article>
+
+        <article class="main2_feature" data-aos="fade-up" data-aos-delay="400">
+          <video class="main2_feature_img" autoplay muted loop playsinline
+                 width="400" height="180" aria-hidden="true"
+                 preload="none" data-poster="/media/feature4-poster.webp"
+                 oncontextmenu="return false;">
+            <source src="/media/feature4.mp4" type="video/mp4">
+          </video>
+          <h3 class="main2_feature_headline">Custom Heads &amp; Decoration</h3>
+          <p class="main2_feature_text">
+            Διακόσμησε τον χώρο σου με εκατοντάδες μοναδικά custom heads!
+            Από τρόφιμα και έπιπλα μέχρι σπάνια collectibles.
+          </p>
+        </article>
+
+        <article class="main2_feature" data-aos="fade-up" data-aos-delay="500">
+          <video class="main2_feature_img" autoplay muted loop playsinline
+                 width="400" height="180" aria-hidden="true"
+                 preload="none" data-poster="/media/feature5-poster.webp"
+                 oncontextmenu="return false;">
+            <source src="/media/feature5.mp4" type="video/mp4">
+          </video>
+          <h3 class="main2_feature_headline">Hitman</h3>
+          <p class="main2_feature_text">
+            Εξολόθρευσε στόχους με αντάλλαγμα Diamonds, λάβε μέρος στο Black Market
+            event ή γίνε ο μυστικός Hitman της πόλης!
+          </p>
+        </article>
+
+        <article class="main2_feature" data-aos="fade-up" data-aos-delay="600">
+          <video class="main2_feature_img" autoplay muted loop playsinline
+                 width="400" height="180" aria-hidden="true"
+                 preload="none" data-poster="/media/feature6-poster.webp"
+                 oncontextmenu="return false;">
+            <source src="/media/feature6.mp4" type="video/mp4">
+          </video>
+          <h3 class="main2_feature_headline">Blood Moon</h3>
+          <p class="main2_feature_text">
+            Όταν η νύχτα κοκκινίζει, τα τέρατα δυναμώνουν!
+            Επιβίωσε και κέρδισε σπάνια custom rewards.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="rules" class="main2" aria-labelledby="rules-title">
+      <h2 id="rules-title" class="headline" data-aos="fade-up">Κανόνες του Server</h2>
+      <h3 class="headline rules-subcategory top-subcategory" data-aos="fade-up">
+        SMP Rules (Gameplay)
+      </h3>
+      <div class="main2_features_div">
+        <article class="main2_feature" data-aos="zoom-in" data-aos-delay="100">
+          <h4 class="main2_feature_headline">1. No Cheats</h4>
+          <p class="main2_feature_text">
+            Απαγορεύεται αυστηρά κάθε είδους hack, X-Ray, Fly, Kill-Aura
+            ή mods που δίνουν άδικο πλεονέκτημα.
+          </p>
+        </article>
+        <article class="main2_feature" data-aos="zoom-in" data-aos-delay="200">
+          <h4 class="main2_feature_headline">2. No Griefing &amp; Bugs</h4>
+          <p class="main2_feature_text">
+            Απαγορεύεται η καταστροφή ξένων κτιρίων χωρίς RP λόγο.
+            <span class="warning-note">⚠ </span> Αν χάσετε αντικείμενα λόγω bug,
+            δεν υπάρχει δυνατότητα επιστροφής.
+          </p>
+        </article>
+        <article class="main2_feature" data-aos="zoom-in" data-aos-delay="300">
+          <h4 class="main2_feature_headline">3. OOC Respect</h4>
+          <p class="main2_feature_text">
+            Ο σεβασμός εκτός χαρακτήρα είναι υποχρεωτικός. Απαγορεύεται
+            το flame, το hate speech, το spam και οι προσβλητικοί χαρακτηρισμοί.
+          </p>
+        </article>
+      </div>
+
+      <h3 class="headline rules-subcategory" data-aos="fade-up">
+        Roleplay Rules (Story)
+      </h3>
+      <div class="main2_features_div">
+        <article class="main2_feature" data-aos="zoom-in" data-aos-delay="100">
+          <h4 class="main2_feature_headline">1. No Metagaming</h4>
+          <p class="main2_feature_text">
+            Απαγορεύεται να χρησιμοποιείτε πληροφορίες In-Character τις οποίες
+            μάθατε μέσω Out-Of-Character πηγών (π.χ. Discord, streams).
+          </p>
+        </article>
+        <article class="main2_feature" data-aos="zoom-in" data-aos-delay="200">
+          <h4 class="main2_feature_headline">2. No RDM</h4>
+          <p class="main2_feature_text">
+            Κάθε φόνος απαιτεί προηγούμενο διάλογο και RP αφορμή.
+            <br><strong>Ποινή: -2 ζωές στον θύτη.</strong>
+          </p>
+        </article>
+        <article class="main2_feature" data-aos="zoom-in" data-aos-delay="300">
+          <h4 class="main2_feature_headline">3. RP Commitment &amp; NLR</h4>
+          <p class="main2_feature_text">
+            Είστε υποχρεωμένοι να παίξετε κάθε σκηνικό μέχρι τέλους.
+            Στις 0 ζωές ο χαρακτήρας πεθαίνει οριστικά (Perma Death).
+          </p>
+        </article>
+      </div>
+
+      <h3 class="headline rules-subcategory" data-aos="fade-up">Βαθμίδες Ποινών</h3>
+      <div class="main2_features_div">
+        <article class="main2_feature penalty-warn" data-aos="zoom-in" data-aos-delay="100">
+          <h4 class="main2_feature_headline">Warn</h4>
+          <p class="main2_feature_text">
+            <em>"Η πρώτη και τελευταία ευκαιρία."</em><br><br>
+            <strong>Αιτίες:</strong> Ήπιο Meta-gaming, spam, ασέβεια OOC.<br>
+            <strong>Λειτουργία:</strong> Στα 3 Warns → αυτόματο Temporary Ban.
+          </p>
+        </article>
+        <article class="main2_feature penalty-temp-ban" data-aos="zoom-in" data-aos-delay="200">
+          <h4 class="main2_feature_headline">Temporary Ban (1–7 Ημέρες)</h4>
+          <p class="main2_feature_text">
+            <em>"Διάλειμμα για συμμόρφωση."</em><br><br>
+            <strong>Αιτίες:</strong> 3 warnings, Combat Log, επανειλημμένο RDM,
+            καταστροφή RP σκηνικού.
+          </p>
+        </article>
+        <article class="main2_feature penalty-perm-ban" data-aos="zoom-in" data-aos-delay="300">
+          <h4 class="main2_feature_headline">Permanent Ban</h4>
+          <p class="main2_feature_text">
+            <em>"Τέλος από τον server."</em><br><br>
+            <strong>Αιτίες:</strong> Cheating (μηδενική ανοχή), Extreme Toxicity,
+            Massive Griefing.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="discord" class="main4" aria-labelledby="discord-title">
+      <h2 id="discord-title" class="headline" data-aos="fade-up">Κοινότητα — Discord</h2>
+      <div class="main4_dc_div" data-aos="fade-up" data-aos-duration="800">
+        <div class="main4_dc_description_div">
+          <p class="main4_dc_description_title">Έλα στην παρέα μας!</p>
+          <ul class="main4_dc_description" aria-label="Τι προσφέρει το Discord">
+            <li>Γνώρισε τους άλλους παίκτες</li>
+            <li>Κάνε ερωτήσεις &amp; πάρε support</li>
+            <li>Μάθε πρώτος για τα updates</li>
+            <li>Λάβε μέρος σε RP Events</li>
+          </ul>
+          <a href="https://discord.gg/Ks7NtXhtwV"
+             class="discord-btn" target="_blank" rel="noopener noreferrer"
+             aria-label="Είσοδος στο Discord server του PGG Legacy (νέο tab)">
+            Join Discord
+          </a>
         </div>
-        <a href="#features" class="scroll" aria-label="Scroll Down">
-          <img alt="" class="main1_downarrow" src="media/downarrow.png" role="presentation" width="24" height="24">
-        </a>
-      </section>
-      <section id="features" class="main2">
-  <h2 class="headline" data-aos="fade-up">Τι προσφέρουμε</h2>
-  <div class="main2_features_div">
-    <div class="main2_feature" data-aos="fade-up" data-aos-delay="100">
-      <video class="main2_feature_img" autoplay muted loop playsinline width="400" height="180" oncontextmenu="return false;">
-        <source src="media/feature1.mp4" type="video/mp4">
-        Το πρόγραμμα περιήγησής σου δεν υποστηρίζει βίντεο.
-      </video>
-      <h3 class="main2_feature_headline">Custom RP Plugins</h3>
-      <div class="main2_feature_text">Αποκλειστικά plugins φτιαγμένα από την ομάδα μας! Συστήματα Αστυνομίας, Ταυτότητες, Ανώνυμα Μηνύματα &amp; RP mechanics.</div>
-    </div>
-    <div class="main2_feature" data-aos="fade-up" data-aos-delay="200">
-      <video class="main2_feature_img" autoplay muted loop playsinline width="400" height="180" oncontextmenu="return false;">
-        <source src="media/feature2.mp4" type="video/mp4">
-        Το πρόγραμμα περιήγησής σου δεν υποστηρίζει βίντεο.
-      </video>
-      <h3 class="main2_feature_headline">Ρεαλιστικές Εποχές</h3>
-      <div class="main2_feature_text">Ζήσε την αλλαγή των 4 εποχών σε πραγματικό χρόνο. Το περιβάλλον, ο καιρός και το gameplay προσαρμόζονται αναλόγως!</div>
-    </div>
-    <div class="main2_feature" data-aos="fade-up" data-aos-delay="300">
-      <video class="main2_feature_img" autoplay muted loop playsinline width="400" height="180" oncontextmenu="return false;">
-        <source src="media/feature3.mp4" type="video/mp4">
-        Το πρόγραμμα περιήγησής σου δεν υποστηρίζει βίντεο.
-      </video>
-      <h3 class="main2_feature_headline">Custom World Generation</h3>
-      <div class="main2_feature_text">Ένας πανέμορφος κόσμος με εντυπωσιακό terrain generation, νέα biomes και τοπία που κάνουν την εξερεύνηση μοναδική.</div>
-    </div>
-    <div class="main2_feature" data-aos="fade-up" data-aos-delay="400">
-      <video class="main2_feature_img" autoplay muted loop playsinline width="400" height="180" oncontextmenu="return false;">
-        <source src="media/feature4.mp4" type="video/mp4">
-        Το πρόγραμμα περιήγησής σου δεν υποστηρίζει βίντεο.
-      </video>
-      <h3 class="main2_feature_headline">Custom Heads &amp; Decoration</h3>
-      <div class="main2_feature_text">Διακόσμησε τον χώρο σου με εκατοντάδες μοναδικά custom heads! Από τρόφιμα και έπιπλα μέχρι σπάνια collectibles για να ξεχωρίσεις.</div>
-    </div>
-    <div class="main2_feature" data-aos="fade-up" data-aos-delay="500">
-      <video class="main2_feature_img" autoplay muted loop playsinline width="400" height="180" oncontextmenu="return false;">
-        <source src="media/feature5.mp4" type="video/mp4">
-        Το πρόγραμμα περιήγησής σου δεν υποστηρίζει βίντεο.
-      </video>
-      <h3 class="main2_feature_headline">Hitman</h3>
-      <div class="main2_feature_text">Εξολόθρευσε στόχους με αντάλλαγμα Diamonds, λάβε μέρος στο Black Market event για σπάνιο οπλισμό ή γίνε ο μυστικός Hitman της πόλης!</div>
-    </div>
-    <div class="main2_feature" data-aos="fade-up" data-aos-delay="600">
-      <video class="main2_feature_img" autoplay muted loop playsinline width="400" height="180" oncontextmenu="return false;">
-        <source src="media/feature6.mp4" type="video/mp4">
-        Το πρόγραμμα περιήγησής σου δεν υποστηρίζει βίντεο.
-      </video>
-      <h3 class="main2_feature_headline">Blood Moon</h3>
-      <div class="main2_feature_text">Όταν η νύχτα κοκκινίζει, τα τέρατα δυναμώνουν! Επιβίωσε από τις επικίνδυνες επιθέσεις και κέρδισε σπάνια custom rewards.</div>
-    </div>
-  </div>
-</section>
-      <section id="rules" class="main2">
-        <h2 class="headline" data-aos="fade-up">Κανόνες του Server</h2>
-        
-        <h3 class="headline rules-subcategory top-subcategory" data-aos="fade-up">SMP Rules (Gameplay)</h3>
-        <div class="main2_features_div">
-          <div class="main2_feature" data-aos="zoom-in" data-aos-delay="100">
-            <h4 class="main2_feature_headline">1. No Cheats</h4>
-            <div class="main2_feature_text">Απαγορεύεται αυστηρά κάθε είδους hack, X-Ray, Fly, Kill-Aura ή mods που δίνουν άδικο πλεονέκτημα.</div>
-          </div>
-          <div class="main2_feature" data-aos="zoom-in" data-aos-delay="200">
-            <h4 class="main2_feature_headline">2. No Griefing &amp; Bugs</h4>
-            <div class="main2_feature_text">Απαγορεύεται η καταστροφή ξένων κτιρίων/βάσεων χωρίς RP λόγο. <span class="warning-note">⚠️ Σημείωση:</span> Αν χάσετε αντικείμενα λόγω bug, δεν υπάρχει δυνατότητα επιστροφής.</div>
-          </div>
-          <div class="main2_feature" data-aos="zoom-in" data-aos-delay="300">
-            <h4 class="main2_feature_headline">3. OOC Respect</h4>
-            <div class="main2_feature_text">Ο σεβασμός εκτός χαρακτήρας είναι υποχρεωτικός. Απαγορεύεται το flame, το hate speech, το spam και οι προσβλητικοί χαρακτηρισμοί/nicknames.</div>
+      </div>
+    </section>
+
+    <section id="about" class="main5" aria-labelledby="about-title">
+      <h2 id="about-title" class="headline" data-aos="fade-up">Η Ομάδα μας</h2>
+      <div class="main5_admin_div">
+
+        <div class="main5_admins_div" data-aos="zoom-in" data-aos-delay="100">
+          <img class="main5_admins_img" alt="MPAMIASDL — Admin"
+               src="/media/admin1.webp" width="120" height="120" loading="lazy"
+               decoding="async">
+          <div class="main5_admins_description_div">
+            <p class="main5_admins_description_rank main5_admins_description_rank_owner">[Admin]</p>
+            <span class="main5_admins_description_title">MPAMIASDL</span>
+            <p class="main5_admins_description">Admin &amp; Event Planner</p>
           </div>
         </div>
-        <h3 class="headline rules-subcategory" data-aos="fade-up">Roleplay Rules (Story)</h3>
-        <div class="main2_features_div">
-          <div class="main2_feature" data-aos="zoom-in" data-aos-delay="100">
-            <h4 class="main2_feature_headline">1. No Meta-gaming</h4>
-            <div class="main2_feature_text">Απαγορεύεται να χρησιμοποιείτε πληροφορίες In-Character (εντός παιχνιδιού) τις οποίες μάθατε μέσω Out-Of-Character πηγών (π.χ. Discord, streams).</div>
-          </div>
-          <div class="main2_feature" data-aos="zoom-in" data-aos-delay="200">
-            <h4 class="main2_feature_headline">2. No RDM (Random Deathmatch)</h4>
-            <div class="main2_feature_text">Κάθε φόνος απαιτεί προηγούμενο διάλογο και RP αφορμή. Απαγορεύονται τα instakills χωρίς λόγο. <br><strong>Ποινή: -2 ζωές στον θύτη.</strong></div>
-          </div>
-          <div class="main2_feature" data-aos="zoom-in" data-aos-delay="300">
-            <h4 class="main2_feature_headline">3. RP Commitment &amp; NLR</h4>
-            <div class="main2_feature_text">Είστε υποχρεωμένοι να παίξετε κάθε σκηνικό (απαγωγές κλπ) μέχρι τέλους. Η ζωή σας είναι πολύτιμη: Στις 0 ζωές ο χαρακτήρας πεθαίνει οριστικά (Perma Death).</div>
+
+        <div class="main5_admins_div" data-aos="zoom-in" data-aos-delay="200">
+          <img class="main5_admins_img" alt="ThFos — Admin &amp; Developer"
+               src="/media/admin2.webp" width="120" height="120" loading="lazy"
+               decoding="async">
+          <div class="main5_admins_description_div">
+            <p class="main5_admins_description_rank main5_admins_description_rank_owner">[Admin]</p>
+            <span class="main5_admins_description_title">ThFos</span>
+            <p class="main5_admins_description">Admin &amp; Developer</p>
           </div>
         </div>
-        <h3 class="headline rules-subcategory" data-aos="fade-up">Βαθμίδες Ποινών</h3>
-        <div class="main2_features_div">
-          <div class="main2_feature penalty-warn" data-aos="zoom-in" data-aos-delay="100">
-            <h4 class="main2_feature_headline">Warn (Προειδοποίηση)</h4>
-            <div class="main2_feature_text">
-              <em>"Η πρώτη και τελευταία ευκαιρία."</em><br><br>
-              <strong>Αιτίες:</strong> Ήπιο Meta-gaming, spam στο chat, ασέβεια OOC, μικρό-παραβάσεις στο RP.<br>
-              <strong>Λειτουργία:</strong> Στα 3 Warns ο παίκτης δέχεται αυτόματα Temporary Ban.
-            </div>
-          </div>
-          <div class="main2_feature penalty-temp-ban" data-aos="zoom-in" data-aos-delay="200">
-            <h4 class="main2_feature_headline">Temporary Ban (1 έως 7 Ημέρες)</h4>
-            <div class="main2_feature_text">
-              <em>"Διάλειμμα για συμμόρφωση."</em><br><br>
-              <strong>Αιτίες:</strong> Συμπλήρωση 3 warnings, Combat Log (αποσύνδεση για αποφυγή θανάτου/σύλληψης), επανειλημμένο RDM, ή σκόπιμη άρνηση/καταστροφή μεγάλου RP σκηνικού.
-            </div>
-          </div>
-          <div class="main2_feature penalty-perm-ban" data-aos="zoom-in" data-aos-delay="300">
-            <h4 class="main2_feature_headline">Permanent Ban (Οριστική Διαγραφή)</h4>
-            <div class="main2_feature_text">
-              <em>"Τέλος από τον server."</em><br><br>
-              <strong>Αιτίες:</strong> Cheating (X-ray, Fly κλπ - Μηδενική ανοχή), Extreme Toxicity (ρατσισμός/βαριά OOC προσβολή), Massive Griefing, ή αν ο παίκτης συνεχίσει να παραβιάζει κανόνες μετά από Temp Ban.
-            </div>
+
+        <div class="main5_admins_div" data-aos="zoom-in" data-aos-delay="300">
+          <img class="main5_admins_img" alt="kon212121 — Admin &amp; Community Manager"
+               src="/media/admin3.webp" width="120" height="120" loading="lazy"
+               decoding="async">
+          <div class="main5_admins_description_div">
+            <p class="main5_admins_description_rank main5_admins_description_rank_owner">[Admin]</p>
+            <span class="main5_admins_description_title">kon212121</span>
+            <p class="main5_admins_description">Admin &amp; Community Manager</p>
           </div>
         </div>
-      </section>
-      <section id="discord" class="main4">
-        <h2 class="headline" data-aos="fade-up">Κοινότητα - Discord</h2>
-        <div class="main4_dc_div" data-aos="fade-up" data-aos-duration="800">
-          <div class="main4_dc_description_div">
-            <div class="main4_dc_description_title">Έλα στην παρέα μας!</div>
-            <div class="main4_dc_description">
-               ・Γνώρισε τους άλλους παίκτες <br> 
-               ・Κάνε ερωτήσεις &amp; πάρε support <br> 
-               ·Μάθε πρώτος για τα updates <br> 
-               ・Λάβε μέρος σε RP Events 
-            </div>
-            <a href="https://discord.gg/Ks7NtXhtwV" 
-               class="discord-btn"
-               target="_blank" 
-               rel="noopener noreferrer">
-              Join Discord
-            </a>
-          </div>
-        </div>
-      </section>
-      <section id="about" class="main5">
-        <h2 class="headline" data-aos="fade-up">Η Ομάδα μας</h2>
-        <div class="main5_admin_div">
-          <div class="main5_admins_div" data-aos="zoom-in" data-aos-delay="100">
-            <img class="main5_admins_img" alt="MPAMIASDL - Admin στον PGG Legacy Minecraft server" src="media/admin1.webp" width="120" height="120" loading="lazy">
-            <div class="main5_admins_description_div">
-              <div class="main5_admins_description_rank main5_admins_description_rank_owner">[Admin]</div>
-              <span class="main5_admins_description_title">MPAMIASDL</span>
-              <div class="main5_admins_description">Admin &amp; Event Planner</div>
-            </div>
-          </div>
-          <div class="main5_admins_div" data-aos="zoom-in" data-aos-delay="200">
-            <img class="main5_admins_img" alt="ThFos - Admin στον PGG Legacy Minecraft server" src="media/admin2.webp" width="120" height="120" loading="lazy">
-            <div class="main5_admins_description_div">
-              <div class="main5_admins_description_rank main5_admins_description_rank_owner">[Admin]</div>
-              <span class="main5_admins_description_title">ThFos</span>
-              <div class="main5_admins_description">Admin &amp; Developer</div>
-            </div>
-          </div>
-          <div class="main5_admins_div" data-aos="zoom-in" data-aos-delay="300">
-            <img class="main5_admins_img" alt="kon212121 - Admin στον PGG Legacy Minecraft server" src="media/admin3.webp" width="120" height="120" loading="lazy">
-            <div class="main5_admins_description_div">
-              <div class="main5_admins_description_rank main5_admins_description_rank_owner">[Admin]</div>
-              <span class="main5_admins_description_title">kon212121</span>
-              <div class="main5_admins_description">Admin &amp; Community Manager</div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="join" class="main3">
-        <h2 class="headline" data-aos="fade-up">Πώς να μπεις<br>(PGG Legacy IP)</h2>
-        <div class="main3_join_div_div">
-          <div class="main3_join_div" data-aos="fade-up" data-aos-duration="800">
-            <div class="main3_join_title">Java Edition</div>
-            <div class="main3_join_content_div">
-              <div class="main3_join_categories">
-                <span>IP:</span>
-                <span>Version:</span>
+
+      </div>
+    </section>
+
+    <section id="join" class="main3" aria-labelledby="join-title">
+      <h2 id="join-title" class="headline" data-aos="fade-up">
+        Πώς να μπεις<br>(PGG Legacy IP)
+      </h2>
+      <div class="main3_join_div_div">
+        <div class="main3_join_div" data-aos="fade-up" data-aos-duration="800">
+          <p class="main3_join_title">Java Edition</p>
+          <div class="main3_join_content_div">
+            <dl class="main3_join_dl">
+              <div class="main3_join_row">
+                <dt>IP:</dt>
+                <dd>play.PGGlegacy.gr</dd>
               </div>
-              <div class="main3_join_values">
-                <span>play.PGGlegacy.gr</span>
-                <span>1.20.1</span>
+              <div class="main3_join_row">
+                <dt>Version:</dt>
+                <dd>1.20.1</dd>
               </div>
-            </div>
+            </dl>
           </div>
         </div>
-      </section>
-    </main>
-    <footer class="copyright_div">
-      <p class="copyright">
-        © <span id="copyright-year"></span>
-        PGG Legacy - All rights reserved.
-      </p>
-    </footer>
-    <script defer>
-      document.addEventListener("DOMContentLoaded", function() {
-        // Copyright year
-        const yearEl = document.getElementById('copyright-year');
-        if (yearEl) yearEl.textContent = new Date().getFullYear();
-        if (window.innerWidth > 768) {
-          const animObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('aos-animate');
-                animObserver.unobserve(entry.target);
-              }
-            });
-          }, { threshold: 0.1 });
-          document.querySelectorAll('[data-aos]')
-            .forEach(el => animObserver.observe(el));
-        } else {
-          // Mobile: Εμφάνισε όλα αμέσως
-          document.querySelectorAll('[data-aos]')
-            .forEach(el => el.classList.add('aos-animate'));
-        }
-        const mobileMenuIcon = document.querySelector('.icon');
-        if (mobileMenuIcon) {
-          mobileMenuIcon.addEventListener('click', toggleMobileMenu);
-        }
-        document.querySelectorAll('#mobile_navbar_links .scroll')
-          .forEach(link => {
-            link.addEventListener('click', function(e) {
-              e.preventDefault();
-              const menu = document.getElementById("mobile_navbar_links");
-              if (menu.style.display === "flex") toggleMobileMenu();
-              const target = document.querySelector(this.getAttribute('href'));
-              if (target) {
-                setTimeout(() => {
-                  window.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
-                }, 100);
-              }
-            });
-          });
-        document.querySelectorAll('nav:not(.mobile_navbar) .scroll, .main1 .scroll').forEach(link => {
-          link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) window.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
-          });
-        });
-        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-          const cursor = document.getElementById('cursor');
-          const glow = document.getElementById('cursorGlow');
-          document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            glow.style.left = e.clientX + 'px';
-            glow.style.top = e.clientY + 'px';
-          });
-          document.querySelectorAll('.main2_feature').forEach(card => {
-            card.addEventListener('mousemove', e => {
-              const rect = card.getBoundingClientRect();
-              card.style.setProperty('--x', `${e.clientX - rect.left}px`);
-              card.style.setProperty('--y', `${e.clientY - rect.top}px`);
-            });
-          });
-        }
-        const SERVER_IP = 'play.PGGlegacy.gr';
-        fetch(`https://api.mcstatus.io/v2/status/java/${SERVER_IP}`)
-          .then(res => res.json())
-          .then(data => {
-            const el = document.getElementById('player-count');
-            if (el) {
-              el.innerText = data.online ? `${data.players.online} / ${data.players.max} Online - Πάτησε για αντιγραφή` : 'Server Offline - Πάτησε για αντιγραφή';
+      </div>
+    </section>
+  </main>
+
+  <footer class="copyright_div">
+    <p class="copyright">
+      &copy; <span id="copyright-year">2026</span> PGG Legacy — All rights reserved. | 
+      <a href="/privacy">Privacy Policy</a>
+    </p>
+  </footer>
+
+  <!-- Scripts - Deferred -->
+  <script src="/js/script.js" defer></script>
+  
+  <!-- Lazy Loading Handler για τα Video Posters -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const lazyVideos = document.querySelectorAll("video.main2_feature_img[data-poster]");
+      if ("IntersectionObserver" in window) {
+        const videoObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const video = entry.target;
+              video.poster = video.dataset.poster;
+              videoObserver.unobserve(video);
             }
-          })
-          .catch(() => { 
-            const el = document.getElementById('player-count');
-            if (el) el.innerText = 'Πάτησε για αντιγραφή IP'; 
           });
-      });
-      function toggleMobileMenu() {
-        const menu = document.getElementById("mobile_navbar_links");
-        const btn = document.querySelector('.icon');
-        const iconSvg = document.getElementById("menuIcon");
-        const isOpen = menu.style.display === "flex";
-        menu.style.display = isOpen ? "none" : "flex";
-        btn.setAttribute('aria-expanded', !isOpen);
-        
-        iconSvg.innerHTML = isOpen
-          ? '<path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>'
-          : '<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>';
-      }
-      function copyText(ip) {
-        navigator.clipboard.writeText(ip).then(() => {
-          document.querySelectorAll('.main1_popup').forEach(el => el.remove());
-          const popup = document.createElement('div');
-          popup.className = 'main1_popup';
-          popup.innerHTML = '<h3>Η IP αντιγράφηκε!</h3>';
-          document.querySelector('.main1_ipcopier').appendChild(popup);
-          setTimeout(() => {
-            popup.style.transition = 'opacity 0.3s';
-            popup.style.opacity = '0';
-            setTimeout(() => popup.remove(), 300);
-          }, 1500);
+        }, { rootMargin: "150px" });
+        lazyVideos.forEach(video => videoObserver.observe(video));
+      } else {
+        lazyVideos.forEach(video => {
+          video.poster = video.dataset.poster;
         });
       }
-    </script>
-  </body>
+    });
+  </script>
+</body>
 </html>

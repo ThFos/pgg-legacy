@@ -1,305 +1,163 @@
 <!DOCTYPE html>
 <html lang="el">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-49NVHWZZV8');
-    </script>
-    <title>PGG Legacy | Leaderboard</title>
-    <meta name="description" content="Δείτε τους κορυφαίους παίκτες με τις περισσότερες ώρες παιχνιδιού στον PGG Legacy Minecraft Server. Εβδομαδιαία και συνολικά στατιστικά playtime!">
-    <meta name="keywords" content="PGG Legacy leaderboard, top players minecraft, play.pgglegacy.gr stats, ελληνικός minecraft server leaderboard">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="PGG Legacy">
-    <meta name="theme-color" content="#5865F2">
-    <link rel="canonical" href="https://pgglegacy.gr/leaderboard">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pgglegacy.gr/leaderboard">
-    <meta property="og:title" content="PGG Legacy | Leaderboard">
-    <meta property="og:description" content="Δείτε ποιοι παίκτες κυριαρχούν στον PGG Legacy! Εβδομαδιαίο & All-time Playtime Leaderboard.">
-    <meta property="og:image" content="https://pgglegacy.gr/media/banner.png">
-    <meta property="og:site_name" content="PGG Legacy">
-    <meta property="og:locale" content="el_GR">
-    <link rel="icon" type="image/png" href="/media/favicon.png">
-    <link rel="preload" href="/style.css" as="style">
-    <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" media="print" onload="this.media='all'">
-    <style>
-        .leaderboard-container { max-width: 900px; width: 100%; margin: 0 auto; }
-        .leaderboard-logo-container { text-align: center; margin-bottom: 10px; }
-        .top-players-logo-container { text-align: center; margin-top: 10px; margin-bottom: 15px; }
-        .top-players-logo { max-width: 380px; width: 90%; height: auto; display: inline-block; }
-        .leaderboard-subtitle { text-align: center; color: rgba(255, 255, 255, 0.7); font-size: 1.15rem; margin-top: 10px; margin-bottom: 35px; font-weight: 500; }
-        .leaderboard-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 35px; }
-        .tab-btn { background: var(--background1); border: 1px solid rgba(255, 255, 255, 0.1); color: #aaa; padding: 10px 28px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; border-radius: var(--roundness); cursor: pointer; transition: all 0.3s ease; }
-        .tab-btn:hover { background: rgba(255, 255, 255, 0.05); color: #fff; transform: translateY(-2px); }
-        .tab-btn.active { background: var(--accent1); border-color: var(--accent1); color: #fff; box-shadow: 0 0 20px rgba(107, 45, 216, 0.4); }
-        .leaderboard-list { display: flex; flex-direction: column; gap: 14px; }
-        .list-item { display: flex; align-items: center; background: var(--background1); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: var(--roundness); padding: 16px 24px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .list-item:hover { transform: translateX(6px); background: rgba(255, 255, 255, 0.03); border-color: rgba(255, 255, 255, 0.15); }
-        .list-item.rank-1 { border-color: rgba(0, 180, 216, 0.7); box-shadow: 0 0 20px rgba(0, 180, 216, 0.2); background: linear-gradient(90deg, rgba(0, 180, 216, 0.08) 0%, var(--background1) 100%); }
-        .list-item.rank-2 { border-color: rgba(255, 215, 0, 0.6); box-shadow: 0 0 15px rgba(255, 215, 0, 0.15); background: linear-gradient(90deg, rgba(255, 215, 0, 0.06) 0%, var(--background1) 100%); }
-        .list-item.rank-3 { border-color: rgba(192, 192, 192, 0.5); box-shadow: 0 0 15px rgba(192, 192, 192, 0.1); background: linear-gradient(90deg, rgba(192, 192, 192, 0.06) 0%, var(--background1) 100%); }
-        .item-rank { font-size: 1.6rem; font-weight: 800; width: 60px; font-family: 'Space Grotesk', sans-serif; }
-        .item-head { width: 44px; height: 44px; border-radius: 8px; margin-right: 20px; image-rendering: pixelated; object-fit: cover; background-color: var(--background2); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); }
-        .item-username { flex-grow: 1; font-size: 1.2rem; font-weight: 700; color: #ffffff; }
-        .item-time { font-size: 1.05rem; color: var(--accent1); font-weight: 800; text-align: right; background: var(--accent2_transp); padding: 8px 16px; border-radius: var(--roundness); border: 1px solid var(--accent1); }
-        .leaderboard-main {
-            margin-top: 120px;
-            min-height: 80vh;
-        }
-        .leaderboard-section {
-            background: transparent;
-            justify-content: center;
-        }
-        .leaderboard-h1 {
-            margin: 0;
-            padding: 0;
-        }
-        .leaderboard-msg {
-            text-align: center;
-            color: rgba(255, 255, 255, 0.6);
-            padding: 40px;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        .leaderboard-error-msg {
-            text-align: center;
-            color: #ff5555;
-            padding: 40px;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        .skeleton-item { opacity: 0.5; }
-        .skeleton-block { 
-            background: rgba(255, 255, 255, 0.1); 
-            border-radius: 4px; 
-        }
-        .skeleton-block.item-rank { 
-            height: 24px; 
-            width: 40px; 
-        }
-        .skeleton-username { 
-            height: 20px; 
-            width: 150px; 
-        }
-        @media only screen and (max-width: 768px) {
-            .list-item { padding: 12px 16px; }
-            .item-rank { font-size: 1.3rem; width: 45px; }
-            .item-head { width: 38px; height: 38px; margin-right: 12px; }
-            .item-username { font-size: 1rem; }
-            .item-time { font-size: 0.9rem; padding: 6px 10px; }
-            .top-players-logo { max-width: 280px; }
-        }
-    </style>
-  </head>
-  <body>
-    <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
-    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-    <nav class="desktop_navbar" aria-label="Desktop Navigation">
-      <a href="/">
-        <img class="desktop_navbar_logo_img" src="/media/logo_small.svg" alt="PGG Legacy - Ελληνικός Minecraft RP Server" width="152" height="40">
-      </a>
-      <a href="/#rules" class="desktop_navbar_link">Rules</a>
-      <a href="/#discord" class="desktop_navbar_link">Community</a>
-      <a href="/#about" class="desktop_navbar_link">About Us</a>
-      <a href="/map" class="desktop_navbar_link">Server Map</a>
-      <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
-      <a href="/police" class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
-      <div class="desktop_navbar_link2_div">
-          <a href="/#join" class="desktop_navbar_link2">Join Us!</a>
-      </div>
-    </nav>
-    <nav class="mobile_navbar" aria-label="Mobile Navigation">
-      <a href="/" class="mobile_navbar_logo_img_a">
-        <img class="mobile_navbar_logo_img" src="/media/logo_small.svg" alt="PGG Legacy - Ελληνικός Minecraft RP Server" width="152" height="40">
-      </a>
-      <button class="icon" aria-expanded="false" aria-controls="mobile_navbar_links" aria-label="Άνοιγμα μενού">
-        <svg id="menuIcon" class="menu-icon" viewBox="0 0 24 24" width="24" height="24" fill="white">
-          <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
-        </svg>
-      </button>
-      <div id="mobile_navbar_links">
-          <a class="mobile_navbar_link" href="/#rules">Rules</a>
-          <a class="mobile_navbar_link" href="/#discord">Community</a>
-          <a class="mobile_navbar_link" href="/#about">About Us</a>
-          <a class="mobile_navbar_link" href="/map">Server Map</a>
-          <a class="mobile_navbar_link nav-highlight-blue" href="/leaderboard">Leaderboard</a>
-          <a class="mobile_navbar_link nav-highlight-gold" href="/police">Police Apps</a>
-          <a class="mobile_navbar_link" href="/#join">Join Us</a>
-      </div>
-    </nav>
-    <main class="mainflex leaderboard-main">
-      <section class="main2 leaderboard-section">
-        <div class="leaderboard-container">
-            
-            <div class="leaderboard-logo-container" data-aos="zoom-in">
-                <a href="/" aria-label="PGG Legacy - Αρχική">
-                    <img src="/media/logo.svg" alt="PGG Legacy Logo" class="main1_logo">
-                </a>
-            </div>
-            <div class="top-players-logo-container" data-aos="fade-up" data-aos-delay="50">
-                <h1 class="leaderboard-h1">
-                    <img src="/media/topplayers.svg" alt="Top Players Leaderboard - PGG Legacy" class="top-players-logo">
-                </h1>
-            </div>
-            <p class="leaderboard-subtitle" data-aos="fade-up" data-aos-delay="100">
-                Οι παίκτες με τις περισσότερες ώρες στον PGG Legacy Server
-            </p>
-            <div class="leaderboard-tabs" data-aos="fade-up" data-aos-delay="150">
-                <button class="tab-btn active" id="btn-weekly">Weekly</button>
-                <button class="tab-btn" id="btn-all">All-Time</button>
-            </div>
-            <div class="leaderboard-list" id="leaderboard-list" data-aos="fade-up" data-aos-delay="200">
-              <noscript>
-                <p class="leaderboard-msg">
-                  Δείτε τους top παίκτες του PGG Legacy Minecraft Server. Ενεργοποιήστε JavaScript.
-                </p>
-              </noscript>
-            </div>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-49NVHWZZV8', { anonymize_ip: true });
+  </script>
+
+  <title>PGG Legacy | Leaderboard — Top Players</title>
+  <meta name="description" content="Δείτε τους κορυφαίους παίκτες με τις περισσότερες ώρες παιχνιδιού στον PGG Legacy Minecraft Server!">
+  <meta name="keywords" content="PGG Legacy leaderboard, top players minecraft, play.pgglegacy.gr stats">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="PGG Legacy">
+  <meta name="theme-color" content="#6b2dd8">
+  <link rel="canonical" href="https://pgglegacy.gr/leaderboard">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pgglegacy.gr/leaderboard">
+  <meta property="og:title" content="PGG Legacy | Leaderboard — Top Players">
+  <meta property="og:description" content="Ποιοι παίκτες κυριαρχούν στον PGG Legacy; Εβδομαδιαίο &amp; All-Time Playtime Leaderboard.">
+  <meta property="og:image" content="https://pgglegacy.gr/media/banner.png">
+  <meta property="og:site_name" content="PGG Legacy">
+  <meta property="og:locale" content="el_GR">
+
+  <link rel="icon" type="image/png" href="../media/favicon.png">
+  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+  <link rel="dns-prefetch" href="https://pgg-leaderboard-api.onrender.com">
+  <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" media="print" onload="this.media='all'">
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/hero.css">
+  <link rel="stylesheet" href="../css/sections.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/cursor.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  
+  <!-- Προσθήκη Cookies CSS -->
+  <link rel="stylesheet" href="../css/cookies.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="../css/cookies.css"></noscript>
+</head>
+<body>
+  <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <nav class="desktop_navbar" aria-label="Κύριο μενού">
+    <a href="/" aria-label="PGG Legacy - Αρχική">
+      <img class="desktop_navbar_logo_img" src="../media/logo_small.svg"
+           alt="PGG Legacy Logo" width="152" height="40">
+    </a>
+    <a href="/#rules"      class="desktop_navbar_link">Rules</a>
+    <a href="/#discord"    class="desktop_navbar_link">Community</a>
+    <a href="/#about"      class="desktop_navbar_link">About Us</a>
+    <a href="/map"         class="desktop_navbar_link">Server Map</a>
+    <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue" aria-current="page">Leaderboard</a>
+    <a href="/police"      class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
+    <div class="desktop_navbar_link2_div">
+      <a href="/#join" class="desktop_navbar_link2">Join Us!</a>
+    </div>
+  </nav>
+
+  <nav class="mobile_navbar" aria-label="Κινητό μενού">
+    <a href="/" class="mobile_navbar_logo_img_a" aria-label="PGG Legacy - Αρχική">
+      <img class="mobile_navbar_logo_img" src="../media/logo_small.svg"
+           alt="PGG Legacy Logo" width="152" height="40">
+    </a>
+    <button class="icon" aria-expanded="false"
+            aria-controls="mobile_navbar_links"
+            aria-label="Άνοιγμα μενού πλοήγησης">
+      <svg id="menuIcon" viewBox="0 0 24 24" width="24" height="24"
+           fill="white" aria-hidden="true" focusable="false">
+        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+      </svg>
+    </button>
+    <div id="mobile_navbar_links" role="menu">
+      <a class="mobile_navbar_link" href="/#rules"      role="menuitem">Rules</a>
+      <a class="mobile_navbar_link" href="/#discord"    role="menuitem">Community</a>
+      <a class="mobile_navbar_link" href="/#about"      role="menuitem">About Us</a>
+      <a class="mobile_navbar_link" href="/map"         role="menuitem">Server Map</a>
+      <a class="mobile_navbar_link nav-highlight-blue"  href="/leaderboard" role="menuitem">Leaderboard</a>
+      <a class="mobile_navbar_link nav-highlight-gold"  href="/police"      role="menuitem">Police Apps</a>
+      <a class="mobile_navbar_link" href="/#join"       role="menuitem">Join Us</a>
+    </div>
+  </nav>
+
+  <main class="mainflex leaderboard-main">
+    <section class="main2 leaderboard-section" aria-labelledby="lb-title">
+      <div class="leaderboard-container">
+
+        <div class="leaderboard-logo-container" data-aos="zoom-in">
+          <a href="/" aria-label="PGG Legacy - Αρχική">
+            <img src="../media/logo.svg" alt="PGG Legacy"
+                 class="leaderboard-logo" width="400" height="133" loading="eager">
+          </a>
         </div>
-      </section>
-    </main>
-    <footer class="copyright_div">
-      <p class="copyright">
-        © <span id="copyright-year"></span>
-        PGG Legacy - All rights reserved.
-      </p>
-    </footer>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script defer>
-      window.addEventListener('load', function() {
-        if(typeof AOS !== 'undefined') {
-          AOS.init({ duration: 800, once: true, disable: window.innerWidth < 768 });
-        }
-      });
-      document.addEventListener("DOMContentLoaded", function() {
-        const yearEl = document.getElementById('copyright-year');
-        if (yearEl) yearEl.textContent = new Date().getFullYear();
-        const mobileMenuIcon = document.querySelector('.icon');
-        if (mobileMenuIcon) {
-          mobileMenuIcon.addEventListener('click', toggleMobileMenu);
-        }
-        document.getElementById('btn-weekly').addEventListener('click', () => switchPeriod('weekly'));
-        document.getElementById('btn-all').addEventListener('click', () => switchPeriod('all'));
-        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-          const cursor = document.getElementById('cursor');
-          const glow = document.getElementById('cursorGlow');
-          document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            glow.style.left = e.clientX + 'px';
-            glow.style.top = e.clientY + 'px';
-          });
-        }
-        fetchLeaderboard('weekly');
-      });
-      function toggleMobileMenu() {
-        const menu = document.getElementById("mobile_navbar_links");
-        const btn = document.querySelector('.icon');
-        const iconSvg = document.getElementById("menuIcon");
-        const isOpen = menu.style.display === "flex";
-        menu.style.display = isOpen ? "none" : "flex";
-        btn.setAttribute('aria-expanded', !isOpen);
-        iconSvg.innerHTML = isOpen
-          ? '<path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>'
-          : '<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>';
-      }
-      function switchPeriod(period) {
-          document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-          if (period === 'all') {
-              document.getElementById('btn-all').classList.add('active');
-          } else {
-              document.getElementById('btn-weekly').classList.add('active');
-          }
-          fetchLeaderboard(period);
-      }
-      function createLeaderboardItem(player, rank) {
-          const item = document.createElement('div');
-          item.className = `list-item ${getRankClass(rank)}`;
-          const rankEl = document.createElement('div');
-          rankEl.className = 'item-rank';
-          rankEl.style.color = getRankColor(rank);
-          rankEl.textContent = `#${rank}`;
-          const img = document.createElement('img');
-          img.className = 'item-head';
-          img.src = player.headUrl;
-          img.alt = `${player.username}'s Head`;
-          img.onerror = () => { 
-              img.src = 'https://mc-heads.net/avatar/steve/44'; 
-          };
-          const username = document.createElement('div');
-          username.className = 'item-username';
-          username.textContent = player.username;
-          const time = document.createElement('div');
-          time.className = 'item-time';
-          time.textContent = player.playtime;
-              
-          item.append(rankEl, img, username, time);
-          return item;
-      }
-      function getRankClass(rank) {
-          if (rank === 1) return 'rank-1';
-          if (rank === 2) return 'rank-2';
-          if (rank === 3) return 'rank-3';
-          return '';
-      }
-      function getRankColor(rank) {
-          const colors = { 1: '#00b4d8', 2: '#ffd700', 3: '#c0c0c0' };
-          return colors[rank] || '#b0b8d0';
-      }
-      function showSkeleton() {
-          const listContainer = document.getElementById('leaderboard-list');
-          listContainer.innerHTML = '';
-          for (let i = 0; i < 5; i++) {
-              const skeleton = document.createElement('div');
-              skeleton.className = 'list-item skeleton-item';
-              const rankSkel = document.createElement('div');
-              rankSkel.className = 'item-rank skeleton-block';
-              const headSkel = document.createElement('div');
-              headSkel.className = 'item-head skeleton-block';
-              const userSkel = document.createElement('div');
-              userSkel.className = 'item-username skeleton-block skeleton-username';
-              skeleton.append(rankSkel, headSkel, userSkel);
-              listContainer.appendChild(skeleton);
-          }
-      }
-      async function fetchLeaderboard(period = 'weekly') {
-          const listContainer = document.getElementById('leaderboard-list');
-          showSkeleton();
-          try {
-              const endpoint = period === 'weekly' 
-                  ? 'https://pgg-leaderboard-api.onrender.com?period=weekly' 
-                  : 'https://pgg-leaderboard-api.onrender.com?period=all';
-              const response = await fetch(endpoint); 
-              const players = await response.json();
-              listContainer.innerHTML = ''; 
-              if (!players || players.length === 0 || players.error) {
-                  const message = period === 'weekly' 
-                      ? 'Δεν υπάρχουν διαθέσιμα δεδομένα για αυτήν την εβδομάδα.' 
-                      : 'Δεν βρέθηκαν δεδομένα ακόμα.';
-                  const msgEl = document.createElement('p');
-                  msgEl.className = 'leaderboard-msg';
-                  msgEl.textContent = message;
-                  listContainer.appendChild(msgEl);
-                  return;
-              }
-              players.slice(0, 25).forEach((player, index) => {
-                  const item = createLeaderboardItem(player, index + 1);
-                  listContainer.appendChild(item);
-              });
-          } catch (error) {
-              listContainer.innerHTML = '';
-              const errEl = document.createElement('p');
-              errEl.className = 'leaderboard-error-msg';
-              errEl.textContent = 'Δεν ήταν δυνατή η σύνδεση με το API.';
-              listContainer.appendChild(errEl);
-          }
-      }
-    </script>
-  </body>
+
+        <div class="top-players-logo-container" data-aos="fade-up" data-aos-delay="50">
+          <h1 id="lb-title" class="leaderboard-h1">
+            <img src="../media/topplayers.svg" alt="Top Players Leaderboard"
+                 class="top-players-logo" width="380" height="80">
+          </h1>
+        </div>
+
+        <p class="leaderboard-subtitle" data-aos="fade-up" data-aos-delay="100">
+          Οι παίκτες με τις περισσότερες ώρες στον PGG Legacy Server
+        </p>
+
+        <div class="leaderboard-tabs" data-aos="fade-up" data-aos-delay="150"
+             role="group" aria-label="Επιλογή περιόδου">
+          <button class="tab-btn active" id="btn-weekly" aria-pressed="true">Weekly</button>
+          <button class="tab-btn"        id="btn-all"    aria-pressed="false">All-Time</button>
+        </div>
+
+        <div class="leaderboard-list" id="leaderboard-list"
+             data-aos="fade-up" data-aos-delay="200"
+             aria-live="polite" aria-busy="true" role="list">
+          <noscript>
+            <p class="leaderboard-msg">
+              Ενεργοποιήστε JavaScript για να δείτε το leaderboard.
+            </p>
+          </noscript>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  
+<!-- Cookie Banner -->
+  <div id="cookie-banner" role="region" aria-label="Συναίνεση Cookies">
+    <div class="cookie-text">
+      <strong>🍪 Cookies &amp; Απόρρητο</strong><br>
+      Χρησιμοποιούμε cookies για ανώνυμα στατιστικά επισκεψιμότητας (Google Analytics) και για την ομαλή λειτουργία του site. 
+      Διαβάστε την <a href="/privacy">Πολιτική Απορρήτου</a> μας.
+    </div>
+    <div class="cookie-buttons">
+      <button id="accept-cookies" class="cookie-btn-accept" type="button">
+        Αποδοχή
+      </button>
+      <button id="decline-cookies" class="cookie-btn-decline" type="button">
+        Απόρριψη
+      </button>
+    </div>
+  </div>
+
+  <footer class="copyright_div">
+    <p class="copyright">
+      &copy; <span id="copyright-year"></span> PGG Legacy — All rights reserved.
+    </p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="../js/script.js" defer></script>
+</body>
 </html>

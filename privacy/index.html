@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+  <title>Πολιτική Απορρήτου | PGG Legacy</title>
+  <meta name="description" content="Πολιτική Απορρήτου και Προστασίας Προσωπικών Δεδομένων του PGG Legacy Minecraft Server.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="PGG Legacy">
+  <meta name="theme-color" content="#6b2dd8">
+  <link rel="canonical" href="https://pgglegacy.gr/privacy">
+
+  <link rel="icon" type="image/png" href="/media/favicon.png">
+  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+  <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Critical Base CSS -->
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/cookies.css">
+
+  <!-- Deferred CSS -->
+  <link rel="stylesheet" href="/css/sections.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/pages.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/animations.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/responsive.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/navbar.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/hero.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="/css/sections.css">
+    <link rel="stylesheet" href="/css/pages.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/hero.css">
+  </noscript>
+
+  <style>
+    *, html, body, a, button {
+      cursor: auto !important;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: var(--bg1, #1a1921);
+      color: #fff;
+    }
+
+    .privacy-section {
+      max-width: 900px;
+      margin: 7rem auto 4rem;
+      padding: 2.5rem 2rem;
+      background: var(--bg2, #121117);
+      border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+      border-radius: var(--roundness, 0.75rem);
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .privacy-section h1 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: #fff;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .privacy-date {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-muted, rgba(255, 255, 255, 0.6));
+      margin-bottom: 2.5rem;
+    }
+
+    .privacy-section h2 {
+      font-size: 1.35rem;
+      color: #a855f7;
+      margin-top: 2.2rem;
+      margin-bottom: 0.8rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 0.4rem;
+      font-weight: 700;
+    }
+
+    .privacy-section p, 
+    .privacy-section ul {
+      margin-bottom: 1.2rem;
+      font-size: 0.98rem;
+    }
+
+    .privacy-section ul {
+      padding-left: 1.5rem;
+      list-style: disc;
+    }
+
+    .privacy-section li {
+      margin-bottom: 0.6rem;
+    }
+
+    .privacy-section a {
+      color: #c084fc;
+      text-decoration: underline;
+      transition: color 0.2s ease;
+      cursor: pointer !important;
+    }
+
+    .privacy-section a:hover {
+      color: #e9d5ff;
+    }
+
+    .reset-cookies-container {
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: rgba(107, 45, 216, 0.1);
+      border: 1px solid rgba(107, 45, 216, 0.3);
+      border-radius: 0.5rem;
+    }
+
+    .reset-btn {
+      background: #6b2dd8;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 0.4rem;
+      font-family: inherit;
+      font-weight: 700;
+      cursor: pointer !important;
+      margin-top: 0.5rem;
+      transition: background 0.2s ease;
+    }
+
+    .reset-btn:hover {
+      background: #7c3aed;
+    }
+
+    .back-btn-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+
+    .back-btn {
+      display: inline-block;
+      padding: 0.75rem 1.8rem;
+      background: var(--accent1, #6b2dd8);
+      color: #fff !important;
+      text-decoration: none !important;
+      border-radius: var(--roundness, 0.75rem);
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 15px rgba(107, 45, 216, 0.3);
+      cursor: pointer !important;
+    }
+
+    .back-btn:hover {
+      background: #7c3aed;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(107, 45, 216, 0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Desktop Navbar -->
+  <nav class="desktop_navbar" aria-label="Κύριο μενού">
+    <a href="/" aria-label="PGG Legacy - Αρχική">
+      <img class="desktop_navbar_logo_img" src="/media/logo_small.svg" alt="PGG Legacy Logo" width="152" height="40">
+    </a>
+    <a href="/#rules" class="desktop_navbar_link">Rules</a>
+    <a href="/#discord" class="desktop_navbar_link">Community</a>
+    <a href="/#about" class="desktop_navbar_link">About Us</a>
+    <a href="/map" class="desktop_navbar_link">Server Map</a>
+    <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
+    <a href="/police" class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
+    <div class="desktop_navbar_link2_div">
+      <a href="/#join" class="desktop_navbar_link2">Join Us!</a>
+    </div>
+  </nav>
+
+  <main class="mainflex">
+    <article class="privacy-section">
+      <h1>Πολιτική Απορρήτου (Privacy Policy)</h1>
+      <p class="privacy-date">Τελευταία ενημέρωση: Αύγουστος 2026</p>
+
+      <p>Η παρούσα Πολιτική Απορρήτου εξηγεί πώς ο διακομιστής <strong>PGG Legacy</strong> (pgglegacy.gr) συλλέγει, χρησιμοποιεί, αποθηκεύει και προστατεύει τα προσωπικά σας δεδομένα σύμφωνα με τον Γενικό Κανονισμό για την Προστασία Δεδομένων της ΕΕ (GDPR 2016/679) και την ισχύουσα ελληνική νομοθεσία.</p>
+
+      <h2>1. Υπεύθυνος Επεξεργασίας</h2>
+      <p>Υπεύθυνη για την επεξεργασία των δεδομένων είναι η ομάδα διαχείρισης του <strong>PGG Legacy</strong>. Για οποιαδήποτε απορία ή άσκηση των δικαιωμάτων σας, μπορείτε να επικοινωνήσετε μαζί μας μέσω του επίσημου διακομιστή μας στο Discord: <a href="https://discord.gg/Ks7NtXhtwV" target="_blank" rel="noopener">discord.gg/Ks7NtXhtwV</a>.</p>
+
+      <h2>2. Δεδομένα που Συλλέγουμε & Σκοπός Επεξεργασίας</h2>
+      <ul>
+        <li>
+          <strong>Αιτήσεις Αστυνομίας (Police Applications):</strong> 
+          Όταν συμπληρώνετε τη φόρμα αιτήσεων, συλλέγουμε το <em>Discord Username</em>, το <em>In-Game Name (Minecraft Name)</em>, την <em>Ηλικία (OOC)</em>, τις διαθέσιμες ώρες και την εμπειρία σας. Τα δεδομένα αυτά συλλέγονται αποκλειστικά για την αξιολόγηση της αίτησής σας από την ομάδα Staff και τη μετέπειτα επικοινωνία μαζί μας.
+        </li>
+        <li>
+          <strong>Ανώνυμα Στατιστικά Επισκεψιμότητας (Google Analytics):</strong> 
+          Χρησιμοποιούμε το Google Analytics με ενεργοποιημένη την ανωνυμοποίηση διευθύνσεων IP (anonymize IP). Συλλέγονται ανώνυμες πληροφορίες όπως προβολές σελίδων, τύπος συσκευής, λειτουργικό σύστημα και προέλευση επισκεπτών, αποκλειστικά κατόπιν δικής σας συγκατάθεσης.
+        </li>
+        <li>
+          <strong>Τοπική Αποθήκευση (LocalStorage):</strong> 
+          Χρησιμοποιούμε τη λειτουργία LocalStorage του περιηγητή σας για να αποθηκεύουμε τεχνικές πληροφορίες, όπως την αποφυγή διπλής υποβολής αιτήσεων ή τις προτιμήσεις σας για τα cookies.
+        </li>
+      </ul>
+
+      <div class="reset-cookies-container">
+        <strong>Διαχείριση Συγκατάθεσης Cookies:</strong><br>
+        Μπορείτε ανά πάσα στιγμή να αλλάξετε τις προτιμήσεις σας για τα cookies πατώντας το παρακάτω κουμπί:
+        <br>
+        <button id="reset-cookies-btn" class="reset-btn" type="button">Αλλαγή Προτιμήσεων Cookies</button>
+      </div>
+
+      <h2>3. Νομική Βάση Επεξεργασίας</h2>
+      <ul>
+        <li><strong>Συγκατάθεση (Consent):</strong> Για τη συλλογή στατιστικών μέσω cookies (Google Analytics) και για την υποβολή της φόρμας αίτησης.</li>
+        <li><strong>Έννομο Συμφέρον (Legitimate Interest):</strong> Για τη διασφάλιση της ομαλής λειτουργίας, της ασφάλειας της ιστοσελίδας και την αποτροπή καταχρήσεων (spam / DDOS).</li>
+      </ul>
+
+      <h2>4. Τρίτες Υπηρεσίες & Εκτελούντες την Επεξεργασία</h2>
+      <p>Για την παροχή των υπηρεσιών μας, συνεργαζόμαστε με τις ακόλουθες τρίτες υπηρεσίες οι οποίες ενδέχεται να επεξεργάζονται δεδομένα για λογαριασμό μας:</p>
+      <ul>
+        <li><strong>Web3Forms:</strong> Υπηρεσία διαβίβασης των αιτήσεων αστυνομίας. Τα στοιχεία της φόρμας αποστέλλονται με ασφάλεια μέσω της Web3Forms στην ομάδα διαχείρισης.</li>
+        <li><strong>Google Analytics (Google LLC):</strong> Παροχή ανώνυμων στατιστικών επισκεψιμότητας.</li>
+        <li><strong>Render & mcstatus.io:</strong> Τεχνικές υποδομές API για την προβολή κατάστασης του server και του Leaderboard (συλλογή δημόσιων δεδομένων Minecraft).</li>
+      </ul>
+
+      <h2>5. Χρόνος Διατήρησης Δεδομένων</h2>
+      <p>Τα στοιχεία των αιτήσεων διατηρούνται μόνο για όσο διάστημα είναι απαραίτητο για την αξιολόγηση και τη λειτουργία της ομάδας Staff ή μέχρι να αιτηθείτε τη διαγραφή τους. Τα ανώνυμα στατιστικά του Google Analytics διαγράφονται αυτόματα σύμφωνα με τους ορισμένους χρόνους διατήρησης της Google.</p>
+
+      <h2>6. Τα Δικαιώματά σας (GDPR)</h2>
+      <p>Έχετε τα εξής δικαιώματα σχετικά με τα προσωπικά σας δεδομένα:</p>
+
+      <ul>
+        <li><strong>Δικαίωμα Πρόσβασης:</strong> Να μάθετε ποια δεδομένα διατηρούμε για εσάς.</li>
+        <li><strong>Δικαίωμα Διόρθωσης:</strong> Να ζητήσετε τη διόρθωση ανακριβών στοιχείων.</li>
+        <li><strong>Δικαίωμα Διαγραφής ("Δικαίωμα στη Λήθη"):</strong> Να ζητήσετε την οριστική διαγραφή των δεδομένων σας από τα αρχεία μας.</li>
+        <li><strong>Δικαίωμα Εναντίωσης & Περιορισμού:</strong> Να εναντιωθείτε στην επεξεργασία ή να ζητήσετε τον περιορισμό της.</li>
+      </ul>
+      <p>Για να ασκήσετε οποιοδήποτε δικαίωμα, επικοινωνήστε μαζί μας στο Discord. Εάν θεωρείτε ότι παραβιάζονται τα δικαιώματά σας, έχετε το δικαίωμα υποβολής καταγγελίας στην <strong>Αρχή Προστασίας Δεδομένων Προσωπικού Χαρακτήρα (ΑΠΔΠΧ - www.dpa.gr)</strong>.</p>
+
+      <h2>7. Αλλαγές στην Πολιτική Απορρήτου</h2>
+      <p>Διατηρούμε το δικαίωμα να ενημερώνουμε την παρούσα πολιτική όταν αυτό είναι απαραίτητο. Οποιεσδήποτε αλλαγές θα δημοσιεύονται σε αυτή τη σελίδα με ανανεωμένη ημερομηνία τροποποίησης.</p>
+
+      <div class="back-btn-container">
+        <a href="/" class="back-btn">&larr; Επιστροφή στην Αρχική</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="copyright_div">
+    <p class="copyright">
+      &copy; <span id="copyright-year">2026</span> PGG Legacy — All rights reserved. | 
+      <a href="/privacy" style="color: var(--text-muted); text-decoration: underline;">Privacy Policy</a>
+    </p>
+  </footer>
+
+  <script src="/js/script.js" defer></script>
+</body>
+</html>

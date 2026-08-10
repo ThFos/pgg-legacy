@@ -1,0 +1,131 @@
+/* ================================================================
+   BASE — Variables, Reset, Typography (Optimized)
+   ================================================================ */
+
+:root {
+  --nice-padding:    6rem;
+  --roundness:       0.75rem;
+  --accent1:         #6b2dd8;
+  --accent2:         #521eb8;
+  --accent2-transp:  rgba(82, 30, 184, 0.33);
+  --bg1:             #1a1921;
+  --bg2:             #121117;
+  --text-muted:      rgba(255, 255, 255, 0.7);
+  --border-subtle:   rgba(255, 255, 255, 0.05);
+  --transition-std:  0.3s ease;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Font size optimization */
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: var(--bg1);
+  color: #fff;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  max-width: 100%;
+  /* Prevent layout shift */
+  height: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ── Accessibility ───────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent1);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Skip to content link για accessibility */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 99999;
+  background: var(--accent1);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--roundness);
+  font-weight: 700;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Scroll offset για fixed navbar */
+#hero, #features, #rules, #discord, #about, #join {
+  scroll-margin-top: 5.5rem;
+}
+
+/* ── Typography helpers ──────────────────────────────────────── */
+.headline {
+  color: #fff;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  text-align: center;
+  font-weight: 700;
+  padding: 0 1rem;
+  margin-top: 2rem;
+}
+
+.mainflex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* ── Footer ──────────────────────────────────────────────────── */
+.copyright_div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  background: #000;
+  text-align: center;
+}
+
+.copyright {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}

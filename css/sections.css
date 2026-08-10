@@ -1,0 +1,300 @@
+/* ==========================================================================
+   SECTIONS — Features, Rules, Discord, Team, Join
+   ========================================================================== */
+
+/* ── Features Grid ────────────────────────────────────────────────────────── */
+.main2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem 4rem;
+  background: var(--bg2);
+}
+
+.main2_features_div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
+  max-width: 1200px;
+  width: 100%;
+  padding-top: 1.5rem;
+}
+
+.main2_feature {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 18rem;
+  max-width: 100%;
+  min-height: 22rem;
+  background: var(--bg1);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--roundness);
+  overflow: hidden;
+  transition: border-color var(--transition-std);
+}
+
+/* Radial hover glow */
+.main2_feature::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    400px circle at var(--x, 50%) var(--y, 50%),
+    rgba(107, 45, 216, 0.3),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-std);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.main2_feature:hover::before { opacity: 1; }
+.main2_feature:hover { border-color: rgba(107, 45, 216, 0.4); }
+
+.main2_feature_img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--roundness) var(--roundness) 0 0;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+.main2_feature_headline {
+  padding: 1rem 1rem 0.4rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.main2_feature_text {
+  padding: 0 1.2rem 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.85;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Rules ────────────────────────────────────────────────────────────────── */
+.rules-subcategory  { font-size: 1.8rem; margin-top: 3.5rem; }
+.top-subcategory    { margin-top: 2.5rem; }
+
+.warning-note       { color: #ff4d4d; font-weight: 700; }
+
+.penalty-warn     .main2_feature_headline { color: #ffcc00; }
+.penalty-temp-ban .main2_feature_headline { color: #ff9900; }
+.penalty-perm-ban .main2_feature_headline { color: #ff3333; }
+
+/* ── Discord ──────────────────────────────────────────────────────────────── */
+.main4 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1rem;
+}
+
+.main4_dc_div {
+  width: 100%;
+  max-width: 48rem;
+  background: var(--bg2);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--roundness);
+  padding: 2rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.main4_dc_description_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.main4_dc_description_title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.main4_dc_description {
+  font-size: 1.05rem;
+  line-height: 2;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.main4_dc_description li::before {
+  content: '・';
+  margin-right: 0.3em;
+}
+
+.discord-btn {
+  display: inline-block;
+  width: 100%;
+  max-width: 250px;
+  padding: 0.85rem 1.5rem;
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid var(--accent1);
+  border-radius: var(--roundness);
+  transition: all var(--transition-std);
+  animation: neonPulse 2.5s infinite ease-in-out;
+}
+
+.discord-btn:hover,
+.discord-btn:focus-visible {
+  border-color: var(--accent2);
+  background: var(--accent2);
+}
+
+/* ── Team / About ─────────────────────────────────────────────────────────── */
+.main5 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1rem;
+  background: var(--bg2);
+}
+
+.main5_admin_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 46rem;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.main5_admins_div {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: var(--bg1);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--roundness);
+  overflow: hidden;
+  transition: border-color var(--transition-std);
+}
+
+.main5_admins_div:hover {
+  border-color: rgba(107, 45, 216, 0.4);
+}
+
+.main5_admins_img {
+  width: 20%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  padding: 1rem;
+  align-self: center;
+}
+
+.main5_admins_description_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+  gap: 0.3rem;
+}
+
+.main5_admins_description_rank {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.main5_admins_description_rank_owner {
+  color: var(--accent1);
+}
+
+.main5_admins_description_title {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.main5_admins_description {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+/* ── Join ─────────────────────────────────────────────────────────────────── */
+.main3 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem;
+  background: var(--bg1);
+}
+
+.main3_join_div_div {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.main3_join_div {
+  width: 100%;
+  max-width: 24rem;
+  background: var(--bg2);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--roundness);
+  padding: 1.5rem;
+}
+
+.main3_join_title {
+  text-align: center;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.main3_join_content_div {
+  display: flex;
+  justify-content: center;
+  background: var(--bg1);
+  border-radius: var(--roundness);
+  padding: 1rem;
+}
+
+.main3_join_dl {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.main3_join_row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 1.1rem;
+}
+
+.main3_join_row dt {
+  font-weight: 700;
+  text-align: right;
+  flex: 1;
+  border-right: 2px solid var(--bg2);
+  padding-right: 0.8rem;
+}
+
+.main3_join_row dd {
+  flex: 1;
+  text-align: left;
+  border-left: 2px solid var(--bg2);
+  padding-left: 0.8rem;
+}

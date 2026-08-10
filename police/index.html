@@ -1,213 +1,201 @@
 <!DOCTYPE html>
 <html lang="el">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-49NVHWZZV8');
-    </script>
-    <title>PGG Legacy | Αιτήσεις Αστυνομίας</title>
-    <meta name="description" content="Κάνε αίτηση για το σώμα της Αστυνομίας στον PGG Legacy Minecraft Server. Συμπλήρωσε τη φόρμα και γίνε μέλος του RP!">
-    <meta name="keywords" content="PGG Legacy police, αιτήσεις αστυνομίας minecraft, greek rp police, minecraft server">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="PGG Legacy">
-    <meta name="theme-color" content="#5865F2">
-    <link rel="canonical" href="https://pgglegacy.gr/police">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pgglegacy.gr/police">
-    <meta property="og:title" content="PGG Legacy | Αιτήσεις Αστυνομίας">
-    <meta property="og:description" content="Συμπλήρωσε την αίτηση για την Αστυνομία και βοήθησε στην τήρηση της τάξης στον PGG Legacy Server.">
-    <meta property="og:image" content="https://pgglegacy.gr/media/banner.png">
-    <meta property="og:site_name" content="PGG Legacy">
-    <meta property="og:locale" content="el_GR">
-    <link rel="icon" type="image/png" href="/media/favicon.png">
-    <link rel="preload" href="/style.css" as="style">
-    <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" media="print" onload="this.media='all'">
-  </head>
-  <body>
-    <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
-    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-    <nav class="desktop_navbar" aria-label="Desktop Navigation">
-      <a href="/">
-        <img class="desktop_navbar_logo_img" src="/media/logo_small.svg" alt="PGG Legacy - Ελληνικός Minecraft RP Server" width="152" height="40">
-      </a>
-      <a href="/#rules" class="desktop_navbar_link">Rules</a>
-      <a href="/#discord" class="desktop_navbar_link">Community</a>
-      <a href="/#about" class="desktop_navbar_link">About Us</a>
-      <a href="/map" class="desktop_navbar_link">Server Map</a>
-      <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
-      <a href="/police" class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
-      <div class="desktop_navbar_link2_div">
-          <a href="/#join" class="desktop_navbar_link2">Join Us!</a>
-      </div>
-    </nav>
-    <nav class="mobile_navbar" aria-label="Mobile Navigation">
-      <a href="/" class="mobile_navbar_logo_img_a">
-        <img class="mobile_navbar_logo_img" src="/media/logo_small.svg" alt="PGG Legacy - Ελληνικός Minecraft RP Server" width="152" height="40">
-      </a>
-      <button class="icon" aria-expanded="false" aria-controls="mobile_navbar_links" aria-label="Άνοιγμα μενού">
-        <svg id="menuIcon" class="menu-icon" viewBox="0 0 24 24" width="24" height="24" fill="white">
-          <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
-        </svg>
-      </button>
-      <div id="mobile_navbar_links">
-          <a class="mobile_navbar_link" href="/#rules">Rules</a>
-          <a class="mobile_navbar_link" href="/#discord">Community</a>
-          <a class="mobile_navbar_link" href="/#about">About Us</a>
-          <a class="mobile_navbar_link" href="/map">Server Map</a>
-          <a class="mobile_navbar_link nav-highlight-blue" href="/leaderboard">Leaderboard</a>
-          <a class="mobile_navbar_link nav-highlight-gold" href="/police">Police Apps</a>
-          <a class="mobile_navbar_link" href="/#join">Join Us</a>
-      </div>
-    </nav>
-    <main class="mainflex police-main">
-      <section class="main2 police-section">
-        <h2 class="headline" data-aos="fade-up">Κατάταξη στην Αστυνομία</h2>
-        <p class="main1_actcent police-intro" data-aos="fade-up" data-aos-delay="100">
-          Συμπληρώστε την παρακάτω φόρμα για να εξεταστεί η αίτησή σας από το Staff.
-        </p>
-        <div class="main2_features_div police-features-div">
-          <div class="main2_feature police-form-wrapper" data-aos="zoom-in" data-aos-delay="200">
-            <noscript>
-              <p style="color: white; text-align: center; margin-bottom: 20px;">
-                Παρακαλώ ενεργοποιήστε JavaScript για να υποβάλετε αίτηση.
-              </p>
-            </noscript>
-            <form action="https://api.web3forms.com/submit" method="POST" class="police-form">
-              <input type="hidden" name="access_key" value="d8fdfcc5-2890-4965-8b66-8d859e92fd29">
-              <input type="hidden" name="redirect" value="https://pgglegacy.gr/">
-              <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-              <div class="form-group">
-                <label for="discord_tag">Discord Username</label>
-                <input type="text" id="discord_tag" name="Discord Tag" placeholder="π.χ. mpamiasdl" required>
-              </div>
-              <div class="form-group">
-                <label for="ign">In-Game Name (Minecraft Name)</label>
-                <input type="text" id="ign" name="In-Game Name" placeholder="π.χ. ThFos" required>
-              </div>
-              <div class="form-group">
-                <label for="age">Ηλικία (OOC)</label>
-                <input type="number" id="age" name="Age" min="12" max="99" placeholder="π.χ. 18" required>
-              </div>
-              <div class="form-group">
-                <label for="hours">Πόσες ώρες μπορείς να διαθέσεις την εβδομάδα</label>
-                <input type="text" id="hours" name="Available Hours" placeholder="π.χ. 10-15 ώρες" required>
-              </div>
-              <div class="form-group">
-                <label for="experience">Έχεις προηγούμενη εμπειρία ως Αστυνομικός σε RP;</label>
-                <textarea id="experience" name="Experience" rows="4" minlength="30" placeholder="Περίγραψε την εμπειρία σου σε άλλους servers (τουλάχιστον 30 χαρακτήρες)..." required></textarea>
-              </div>
-              <div class="form-group">
-                <label for="reason">Γιατί θέλεις να μπεις στο σώμα της Αστυνομίας;</label>
-                <textarea id="reason" name="Reason for Joining" rows="4" minlength="50" placeholder="Ανάλυσε τους λόγους (τουλάχιστον 50 χαρακτήρες)..." required></textarea>
-              </div>
-              <div>
-                <button type="submit" class="police-submit-btn">
-                  Υποβολή Αίτησης
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="copyright_div">
-      <p class="copyright">
-        © <span id="copyright-year"></span>
-        PGG Legacy - All rights reserved.
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-49NVHWZZV8', { anonymize_ip: true });
+  </script>
+
+  <title>PGG Legacy | Αιτήσεις Αστυνομίας</title>
+  <meta name="description" content="Κάνε αίτηση για το σώμα της Αστυνομίας στον PGG Legacy Minecraft Server.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="PGG Legacy">
+  <meta name="theme-color" content="#6b2dd8">
+  <link rel="canonical" href="https://pgglegacy.gr/police">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pgglegacy.gr/police">
+  <meta property="og:title" content="PGG Legacy | Αιτήσεις Αστυνομίας">
+  <meta property="og:description" content="Συμπλήρωσε την αίτηση για την Αστυνομία στον PGG Legacy Server.">
+  <meta property="og:image" content="https://pgglegacy.gr/media/banner.png">
+  <meta property="og:site_name" content="PGG Legacy">
+  <meta property="og:locale" content="el_GR">
+
+  <link rel="icon" type="image/png" href="../media/favicon.png">
+  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+  <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" media="print" onload="this.media='all'">
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/hero.css">
+  <link rel="stylesheet" href="../css/sections.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/cursor.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <!-- Cookies CSS -->
+  <link rel="stylesheet" href="../css/cookies.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="../css/cookies.css"></noscript>
+</head>
+<body>
+  <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <nav class="desktop_navbar" aria-label="Κύριο μενού">
+    <a href="/" aria-label="PGG Legacy - Αρχική">
+      <img class="desktop_navbar_logo_img" src="../media/logo_small.svg"
+           alt="PGG Legacy Logo" width="152" height="40">
+    </a>
+    <a href="/#rules"      class="desktop_navbar_link">Rules</a>
+    <a href="/#discord"    class="desktop_navbar_link">Community</a>
+    <a href="/#about"      class="desktop_navbar_link">About Us</a>
+    <a href="/map"         class="desktop_navbar_link">Server Map</a>
+    <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
+    <a href="/police"      class="desktop_navbar_link nav-highlight-gold" aria-current="page">Police Applications</a>
+    <div class="desktop_navbar_link2_div">
+      <a href="/#join" class="desktop_navbar_link2">Join Us!</a>
+    </div>
+  </nav>
+
+  <nav class="mobile_navbar" aria-label="Κινητό μενού">
+    <a href="/" class="mobile_navbar_logo_img_a" aria-label="PGG Legacy - Αρχική">
+      <img class="mobile_navbar_logo_img" src="../media/logo_small.svg"
+           alt="PGG Legacy Logo" width="152" height="40">
+    </a>
+    <button class="icon" aria-expanded="false"
+            aria-controls="mobile_navbar_links"
+            aria-label="Άνοιγμα μενού πλοήγησης">
+      <svg id="menuIcon" viewBox="0 0 24 24" width="24" height="24"
+           fill="white" aria-hidden="true" focusable="false">
+        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+      </svg>
+    </button>
+    <div id="mobile_navbar_links" role="menu">
+      <a class="mobile_navbar_link" href="/#rules"      role="menuitem">Rules</a>
+      <a class="mobile_navbar_link" href="/#discord"    role="menuitem">Community</a>
+      <a class="mobile_navbar_link" href="/#about"      role="menuitem">About Us</a>
+      <a class="mobile_navbar_link" href="/map"         role="menuitem">Server Map</a>
+      <a class="mobile_navbar_link nav-highlight-blue" href="/leaderboard" role="menuitem">Leaderboard</a>
+      <a class="mobile_navbar_link nav-highlight-gold" href="/police"      role="menuitem">Police Apps</a>
+      <a class="mobile_navbar_link" href="/#join"       role="menuitem">Join Us</a>
+    </div>
+  </nav>
+
+  <main class="mainflex police-main">
+    <section class="main2 police-section" aria-labelledby="police-title">
+      <h2 id="police-title" class="headline" data-aos="fade-up">
+        Κατάταξη στην Αστυνομία
+      </h2>
+      <p class="police-intro" data-aos="fade-up" data-aos-delay="100">
+        Συμπληρώστε την παρακάτω φόρμα για να εξεταστεί η αίτησή σας από το Staff.
       </p>
-    </footer>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script defer>
-      window.addEventListener('load', function() {
-        if(typeof AOS !== 'undefined') {
-          AOS.init({ duration: 800, once: true, disable: window.innerWidth < 768 });
-        }
-      });
-      document.addEventListener("DOMContentLoaded", function() {
-        // Copyright year
-        const yearEl = document.getElementById('copyright-year');
-        if (yearEl) yearEl.textContent = new Date().getFullYear();
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('reset') === 'true') {
-          localStorage.removeItem("police_app_submitted");
-          const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
-          window.history.replaceState({path: cleanUrl}, '', cleanUrl);
-        }
-        function setSubmittedWithExpiry(hours) {
-            const expiry = Date.now() + (hours * 60 * 60 * 1000);
-            localStorage.setItem("police_app_submitted", 
-              JSON.stringify({ submitted: true, expiry }));
-        }
-        function checkSubmitted() {
-            const data = localStorage.getItem("police_app_submitted");
-            if (!data) return false;
-            try {
-                const parsed = JSON.parse(data);
-                if (typeof parsed === 'boolean' || typeof parsed === 'string') {
-                    return true;
-                }
-                if (Date.now() > parsed.expiry) {
-                    localStorage.removeItem("police_app_submitted");
-                    return false;
-                }
-                return true;
-            } catch (e) {
-                return true;
-            }
-        }
-        const hasSubmitted = checkSubmitted();
-        if (hasSubmitted) {
-          const form = document.querySelector(".police-form");
-          if (form) {
-            const alreadySubmittedMsg = document.createElement('div');
-            alreadySubmittedMsg.className = 'already-submitted-msg';
-            alreadySubmittedMsg.innerHTML = `
-                Έχεις ήδη υποβάλει μια αίτηση!
-                <span>Παρακαλώ περίμενε να εξεταστεί από το Staff.</span>
-            `;
-            form.replaceWith(alreadySubmittedMsg);
-          }
-        }
-        const actualForm = document.querySelector(".police-form");
-        if(actualForm && !hasSubmitted) {
-            actualForm.addEventListener("submit", function() {
-              setSubmittedWithExpiry(168); // 7 μέρες λήξη
-            });
-        }
-        const mobileMenuIcon = document.querySelector('.icon');
-        if (mobileMenuIcon) {
-          mobileMenuIcon.addEventListener('click', toggleMobileMenu);
-        }
-        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-          const cursor = document.getElementById('cursor');
-          const glow = document.getElementById('cursorGlow');
-          document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            glow.style.left = e.clientX + 'px';
-            glow.style.top = e.clientY + 'px';
-          });
-        }
-      });
-      function toggleMobileMenu() {
-        const menu = document.getElementById("mobile_navbar_links");
-        const btn = document.querySelector('.icon');
-        const iconSvg = document.getElementById("menuIcon");
-        const isOpen = menu.style.display === "flex";
-        menu.style.display = isOpen ? "none" : "flex";
-        btn.setAttribute('aria-expanded', !isOpen);
-        iconSvg.innerHTML = isOpen
-          ? '<path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>'
-          : '<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>';
-      }
-    </script>
-  </body>
+
+      <div class="main2_features_div police-features-div">
+        <div class="main2_feature police-form-wrapper" data-aos="zoom-in" data-aos-delay="200">
+
+          <noscript>
+            <p style="color:#fff;text-align:center;padding:1rem">
+              Παρακαλώ ενεργοποιήστε JavaScript για να υποβάλετε αίτηση.
+            </p>
+          </noscript>
+
+          <form action="https://api.web3forms.com/submit" method="POST"
+                class="police-form" novalidate>
+
+            <input type="hidden" name="access_key" value="d8fdfcc5-2890-4965-8b66-8d859e92fd29">
+            <input type="hidden" name="redirect"   value="https://pgglegacy.gr/">
+            <input type="hidden" name="subject"    value="Νέα Αίτηση Αστυνομίας - PGG Legacy">
+            <input type="checkbox" name="botcheck" aria-hidden="true"
+                   tabindex="-1" autocomplete="off" style="display:none">
+
+            <div class="form-group">
+              <label for="discord_tag">Discord Username <span aria-hidden="true">*</span></label>
+              <input type="text" id="discord_tag" name="Discord Tag"
+                     placeholder="π.χ. mpamiasdl" autocomplete="username"
+                     required minlength="2" maxlength="32">
+            </div>
+
+            <div class="form-group">
+              <label for="ign">In-Game Name (Minecraft) <span aria-hidden="true">*</span></label>
+              <input type="text" id="ign" name="In-Game Name"
+                     placeholder="π.χ. ThFos" autocomplete="nickname"
+                     required minlength="3" maxlength="16" pattern="[a-zA-Z0-9_]+">
+            </div>
+
+            <div class="form-group">
+              <label for="age">Ηλικία (OOC) <span aria-hidden="true">*</span></label>
+              <input type="number" id="age" name="Age"
+                     placeholder="π.χ. 18" min="12" max="99" required>
+            </div>
+
+            <div class="form-group">
+              <label for="hours">Διαθέσιμες ώρες / εβδομάδα <span aria-hidden="true">*</span></label>
+              <input type="text" id="hours" name="Available Hours"
+                     placeholder="π.χ. 10-15 ώρες" required maxlength="30">
+            </div>
+
+            <div class="form-group">
+              <label for="experience">
+                Προηγούμενη εμπειρία ως Αστυνομικός σε RP;
+                <span aria-hidden="true">*</span>
+              </label>
+              <textarea id="experience" name="Experience" rows="4"
+                        minlength="30" maxlength="1000"
+                        placeholder="Περίγραψε την εμπειρία σου (τουλάχιστον 30 χαρακτήρες)..."
+                        required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="reason">
+                Γιατί θέλεις να μπεις στο σώμα της Αστυνομίας;
+                <span aria-hidden="true">*</span>
+              </label>
+              <textarea id="reason" name="Reason for Joining" rows="5"
+                        minlength="50" maxlength="2000"
+                        placeholder="Ανάλυσε τους λόγους (τουλάχιστον 50 χαρακτήρες)..."
+                        required></textarea>
+            </div>
+
+            <button type="submit" class="police-submit-btn">Υποβολή Αίτησης</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" role="region" aria-label="Συναίνεση Cookies">
+    <div class="cookie-text">
+      <strong>🍪 Cookies &amp; Απόρρητο</strong><br>
+      Χρησιμοποιούμε cookies για ανώνυμα στατιστικά επισκεψιμότητας (Google Analytics) και για την ομαλή λειτουργία του site. 
+      Διαβάστε την <a href="/privacy">Πολιτική Απορρήτου</a> μας.
+    </div>
+    <div class="cookie-buttons">
+      <button id="accept-cookies" class="cookie-btn-accept" type="button">
+        Αποδοχή
+      </button>
+      <button id="decline-cookies" class="cookie-btn-decline" type="button">
+        Απόρριψη
+      </button>
+    </div>
+  </div>
+
+  <footer class="copyright_div">
+    <p class="copyright">
+      &copy; <span id="copyright-year"></span> PGG Legacy — All rights reserved.
+    </p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="../js/script.js" defer></script>
+</body>
 </html>
