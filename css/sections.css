@@ -279,22 +279,26 @@
 
 .main3_join_row {
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
   font-size: 1.1rem;
 }
 
 .main3_join_row dt {
   font-weight: 700;
   text-align: right;
-  flex: 1;
-  border-right: 2px solid var(--bg2);
+  width: 7rem;
   padding-right: 0.8rem;
+  border-right: 2px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .main3_join_row dd {
-  flex: 1;
   text-align: left;
-  border-left: 2px solid var(--bg2);
+  width: 10rem;
   padding-left: 0.8rem;
+  font-weight: 700;
+  color: #fff;
 }
