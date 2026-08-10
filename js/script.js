@@ -513,7 +513,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     banner.innerHTML = [
       '<p class="cookie-text">',
-        '🍪 <strong>Cookies & Απόρρητο</strong><br>',
+        '🍪 <strong>Cookies &amp; Απόρρητο</strong><br>',
         'Χρησιμοποιούμε cookies για ανώνυμα στατιστικά επισκεψιμότητας (Google Analytics) ',
         'και για την ομαλή λειτουργία του site. Διαβάστε την ',
         '<a href="/privacy" target="_blank" rel="noopener noreferrer">Πολιτική Απορρήτου</a>',

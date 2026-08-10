@@ -76,7 +76,7 @@
     <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
   </noscript>
 
-  <!-- Critical CSS inline (base + navbar) -->
+  <!-- Critical CSS inline (base + navbar + cookie banner) -->
   <style>
     :root {
       --nice-padding: 6rem;
@@ -126,8 +126,8 @@
     .copyright { color: var(--text-muted); font-size: 0.9rem; }
     .copyright a { color: var(--text-muted); text-decoration: underline; transition: color 0.2s ease; }
     .copyright a:hover { color: #fff; }
-    
-    /* Navbar Critical */
+
+    /* ── Navbar Critical ── */
     .desktop_navbar {
       position: fixed; inset: 0 0 auto 0;
       display: flex; height: 5.2rem;
@@ -152,7 +152,8 @@
     .nav-highlight-blue { color: #5865F2 !important; font-weight: 700; }
     .nav-highlight-gold { color: #ffcc00 !important; font-weight: 700; }
     .mobile_navbar { display: none; }
-    /* Hero Critical */
+
+    /* ── Hero Critical ── */
     .main1 {
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
@@ -161,11 +162,120 @@
       background: rgba(0, 0, 0, 0.65) url('/media/hero-bg.webp') center / cover no-repeat;
       background-blend-mode: darken; gap: 1.5rem;
     }
-    /* AOS initial state */
+
+    /* ── AOS Initial State ── */
     [data-aos] { opacity: 0; transition: opacity 0.8s ease, transform 0.8s ease; }
     [data-aos="fade-up"] { transform: translateY(28px); }
     [data-aos="zoom-in"] { transform: scale(0.92); }
     [data-aos].aos-animate { opacity: 1; transform: translateY(0) scale(1); }
+
+    /* ── Cookie Banner Critical ── */
+    #cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 99998;
+      background: rgba(18, 17, 23, 0.97);
+      border-top: 1px solid rgba(107, 45, 216, 0.5);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-family: 'Space Grotesk', sans-serif;
+      box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.5);
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+    #cookie-banner.cookie-visible {
+      transform: translateY(0);
+    }
+    .cookie-text {
+      flex: 1;
+      min-width: 200px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.6;
+    }
+    .cookie-text strong { color: #fff; font-weight: 700; }
+    .cookie-text a {
+      color: #a855f7;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.2s;
+    }
+    .cookie-text a:hover { color: #c084fc; }
+    .cookie-buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+    .cookie-btn-accept {
+      padding: 0.6rem 1.4rem;
+      background: #6b2dd8;
+      color: #fff;
+      border: none;
+      border-radius: 0.6rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 3px 12px rgba(107, 45, 216, 0.4);
+      white-space: nowrap;
+    }
+    .cookie-btn-accept:hover,
+    .cookie-btn-accept:focus-visible {
+      background: #7c3aed;
+      transform: translateY(-1px);
+      box-shadow: 0 5px 16px rgba(107, 45, 216, 0.55);
+    }
+    .cookie-btn-decline {
+      padding: 0.6rem 1.2rem;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 0.6rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+      white-space: nowrap;
+    }
+    .cookie-btn-decline:hover,
+    .cookie-btn-decline:focus-visible {
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+    @media (max-width: 600px) {
+      #cookie-banner {
+        padding: 1rem 1.2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .cookie-buttons {
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .cookie-btn-accept,
+      .cookie-btn-decline {
+        flex: 1;
+        text-align: center;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #cookie-banner { transition: none; }
+    }
+
+    /* ── Mobile ── */
     @media (max-width: 768px) {
       .desktop_navbar { display: none; }
       .mobile_navbar {
@@ -182,7 +292,6 @@
   <!-- Non-critical CSS - Deferred -->
   <link rel="stylesheet" href="/css/sections.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="/css/pages.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="/css/cookies.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="/css/cursor.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="/css/animations.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="/css/responsive.css" media="print" onload="this.media='all'">
@@ -191,7 +300,6 @@
   <noscript>
     <link rel="stylesheet" href="/css/sections.css">
     <link rel="stylesheet" href="/css/pages.css">
-    <link rel="stylesheet" href="/css/cookies.css">
     <link rel="stylesheet" href="/css/cursor.css">
     <link rel="stylesheet" href="/css/animations.css">
     <link rel="stylesheet" href="/css/responsive.css">
@@ -535,33 +643,31 @@
 
   <footer class="copyright_div">
     <p class="copyright">
-      &copy; <span id="copyright-year">2026</span> PGG Legacy — All rights reserved. | 
+      &copy; <span id="copyright-year">2026</span> PGG Legacy — All rights reserved. |
       <a href="/privacy">Privacy Policy</a>
     </p>
   </footer>
 
   <!-- Scripts - Deferred -->
   <script src="/js/script.js" defer></script>
-  
+
   <!-- Lazy Loading Handler για τα Video Posters -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      const lazyVideos = document.querySelectorAll("video.main2_feature_img[data-poster]");
+      var lazyVideos = document.querySelectorAll("video.main2_feature_img[data-poster]");
       if ("IntersectionObserver" in window) {
-        const videoObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
+        var videoObserver = new IntersectionObserver(function(entries, observer) {
+          entries.forEach(function(entry) {
             if (entry.isIntersecting) {
-              const video = entry.target;
+              var video = entry.target;
               video.poster = video.dataset.poster;
               videoObserver.unobserve(video);
             }
           });
         }, { rootMargin: "150px" });
-        lazyVideos.forEach(video => videoObserver.observe(video));
+        lazyVideos.forEach(function(video) { videoObserver.observe(video); });
       } else {
-        lazyVideos.forEach(video => {
-          video.poster = video.dataset.poster;
-        });
+        lazyVideos.forEach(function(video) { video.poster = video.dataset.poster; });
       }
     });
   </script>
