@@ -16,7 +16,8 @@
   <meta name="keywords" content="PGG Legacy, Minecraft server greek, ελληνικός minecraft server, minecraft rp server, minecraft smp greece, play.pgglegacy.gr">
   <meta name="robots" content="index, follow">
   <meta name="author" content="PGG Legacy">
-  <meta name="theme-color" content="#6b2dd8">
+  <!-- FIX #1: theme-color διορθώθηκε -->
+  <meta name="theme-color" content="#1a1921">
   <link rel="canonical" href="https://pgglegacy.gr/">
 
   <!-- Open Graph -->
@@ -32,6 +33,7 @@
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://pgglegacy.gr/">
   <meta name="twitter:title" content="PGG Legacy | Ελληνικός Minecraft RP &amp; SMP Server">
   <meta name="twitter:description" content="Γνωρίστε τον PGG Legacy, τον κορυφαίο ελληνικό Minecraft server!">
   <meta name="twitter:image" content="https://pgglegacy.gr/media/banner.png">
@@ -68,15 +70,14 @@
   <link rel="preload" href="/media/hero-bg.webp" as="image" fetchpriority="high">
   <link rel="icon" type="image/png" href="/media/favicon.png">
 
-  <!-- Fonts - Non-blocking -->
-  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+  <!-- FIX #6: Μόνο 1 φορά το fonts preconnect (αφαιρέθηκε το διπλό) -->
   <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'">
   <noscript>
     <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
   </noscript>
 
-  <!-- Critical CSS inline (base + navbar + cookie banner) -->
+  <!-- Critical CSS inline -->
   <style>
     :root {
       --nice-padding: 6rem;
@@ -311,22 +312,25 @@
   <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
   <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
+  <!-- Desktop Navbar -->
   <nav class="desktop_navbar" aria-label="Κύριο μενού">
     <a href="/" aria-label="PGG Legacy - Αρχική">
       <img class="desktop_navbar_logo_img" src="/media/logo_small.svg"
            alt="PGG Legacy Logo" width="152" height="40" fetchpriority="high">
     </a>
-    <a href="#rules" class="desktop_navbar_link scroll">Rules</a>
-    <a href="#discord" class="desktop_navbar_link scroll">Community</a>
-    <a href="#about" class="desktop_navbar_link scroll">About Us</a>
-    <a href="/map" class="desktop_navbar_link">Server Map</a>
+    <!-- FIX #3: Αφαιρέθηκε το περιττό class="scroll" — το script.js χειρίζεται με href match -->
+    <a href="#rules"      class="desktop_navbar_link">Rules</a>
+    <a href="#discord"    class="desktop_navbar_link">Community</a>
+    <a href="#about"      class="desktop_navbar_link">About Us</a>
+    <a href="/map"        class="desktop_navbar_link">Server Map</a>
     <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
-    <a href="/police" class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
+    <a href="/police"     class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
     <div class="desktop_navbar_link2_div">
-      <a href="#join" class="desktop_navbar_link2 scroll">Join Us!</a>
+      <a href="#join" class="desktop_navbar_link2">Join Us!</a>
     </div>
   </nav>
 
+  <!-- Mobile Navbar -->
   <nav class="mobile_navbar" aria-label="Κινητό μενού">
     <a href="/" class="mobile_navbar_logo_img_a" aria-label="PGG Legacy - Αρχική">
       <img class="mobile_navbar_logo_img" src="/media/logo_small.svg"
@@ -341,13 +345,13 @@
       </svg>
     </button>
     <div id="mobile_navbar_links" role="menu">
-      <a class="mobile_navbar_link scroll" href="#rules" role="menuitem">Rules</a>
-      <a class="mobile_navbar_link scroll" href="#discord" role="menuitem">Community</a>
-      <a class="mobile_navbar_link scroll" href="#about" role="menuitem">About Us</a>
-      <a class="mobile_navbar_link" href="/map" role="menuitem">Server Map</a>
+      <a class="mobile_navbar_link" href="#rules"      role="menuitem">Rules</a>
+      <a class="mobile_navbar_link" href="#discord"    role="menuitem">Community</a>
+      <a class="mobile_navbar_link" href="#about"      role="menuitem">About Us</a>
+      <a class="mobile_navbar_link" href="/map"        role="menuitem">Server Map</a>
       <a class="mobile_navbar_link nav-highlight-blue" href="/leaderboard" role="menuitem">Leaderboard</a>
-      <a class="mobile_navbar_link nav-highlight-gold" href="/police" role="menuitem">Police Apps</a>
-      <a class="mobile_navbar_link scroll" href="#join" role="menuitem">Join Us</a>
+      <a class="mobile_navbar_link nav-highlight-gold" href="/police"      role="menuitem">Police Apps</a>
+      <a class="mobile_navbar_link" href="#join"       role="menuitem">Join Us</a>
     </div>
   </nav>
 
@@ -374,7 +378,7 @@
           </span>
         </button>
       </div>
-      <a href="#features" class="scroll" aria-label="Μετάβαση στα χαρακτηριστικά">
+      <a href="#features" aria-label="Μετάβαση στα χαρακτηριστικά">
         <img class="main1_downarrow" src="/media/downarrow.png"
              alt="" aria-hidden="true" width="41" height="24">
       </a>
@@ -583,8 +587,8 @@
 
         <div class="main5_admins_div" data-aos="zoom-in" data-aos-delay="100">
           <img class="main5_admins_img" alt="MPAMIASDL — Admin"
-               src="/media/admin1.webp" width="120" height="120" loading="lazy"
-               decoding="async">
+               src="/media/admin1.webp" width="120" height="120"
+               loading="lazy" decoding="async">
           <div class="main5_admins_description_div">
             <p class="main5_admins_description_rank main5_admins_description_rank_owner">[Admin]</p>
             <span class="main5_admins_description_title">MPAMIASDL</span>
@@ -594,8 +598,8 @@
 
         <div class="main5_admins_div" data-aos="zoom-in" data-aos-delay="200">
           <img class="main5_admins_img" alt="ThFos — Admin &amp; Developer"
-               src="/media/admin2.webp" width="120" height="120" loading="lazy"
-               decoding="async">
+               src="/media/admin2.webp" width="120" height="120"
+               loading="lazy" decoding="async">
           <div class="main5_admins_description_div">
             <p class="main5_admins_description_rank main5_admins_description_rank_owner">[Admin]</p>
             <span class="main5_admins_description_title">ThFos</span>
@@ -605,8 +609,8 @@
 
         <div class="main5_admins_div" data-aos="zoom-in" data-aos-delay="300">
           <img class="main5_admins_img" alt="kon212121 — Admin &amp; Community Manager"
-               src="/media/admin3.webp" width="120" height="120" loading="lazy"
-               decoding="async">
+               src="/media/admin3.webp" width="120" height="120"
+               loading="lazy" decoding="async">
           <div class="main5_admins_description_div">
             <p class="main5_admins_description_rank main5_admins_description_rank_owner">[Admin]</p>
             <span class="main5_admins_description_title">kon212121</span>
@@ -643,32 +647,33 @@
 
   <footer class="copyright_div">
     <p class="copyright">
-      &copy; <span id="copyright-year">2026</span> PGG Legacy — All rights reserved. |
+      <!-- FIX #2: Αφαιρέθηκε hardcoded 2026 — το βάζει το script.js -->
+      &copy; <span id="copyright-year"></span> PGG Legacy — All rights reserved. |
       <a href="/privacy">Privacy Policy</a>
     </p>
   </footer>
 
-  <!-- Scripts - Deferred -->
+  <!-- ΔΕΝ υπάρχει hardcoded cookie banner - το δημιουργεί το script.js -->
+
   <script src="/js/script.js" defer></script>
 
-  <!-- Lazy Loading Handler για τα Video Posters -->
+  <!-- FIX #5: Inline script μόνο για video posters (ξεχωριστό από initLazyVideos) -->
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var lazyVideos = document.querySelectorAll("video.main2_feature_img[data-poster]");
-      if ("IntersectionObserver" in window) {
-        var videoObserver = new IntersectionObserver(function(entries, observer) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-              var video = entry.target;
-              video.poster = video.dataset.poster;
-              videoObserver.unobserve(video);
-            }
-          });
-        }, { rootMargin: "150px" });
-        lazyVideos.forEach(function(video) { videoObserver.observe(video); });
-      } else {
-        lazyVideos.forEach(function(video) { video.poster = video.dataset.poster; });
+    document.addEventListener('DOMContentLoaded', function() {
+      var lazyVideos = document.querySelectorAll('video.main2_feature_img[data-poster]');
+      if (!('IntersectionObserver' in window)) {
+        lazyVideos.forEach(function(v) { v.poster = v.dataset.poster; });
+        return;
       }
+      var obs = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          var v = entry.target;
+          v.poster = v.dataset.poster;
+          observer.unobserve(v);
+        });
+      }, { rootMargin: '150px' });
+      lazyVideos.forEach(function(v) { obs.observe(v); });
     });
   </script>
 </body>
