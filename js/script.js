@@ -110,39 +110,74 @@ function initMobileMenu() {
     window.toggleMobileMenu();
   });
 
+  /* ── FIX #2: Χειρισμός /#hash links από mobile menu ── */
   menu.querySelectorAll('a').forEach(function(link) {
     link.addEventListener('click', function(e) {
-      var href     = this.getAttribute('href') || '';
-      var isScroll = href.startsWith('#');
-      if (menu.classList.contains('active')) window.toggleMobileMenu();
-      if (isScroll) {
+      var href = this.getAttribute('href') || '';
+
+      /* Κλείσε πάντα το menu */
+      if (menu.classList.contains('active')) {
+        window.toggleMobileMenu();
+      }
+
+      /*
+       * Αν είμαστε ΗΔΗ στην αρχική σελίδα και το href είναι /#hash,
+       * κάνε smooth scroll αντί full page reload.
+       */
+      var isHomePage = (location.pathname === '/' || location.pathname === '/index.html');
+      var hashMatch  = href.match(/^\/?#(.+)$/) || (href.startsWith('/#') && isHomePage ? [null, href.slice(2)] : null);
+
+      if (hashMatch && isHomePage) {
         e.preventDefault();
-        var target = document.querySelector(href);
+        var targetId = href.replace(/^\/?#/, '');
+        var target   = document.getElementById(targetId);
         if (target) {
           setTimeout(function() {
             target.scrollIntoView({ behavior: 'smooth' });
-          }, 150);
+          }, 200);
         }
       }
+      /* Αν δεν είμαστε στην αρχική, αφήνουμε τον browser να κάνει
+         κανονική πλοήγηση στο /#section — δεν χρειάζεται preventDefault */
     });
   });
 
+  /* Escape key για κλείσιμο */
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && menu.classList.contains('active')) {
       window.toggleMobileMenu();
       btn.focus();
     }
   });
+
+  /* Κλείσιμο με click έξω από το menu */
+  document.addEventListener('click', function(e) {
+    if (
+      menu.classList.contains('active') &&
+      !menu.contains(e.target) &&
+      !btn.contains(e.target)
+    ) {
+      window.toggleMobileMenu();
+    }
+  });
 }
 
 /* ── Desktop Smooth Scroll ───────────────────────────────────── */
+/* FIX #3: Πιάνει όλα τα navbar links που έχουν /#hash ή #hash */
 function initDesktopScroll() {
-  document.querySelectorAll('.desktop_navbar .scroll, .main1 .scroll').forEach(function(link) {
+  document.querySelectorAll('.desktop_navbar a').forEach(function(link) {
     link.addEventListener('click', function(e) {
-      var href = this.getAttribute('href');
-      if (!href || !href.startsWith('#')) return;
+      var href = this.getAttribute('href') || '';
+      var isHomePage = (location.pathname === '/' || location.pathname === '/index.html');
+
+      /* Μόνο αν είμαστε στην αρχική και το href είναι /#section ή #section */
+      if (!isHomePage) return;
+      var hashOnly = href.match(/^\/?#(.+)$/);
+      if (!hashOnly) return;
+
       e.preventDefault();
-      var target = document.querySelector(href);
+      var targetId = hashOnly[1];
+      var target   = document.getElementById(targetId);
       if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
   });
@@ -194,12 +229,13 @@ function showCopyPopup() {
 }
 
 /* ── Player Count ────────────────────────────────────────────── */
+/* FIX #4: Timeout 12s αντί 35s */
 function fetchPlayerCount() {
   var el = document.getElementById('player-count');
   if (!el) return;
 
   var controller = new AbortController();
-  var timeout = setTimeout(function() { controller.abort(); }, 35000);
+  var timeout = setTimeout(function() { controller.abort(); }, 12000);
 
   fetch(MC_API, { signal: controller.signal })
     .then(function(res) {
@@ -305,7 +341,7 @@ function initLeaderboardLogic() {
   if (!listContainer || !btnWeekly || !btnAll) return;
 
   btnWeekly.addEventListener('click', function() { switchPeriod('weekly'); });
-  btnAll.addEventListener('click', function() { switchPeriod('all'); });
+  btnAll.addEventListener('click',    function() { switchPeriod('all'); });
 
   fetchLeaderboard('weekly');
 }
@@ -323,6 +359,7 @@ function switchPeriod(period) {
   fetchLeaderboard(period);
 }
 
+/* FIX #4: Leaderboard timeout επίσης 12s */
 function fetchLeaderboard(period) {
   var listContainer = document.getElementById('leaderboard-list');
   if (!listContainer) return;
@@ -331,7 +368,7 @@ function fetchLeaderboard(period) {
   showSkeleton(listContainer);
 
   var controller = new AbortController();
-  var timeout    = setTimeout(function() { controller.abort(); }, 35000);
+  var timeout    = setTimeout(function() { controller.abort(); }, 12000);
 
   fetch(API_BASE + '?period=' + period, { signal: controller.signal })
     .then(function(res) {
@@ -344,7 +381,9 @@ function fetchLeaderboard(period) {
       if (!Array.isArray(players) || players.length === 0) {
         showLeaderboardMessage(
           listContainer,
-          period === 'weekly' ? 'Δεν υπάρχουν δεδομένα για αυτήν την εβδομάδα.' : 'Δεν βρέθηκαν δεδομένα ακόμα.',
+          period === 'weekly'
+            ? 'Δεν υπάρχουν δεδομένα για αυτήν την εβδομάδα.'
+            : 'Δεν βρέθηκαν δεδομένα ακόμα.',
           'leaderboard-msg'
         );
         return;
@@ -358,7 +397,11 @@ function fetchLeaderboard(period) {
     .catch(function(err) {
       console.error('Leaderboard error:', err);
       listContainer.innerHTML = '';
-      showLeaderboardMessage(listContainer, 'Δεν ήταν δυνατή η σύνδεση με το API. Δοκίμασε ξανά αργότερα.', 'leaderboard-error-msg');
+      showLeaderboardMessage(
+        listContainer,
+        'Δεν ήταν δυνατή η σύνδεση με το API. Δοκίμασε ξανά αργότερα.',
+        'leaderboard-error-msg'
+      );
     })
     .finally(function() {
       listContainer.setAttribute('aria-busy', 'false');
@@ -381,15 +424,16 @@ function createLeaderboardItem(player, rank) {
 
   var img = document.createElement('img');
   img.className = 'item-head';
-  img.src = player.headUrl;
-  img.alt = player.username + ' avatar';
-  img.width = 44; img.height = 44;
+  img.src     = player.headUrl;
+  img.alt     = player.username + ' avatar';
+  img.width   = 44;
+  img.height  = 44;
   img.loading = 'lazy';
   img.decoding = 'async';
   img.onerror = function() { this.src = 'https://mc-heads.net/avatar/steve/44'; };
 
   var username = document.createElement('div');
-  username.className = 'item-username';
+  username.className   = 'item-username';
   username.textContent = player.username;
 
   var time = document.createElement('div');
@@ -411,7 +455,10 @@ function showSkeleton(container) {
     var item = document.createElement('div');
     item.className = 'list-item skeleton-item';
     item.setAttribute('aria-hidden', 'true');
-    ['item-rank skeleton-block', 'item-head skeleton-block', 'item-username skeleton-block skeleton-username'].forEach(function(cls) {
+    ['item-rank skeleton-block',
+     'item-head skeleton-block',
+     'item-username skeleton-block skeleton-username'
+    ].forEach(function(cls) {
       var el = document.createElement('div');
       el.className = cls;
       item.appendChild(el);
@@ -423,7 +470,7 @@ function showSkeleton(container) {
 
 function showLeaderboardMessage(container, text, className) {
   var p = document.createElement('p');
-  p.className = className;
+  p.className   = className;
   p.textContent = text;
   container.appendChild(p);
 }
@@ -462,7 +509,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window._gaLoaded) return;
     window._gaLoaded = true;
 
-    var script = document.createElement('script');
+    var script  = document.createElement('script');
     script.async = true;
     script.src   = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
     document.head.appendChild(script);
@@ -477,17 +524,20 @@ document.addEventListener('DOMContentLoaded', function() {
   function showBanner() {
     var banner = document.getElementById('cookie-banner');
     if (!banner) return;
-    setTimeout(function () {
-      banner.classList.add('cookie-visible');
-    }, 600);
+    /* FIX #6: requestAnimationFrame για σωστό animation */
+    requestAnimationFrame(function() {
+      setTimeout(function() {
+        banner.classList.add('cookie-visible');
+      }, 600);
+    });
   }
 
   function hideBanner() {
     var banner = document.getElementById('cookie-banner');
     if (!banner) return;
     banner.classList.remove('cookie-visible');
-    setTimeout(function () {
-      banner.remove();
+    setTimeout(function() {
+      if (banner.parentNode) banner.parentNode.removeChild(banner);
     }, 450);
   }
 
@@ -502,48 +552,68 @@ document.addEventListener('DOMContentLoaded', function() {
     hideBanner();
   }
 
+  /* FIX #5: <div> αντί <p> για το cookie-text */
   function createBanner() {
-    if (document.getElementById('cookie-banner')) return document.getElementById('cookie-banner');
+    if (document.getElementById('cookie-banner')) {
+      return document.getElementById('cookie-banner');
+    }
 
     var banner = document.createElement('div');
-    banner.id            = 'cookie-banner';
-    banner.role          = 'dialog';
+    banner.id  = 'cookie-banner';
+    banner.setAttribute('role',       'dialog');
     banner.setAttribute('aria-label', 'Συγκατάθεση Cookies');
     banner.setAttribute('aria-live',  'polite');
 
-    banner.innerHTML = [
-      '<p class="cookie-text">',
-        '🍪 <strong>Cookies &amp; Απόρρητο</strong><br>',
-        'Χρησιμοποιούμε cookies για ανώνυμα στατιστικά επισκεψιμότητας (Google Analytics) ',
-        'και για την ομαλή λειτουργία του site. Διαβάστε την ',
-        '<a href="/privacy" target="_blank" rel="noopener noreferrer">Πολιτική Απορρήτου</a>',
-        ' μας.',
-      '</p>',
-      '<div class="cookie-buttons">',
-        '<button class="cookie-btn-accept" id="cookie-accept" type="button" aria-label="Αποδοχή cookies">',
-          'Αποδοχή',
-        '</button>',
-        '<button class="cookie-btn-decline" id="cookie-decline" type="button" aria-label="Απόρριψη cookies">',
-          'Απόρριψη',
-        '</button>',
-      '</div>'
+    var text = document.createElement('div');
+    text.className = 'cookie-text';
+    text.innerHTML = [
+      '🍪 <strong>Cookies &amp; Απόρρητο</strong><br>',
+      'Χρησιμοποιούμε cookies για ανώνυμα στατιστικά επισκεψιμότητας (Google Analytics) ',
+      'και για την ομαλή λειτουργία του site. Διαβάστε την ',
+      '<a href="/privacy" target="_blank" rel="noopener noreferrer">Πολιτική Απορρήτου</a>',
+      ' μας.'
     ].join('');
 
+    var buttons = document.createElement('div');
+    buttons.className = 'cookie-buttons';
+
+    var acceptBtn = document.createElement('button');
+    acceptBtn.id          = 'cookie-accept';
+    acceptBtn.type        = 'button';
+    acceptBtn.className   = 'cookie-btn-accept';
+    acceptBtn.setAttribute('aria-label', 'Αποδοχή cookies');
+    acceptBtn.textContent = 'Αποδοχή';
+
+    var declineBtn = document.createElement('button');
+    declineBtn.id          = 'cookie-decline';
+    declineBtn.type        = 'button';
+    declineBtn.className   = 'cookie-btn-decline';
+    declineBtn.setAttribute('aria-label', 'Απόρριψη cookies');
+    declineBtn.textContent = 'Απόρριψη';
+
+    buttons.appendChild(acceptBtn);
+    buttons.appendChild(declineBtn);
+    banner.appendChild(text);
+    banner.appendChild(buttons);
+
     return banner;
+  }
+
+  function attachBannerEvents() {
+    var acceptBtn  = document.getElementById('cookie-accept');
+    var declineBtn = document.getElementById('cookie-decline');
+    if (acceptBtn)  acceptBtn.addEventListener('click',  acceptCookies);
+    if (declineBtn) declineBtn.addEventListener('click', declineCookies);
   }
 
   window.resetCookieConsent = function() {
     try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
     var existing = document.getElementById('cookie-banner');
-    if (existing) existing.remove();
+    if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
+
     var banner = createBanner();
     document.body.appendChild(banner);
-
-    var acceptBtn  = document.getElementById('cookie-accept');
-    var declineBtn = document.getElementById('cookie-decline');
-    if (acceptBtn)  acceptBtn.addEventListener('click',  acceptCookies);
-    if (declineBtn) declineBtn.addEventListener('click', declineCookies);
-
+    attachBannerEvents();
     showBanner();
   };
 
@@ -552,19 +622,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (consent === 'accepted') {
       loadGoogleAnalytics();
-    } else if (consent !== 'declined') {
-      var banner = createBanner();
-      document.body.appendChild(banner);
-
-      var acceptBtn  = document.getElementById('cookie-accept');
-      var declineBtn = document.getElementById('cookie-decline');
-
-      if (acceptBtn)  acceptBtn.addEventListener('click',  acceptCookies);
-      if (declineBtn) declineBtn.addEventListener('click', declineCookies);
-
-      showBanner();
+      return;
     }
 
+    if (consent === 'declined') {
+      return;
+    }
+
+    /* Δεν έχει δοθεί consent ακόμα — εμφάνισε banner */
+    var banner = createBanner();
+    document.body.appendChild(banner);
+    attachBannerEvents();
+    showBanner();
+
+    /* Reset button στη privacy page */
     document.addEventListener('click', function(e) {
       var resetBtn = e.target.closest('#reset-cookies-btn');
       if (resetBtn) {

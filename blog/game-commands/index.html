@@ -6,23 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
   <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
   <link rel="preload" href="/blog/media/blogbanner4.webp" as="image" fetchpriority="high">
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-49NVHWZZV8', { anonymize_ip: true });
-  </script>
+  <!-- ΔΕΝ φορτώνουμε GA εδώ - το αναλαμβάνει το script.js μόνο αν υπάρχει συγκατάθεση -->
 
   <title>Game Commands — Όλα τα Commands | PGG Legacy Blog</title>
   <meta name="description" content="Πλήρης λίστα με όλα τα commands του PGG Legacy — μετακινήσεις, επικοινωνία, ασφάλεια, roleplay και έκτακτη ανάγκη.">
   <meta name="keywords" content="PGG Legacy commands, minecraft server commands, /home /spawn /sethome, RP commands minecraft, /season, /smp, /rp">
   <meta name="robots" content="index, follow">
   <meta name="author" content="PGG Legacy">
-  <meta name="theme-color" content="#6b2dd8">
+  <meta name="theme-color" content="#1a1921">
   <link rel="canonical" href="https://pgglegacy.gr/blog/game-commands/">
 
   <meta property="og:type" content="article">
@@ -37,6 +32,7 @@
   <meta property="article:section" content="Οδηγός">
 
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://pgglegacy.gr/blog/game-commands/">
   <meta name="twitter:title" content="Game Commands | PGG Legacy Blog">
   <meta name="twitter:description" content="Πλήρης λίστα με όλα τα commands του PGG Legacy.">
   <meta name="twitter:image" content="https://pgglegacy.gr/blog/media/blogbanner4.webp">
@@ -73,19 +69,121 @@
   }
   </script>
 
-  <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap"
-        rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript>
-    <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
-  </noscript>
-
+  <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/navbar.css">
   <link rel="stylesheet" href="/css/cursor.css">
   <link rel="stylesheet" href="/css/animations.css">
   <link rel="stylesheet" href="/css/responsive.css">
   <link rel="stylesheet" href="/blog/blog.css">
-  <link rel="stylesheet" href="/css/cookies.css">
+
+  <style>
+    /* ── Cookie Banner Critical CSS ── */
+    #cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 99998;
+      background: rgba(18, 17, 23, 0.97);
+      border-top: 1px solid rgba(107, 45, 216, 0.5);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-family: 'Space Grotesk', sans-serif;
+      box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.5);
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+    #cookie-banner.cookie-visible {
+      transform: translateY(0);
+    }
+    .cookie-text {
+      flex: 1;
+      min-width: 200px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.6;
+    }
+    .cookie-text strong { color: #fff; font-weight: 700; }
+    .cookie-text a {
+      color: #a855f7;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.2s;
+    }
+    .cookie-text a:hover { color: #c084fc; }
+    .cookie-buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+    .cookie-btn-accept {
+      padding: 0.6rem 1.4rem;
+      background: #6b2dd8;
+      color: #fff;
+      border: none;
+      border-radius: 0.6rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 3px 12px rgba(107, 45, 216, 0.4);
+      white-space: nowrap;
+    }
+    .cookie-btn-accept:hover,
+    .cookie-btn-accept:focus-visible {
+      background: #7c3aed;
+      transform: translateY(-1px);
+      box-shadow: 0 5px 16px rgba(107, 45, 216, 0.55);
+    }
+    .cookie-btn-decline {
+      padding: 0.6rem 1.2rem;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 0.6rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+      white-space: nowrap;
+    }
+    .cookie-btn-decline:hover,
+    .cookie-btn-decline:focus-visible {
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+    @media (max-width: 600px) {
+      #cookie-banner {
+        padding: 1rem 1.2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .cookie-buttons {
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .cookie-btn-accept,
+      .cookie-btn-decline {
+        flex: 1;
+        text-align: center;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #cookie-banner { transition: none; }
+    }
+  </style>
 </head>
 <body>
   <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
@@ -332,17 +430,6 @@
       &copy; <span id="copyright-year"></span> PGG Legacy — All rights reserved.
     </p>
   </footer>
-
-  <!-- Cookies Banner -->
-  <div id="cookie-banner">
-    <div class="cookie-text">
-      Χρησιμοποιούμε <strong>cookies</strong> για να σας προσφέρουμε την καλύτερη δυνατή εμπειρία πλοήγησης. Συνεχίζοντας, αποδέχεστε τη χρήση τους.
-    </div>
-    <div class="cookie-buttons">
-      <button class="cookie-btn-decline" id="cookie-decline">Απόρριψη</button>
-      <button class="cookie-btn-accept" id="cookie-accept">Αποδοχή</button>
-    </div>
-  </div>
 
   <script src="/js/script.js" defer></script>
   <script src="/blog/blog.js" defer></script>

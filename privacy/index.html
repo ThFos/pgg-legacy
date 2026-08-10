@@ -9,54 +9,32 @@
   <meta name="description" content="Πολιτική Απορρήτου και Προστασίας Προσωπικών Δεδομένων του PGG Legacy Minecraft Server.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="PGG Legacy">
-  <meta name="theme-color" content="#6b2dd8">
+  <meta name="theme-color" content="#1a1921">
   <link rel="canonical" href="https://pgglegacy.gr/privacy">
 
   <link rel="icon" type="image/png" href="/media/favicon.png">
   <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
   <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
 
-  <!-- Critical Base CSS -->
   <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/cookies.css">
-
-  <!-- Deferred CSS -->
-  <link rel="stylesheet" href="/css/sections.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="/css/pages.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="/css/animations.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="/css/responsive.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="/css/navbar.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="/css/hero.css" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="/css/sections.css">
-    <link rel="stylesheet" href="/css/pages.css">
-    <link rel="stylesheet" href="/css/animations.css">
-    <link rel="stylesheet" href="/css/responsive.css">
-    <link rel="stylesheet" href="/css/navbar.css">
-    <link rel="stylesheet" href="/css/hero.css">
-  </noscript>
+  <link rel="stylesheet" href="/css/navbar.css">
+  <link rel="stylesheet" href="/css/cursor.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/responsive.css">
 
   <style>
-    *, html, body, a, button {
-      cursor: auto !important;
-    }
-
-    body {
-      font-family: 'Space Grotesk', sans-serif;
-      background-color: var(--bg1, #1a1921);
-      color: #fff;
-    }
-
+    /* ── Privacy Content ── */
     .privacy-section {
       max-width: 900px;
       margin: 7rem auto 4rem;
       padding: 2.5rem 2rem;
-      background: var(--bg2, #121117);
-      border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
-      border-radius: var(--roundness, 0.75rem);
+      background: #121117;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 0.75rem;
       line-height: 1.8;
       color: rgba(255, 255, 255, 0.9);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      width: calc(100% - 2rem);
     }
 
     .privacy-section h1 {
@@ -70,7 +48,7 @@
     .privacy-date {
       text-align: center;
       font-size: 0.9rem;
-      color: var(--text-muted, rgba(255, 255, 255, 0.6));
+      color: rgba(255, 255, 255, 0.6);
       margin-bottom: 2.5rem;
     }
 
@@ -84,7 +62,7 @@
       font-weight: 700;
     }
 
-    .privacy-section p, 
+    .privacy-section p,
     .privacy-section ul {
       margin-bottom: 1.2rem;
       font-size: 0.98rem;
@@ -95,20 +73,15 @@
       list-style: disc;
     }
 
-    .privacy-section li {
-      margin-bottom: 0.6rem;
-    }
+    .privacy-section li { margin-bottom: 0.6rem; }
 
     .privacy-section a {
       color: #c084fc;
       text-decoration: underline;
       transition: color 0.2s ease;
-      cursor: pointer !important;
     }
 
-    .privacy-section a:hover {
-      color: #e9d5ff;
-    }
+    .privacy-section a:hover { color: #e9d5ff; }
 
     .reset-cookies-container {
       margin: 1.5rem 0;
@@ -124,16 +97,14 @@
       border: none;
       padding: 0.5rem 1.2rem;
       border-radius: 0.4rem;
-      font-family: inherit;
+      font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      cursor: pointer !important;
+      cursor: pointer;
       margin-top: 0.5rem;
       transition: background 0.2s ease;
     }
 
-    .reset-btn:hover {
-      background: #7c3aed;
-    }
+    .reset-btn:hover { background: #7c3aed; }
 
     .back-btn-container {
       display: flex;
@@ -144,14 +115,13 @@
     .back-btn {
       display: inline-block;
       padding: 0.75rem 1.8rem;
-      background: var(--accent1, #6b2dd8);
+      background: #6b2dd8;
       color: #fff !important;
       text-decoration: none !important;
-      border-radius: var(--roundness, 0.75rem);
+      border-radius: 0.75rem;
       font-weight: 700;
       transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
       box-shadow: 0 4px 15px rgba(107, 45, 216, 0.3);
-      cursor: pointer !important;
     }
 
     .back-btn:hover {
@@ -159,23 +129,164 @@
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(107, 45, 216, 0.5);
     }
+
+    /* ── Cookie Banner Critical CSS ── */
+    #cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 99998;
+      background: rgba(18, 17, 23, 0.97);
+      border-top: 1px solid rgba(107, 45, 216, 0.5);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-family: 'Space Grotesk', sans-serif;
+      box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.5);
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+    #cookie-banner.cookie-visible {
+      transform: translateY(0);
+    }
+    .cookie-text {
+      flex: 1;
+      min-width: 200px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.6;
+    }
+    .cookie-text strong { color: #fff; font-weight: 700; }
+    .cookie-text a {
+      color: #a855f7;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.2s;
+    }
+    .cookie-text a:hover { color: #c084fc; }
+    .cookie-buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+    .cookie-btn-accept {
+      padding: 0.6rem 1.4rem;
+      background: #6b2dd8;
+      color: #fff;
+      border: none;
+      border-radius: 0.6rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 3px 12px rgba(107, 45, 216, 0.4);
+      white-space: nowrap;
+    }
+    .cookie-btn-accept:hover,
+    .cookie-btn-accept:focus-visible {
+      background: #7c3aed;
+      transform: translateY(-1px);
+      box-shadow: 0 5px 16px rgba(107, 45, 216, 0.55);
+    }
+    .cookie-btn-decline {
+      padding: 0.6rem 1.2rem;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 0.6rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+      white-space: nowrap;
+    }
+    .cookie-btn-decline:hover,
+    .cookie-btn-decline:focus-visible {
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+    @media (max-width: 600px) {
+      #cookie-banner {
+        padding: 1rem 1.2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .cookie-buttons {
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .cookie-btn-accept,
+      .cookie-btn-decline {
+        flex: 1;
+        text-align: center;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #cookie-banner { transition: none; }
+    }
+
+    /* ── Mobile navbar padding fix για privacy ── */
+    @media (max-width: 768px) {
+      .privacy-section {
+        margin-top: 5.5rem;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
   <!-- Desktop Navbar -->
   <nav class="desktop_navbar" aria-label="Κύριο μενού">
     <a href="/" aria-label="PGG Legacy - Αρχική">
-      <img class="desktop_navbar_logo_img" src="/media/logo_small.svg" alt="PGG Legacy Logo" width="152" height="40">
+      <img class="desktop_navbar_logo_img" src="/media/logo_small.svg"
+           alt="PGG Legacy Logo" width="152" height="40" fetchpriority="high">
     </a>
-    <a href="/#rules" class="desktop_navbar_link">Rules</a>
-    <a href="/#discord" class="desktop_navbar_link">Community</a>
-    <a href="/#about" class="desktop_navbar_link">About Us</a>
-    <a href="/map" class="desktop_navbar_link">Server Map</a>
+    <a href="/#rules"      class="desktop_navbar_link">Rules</a>
+    <a href="/#discord"    class="desktop_navbar_link">Community</a>
+    <a href="/#about"      class="desktop_navbar_link">About Us</a>
+    <a href="/map"         class="desktop_navbar_link">Server Map</a>
     <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
-    <a href="/police" class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
+    <a href="/police"      class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
     <div class="desktop_navbar_link2_div">
       <a href="/#join" class="desktop_navbar_link2">Join Us!</a>
+    </div>
+  </nav>
+
+  <!-- Mobile Navbar -->
+  <nav class="mobile_navbar" aria-label="Κινητό μενού">
+    <a href="/" class="mobile_navbar_logo_img_a" aria-label="PGG Legacy - Αρχική">
+      <img class="mobile_navbar_logo_img" src="/media/logo_small.svg"
+           alt="PGG Legacy Logo" width="152" height="40">
+    </a>
+    <button class="icon" aria-expanded="false"
+            aria-controls="mobile_navbar_links"
+            aria-label="Άνοιγμα μενού πλοήγησης">
+      <svg id="menuIcon" viewBox="0 0 24 24" width="24" height="24"
+           fill="white" aria-hidden="true" focusable="false">
+        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+      </svg>
+    </button>
+    <div id="mobile_navbar_links" role="menu">
+      <a class="mobile_navbar_link" href="/#rules"      role="menuitem">Rules</a>
+      <a class="mobile_navbar_link" href="/#discord"    role="menuitem">Community</a>
+      <a class="mobile_navbar_link" href="/#about"      role="menuitem">About Us</a>
+      <a class="mobile_navbar_link" href="/map"         role="menuitem">Server Map</a>
+      <a class="mobile_navbar_link nav-highlight-blue"  href="/leaderboard" role="menuitem">Leaderboard</a>
+      <a class="mobile_navbar_link nav-highlight-gold"  href="/police"      role="menuitem">Police Apps</a>
+      <a class="mobile_navbar_link" href="/#join"       role="menuitem">Join Us</a>
     </div>
   </nav>
 
@@ -189,18 +300,18 @@
       <h2>1. Υπεύθυνος Επεξεργασίας</h2>
       <p>Υπεύθυνη για την επεξεργασία των δεδομένων είναι η ομάδα διαχείρισης του <strong>PGG Legacy</strong>. Για οποιαδήποτε απορία ή άσκηση των δικαιωμάτων σας, μπορείτε να επικοινωνήσετε μαζί μας μέσω του επίσημου διακομιστή μας στο Discord: <a href="https://discord.gg/Ks7NtXhtwV" target="_blank" rel="noopener">discord.gg/Ks7NtXhtwV</a>.</p>
 
-      <h2>2. Δεδομένα που Συλλέγουμε & Σκοπός Επεξεργασίας</h2>
+      <h2>2. Δεδομένα που Συλλέγουμε &amp; Σκοπός Επεξεργασίας</h2>
       <ul>
         <li>
-          <strong>Αιτήσεις Αστυνομίας (Police Applications):</strong> 
+          <strong>Αιτήσεις Αστυνομίας (Police Applications):</strong>
           Όταν συμπληρώνετε τη φόρμα αιτήσεων, συλλέγουμε το <em>Discord Username</em>, το <em>In-Game Name (Minecraft Name)</em>, την <em>Ηλικία (OOC)</em>, τις διαθέσιμες ώρες και την εμπειρία σας. Τα δεδομένα αυτά συλλέγονται αποκλειστικά για την αξιολόγηση της αίτησής σας από την ομάδα Staff και τη μετέπειτα επικοινωνία μαζί μας.
         </li>
         <li>
-          <strong>Ανώνυμα Στατιστικά Επισκεψιμότητας (Google Analytics):</strong> 
+          <strong>Ανώνυμα Στατιστικά Επισκεψιμότητας (Google Analytics):</strong>
           Χρησιμοποιούμε το Google Analytics με ενεργοποιημένη την ανωνυμοποίηση διευθύνσεων IP (anonymize IP). Συλλέγονται ανώνυμες πληροφορίες όπως προβολές σελίδων, τύπος συσκευής, λειτουργικό σύστημα και προέλευση επισκεπτών, αποκλειστικά κατόπιν δικής σας συγκατάθεσης.
         </li>
         <li>
-          <strong>Τοπική Αποθήκευση (LocalStorage):</strong> 
+          <strong>Τοπική Αποθήκευση (LocalStorage):</strong>
           Χρησιμοποιούμε τη λειτουργία LocalStorage του περιηγητή σας για να αποθηκεύουμε τεχνικές πληροφορίες, όπως την αποφυγή διπλής υποβολής αιτήσεων ή τις προτιμήσεις σας για τα cookies.
         </li>
       </ul>
@@ -218,12 +329,12 @@
         <li><strong>Έννομο Συμφέρον (Legitimate Interest):</strong> Για τη διασφάλιση της ομαλής λειτουργίας, της ασφάλειας της ιστοσελίδας και την αποτροπή καταχρήσεων (spam / DDOS).</li>
       </ul>
 
-      <h2>4. Τρίτες Υπηρεσίες & Εκτελούντες την Επεξεργασία</h2>
+      <h2>4. Τρίτες Υπηρεσίες &amp; Εκτελούντες την Επεξεργασία</h2>
       <p>Για την παροχή των υπηρεσιών μας, συνεργαζόμαστε με τις ακόλουθες τρίτες υπηρεσίες οι οποίες ενδέχεται να επεξεργάζονται δεδομένα για λογαριασμό μας:</p>
       <ul>
         <li><strong>Web3Forms:</strong> Υπηρεσία διαβίβασης των αιτήσεων αστυνομίας. Τα στοιχεία της φόρμας αποστέλλονται με ασφάλεια μέσω της Web3Forms στην ομάδα διαχείρισης.</li>
         <li><strong>Google Analytics (Google LLC):</strong> Παροχή ανώνυμων στατιστικών επισκεψιμότητας.</li>
-        <li><strong>Render & mcstatus.io:</strong> Τεχνικές υποδομές API για την προβολή κατάστασης του server και του Leaderboard (συλλογή δημόσιων δεδομένων Minecraft).</li>
+        <li><strong>Render &amp; mcstatus.io:</strong> Τεχνικές υποδομές API για την προβολή κατάστασης του server και του Leaderboard (συλλογή δημόσιων δεδομένων Minecraft).</li>
       </ul>
 
       <h2>5. Χρόνος Διατήρησης Δεδομένων</h2>
@@ -231,12 +342,11 @@
 
       <h2>6. Τα Δικαιώματά σας (GDPR)</h2>
       <p>Έχετε τα εξής δικαιώματα σχετικά με τα προσωπικά σας δεδομένα:</p>
-
       <ul>
         <li><strong>Δικαίωμα Πρόσβασης:</strong> Να μάθετε ποια δεδομένα διατηρούμε για εσάς.</li>
         <li><strong>Δικαίωμα Διόρθωσης:</strong> Να ζητήσετε τη διόρθωση ανακριβών στοιχείων.</li>
         <li><strong>Δικαίωμα Διαγραφής ("Δικαίωμα στη Λήθη"):</strong> Να ζητήσετε την οριστική διαγραφή των δεδομένων σας από τα αρχεία μας.</li>
-        <li><strong>Δικαίωμα Εναντίωσης & Περιορισμού:</strong> Να εναντιωθείτε στην επεξεργασία ή να ζητήσετε τον περιορισμό της.</li>
+        <li><strong>Δικαίωμα Εναντίωσης &amp; Περιορισμού:</strong> Να εναντιωθείτε στην επεξεργασία ή να ζητήσετε τον περιορισμό της.</li>
       </ul>
       <p>Για να ασκήσετε οποιοδήποτε δικαίωμα, επικοινωνήστε μαζί μας στο Discord. Εάν θεωρείτε ότι παραβιάζονται τα δικαιώματά σας, έχετε το δικαίωμα υποβολής καταγγελίας στην <strong>Αρχή Προστασίας Δεδομένων Προσωπικού Χαρακτήρα (ΑΠΔΠΧ - www.dpa.gr)</strong>.</p>
 
@@ -251,8 +361,8 @@
 
   <footer class="copyright_div">
     <p class="copyright">
-      &copy; <span id="copyright-year">2026</span> PGG Legacy — All rights reserved. | 
-      <a href="/privacy" style="color: var(--text-muted); text-decoration: underline;">Privacy Policy</a>
+      &copy; <span id="copyright-year"></span> PGG Legacy — All rights reserved. |
+      <a href="/privacy">Privacy Policy</a>
     </p>
   </footer>
 
