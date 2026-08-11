@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
-  <!-- DNS Prefetch & Preconnect -->
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
   <link rel="dns-prefetch" href="https://api.mcstatus.io">
@@ -16,11 +15,9 @@
   <meta name="keywords" content="PGG Legacy, Minecraft server greek, ελληνικός minecraft server, minecraft rp server, minecraft smp greece, play.pgglegacy.gr">
   <meta name="robots" content="index, follow">
   <meta name="author" content="PGG Legacy">
-  <!-- FIX #1: theme-color διορθώθηκε -->
   <meta name="theme-color" content="#1a1921">
   <link rel="canonical" href="https://pgglegacy.gr/">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pgglegacy.gr/">
   <meta property="og:title" content="PGG Legacy | Ελληνικός Minecraft RP &amp; SMP Server">
@@ -31,14 +28,12 @@
   <meta property="og:site_name" content="PGG Legacy">
   <meta property="og:locale" content="el_GR">
 
-  <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://pgglegacy.gr/">
   <meta name="twitter:title" content="PGG Legacy | Ελληνικός Minecraft RP &amp; SMP Server">
   <meta name="twitter:description" content="Γνωρίστε τον PGG Legacy, τον κορυφαίο ελληνικό Minecraft server!">
   <meta name="twitter:image" content="https://pgglegacy.gr/media/banner.png">
 
-  <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -65,19 +60,16 @@
   }
   </script>
 
-  <!-- Critical Resource Preloads -->
   <link rel="preload" href="/media/logo.svg" as="image" fetchpriority="high">
   <link rel="preload" href="/media/hero-bg.webp" as="image" fetchpriority="high">
   <link rel="icon" type="image/png" href="/media/favicon.png">
 
-  <!-- FIX #6: Μόνο 1 φορά το fonts preconnect (αφαιρέθηκε το διπλό) -->
   <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'">
   <noscript>
     <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
   </noscript>
 
-  <!-- Critical CSS inline -->
   <style>
     :root {
       --nice-padding: 6rem;
@@ -102,7 +94,7 @@
       color: #fff;
     }
     body.menu-open { overflow: hidden; }
-    img { -webkit-user-drag: none; user-drag: none; max-width: 100%; }
+    img { -webkit-user-drag: none; max-width: 100%; }
     ul { list-style: none; }
     .sr-only {
       position: absolute; width: 1px; height: 1px; padding: 0;
@@ -290,7 +282,6 @@
     }
   </style>
 
-  <!-- Non-critical CSS - Deferred -->
   <link rel="stylesheet" href="/css/sections.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="/css/pages.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="/css/cursor.css" media="print" onload="this.media='all'">
@@ -298,6 +289,7 @@
   <link rel="stylesheet" href="/css/responsive.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="/css/navbar.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="/css/hero.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/cookies.css" media="print" onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="/css/sections.css">
     <link rel="stylesheet" href="/css/pages.css">
@@ -306,6 +298,7 @@
     <link rel="stylesheet" href="/css/responsive.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/hero.css">
+    <link rel="stylesheet" href="/css/cookies.css">
   </noscript>
 </head>
 <body>
@@ -318,13 +311,12 @@
       <img class="desktop_navbar_logo_img" src="/media/logo_small.svg"
            alt="PGG Legacy Logo" width="152" height="40" fetchpriority="high">
     </a>
-    <!-- FIX #3: Αφαιρέθηκε το περιττό class="scroll" — το script.js χειρίζεται με href match -->
-    <a href="#rules"      class="desktop_navbar_link">Rules</a>
-    <a href="#discord"    class="desktop_navbar_link">Community</a>
-    <a href="#about"      class="desktop_navbar_link">About Us</a>
-    <a href="/map"        class="desktop_navbar_link">Server Map</a>
+    <a href="#rules"       class="desktop_navbar_link">Rules</a>
+    <a href="#discord"     class="desktop_navbar_link">Community</a>
+    <a href="#about"       class="desktop_navbar_link">About Us</a>
+    <a href="/map"         class="desktop_navbar_link">Server Map</a>
     <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
-    <a href="/police"     class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
+    <a href="/police"      class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
     <div class="desktop_navbar_link2_div">
       <a href="#join" class="desktop_navbar_link2">Join Us!</a>
     </div>
@@ -622,12 +614,12 @@
     </section>
 
     <section id="join" class="main3" aria-labelledby="join-title">
-    <h2 id="join-title" class="headline" data-aos="fade-up">
-      Πώς να μπεις<br>(PGG Legacy IP)
-    </h2>
-    <div class="main3_join_div_div">
-      <div class="main3_join_div" data-aos="fade-up" data-aos-duration="800">
-        <p class="main3_join_title">Java Edition</p>
+      <h2 id="join-title" class="headline" data-aos="fade-up">
+        Πώς να μπεις<br>(PGG Legacy IP)
+      </h2>
+      <div class="main3_join_div_div">
+        <div class="main3_join_div" data-aos="fade-up" data-aos-duration="800">
+          <p class="main3_join_title">Java Edition</p>
           <div class="main3_join_content_div">
             <dl class="main3_join_dl">
               <div class="main3_join_row">
@@ -647,17 +639,13 @@
 
   <footer class="copyright_div">
     <p class="copyright">
-      <!-- FIX #2: Αφαιρέθηκε hardcoded 2026 — το βάζει το script.js -->
       &copy; <span id="copyright-year"></span> PGG Legacy — All rights reserved. |
       <a href="/privacy">Privacy Policy</a>
     </p>
   </footer>
 
-  <!-- ΔΕΝ υπάρχει hardcoded cookie banner - το δημιουργεί το script.js -->
-
   <script src="/js/script.js" defer></script>
 
-  <!-- FIX #5: Inline script μόνο για video posters (ξεχωριστό από initLazyVideos) -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var lazyVideos = document.querySelectorAll('video.main2_feature_img[data-poster]');

@@ -5,20 +5,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-49NVHWZZV8', { anonymize_ip: true });
-  </script>
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+  <link rel="dns-prefetch" href="https://pgg-leaderboard-api.onrender.com">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
 
   <title>PGG Legacy | Leaderboard — Top Players</title>
   <meta name="description" content="Δείτε τους κορυφαίους παίκτες με τις περισσότερες ώρες παιχνιδιού στον PGG Legacy Minecraft Server!">
   <meta name="keywords" content="PGG Legacy leaderboard, top players minecraft, play.pgglegacy.gr stats">
   <meta name="robots" content="index, follow">
   <meta name="author" content="PGG Legacy">
-  <meta name="theme-color" content="#6b2dd8">
+  <meta name="theme-color" content="#1a1921">
   <link rel="canonical" href="https://pgglegacy.gr/leaderboard">
 
   <meta property="og:type" content="website">
@@ -26,36 +23,393 @@
   <meta property="og:title" content="PGG Legacy | Leaderboard — Top Players">
   <meta property="og:description" content="Ποιοι παίκτες κυριαρχούν στον PGG Legacy; Εβδομαδιαίο &amp; All-Time Playtime Leaderboard.">
   <meta property="og:image" content="https://pgglegacy.gr/media/banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="PGG Legacy">
   <meta property="og:locale" content="el_GR">
 
-  <link rel="icon" type="image/png" href="../media/favicon.png">
-  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
-  <link rel="dns-prefetch" href="https://pgg-leaderboard-api.onrender.com">
-  <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" media="print" onload="this.media='all'">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://pgglegacy.gr/leaderboard">
+  <meta name="twitter:title" content="PGG Legacy | Leaderboard — Top Players">
+  <meta name="twitter:description" content="Ποιοι παίκτες κυριαρχούν στον PGG Legacy; Εβδομαδιαίο &amp; All-Time Playtime Leaderboard.">
+  <meta name="twitter:image" content="https://pgglegacy.gr/media/banner.png">
 
-  <link rel="stylesheet" href="../css/base.css">
-  <link rel="stylesheet" href="../css/navbar.css">
-  <link rel="stylesheet" href="../css/hero.css">
-  <link rel="stylesheet" href="../css/sections.css">
-  <link rel="stylesheet" href="../css/pages.css">
-  <link rel="stylesheet" href="../css/cursor.css">
-  <link rel="stylesheet" href="../css/animations.css">
-  <link rel="stylesheet" href="../css/responsive.css">
-  
-  <!-- Προσθήκη Cookies CSS -->
-  <link rel="stylesheet" href="../css/cookies.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="../css/cookies.css"></noscript>
+  <link rel="preload" href="/media/logo.svg" as="image" fetchpriority="high">
+  <link rel="icon" type="image/png" href="/media/favicon.png">
+
+  <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  </noscript>
+
+  <style>
+    :root {
+      --nice-padding: 6rem;
+      --roundness: 0.75rem;
+      --accent1: #6b2dd8;
+      --accent2: #521eb8;
+      --accent2-transp: rgba(82, 30, 184, 0.33);
+      --bg1: #1a1921;
+      --bg2: #121117;
+      --text-muted: rgba(255, 255, 255, 0.7);
+      --border-subtle: rgba(255, 255, 255, 0.05);
+      --transition-std: 0.3s ease;
+      color-scheme: dark;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: var(--bg1);
+      color: #fff;
+    }
+    body.menu-open { overflow: hidden; }
+    img { -webkit-user-drag: none; max-width: 100%; }
+    ul { list-style: none; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0;
+      margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+      white-space: nowrap; border: 0;
+    }
+    :focus-visible { outline: 2px solid var(--accent1); outline-offset: 3px; border-radius: 4px; }
+
+    .mainflex { display: flex; flex-direction: column; align-items: center; width: 100%; }
+
+    .copyright_div {
+      width: 100%; display: flex; justify-content: center;
+      padding: 1.5rem 1rem; background: #000; text-align: center;
+    }
+    .copyright { color: var(--text-muted); font-size: 0.9rem; }
+    .copyright a { color: var(--text-muted); text-decoration: underline; transition: color 0.2s ease; }
+    .copyright a:hover { color: #fff; }
+
+    /* ── Navbar Critical ── */
+    .desktop_navbar {
+      position: fixed; inset: 0 0 auto 0;
+      display: flex; height: 5.2rem;
+      align-items: center; justify-content: center;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      z-index: 100; gap: 0.2rem;
+    }
+    .desktop_navbar_logo_img { width: 9.5rem; height: auto; padding: 0 1.5rem 0 2rem; }
+    .desktop_navbar_link {
+      font-size: 1.05rem; padding: 0.8rem 1rem;
+      text-decoration: none; color: #fff; white-space: nowrap;
+    }
+    .desktop_navbar_link2_div {
+      font-size: 1.05rem; padding: 0.5rem 1rem;
+      margin-left: auto; margin-right: 2rem; font-weight: 700;
+      border: 1px solid var(--accent1); border-radius: var(--roundness);
+      white-space: nowrap;
+    }
+    .desktop_navbar_link2 { color: #fff; text-decoration: none; }
+    .nav-highlight-blue { color: #5865F2 !important; font-weight: 700; }
+    .nav-highlight-gold { color: #ffcc00 !important; font-weight: 700; }
+    .mobile_navbar { display: none; }
+
+    /* ── AOS Initial State ── */
+    [data-aos] { opacity: 0; transition: opacity 0.8s ease, transform 0.8s ease; }
+    [data-aos="fade-up"] { transform: translateY(28px); }
+    [data-aos="zoom-in"] { transform: scale(0.92); }
+    [data-aos].aos-animate { opacity: 1; transform: translateY(0) scale(1); }
+
+    /* ── Leaderboard Page ── */
+    .leaderboard-main {
+      min-height: 100vh;
+      padding-top: 5.2rem;
+    }
+
+    .leaderboard-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 3rem 1rem 5rem;
+    }
+
+    .leaderboard-container {
+      width: 100%;
+      max-width: 760px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .leaderboard-logo-container { margin-bottom: 0.5rem; }
+    .leaderboard-logo { width: clamp(200px, 50vw, 380px); height: auto; }
+
+    .top-players-logo-container { margin-bottom: 0; }
+    .top-players-logo { width: clamp(200px, 50vw, 360px); height: auto; }
+    .leaderboard-h1 { line-height: 1; }
+
+    .leaderboard-subtitle {
+      color: var(--text-muted);
+      font-size: 1rem;
+      text-align: center;
+      margin-top: -0.5rem;
+    }
+
+    /* ── Tabs ── */
+    .leaderboard-tabs {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .tab-btn {
+      padding: 0.55rem 1.6rem;
+      border-radius: var(--roundness);
+      border: 1px solid rgba(255,255,255,0.15);
+      background: transparent;
+      color: var(--text-muted);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background var(--transition-std), color var(--transition-std),
+                  border-color var(--transition-std), box-shadow var(--transition-std);
+    }
+    .tab-btn.active,
+    .tab-btn:hover {
+      background: var(--accent1);
+      color: #fff;
+      border-color: var(--accent1);
+      box-shadow: 0 4px 18px rgba(107,45,216,0.45);
+    }
+
+    /* ── Leaderboard List ── */
+    .leaderboard-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .leaderboard-msg {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 1rem;
+      padding: 2rem 0;
+    }
+
+    /* Skeleton */
+    .lb-skeleton {
+      height: 72px;
+      border-radius: var(--roundness);
+      background: linear-gradient(90deg,
+        rgba(255,255,255,0.05) 25%,
+        rgba(255,255,255,0.1) 50%,
+        rgba(255,255,255,0.05) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s infinite;
+    }
+    @keyframes shimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Player Row */
+    .lb-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--roundness);
+      padding: 0.85rem 1.1rem;
+      transition: background var(--transition-std), border-color var(--transition-std),
+                  transform var(--transition-std), box-shadow var(--transition-std);
+      animation: rowFadeIn 0.4s ease both;
+    }
+    .lb-row:hover {
+      background: rgba(107,45,216,0.12);
+      border-color: rgba(107,45,216,0.35);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(107,45,216,0.2);
+    }
+
+    .lb-row.rank-1 { border-color: rgba(255,215,0,0.5);  box-shadow: 0 0 18px rgba(255,215,0,0.15); }
+    .lb-row.rank-2 { border-color: rgba(192,192,192,0.5); box-shadow: 0 0 18px rgba(192,192,192,0.12); }
+    .lb-row.rank-3 { border-color: rgba(205,127,50,0.5);  box-shadow: 0 0 18px rgba(205,127,50,0.12); }
+
+    @keyframes rowFadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .lb-rank {
+      font-size: 1.2rem;
+      font-weight: 800;
+      min-width: 2rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .lb-rank.gold   { color: #ffd700; }
+    .lb-rank.silver { color: #c0c0c0; }
+    .lb-rank.bronze { color: #cd7f32; }
+    .lb-rank.normal { color: var(--text-muted); }
+
+    .lb-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.06);
+      image-rendering: pixelated;
+    }
+
+    .lb-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .lb-name {
+      font-size: 1rem;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .lb-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+
+    .lb-time {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #a78bfa;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    /* ── Cookie Banner Critical ── */
+    #cookie-banner {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 99998;
+      background: rgba(18, 17, 23, 0.97);
+      border-top: 1px solid rgba(107, 45, 216, 0.5);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-family: 'Space Grotesk', sans-serif;
+      box-shadow: 0 -4px 30px rgba(0,0,0,0.5);
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+    #cookie-banner.cookie-visible { transform: translateY(0); }
+    .cookie-text {
+      flex: 1; min-width: 200px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+    }
+    .cookie-text strong { color: #fff; font-weight: 700; }
+    .cookie-text a {
+      color: #a855f7; text-decoration: underline;
+      text-underline-offset: 2px; transition: color 0.2s;
+    }
+    .cookie-text a:hover { color: #c084fc; }
+    .cookie-buttons { display: flex; gap: 0.75rem; flex-shrink: 0; flex-wrap: wrap; }
+    .cookie-btn-accept {
+      padding: 0.6rem 1.4rem;
+      background: #6b2dd8; color: #fff;
+      border: none; border-radius: 0.6rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem; font-weight: 700;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 3px 12px rgba(107,45,216,0.4);
+      white-space: nowrap;
+    }
+    .cookie-btn-accept:hover,
+    .cookie-btn-accept:focus-visible {
+      background: #7c3aed; transform: translateY(-1px);
+      box-shadow: 0 5px 16px rgba(107,45,216,0.55);
+    }
+    .cookie-btn-decline {
+      padding: 0.6rem 1.2rem;
+      background: transparent; color: rgba(255,255,255,0.6);
+      border: 1px solid rgba(255,255,255,0.18); border-radius: 0.6rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem; font-weight: 600;
+      cursor: pointer;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+      white-space: nowrap;
+    }
+    .cookie-btn-decline:hover,
+    .cookie-btn-decline:focus-visible {
+      background: rgba(255,255,255,0.06); color: #fff;
+      border-color: rgba(255,255,255,0.35);
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      .desktop_navbar { display: none; }
+      .mobile_navbar {
+        display: flex; position: fixed; inset: 0 0 auto 0;
+        height: 60px; align-items: center; justify-content: space-between;
+        padding: 0 1rem; background: rgba(18,17,23,0.9);
+        backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-subtle);
+        z-index: 100;
+      }
+      .leaderboard-main { padding-top: 60px; }
+      [data-aos] { opacity: 1 !important; transform: none !important; }
+    }
+
+    @media (max-width: 600px) {
+      #cookie-banner {
+        padding: 1rem 1.2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .cookie-buttons { width: 100%; justify-content: flex-start; }
+      .cookie-btn-accept, .cookie-btn-decline { flex: 1; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #cookie-banner { transition: none; }
+      .lb-skeleton { animation: none; }
+      .lb-row { animation: none; }
+    }
+  </style>
+
+  <link rel="stylesheet" href="/css/sections.css"   media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/pages.css"      media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/cursor.css"     media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/animations.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/responsive.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/navbar.css"     media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/cookies.css"    media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="/css/sections.css">
+    <link rel="stylesheet" href="/css/pages.css">
+    <link rel="stylesheet" href="/css/cursor.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/cookies.css">
+  </noscript>
 </head>
 <body>
   <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
   <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
+  <!-- Desktop Navbar -->
   <nav class="desktop_navbar" aria-label="Κύριο μενού">
     <a href="/" aria-label="PGG Legacy - Αρχική">
-      <img class="desktop_navbar_logo_img" src="../media/logo_small.svg"
-           alt="PGG Legacy Logo" width="152" height="40">
+      <img class="desktop_navbar_logo_img" src="/media/logo_small.svg"
+           alt="PGG Legacy Logo" width="152" height="40" fetchpriority="high">
     </a>
     <a href="/#rules"      class="desktop_navbar_link">Rules</a>
     <a href="/#discord"    class="desktop_navbar_link">Community</a>
@@ -68,9 +422,10 @@
     </div>
   </nav>
 
+  <!-- Mobile Navbar -->
   <nav class="mobile_navbar" aria-label="Κινητό μενού">
     <a href="/" class="mobile_navbar_logo_img_a" aria-label="PGG Legacy - Αρχική">
-      <img class="mobile_navbar_logo_img" src="../media/logo_small.svg"
+      <img class="mobile_navbar_logo_img" src="/media/logo_small.svg"
            alt="PGG Legacy Logo" width="152" height="40">
     </a>
     <button class="icon" aria-expanded="false"
@@ -86,27 +441,28 @@
       <a class="mobile_navbar_link" href="/#discord"    role="menuitem">Community</a>
       <a class="mobile_navbar_link" href="/#about"      role="menuitem">About Us</a>
       <a class="mobile_navbar_link" href="/map"         role="menuitem">Server Map</a>
-      <a class="mobile_navbar_link nav-highlight-blue"  href="/leaderboard" role="menuitem">Leaderboard</a>
+      <a class="mobile_navbar_link nav-highlight-blue"  href="/leaderboard" role="menuitem" aria-current="page">Leaderboard</a>
       <a class="mobile_navbar_link nav-highlight-gold"  href="/police"      role="menuitem">Police Apps</a>
       <a class="mobile_navbar_link" href="/#join"       role="menuitem">Join Us</a>
     </div>
   </nav>
 
   <main class="mainflex leaderboard-main">
-    <section class="main2 leaderboard-section" aria-labelledby="lb-title">
+    <section class="leaderboard-section" aria-labelledby="lb-title">
       <div class="leaderboard-container">
 
         <div class="leaderboard-logo-container" data-aos="zoom-in">
           <a href="/" aria-label="PGG Legacy - Αρχική">
-            <img src="../media/logo.svg" alt="PGG Legacy"
-                 class="leaderboard-logo" width="400" height="133" loading="eager">
+            <img src="/media/logo.svg" alt="PGG Legacy"
+                 class="leaderboard-logo" width="380" height="127"
+                 fetchpriority="high">
           </a>
         </div>
 
         <div class="top-players-logo-container" data-aos="fade-up" data-aos-delay="50">
           <h1 id="lb-title" class="leaderboard-h1">
-            <img src="../media/topplayers.svg" alt="Top Players Leaderboard"
-                 class="top-players-logo" width="380" height="80">
+            <img src="/media/topplayers.svg" alt="Top Players Leaderboard"
+                 class="top-players-logo" width="360" height="76">
           </h1>
         </div>
 
@@ -123,6 +479,12 @@
         <div class="leaderboard-list" id="leaderboard-list"
              data-aos="fade-up" data-aos-delay="200"
              aria-live="polite" aria-busy="true" role="list">
+          <!-- Skeleton placeholders -->
+          <div class="lb-skeleton" aria-hidden="true"></div>
+          <div class="lb-skeleton" aria-hidden="true"></div>
+          <div class="lb-skeleton" aria-hidden="true"></div>
+          <div class="lb-skeleton" aria-hidden="true"></div>
+          <div class="lb-skeleton" aria-hidden="true"></div>
           <noscript>
             <p class="leaderboard-msg">
               Ενεργοποιήστε JavaScript για να δείτε το leaderboard.
@@ -133,31 +495,170 @@
       </div>
     </section>
   </main>
-  
-<!-- Cookie Banner -->
-  <div id="cookie-banner" role="region" aria-label="Συναίνεση Cookies">
-    <div class="cookie-text">
-      <strong>🍪 Cookies &amp; Απόρρητο</strong><br>
-      Χρησιμοποιούμε cookies για ανώνυμα στατιστικά επισκεψιμότητας (Google Analytics) και για την ομαλή λειτουργία του site. 
-      Διαβάστε την <a href="/privacy">Πολιτική Απορρήτου</a> μας.
-    </div>
-    <div class="cookie-buttons">
-      <button id="accept-cookies" class="cookie-btn-accept" type="button">
-        Αποδοχή
-      </button>
-      <button id="decline-cookies" class="cookie-btn-decline" type="button">
-        Απόρριψη
-      </button>
-    </div>
-  </div>
+
+  <!-- Cookie banner δημιουργείται δυναμικά από το /js/script.js -->
 
   <footer class="copyright_div">
     <p class="copyright">
-      &copy; <span id="copyright-year"></span> PGG Legacy — All rights reserved.
+      &copy; <span id="copyright-year"></span> PGG Legacy — All rights reserved. |
+      <a href="/privacy">Privacy Policy</a>
     </p>
   </footer>
 
+  <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="../js/script.js" defer></script>
+
+  <!-- Main script (navbar, cursor, cookies, year) -->
+  <script src="/js/script.js" defer></script>
+
+  <!-- Leaderboard Logic -->
+  <script>
+  (function () {
+    'use strict';
+
+    const API_BASE    = 'https://pgg-leaderboard-api.onrender.com';
+    const AVATAR_URL  = (name) =>
+      `https://mc-heads.net/avatar/${encodeURIComponent(name)}/44`;
+    const RANK_LABELS = ['🥇', '🥈', '🥉'];
+    const RANK_CLASSES= ['gold', 'silver', 'bronze'];
+
+    let currentMode = 'weekly';
+    let cache = { weekly: null, all: null };
+
+    const list = document.getElementById('leaderboard-list');
+    const btnW = document.getElementById('btn-weekly');
+    const btnA = document.getElementById('btn-all');
+
+    function formatTime(minutes) {
+      if (typeof minutes !== 'number' || isNaN(minutes)) return '—';
+      const h = Math.floor(minutes / 60);
+      const m = minutes % 60;
+      if (h === 0) return `${m}λ`;
+      return m === 0 ? `${h}ω` : `${h}ω ${m}λ`;
+    }
+
+    function rankClass(i) { return RANK_CLASSES[i] ?? 'normal'; }
+    function rankLabel(i) { return RANK_LABELS[i] ?? `#${i + 1}`; }
+
+    function renderSkeletons(n = 5) {
+      list.innerHTML = '';
+      list.setAttribute('aria-busy', 'true');
+      for (let i = 0; i < n; i++) {
+        const s = document.createElement('div');
+        s.className = 'lb-skeleton';
+        s.setAttribute('aria-hidden', 'true');
+        list.appendChild(s);
+      }
+    }
+
+    function renderError(msg) {
+      list.setAttribute('aria-busy', 'false');
+      list.innerHTML = `<p class="leaderboard-msg" role="alert">${msg}</p>`;
+    }
+
+    function renderEmpty() {
+      list.setAttribute('aria-busy', 'false');
+      list.innerHTML = `<p class="leaderboard-msg">Δεν βρέθηκαν δεδομένα.</p>`;
+    }
+
+    function renderRows(players) {
+      list.setAttribute('aria-busy', 'false');
+      list.innerHTML = '';
+      if (!players || players.length === 0) { renderEmpty(); return; }
+
+      const fragment = document.createDocumentFragment();
+      players.forEach((player, i) => {
+        const row = document.createElement('div');
+        row.className = `lb-row rank-${i + 1 <= 3 ? i + 1 : 'other'}`;
+        row.setAttribute('role', 'listitem');
+        row.style.animationDelay = `${i * 60}ms`;
+
+        const img = document.createElement('img');
+        img.className = 'lb-avatar';
+        img.alt = `Avatar του ${player.name}`;
+        img.width = 44;
+        img.height = 44;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.src = AVATAR_URL(player.name);
+        img.onerror = function () {
+          this.src = '/media/default-avatar.png';
+          this.onerror = null;
+        };
+
+        const rank = document.createElement('span');
+        rank.className = `lb-rank ${rankClass(i)}`;
+        rank.textContent = rankLabel(i);
+        rank.setAttribute('aria-label', `Θέση ${i + 1}`);
+
+        const info = document.createElement('div');
+        info.className = 'lb-info';
+
+        const name = document.createElement('p');
+        name.className = 'lb-name';
+        name.textContent = player.name;
+
+        const label = document.createElement('p');
+        label.className = 'lb-label';
+        label.textContent = currentMode === 'weekly'
+          ? 'Εβδομαδιαίο playtime'
+          : 'Συνολικό playtime';
+
+        info.appendChild(name);
+        info.appendChild(label);
+
+        const time = document.createElement('span');
+        time.className = 'lb-time';
+        const minutes = player.playtime_minutes ?? player.playtime ?? 0;
+        time.textContent = formatTime(minutes);
+        time.setAttribute('aria-label', `${formatTime(minutes)} παιχνιδιού`);
+
+        row.appendChild(rank);
+        row.appendChild(img);
+        row.appendChild(info);
+        row.appendChild(time);
+        fragment.appendChild(row);
+      });
+
+      list.appendChild(fragment);
+    }
+
+    async function fetchLeaderboard(mode) {
+      const endpoint = mode === 'weekly'
+        ? `${API_BASE}/leaderboard/weekly`
+        : `${API_BASE}/leaderboard/alltime`;
+      const res = await fetch(endpoint, { cache: 'default' });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      return Array.isArray(data) ? data : (data.players ?? []);
+    }
+
+    async function loadMode(mode) {
+      currentMode = mode;
+      btnW.classList.toggle('active', mode === 'weekly');
+      btnA.classList.toggle('active', mode === 'all');
+      btnW.setAttribute('aria-pressed', mode === 'weekly');
+      btnA.setAttribute('aria-pressed', mode === 'all');
+
+      const cacheKey = mode === 'weekly' ? 'weekly' : 'all';
+      if (cache[cacheKey]) { renderRows(cache[cacheKey]); return; }
+
+      renderSkeletons();
+      try {
+        const players = await fetchLeaderboard(mode);
+        cache[cacheKey] = players;
+        renderRows(players);
+      } catch (err) {
+        console.error('[Leaderboard]', err);
+        renderError('⚠️ Αδυναμία φόρτωσης δεδομένων. Δοκιμάστε ξανά αργότερα.');
+      }
+    }
+
+    btnW.addEventListener('click', () => { if (currentMode !== 'weekly') loadMode('weekly'); });
+    btnA.addEventListener('click', () => { if (currentMode !== 'all')    loadMode('all'); });
+
+    loadMode('weekly');
+  })();
+  </script>
 </body>
 </html>

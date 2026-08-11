@@ -5,12 +5,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8"></script>
+  <!-- GA: φορτώνει ΜΟΝΟ αν έχει δοθεί consent — χρησιμοποιεί το ίδιο KEY με script.js -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-49NVHWZZV8', { anonymize_ip: true });
+    (function() {
+      var consent = null;
+      try { consent = localStorage.getItem('pgg_cookie_consent'); } catch(e) {}
+      if (consent === 'accepted') {
+        window._gaLoaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-49NVHWZZV8', { anonymize_ip: true });
+      }
+    })();
   </script>
 
   <title>PGG Legacy | Live Server Map</title>
@@ -32,7 +44,11 @@
   <link rel="dns-prefetch" href="https://map.pgglegacy.gr">
   <link rel="icon" type="image/png" href="../media/favicon.png">
   <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
-  <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  </noscript>
 
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/navbar.css">
@@ -42,8 +58,6 @@
   <link rel="stylesheet" href="../css/cursor.css">
   <link rel="stylesheet" href="../css/animations.css">
   <link rel="stylesheet" href="../css/responsive.css">
-  
-  <!-- Cookies CSS -->
   <link rel="stylesheet" href="../css/cookies.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="../css/cookies.css"></noscript>
 </head>
@@ -51,6 +65,7 @@
   <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
   <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
+  <!-- Desktop Navbar -->
   <nav class="desktop_navbar" aria-label="Κύριο μενού">
     <a href="/" aria-label="PGG Legacy - Αρχική">
       <img class="desktop_navbar_logo_img" src="../media/logo_small.svg"
@@ -67,6 +82,7 @@
     </div>
   </nav>
 
+  <!-- Mobile Navbar -->
   <nav class="mobile_navbar" aria-label="Κινητό μενού">
     <a href="/" class="mobile_navbar_logo_img_a" aria-label="PGG Legacy - Αρχική">
       <img class="mobile_navbar_logo_img" src="../media/logo_small.svg"
@@ -81,13 +97,13 @@
       </svg>
     </button>
     <div id="mobile_navbar_links" role="menu">
-      <a class="mobile_navbar_link"        href="/#rules"      role="menuitem">Rules</a>
-      <a class="mobile_navbar_link"        href="/#discord"    role="menuitem">Community</a>
-      <a class="mobile_navbar_link"        href="/#about"      role="menuitem">About Us</a>
-      <a class="mobile_navbar_link nav-highlight-purple" href="/map"         role="menuitem">Server Map</a>
+      <a class="mobile_navbar_link"                     href="/#rules"      role="menuitem">Rules</a>
+      <a class="mobile_navbar_link"                     href="/#discord"    role="menuitem">Community</a>
+      <a class="mobile_navbar_link"                     href="/#about"      role="menuitem">About Us</a>
+      <a class="mobile_navbar_link nav-highlight-purple" href="/map"        role="menuitem">Server Map</a>
       <a class="mobile_navbar_link nav-highlight-blue"   href="/leaderboard" role="menuitem">Leaderboard</a>
-      <a class="mobile_navbar_link nav-highlight-gold"   href="/police"      role="menuitem">Police Apps</a>
-      <a class="mobile_navbar_link"        href="/#join"       role="menuitem">Join Us</a>
+      <a class="mobile_navbar_link nav-highlight-gold"   href="/police"     role="menuitem">Police Apps</a>
+      <a class="mobile_navbar_link"                     href="/#join"       role="menuitem">Join Us</a>
     </div>
   </nav>
 
@@ -114,30 +130,15 @@
       </iframe>
     </div>
   </main>
-  
-  <!-- Cookie Banner -->
-  <div id="cookie-banner" role="region" aria-label="Συναίνεση Cookies">
-    <div class="cookie-text">
-      <strong>🍪 Cookies &amp; Απόρρητο</strong><br>
-      Χρησιμοποιούμε cookies για ανώνυμα στατιστικά επισκεψιμότητας (Google Analytics) και για την ομαλή λειτουργία του site. 
-      Διαβάστε την <a href="/privacy">Πολιτική Απορρήτου</a> μας.
-    </div>
-    <div class="cookie-buttons">
-      <button id="accept-cookies" class="cookie-btn-accept" type="button">
-        Αποδοχή
-      </button>
-      <button id="decline-cookies" class="cookie-btn-decline" type="button">
-        Απόρριψη
-      </button>
-    </div>
-  </div>
 
   <footer class="copyright_div">
     <p class="copyright">
-      &copy; <span id="copyright-year"></span> PGG Legacy — All rights reserved.
+      &copy; <span id="copyright-year"></span> PGG Legacy — All rights reserved. |
+      <a href="/privacy">Privacy Policy</a>
     </p>
   </footer>
 
+  <!-- script.js χειρίζεται τα πάντα: cookies, cursor, mobile menu, copyright year -->
   <script src="../js/script.js" defer></script>
 </body>
 </html>

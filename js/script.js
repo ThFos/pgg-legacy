@@ -457,7 +457,7 @@ function showLeaderboardMessage(container, text, className) {
    COOKIE CONSENT & GDPR
    ================================================================ */
 var COOKIE_KEY = 'pgg_cookie_consent';
-var GA_ID      = 'G-49NVHWZZV8';
+var GA_ID = 'G-49NVHWZZV8';
 
 function cookieGetConsent() {
   try { return localStorage.getItem(COOKIE_KEY); }
@@ -474,7 +474,7 @@ function loadGoogleAnalytics() {
   window._gaLoaded = true;
   var s = document.createElement('script');
   s.async = true;
-  s.src   = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
   document.head.appendChild(s);
   window.dataLayer = window.dataLayer || [];
   function gtag() { dataLayer.push(arguments); }
@@ -488,10 +488,10 @@ function cookieCreateBanner() {
   if (existing) return existing;
 
   var banner = document.createElement('div');
-  banner.id  = 'cookie-banner';
-  banner.setAttribute('role',       'dialog');
+  banner.id = 'cookie-banner';
+  banner.setAttribute('role', 'dialog');
   banner.setAttribute('aria-label', 'Συγκατάθεση Cookies');
-  banner.setAttribute('aria-live',  'polite');
+  banner.setAttribute('aria-live', 'polite');
 
   var text = document.createElement('div');
   text.className = 'cookie-text';
@@ -505,16 +505,16 @@ function cookieCreateBanner() {
   buttons.className = 'cookie-buttons';
 
   var declineBtn = document.createElement('button');
-  declineBtn.id          = 'cookie-decline';
-  declineBtn.type        = 'button';
-  declineBtn.className   = 'cookie-btn-decline';
+  declineBtn.id = 'cookie-decline';
+  declineBtn.type = 'button';
+  declineBtn.className = 'cookie-btn-decline';
   declineBtn.setAttribute('aria-label', 'Απόρριψη cookies');
   declineBtn.textContent = 'Απόρριψη';
 
   var acceptBtn = document.createElement('button');
-  acceptBtn.id          = 'cookie-accept';
-  acceptBtn.type        = 'button';
-  acceptBtn.className   = 'cookie-btn-accept';
+  acceptBtn.id = 'cookie-accept';
+  acceptBtn.type = 'button';
+  acceptBtn.className = 'cookie-btn-accept';
   acceptBtn.setAttribute('aria-label', 'Αποδοχή cookies');
   acceptBtn.textContent = 'Αποδοχή';
 
@@ -526,7 +526,6 @@ function cookieCreateBanner() {
 }
 
 function cookieShowBanner(banner) {
-  /* Δύο rAF: 1ο = layout, 2ο = paint → μετά το CSS transition δουλεύει σωστά */
   requestAnimationFrame(function() {
     requestAnimationFrame(function() {
       banner.classList.add('cookie-visible');
@@ -583,17 +582,14 @@ function initCookies() {
     return;
   }
 
-  /* Πρώτη επίσκεψη — εμφάνισε banner */
   var banner = cookieCreateBanner();
   document.body.appendChild(banner);
   cookieAttachEvents();
 
-  /* Καθυστέρηση 600ms για καλύτερο UX + το cookieShowBanner κάνει 2x rAF */
   setTimeout(function() {
     cookieShowBanner(banner);
   }, 600);
 
-  /* Reset button στη privacy page */
   document.addEventListener('click', function(e) {
     if (e.target.closest('#reset-cookies-btn')) {
       e.preventDefault();
@@ -603,7 +599,7 @@ function initCookies() {
 }
 
 /* ================================================================
-   ΚΕΝΤΡΙΚΟ DOMContentLoaded — ΟΛΑ τρέχουν εδώ με σταθερή σειρά
+   ΚΕΝΤΡΙΚΟ DOMContentLoaded
    ================================================================ */
 document.addEventListener('DOMContentLoaded', function() {
   initCopyrightYear();
@@ -615,7 +611,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initLazyVideos();
   initPoliceAppLogic();
   initLeaderboardLogic();
-  initCookies();        /* ← Πάντα τελευταίο για να είναι σίγουρα το body έτοιμο */
+  initCookies();
 
   setTimeout(fetchPlayerCount, 1000);
 });

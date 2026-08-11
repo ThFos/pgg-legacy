@@ -45,7 +45,6 @@ body.menu-open {
 
 img {
   -webkit-user-drag: none;
-  user-drag: none;
   max-width: 100%;
   /* Prevent layout shift */
   height: auto;

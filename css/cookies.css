@@ -102,6 +102,7 @@
   border-color: rgba(255, 255, 255, 0.35);
 }
 
+/* ── Mobile ── */
 @media (max-width: 600px) {
   #cookie-banner {
     padding: 1rem 1.2rem;
@@ -122,6 +123,7 @@
   }
 }
 
+/* ── Reduced Motion ── */
 @media (prefers-reduced-motion: reduce) {
   #cookie-banner {
     transition: none;
