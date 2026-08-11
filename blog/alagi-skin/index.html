@@ -184,6 +184,8 @@
       #cookie-banner { transition: none; }
     }
   </style>
+
+  <script data-goatcounter="https://pgglegacy.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
   <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
@@ -255,7 +257,7 @@
       </header>
 
       <img src="/blog/media/blogbanner5.webp"
-           alt="Αλλαγή Skin - PGG Legacy Minecraft Server"
+           alt="Πώς να αλλάξεις Skin - PGG Legacy"
            class="blog-article-banner"
            width="900" height="400"
            loading="eager" fetchpriority="high" decoding="sync"
@@ -263,94 +265,24 @@
 
       <div class="blog-article-content" data-aos="fade-up" data-aos-delay="200">
         <p>
-          Στον PGG Legacy μπορείς να παίζεις με <strong>οποιοδήποτε skin</strong> θέλεις
-          — ακόμα και αν χρησιμοποιείς cracked account. Το σύστημα skin υποστηρίζει
-          αλλαγή απευθείας μέσα από το παιχνίδι.
+          Στον PGG Legacy server μπορείς εύκολα να αλλάξεις το skin σου είτε χρησιμοποιώντας
+          το όνομα ενός premium παίκτη είτε απευθείας με direct URL εικόνας.
         </p>
 
-        <div class="cmd-quicknav">
-          <span>Περιεχόμενα:</span>
-          <a href="#method-url">Μέσω URL</a>
-          <a href="#method-username">Μέσω Username</a>
-          <a href="#skin-tips">Tips &amp; Μορφή</a>
-          <a href="#skin-commands">Εντολές</a>
-        </div>
+        <h2>🎨 Αλλαγή Skin μέσω εντολής in-game</h2>
+        <ul>
+          <li><strong>Μέσω Username:</strong> Πληκτρολόγησε <code>/skin &lt;Username&gt;</code> για να πάρεις το skin κάποιου premium παίκτη.</li>
+          <li><strong>Μέσω Direct URL:</strong> Πληκτρολόγησε <code>/skin url &lt;URL&gt;</code> με έναν άμεσο σύνδεσμο εικόνας PNG.</li>
+        </ul>
 
-        <h2 id="method-url">🔗 Μέθοδος 1: Μέσω URL</h2>
-        <p>Αν έχεις το skin σου ανεβασμένο online (π.χ. από το
-          <a href="https://namemc.com" target="_blank" rel="noopener noreferrer">NameMC</a>):
+        <h2>🔄 Επαναφορά στο αρχικό Skin</h2>
+        <p>
+          Αν θέλεις να επαναφέρεις το προεπιλεγμένο σου skin, χρησιμοποίησε την εντολή <code>/skin clear</code>.
         </p>
-        <ol class="blog-steps-list">
-          <li>Βρες το <strong>direct URL</strong> της εικόνας (.png)</li>
-          <li>Συνδέσου στον server: <strong>play.PGGlegacy.gr</strong></li>
-          <li>Γράψε: <code>/skin url [το URL σου]</code></li>
-          <li>Το skin σου αλλάζει αυτόματα!</li>
-        </ol>
-        <div class="blog-info-box">
-          <span class="blog-info-icon">💡</span>
-          <div>
-            <strong>Παράδειγμα:</strong> <code>/skin url https://i.imgur.com/example.png</code><br>
-            Βεβαιώσου ότι το URL τελειώνει σε <strong>.png</strong> και είναι direct link.
-          </div>
-        </div>
-
-        <h2 id="method-username">👤 Μέθοδος 2: Μέσω Username</h2>
-        <p>Αν θέλεις το skin ενός άλλου Minecraft παίκτη:</p>
-        <ol class="blog-steps-list">
-          <li>Βρες το <strong>Minecraft username</strong> που έχει το skin που θέλεις</li>
-          <li>Γράψε: <code>/skin set [username]</code></li>
-          <li>Το skin του παίκτη εφαρμόζεται στον χαρακτήρα σου!</li>
-        </ol>
-        <div class="blog-info-box">
-          <span class="blog-info-icon">💡</span>
-          <div>
-            <strong>Παράδειγμα:</strong> <code>/skin set Notch</code>
-          </div>
-        </div>
-
-        <h2 id="skin-tips">📐 Tips &amp; Απαιτήσεις Μορφής</h2>
-        <div class="blog-info-box warning">
-          <span class="blog-info-icon">⚠️</span>
-          <div>
-            Τα skins πρέπει να είναι <strong>64×64 pixels</strong> ή
-            <strong>64×32 pixels</strong> σε μορφή PNG.
-          </div>
-        </div>
-
-        <div class="cmd-section-title">
-          <span>🌐</span> Πού να βρεις Skins
-        </div>
-        <ul>
-          <li><a href="https://namemc.com/minecraft-skins" target="_blank" rel="noopener noreferrer">NameMC.com</a> — Τεράστια συλλογή skins</li>
-          <li><a href="https://www.minecraftskins.com" target="_blank" rel="noopener noreferrer">MinecraftSkins.com</a> — Εναλλακτικό site</li>
-        </ul>
-
-        <div class="cmd-section-title">
-          <span>📤</span> Πού να ανεβάσεις το PNG σου
-        </div>
-        <ul>
-          <li><a href="https://imgur.com" target="_blank" rel="noopener noreferrer">Imgur.com</a> — Δωρεάν image hosting με direct .png link</li>
-        </ul>
-
-        <h2 id="skin-commands">📋 Εντολές Skin</h2>
-        <div class="cmd-table-wrapper">
-          <table class="cmd-table">
-            <thead>
-              <tr><th>Command</th><th>Χρήση</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><code>/skin url [URL]</code></td><td>Αλλαγή skin μέσω direct URL εικόνας (.png)</td></tr>
-              <tr><td><code>/skin set [username]</code></td><td>Αντιγραφή skin από άλλον Minecraft παίκτη</td></tr>
-            </tbody>
-          </table>
-        </div>
 
         <div class="blog-cta-box">
-          <p>Δοκίμασε το νέο σου skin!</p>
+          <p>Μπες στον server και δοκίμασέ το!</p>
           <strong class="blog-cta-ip">play.PGGlegacy.gr</strong>
-          <a href="/blog/getting-started-guide/" class="blog-cta-btn">
-            Getting Started Guide →
-          </a>
         </div>
       </div>
 
@@ -366,8 +298,6 @@
       &copy; <span id="copyright-year"></span> PGG Legacy — All rights reserved.
     </p>
   </footer>
-
-  <!-- ΔΕΝ υπάρχει hardcoded cookie banner - το δημιουργεί το script.js -->
 
   <script src="/js/script.js" defer></script>
   <script src="/blog/blog.js" defer></script>

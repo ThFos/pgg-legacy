@@ -615,3 +615,47 @@ document.addEventListener('DOMContentLoaded', function() {
 
   setTimeout(fetchPlayerCount, 1000);
 });
+
+/* ================================================================
+   GOATCOUNTER - DEVTOOLS / INSPECT ELEMENT DETECTOR
+   ================================================================ */
+var devtoolsEventSent = false;
+
+function sendDevToolsEvent(method) {
+  if (devtoolsEventSent) return;
+
+  if (window.goatcounter && typeof window.goatcounter.count === 'function') {
+    window.goatcounter.count({
+      path:  'devtools-opened',
+      title: 'DevTools Opened via ' + method,
+      event: true
+    });
+    devtoolsEventSent = true;
+  }
+}
+
+// Εντοπισμός F12 & συντομεύσεων πληκτρολογίου
+document.addEventListener('keydown', function(e) {
+  var isF12 = e.key === 'F12';
+  var isCtrlShiftI = (e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j');
+
+  if (isF12 || isCtrlShiftI) {
+    sendDevToolsEvent('Keyboard Shortcut (F12)');
+  }
+});
+
+// Εντοπισμός Inspect Element (Δεξί κλικ)
+var detector = new Image();
+Object.defineProperty(detector, 'id', {
+  get: function () {
+    sendDevToolsEvent('Inspect Element');
+  }
+});
+
+var checkInterval = setInterval(function() {
+  if (devtoolsEventSent) {
+    clearInterval(checkInterval);
+    return;
+  }
+  console.log('%c', detector);
+}, 2000);

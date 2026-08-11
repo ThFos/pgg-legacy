@@ -5,6 +5,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
+  <!-- GA: φορτώνει ΜΟΝΟ αν έχει δοθεί consent — χρησιμοποιεί το ίδιο KEY με script.js -->
+  <script>
+    (function() {
+      var consent = null;
+      try { consent = localStorage.getItem('pgg_cookie_consent'); } catch(e) {}
+      if (consent === 'accepted') {
+        window._gaLoaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-49NVHWZZV8', { anonymize_ip: true });
+      }
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
 
   <title>Πολιτική Απορρήτου | PGG Legacy</title>
@@ -13,6 +33,14 @@
   <meta name="author" content="PGG Legacy">
   <meta name="theme-color" content="#1a1921">
   <link rel="canonical" href="https://pgglegacy.gr/privacy">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pgglegacy.gr/privacy">
+  <meta property="og:title" content="Πολιτική Απορρήτου | PGG Legacy">
+  <meta property="og:description" content="Πολιτική Απορρήτου και Προστασίας Προσωπικών Δεδομένων του PGG Legacy Minecraft Server.">
+  <meta property="og:image" content="https://pgglegacy.gr/media/banner.png">
+  <meta property="og:site_name" content="PGG Legacy">
+  <meta property="og:locale" content="el_GR">
 
   <link rel="icon" type="image/png" href="/media/favicon.png">
 
@@ -326,6 +354,8 @@
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/responsive.css">
   </noscript>
+
+  <script data-goatcounter="https://pgglegacy.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
   <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
@@ -363,13 +393,13 @@
       </svg>
     </button>
     <div id="mobile_navbar_links" role="menu">
-      <a class="mobile_navbar_link" href="/#rules"     role="menuitem">Rules</a>
-      <a class="mobile_navbar_link" href="/#discord"   role="menuitem">Community</a>
-      <a class="mobile_navbar_link" href="/#about"     role="menuitem">About Us</a>
-      <a class="mobile_navbar_link" href="/map"        role="menuitem">Server Map</a>
+      <a class="mobile_navbar_link"                     href="/#rules"      role="menuitem">Rules</a>
+      <a class="mobile_navbar_link"                     href="/#discord"    role="menuitem">Community</a>
+      <a class="mobile_navbar_link"                     href="/#about"      role="menuitem">About Us</a>
+      <a class="mobile_navbar_link"                     href="/map"         role="menuitem">Server Map</a>
       <a class="mobile_navbar_link nav-highlight-blue" href="/leaderboard" role="menuitem">Leaderboard</a>
       <a class="mobile_navbar_link nav-highlight-gold" href="/police"      role="menuitem">Police Apps</a>
-      <a class="mobile_navbar_link" href="/#join"      role="menuitem">Join Us</a>
+      <a class="mobile_navbar_link"                     href="/#join"       role="menuitem">Join Us</a>
     </div>
   </nav>
 
@@ -492,9 +522,12 @@
   <footer class="copyright_div">
     <p class="copyright">
       &copy; <span id="copyright-year"></span> PGG Legacy — All rights reserved. |
-      <a href="/privacy">Privacy Policy</a>
+      <a href="/privacy" aria-current="page">Privacy Policy</a>
     </p>
   </footer>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
   <!-- script.js χειρίζεται: cookies, cursor, navbar, copyright year -->
   <script src="/js/script.js" defer></script>

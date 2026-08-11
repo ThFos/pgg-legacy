@@ -5,6 +5,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
+  <!-- GA: φορτώνει ΜΟΝΟ αν έχει δοθεί consent — χρησιμοποιεί το ίδιο KEY με script.js -->
+  <script>
+    (function() {
+      var consent = null;
+      try { consent = localStorage.getItem('pgg_cookie_consent'); } catch(e) {}
+      if (consent === 'accepted') {
+        window._gaLoaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-49NVHWZZV8', { anonymize_ip: true });
+      }
+    })();
+  </script>
 
   <title>PGG Legacy | Αιτήσεις Αστυνομίας</title>
   <meta name="description" content="Κάνε αίτηση για το σώμα της Αστυνομίας στον PGG Legacy Minecraft Server.">
@@ -227,6 +246,8 @@
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../css/cookies.css">
   </noscript>
+
+  <script data-goatcounter="https://pgglegacy.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
   <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
@@ -264,13 +285,13 @@
       </svg>
     </button>
     <div id="mobile_navbar_links" role="menu">
-      <a class="mobile_navbar_link" href="/#rules"      role="menuitem">Rules</a>
-      <a class="mobile_navbar_link" href="/#discord"    role="menuitem">Community</a>
-      <a class="mobile_navbar_link" href="/#about"      role="menuitem">About Us</a>
-      <a class="mobile_navbar_link" href="/map"         role="menuitem">Server Map</a>
+      <a class="mobile_navbar_link"                     href="/#rules"      role="menuitem">Rules</a>
+      <a class="mobile_navbar_link"                     href="/#discord"    role="menuitem">Community</a>
+      <a class="mobile_navbar_link"                     href="/#about"      role="menuitem">About Us</a>
+      <a class="mobile_navbar_link"                     href="/map"         role="menuitem">Server Map</a>
       <a class="mobile_navbar_link nav-highlight-blue" href="/leaderboard" role="menuitem">Leaderboard</a>
-      <a class="mobile_navbar_link nav-highlight-gold" href="/police"      role="menuitem">Police Apps</a>
-      <a class="mobile_navbar_link" href="/#join"       role="menuitem">Join Us</a>
+      <a class="mobile_navbar_link nav-highlight-gold" href="/police"      role="menuitem" aria-current="page">Police Apps</a>
+      <a class="mobile_navbar_link"                     href="/#join"       role="menuitem">Join Us</a>
     </div>
   </nav>
 
@@ -363,6 +384,10 @@
     </p>
   </footer>
 
+  <!-- AOS Script για την υποστήριξη των data-aos animations -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Script.js χειρίζεται τα πάντα: cookies, cursor, mobile menu, copyright year -->
   <script src="../js/script.js" defer></script>
 </body>
 </html>
