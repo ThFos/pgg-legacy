@@ -560,10 +560,15 @@ function cookieAttachEvents() {
   if (d) d.addEventListener('click', cookieDecline);
 }
 
+/* ── Reset Cookie Consent (καλείται από το κουμπί στη σελίδα Privacy) ── */
 window.resetCookieConsent = function() {
   try { localStorage.removeItem(COOKIE_KEY); } catch(e) {}
+
+  // Αφαίρεσε τυχόν υπάρχον banner
   var existing = document.getElementById('cookie-banner');
   if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
+
+  // Δημιούργησε νέο banner, πρόσθεσε events και εμφάνισέ το
   var banner = cookieCreateBanner();
   document.body.appendChild(banner);
   cookieAttachEvents();
@@ -575,26 +580,27 @@ function initCookies() {
 
   if (consent === 'accepted') {
     loadGoogleAnalytics();
-    return;
+    // ΔΕΝ κάνουμε return — συνεχίζουμε για να δέσουμε το reset btn
+  } else if (consent === null || consent === undefined || consent === '') {
+    // Χωρίς αποθηκευμένη επιλογή → εμφάνισε banner
+    var banner = cookieCreateBanner();
+    document.body.appendChild(banner);
+    cookieAttachEvents();
+    setTimeout(function() {
+      cookieShowBanner(banner);
+    }, 600);
   }
+  // consent === 'declined' → κάνουμε τίποτα, αλλά ΔΕΝ κάνουμε return
+}
 
-  if (consent === 'declined') {
-    return;
-  }
+/* ── Reset Button Listener — ΠΑΝΤΑ ενεργό, ανεξάρτητα από consent ── */
+function initResetCookieBtn() {
+  var btn = document.getElementById('reset-cookies-btn');
+  if (!btn) return; // Δεν υπάρχει σε άλλες σελίδες — OK
 
-  var banner = cookieCreateBanner();
-  document.body.appendChild(banner);
-  cookieAttachEvents();
-
-  setTimeout(function() {
-    cookieShowBanner(banner);
-  }, 600);
-
-  document.addEventListener('click', function(e) {
-    if (e.target.closest('#reset-cookies-btn')) {
-      e.preventDefault();
-      window.resetCookieConsent();
-    }
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.resetCookieConsent();
   });
 }
 
@@ -612,6 +618,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initPoliceAppLogic();
   initLeaderboardLogic();
   initCookies();
+  initResetCookieBtn(); // ← ΝΕΟ: πάντα τρέχει, βρίσκει το κουμπί αν υπάρχει
 
   setTimeout(fetchPlayerCount, 1000);
 });
@@ -634,7 +641,6 @@ function sendDevToolsEvent(method) {
   }
 }
 
-// Εντοπισμός F12 & συντομεύσεων πληκτρολογίου
 document.addEventListener('keydown', function(e) {
   var isF12 = e.key === 'F12';
   var isCtrlShiftI = (e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j');
@@ -644,7 +650,6 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
-// Εντοπισμός Inspect Element (Δεξί κλικ)
 var detector = new Image();
 Object.defineProperty(detector, 'id', {
   get: function () {
