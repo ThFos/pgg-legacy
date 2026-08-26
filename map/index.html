@@ -5,22 +5,30 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
-  <!-- GA: φορτώνει ΜΟΝΟ αν έχει δοθεί consent — χρησιμοποιεί το ίδιο KEY με script.js -->
+  <!-- Dynamic Analytics Injection (GA & Contentsquare) βάσει Consent -->
   <script>
     (function() {
       var consent = null;
       try { consent = localStorage.getItem('pgg_cookie_consent'); } catch(e) {}
       if (consent === 'accepted') {
+        // Google Analytics
         window._gaLoaded = true;
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8';
-        document.head.appendChild(s);
+        var sGA = document.createElement('script');
+        sGA.async = true;
+        sGA.src = 'https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8';
+        document.head.appendChild(sGA);
+
         window.dataLayer = window.dataLayer || [];
         function gtag(){ dataLayer.push(arguments); }
         window.gtag = gtag;
         gtag('js', new Date());
         gtag('config', 'G-49NVHWZZV8', { anonymize_ip: true });
+
+        // Contentsquare
+        var sCS = document.createElement('script');
+        sCS.async = true;
+        sCS.src = 'https://t.contentsquare.net/uxa/25a3809d633eb.js';
+        document.head.appendChild(sCS);
       }
     })();
   </script>
@@ -61,12 +69,9 @@
   <link rel="stylesheet" href="../css/cookies.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="../css/cookies.css"></noscript>
 
-<!-- GoatCounter Analytics -->
-  <script data-goatcounter="https://pgglegacy.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-
-  <!-- Contentsquare -->
-  <script async src="https://t.contentsquare.net/uxa/25a3809d633eb.js"></script>
+  <!-- GoatCounter Analytics (Privacy-friendly / No consent needed) -->
+  <script data-goatcounter="https://pgglegacy.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
 </head>
 <body class="map-page">
   <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
@@ -81,7 +86,7 @@
     <a href="/#rules"      class="desktop_navbar_link">Rules</a>
     <a href="/#discord"    class="desktop_navbar_link">Community</a>
     <a href="/#about"      class="desktop_navbar_link">About Us</a>
-    <a href="/map"         class="desktop_navbar_link nav-highlight-purple" aria-current="page">Server Map</a>
+    <a href="/map"          class="desktop_navbar_link nav-highlight-purple" aria-current="page">Server Map</a>
     <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
     <a href="/police"      class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
     <div class="desktop_navbar_link2_div">
@@ -104,13 +109,13 @@
       </svg>
     </button>
     <div id="mobile_navbar_links" role="menu">
-      <a class="mobile_navbar_link"                     href="/#rules"      role="menuitem">Rules</a>
-      <a class="mobile_navbar_link"                     href="/#discord"    role="menuitem">Community</a>
-      <a class="mobile_navbar_link"                     href="/#about"      role="menuitem">About Us</a>
+      <a class="mobile_navbar_link"                   href="/#rules"        role="menuitem">Rules</a>
+      <a class="mobile_navbar_link"                   href="/#discord"      role="menuitem">Community</a>
+      <a class="mobile_navbar_link"                   href="/#about"        role="menuitem">About Us</a>
       <a class="mobile_navbar_link nav-highlight-purple" href="/map"        role="menuitem" aria-current="page">Server Map</a>
       <a class="mobile_navbar_link nav-highlight-blue"   href="/leaderboard" role="menuitem">Leaderboard</a>
-      <a class="mobile_navbar_link nav-highlight-gold"   href="/police"     role="menuitem">Police Apps</a>
-      <a class="mobile_navbar_link"                     href="/#join"       role="menuitem">Join Us</a>
+      <a class="mobile_navbar_link nav-highlight-gold"   href="/police"      role="menuitem">Police Apps</a>
+      <a class="mobile_navbar_link"                   href="/#join"        role="menuitem">Join Us</a>
     </div>
   </nav>
 
