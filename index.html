@@ -5,6 +5,33 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
+  <!-- GA & Contentsquare: Φορτώνουν ΔΥΝΑΜΙΚΑ ΜΟΝΟ αν έχει δοθεί consent -->
+  <script>
+    (function() {
+      var consent = null;
+      try { consent = localStorage.getItem('pgg_cookie_consent'); } catch(e) {}
+      if (consent === 'accepted') {
+        // Google Analytics
+        window._gaLoaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-49NVHWZZV8', { anonymize_ip: true });
+
+        // Contentsquare
+        var cs = document.createElement('script');
+        cs.async = true;
+        cs.src = 'https://t.contentsquare.net/uxa/25a3809d633eb.js';
+        document.head.appendChild(cs);
+      }
+    })();
+  </script>
+
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
   <link rel="dns-prefetch" href="https://api.mcstatus.io">
@@ -300,12 +327,10 @@
     <link rel="stylesheet" href="/css/hero.css">
     <link rel="stylesheet" href="/css/cookies.css">
   </noscript>
-<!-- GoatCounter Analytics -->
+
+  <!-- GoatCounter Analytics (Ανώνυμο χωρίς cookies) -->
   <script data-goatcounter="https://pgglegacy.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
-
-  <!-- Contentsquare -->
-  <script async src="https://t.contentsquare.net/uxa/25a3809d633eb.js"></script>
 </head>
 <body>
   <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
@@ -320,7 +345,7 @@
     <a href="#rules"       class="desktop_navbar_link">Rules</a>
     <a href="#discord"     class="desktop_navbar_link">Community</a>
     <a href="#about"       class="desktop_navbar_link">About Us</a>
-    <a href="/map"         class="desktop_navbar_link">Server Map</a>
+    <a href="/map"          class="desktop_navbar_link">Server Map</a>
     <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
     <a href="/police"      class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
     <div class="desktop_navbar_link2_div">
@@ -343,13 +368,13 @@
       </svg>
     </button>
     <div id="mobile_navbar_links" role="menu">
-      <a class="mobile_navbar_link" href="#rules"      role="menuitem">Rules</a>
-      <a class="mobile_navbar_link" href="#discord"    role="menuitem">Community</a>
-      <a class="mobile_navbar_link" href="#about"      role="menuitem">About Us</a>
-      <a class="mobile_navbar_link" href="/map"        role="menuitem">Server Map</a>
+      <a class="mobile_navbar_link" href="#rules"       role="menuitem">Rules</a>
+      <a class="mobile_navbar_link" href="#discord"     role="menuitem">Community</a>
+      <a class="mobile_navbar_link" href="#about"       role="menuitem">About Us</a>
+      <a class="mobile_navbar_link" href="/map"         role="menuitem">Server Map</a>
       <a class="mobile_navbar_link nav-highlight-blue" href="/leaderboard" role="menuitem">Leaderboard</a>
       <a class="mobile_navbar_link nav-highlight-gold" href="/police"      role="menuitem">Police Apps</a>
-      <a class="mobile_navbar_link" href="#join"       role="menuitem">Join Us</a>
+      <a class="mobile_navbar_link" href="#join"        role="menuitem">Join Us</a>
     </div>
   </nav>
 
@@ -537,7 +562,7 @@
           <p class="main2_feature_text">
             <em>"Η πρώτη και τελευταία ευκαιρία."</em><br><br>
             <strong>Αιτίες:</strong> Ήπιο Meta-gaming, spam, ασέβεια OOC.<br>
-            <strong>Λειτουργία:</strong> Στα 3 Warns → αυτόματο Temporary Ban.
+            <strong>Λειτουργία:</strong> Στα 3 Warns &rarr; αυτόματο Temporary Ban.
           </p>
         </article>
         <article class="main2_feature penalty-temp-ban" data-aos="zoom-in" data-aos-delay="200">
