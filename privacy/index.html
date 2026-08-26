@@ -5,12 +5,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
-  <!-- GA: φορτώνει ΜΟΝΟ αν έχει δοθεί consent — χρησιμοποιεί το ίδιο KEY με script.js -->
+  <!-- GA & Contentsquare: φορτώνουν ΜΟΝΟ αν έχει δοθεί consent -->
   <script>
     (function() {
       var consent = null;
       try { consent = localStorage.getItem('pgg_cookie_consent'); } catch(e) {}
       if (consent === 'accepted') {
+        // Google Analytics
         window._gaLoaded = true;
         var s = document.createElement('script');
         s.async = true;
@@ -21,6 +22,12 @@
         window.gtag = gtag;
         gtag('js', new Date());
         gtag('config', 'G-49NVHWZZV8', { anonymize_ip: true });
+
+        // Contentsquare
+        var cs = document.createElement('script');
+        cs.async = true;
+        cs.src = 'https://t.contentsquare.net/uxa/25a3809d633eb.js';
+        document.head.appendChild(cs);
       }
     })();
   </script>
@@ -344,9 +351,9 @@
   </style>
 
   <!-- Non-critical CSS -->
-  <link rel="stylesheet" href="/css/cursor.css"     media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/cursor.css"      media="print" onload="this.media='all'">
   <link rel="stylesheet" href="/css/animations.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="/css/navbar.css"     media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="/css/navbar.css"      media="print" onload="this.media='all'">
   <link rel="stylesheet" href="/css/responsive.css" media="print" onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="/css/cursor.css">
@@ -355,12 +362,9 @@
     <link rel="stylesheet" href="/css/responsive.css">
   </noscript>
 
-<!-- GoatCounter Analytics -->
-  <script data-goatcounter="https://pgglegacy.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-
-  <!-- Contentsquare -->
-  <script async src="https://t.contentsquare.net/uxa/25a3809d633eb.js"></script>
+  <!-- GoatCounter Analytics -->
+  <script data-goatcounter="https://pgglegacy.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
   <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
@@ -375,7 +379,7 @@
     <a href="/#rules"      class="desktop_navbar_link">Rules</a>
     <a href="/#discord"    class="desktop_navbar_link">Community</a>
     <a href="/#about"      class="desktop_navbar_link">About Us</a>
-    <a href="/map"         class="desktop_navbar_link">Server Map</a>
+    <a href="/map"          class="desktop_navbar_link">Server Map</a>
     <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
     <a href="/police"      class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
     <div class="desktop_navbar_link2_div">
@@ -398,13 +402,13 @@
       </svg>
     </button>
     <div id="mobile_navbar_links" role="menu">
-      <a class="mobile_navbar_link"                     href="/#rules"      role="menuitem">Rules</a>
-      <a class="mobile_navbar_link"                     href="/#discord"    role="menuitem">Community</a>
-      <a class="mobile_navbar_link"                     href="/#about"      role="menuitem">About Us</a>
-      <a class="mobile_navbar_link"                     href="/map"         role="menuitem">Server Map</a>
+      <a class="mobile_navbar_link"                      href="/#rules"        role="menuitem">Rules</a>
+      <a class="mobile_navbar_link"                      href="/#discord"      role="menuitem">Community</a>
+      <a class="mobile_navbar_link"                      href="/#about"        role="menuitem">About Us</a>
+      <a class="mobile_navbar_link"                      href="/map"          role="menuitem">Server Map</a>
       <a class="mobile_navbar_link nav-highlight-blue" href="/leaderboard" role="menuitem">Leaderboard</a>
       <a class="mobile_navbar_link nav-highlight-gold" href="/police"      role="menuitem">Police Apps</a>
-      <a class="mobile_navbar_link"                     href="/#join"       role="menuitem">Join Us</a>
+      <a class="mobile_navbar_link"                      href="/#join"        role="menuitem">Join Us</a>
     </div>
   </nav>
 
@@ -437,11 +441,8 @@
           την αξιολόγηση της αίτησής σας από την ομάδα Staff.
         </li>
         <li>
-          <strong>Ανώνυμα Στατιστικά Επισκεψιμότητας (Google Analytics):</strong>
-          Χρησιμοποιούμε το Google Analytics με ενεργοποιημένη ανωνυμοποίηση IP
-          (anonymize_ip). Συλλέγονται ανώνυμες πληροφορίες (προβολές σελίδων, τύπος
-          συσκευής, προέλευση επισκεπτών) <strong>αποκλειστικά κατόπιν δικής σας
-          συγκατάθεσης</strong>.
+          <strong>Ανώνυμα Στατιστικά Επισκεψιμότητας &amp; Ανάλυση UX (Google Analytics &amp; Contentsquare):</strong>
+          Χρησιμοποιούμε το Google Analytics (με ενεργοποιημένη ανωνυμοποίηση IP) και το Contentsquare για την ανάλυση της συμπεριφοράς των επισκεπτών (π.χ. heatmaps, βίντεο συνεδριών). Συλλέγονται ανώνυμες πληροφορίες <strong>αποκλειστικά κατόπιν δικής σας συγκατάθεσης</strong>.
         </li>
         <li>
           <strong>Τοπική Αποθήκευση (LocalStorage):</strong>
@@ -465,8 +466,7 @@
       <ul>
         <li>
           <strong>Συγκατάθεση (Consent):</strong>
-          Για τη συλλογή στατιστικών μέσω cookies (Google Analytics) και για την
-          υποβολή της φόρμας αίτησης.
+          Για τη συλλογή στατιστικών και δεδομένων ανάλυσης μέσω cookies (Google Analytics, Contentsquare) και για την υποβολή της φόρμας αίτησης.
         </li>
         <li>
           <strong>Έννομο Συμφέρον (Legitimate Interest):</strong>
@@ -486,6 +486,10 @@
           Παροχή ανώνυμων στατιστικών επισκεψιμότητας.
         </li>
         <li>
+          <strong>Contentsquare:</strong>
+          Παροχή ανάλυσης εμπειρίας χρήστη (UX analytics, heatmaps και session recordings).
+        </li>
+        <li>
           <strong>Render &amp; mcstatus.io:</strong>
           Τεχνικές υποδομές API για κατάσταση server και Leaderboard.
         </li>
@@ -493,8 +497,7 @@
 
       <h2>5. Χρόνος Διατήρησης Δεδομένων</h2>
       <p>Τα στοιχεία αιτήσεων διατηρούνται μόνο για όσο απαιτείται για την αξιολόγησή
-        τους ή μέχρι να ζητήσετε τη διαγραφή τους. Τα ανώνυμα στατιστικά του Google
-        Analytics διαγράφονται αυτόματα σύμφωνα με τους χρόνους διατήρησης της Google.
+        τους ή μέχρι να ζητήσετε τη διαγραφή τους. Τα ανώνυμα στατιστικά των εργαλείων ανάλυσης διαγράφονται αυτόματα σύμφωνα με τους χρόνους διατήρησης της κάθε υπηρεσίας.
       </p>
 
       <h2>6. Τα Δικαιώματά σας (GDPR)</h2>
