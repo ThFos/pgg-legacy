@@ -5,6 +5,33 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
+  <!-- GA & Contentsquare: Φορτώνουν ΔΥΝΑΜΙΚΑ ΜΟΝΟ αν έχει δοθεί consent -->
+  <script>
+    (function() {
+      var consent = null;
+      try { consent = localStorage.getItem('pgg_cookie_consent'); } catch(e) {}
+      if (consent === 'accepted') {
+        // Google Analytics
+        window._gaLoaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-49NVHWZZV8', { anonymize_ip: true });
+
+        // Contentsquare
+        var cs = document.createElement('script');
+        cs.async = true;
+        cs.src = 'https://t.contentsquare.net/uxa/25a3809d633eb.js';
+        document.head.appendChild(cs);
+      }
+    })();
+  </script>
+
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="dns-prefetch" href="https://www.google-analytics.com">
   <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
@@ -211,6 +238,17 @@
 
     </article>
   </main>
+
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Δήλωση Cookies">
+    <p class="cookie-text">
+      <strong>Χρησιμοποιούμε cookies</strong> για τη βελτίωση της εμπειρίας πλοήγησης και τη συλλογή στατιστικών. Διαβάστε την <a href="/privacy">Πολιτική Απορρήτου</a>.
+    </p>
+    <div class="cookie-buttons">
+      <button id="cookie-accept" class="cookie-btn-accept" type="button">Αποδοχή</button>
+      <button id="cookie-decline" class="cookie-btn-decline" type="button">Απόρριψη</button>
+    </div>
+  </div>
 
   <footer class="copyright_div">
     <p class="copyright">
