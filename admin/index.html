@@ -9,11 +9,39 @@
   <!-- Decap CMS Core -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
-  <!-- Φόρτωση Styles στο Preview Window -->
   <script>
+    // 1. Φόρτωση CSS
     CMS.registerPreviewStyle("https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap");
     CMS.registerPreviewStyle("/css/base.css");
     CMS.registerPreviewStyle("/blog/blog.css");
+
+    // 2. Custom Preview Template με το HTML δομή του site
+    var BlogPreview = createClass({
+      render: function() {
+        var entry = this.props.entry;
+        var title = entry.getIn(['data', 'title']);
+        var tag = entry.getIn(['data', 'tag']);
+        var image = entry.getIn(['data', 'image']);
+        var body = this.props.widgetFor('body');
+
+        return h('main', { className: 'mainflex' },
+          h('article', { className: 'blog-article-wrapper' },
+            h('header', { className: 'blog-article-header' },
+              tag ? h('span', { className: 'blog-card-tag' }, tag) : null,
+              h('h1', { className: 'blog-article-title' }, title)
+            ),
+            image ? h('img', { 
+              src: this.props.getAsset(image).toString(), 
+              className: 'blog-article-banner' 
+            }) : null,
+            h('div', { className: 'blog-article-content' }, body)
+          )
+        );
+      }
+    });
+
+    // Δήλωση του template στην collection του blog
+    CMS.registerPreviewTemplate("blog", BlogPreview);
   </script>
 </body>
 </html>
