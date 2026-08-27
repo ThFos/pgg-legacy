@@ -44,12 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  /* ── 4. Mobile Menu ────────────────────────────────────────────────────── */
-  /* ΔΕΝ χρειάζεται τίποτα εδώ — το script.js έχει ήδη βάλει */
-  /* τον listener στο .icon μέσω initMobileMenu().            */
-  /* Το window.toggleMobileMenu είναι ήδη global.             */
-
-  /* ── 5. Smooth scroll για blog internal anchors ────────────────────────── */
+  /* ── 4. Smooth scroll για blog internal anchors ────────────────────────── */
   document.querySelectorAll('.cmd-quicknav a, .blog-breadcrumb a').forEach(function(link) {
     var href = link.getAttribute('href') || '';
     if (href.startsWith('#')) {
@@ -60,5 +55,57 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
+
+  /* ── 5. CMS Markdown Parser & Loader ───────────────────────────────────── */
+  
+  // Helper: Διαχωρισμός YAML Frontmatter & Markdown
+  function parseFrontmatter(text) {
+    var match = text.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
+    if (!match) return { meta: {}, body: text };
+
+    var yamlStr = match[1];
+    var body = match[2];
+    var meta = {};
+
+    yamlStr.split('\n').forEach(function(line) {
+      var parts = line.split(':');
+      if (parts.length >= 2) {
+        var key = parts[0].trim();
+        var value = parts.slice(1).join(':').trim().replace(/^['"]|['"]$/g, '');
+        meta[key] = value;
+      }
+    });
+
+    return { meta: meta, body: body };
+  }
+
+  // Φόρτωση και προβολή μεμονωμένου άρθρου (αν υπάρχει container #blog-article-content)
+  var articleContainer = document.getElementById('blog-article-content');
+  if (articleContainer) {
+    var articlePath = articleContainer.getAttribute('data-md-path');
+    if (articlePath) {
+      fetch(articlePath)
+        .then(function(res) { return res.text(); })
+        .then(function(mdText) {
+          var parsed = parseFrontmatter(mdText);
+          
+          // Ενημέρωση τίτλου & ημερομηνίας αν υπάρχουν elements
+          var titleEl = document.getElementById('article-title');
+          var dateEl = document.getElementById('article-date');
+          if (titleEl && parsed.meta.title) titleEl.textContent = parsed.meta.title;
+          if (dateEl && parsed.meta.date) dateEl.textContent = new Date(parsed.meta.date).toLocaleDateString('el-GR');
+
+          // Μετατροπή Markdown σε HTML μέσω της βιβλιοθήκης marked
+          if (typeof marked !== 'undefined') {
+            articleContainer.innerHTML = marked.parse(parsed.body);
+          } else {
+            articleContainer.textContent = parsed.body;
+          }
+        })
+        .catch(function(err) {
+          console.error('Σφάλμα φόρτωσης άρθρου:', err);
+        });
+    }
+  }
 
 });
