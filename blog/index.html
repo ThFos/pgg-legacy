@@ -10,8 +10,6 @@
   <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
   <link rel="preload" as="image" href="/blog/media/blogbanner1.webp" fetchpriority="high">
 
-  <!-- ΔΕΝ φορτώνουμε GA εδώ - το αναλαμβάνει το script.js μόνο αν υπάρχει συγκατάθεση -->
-
   <title>Blog | PGG Legacy - Ελληνικός Minecraft RP Server</title>
   <meta name="description" content="Διάβασε τα τελευταία άρθρα του PGG Legacy για Minecraft Roleplay, οδηγούς για νέους παίκτες, updates και πολλά άλλα!">
   <meta name="keywords" content="PGG Legacy blog, minecraft rp οδηγός, ελληνικός minecraft server blog, minecraft roleplay guide greek">
@@ -43,20 +41,7 @@
     "name": "PGG Legacy Blog",
     "url": "https://pgglegacy.gr/blog/",
     "description": "Άρθρα, οδηγοί και νέα για τον PGG Legacy Minecraft RP Server.",
-    "inLanguage": "el-GR",
-    "publisher": {
-      "@type": "Organization",
-      "name": "PGG Legacy",
-      "url": "https://pgglegacy.gr",
-      "logo": "https://pgglegacy.gr/media/logo.svg"
-    },
-    "blogPost": [
-      { "@type": "BlogPosting", "headline": "Τι είναι το Minecraft Roleplay;",       "url": "https://pgglegacy.gr/blog/ti-einai-minecraft-rp/",  "datePublished": "2026-04-14", "inLanguage": "el-GR" },
-      { "@type": "BlogPosting", "headline": "Getting Started Guide",                 "url": "https://pgglegacy.gr/blog/getting-started-guide/",  "datePublished": "2026-04-15", "inLanguage": "el-GR" },
-      { "@type": "BlogPosting", "headline": "Ημερολόγιο Εποχών & Events",           "url": "https://pgglegacy.gr/blog/imerologio-epoxon/",       "datePublished": "2026-04-16", "inLanguage": "el-GR" },
-      { "@type": "BlogPosting", "headline": "Game Commands - Όλα τα Commands",       "url": "https://pgglegacy.gr/blog/game-commands/",           "datePublished": "2026-04-17", "inLanguage": "el-GR" },
-      { "@type": "BlogPosting", "headline": "Πώς να αλλάξεις Skin στον PGG Legacy", "url": "https://pgglegacy.gr/blog/alagi-skin/",              "datePublished": "2026-04-18", "inLanguage": "el-GR" }
-    ]
+    "inLanguage": "el-GR"
   }
   </script>
 
@@ -69,111 +54,47 @@
   <link rel="stylesheet" href="/blog/blog.css">
 
   <style>
-    /* ── Cookie Banner Critical ── */
     #cookie-banner {
       position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      bottom: 0; left: 0; right: 0;
       z-index: 99998;
       background: rgba(18, 17, 23, 0.97);
       border-top: 1px solid rgba(107, 45, 216, 0.5);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       padding: 1.2rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      flex-wrap: wrap;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1.5rem; flex-wrap: wrap;
       font-family: 'Space Grotesk', sans-serif;
       box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.5);
       transform: translateY(100%);
       transition: transform 0.4s ease;
     }
-    #cookie-banner.cookie-visible {
-      transform: translateY(0);
-    }
-    .cookie-text {
-      flex: 1;
-      min-width: 200px;
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.85);
-      line-height: 1.6;
-    }
+    #cookie-banner.cookie-visible { transform: translateY(0); }
+    .cookie-text { flex: 1; min-width: 200px; font-size: 0.9rem; color: rgba(255, 255, 255, 0.85); line-height: 1.6; }
     .cookie-text strong { color: #fff; font-weight: 700; }
-    .cookie-text a {
-      color: #a855f7;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-      transition: color 0.2s;
-    }
+    .cookie-text a { color: #a855f7; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
     .cookie-text a:hover { color: #c084fc; }
-    .cookie-buttons {
-      display: flex;
-      gap: 0.75rem;
-      flex-shrink: 0;
-      flex-wrap: wrap;
-    }
+    .cookie-buttons { display: flex; gap: 0.75rem; flex-shrink: 0; flex-wrap: wrap; }
     .cookie-btn-accept {
-      padding: 0.6rem 1.4rem;
-      background: #6b2dd8;
-      color: #fff;
-      border: none;
-      border-radius: 0.6rem;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 700;
-      cursor: pointer;
+      padding: 0.6rem 1.4rem; background: #6b2dd8; color: #fff; border: none; border-radius: 0.6rem;
+      font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 700; cursor: pointer;
       transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 3px 12px rgba(107, 45, 216, 0.4);
-      white-space: nowrap;
+      box-shadow: 0 3px 12px rgba(107, 45, 216, 0.4); white-space: nowrap;
     }
-    .cookie-btn-accept:hover,
-    .cookie-btn-accept:focus-visible {
-      background: #7c3aed;
-      transform: translateY(-1px);
-      box-shadow: 0 5px 16px rgba(107, 45, 216, 0.55);
-    }
+    .cookie-btn-accept:hover, .cookie-btn-accept:focus-visible { background: #7c3aed; transform: translateY(-1px); box-shadow: 0 5px 16px rgba(107, 45, 216, 0.55); }
     .cookie-btn-decline {
-      padding: 0.6rem 1.2rem;
-      background: transparent;
-      color: rgba(255, 255, 255, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 0.6rem;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
-      white-space: nowrap;
+      padding: 0.6rem 1.2rem; background: transparent; color: rgba(255, 255, 255, 0.6); border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 0.6rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 600; cursor: pointer;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease; white-space: nowrap;
     }
-    .cookie-btn-decline:hover,
-    .cookie-btn-decline:focus-visible {
-      background: rgba(255, 255, 255, 0.06);
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.35);
-    }
+    .cookie-btn-decline:hover, .cookie-btn-decline:focus-visible { background: rgba(255, 255, 255, 0.06); color: #fff; border-color: rgba(255, 255, 255, 0.35); }
     @media (max-width: 600px) {
-      #cookie-banner {
-        padding: 1rem 1.2rem;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-      }
-      .cookie-buttons {
-        width: 100%;
-        justify-content: flex-start;
-      }
-      .cookie-btn-accept,
-      .cookie-btn-decline {
-        flex: 1;
-        text-align: center;
-      }
+      #cookie-banner { padding: 1rem 1.2rem; flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .cookie-buttons { width: 100%; justify-content: flex-start; }
+      .cookie-btn-accept, .cookie-btn-decline { flex: 1; text-align: center; }
     }
-    @media (prefers-reduced-motion: reduce) {
-      #cookie-banner { transition: none; }
-    }
+    @media (prefers-reduced-motion: reduce) { #cookie-banner { transition: none; } }
   </style>
 </head>
 <body>
@@ -183,13 +104,12 @@
   <!-- Desktop Navbar -->
   <nav class="desktop_navbar" aria-label="Κύριο μενού">
     <a href="/" aria-label="PGG Legacy - Αρχική">
-      <img class="desktop_navbar_logo_img" src="/media/logo_small.svg"
-           alt="PGG Legacy Logo" width="152" height="40" fetchpriority="high">
+      <img class="desktop_navbar_logo_img" src="/media/logo_small.svg" alt="PGG Legacy Logo" width="152" height="40" fetchpriority="high">
     </a>
     <a href="/#rules"      class="desktop_navbar_link">Rules</a>
     <a href="/#discord"    class="desktop_navbar_link">Community</a>
     <a href="/#about"      class="desktop_navbar_link">About Us</a>
-    <a href="/map"         class="desktop_navbar_link">Server Map</a>
+    <a href="/map"          class="desktop_navbar_link">Server Map</a>
     <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
     <a href="/police"      class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
     <div class="desktop_navbar_link2_div">
@@ -200,14 +120,10 @@
   <!-- Mobile Navbar -->
   <nav class="mobile_navbar" aria-label="Κινητό μενού">
     <a href="/" class="mobile_navbar_logo_img_a" aria-label="PGG Legacy - Αρχική">
-      <img class="mobile_navbar_logo_img" src="/media/logo_small.svg"
-           alt="PGG Legacy Logo" width="152" height="40">
+      <img class="mobile_navbar_logo_img" src="/media/logo_small.svg" alt="PGG Legacy Logo" width="152" height="40">
     </a>
-    <button class="icon" aria-expanded="false"
-            aria-controls="mobile_navbar_links"
-            aria-label="Άνοιγμα μενού πλοήγησης">
-      <svg id="menuIcon" viewBox="0 0 24 24" width="24" height="24"
-           fill="white" aria-hidden="true" focusable="false">
+    <button class="icon" aria-expanded="false" aria-controls="mobile_navbar_links" aria-label="Άνοιγμα μενού πλοήγησης">
+      <svg id="menuIcon" viewBox="0 0 24 24" width="24" height="24" fill="white" aria-hidden="true" focusable="false">
         <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
       </svg>
     </button>
@@ -215,10 +131,10 @@
       <a class="mobile_navbar_link" href="/#rules"      role="menuitem">Rules</a>
       <a class="mobile_navbar_link" href="/#discord"    role="menuitem">Community</a>
       <a class="mobile_navbar_link" href="/#about"      role="menuitem">About Us</a>
-      <a class="mobile_navbar_link" href="/map"         role="menuitem">Server Map</a>
+      <a class="mobile_navbar_link" href="/map"          role="menuitem">Server Map</a>
       <a class="mobile_navbar_link nav-highlight-blue"  href="/leaderboard" role="menuitem">Leaderboard</a>
       <a class="mobile_navbar_link nav-highlight-gold"  href="/police"      role="menuitem">Police Apps</a>
-      <a class="mobile_navbar_link" href="/#join"       role="menuitem">Join Us</a>
+      <a class="mobile_navbar_link" href="/#join"        role="menuitem">Join Us</a>
     </div>
   </nav>
 
@@ -232,112 +148,28 @@
       </p>
     </section>
 
-    <!-- Articles Grid -->
+    <!-- Dynamic Articles Grid -->
     <section class="blog-index-section" aria-label="Άρθρα Blog">
       <div class="blog-grid">
-
-        <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
-          <a href="/blog/ti-einai-minecraft-rp/" class="blog-card-link">
+        {% for post in site.blog %}
+        <article class="blog-card" data-aos="fade-up">
+          <a href="{{ post.url }}" class="blog-card-link">
             <div class="blog-card-img-wrapper">
-              <img src="/blog/media/blogbanner1.webp"
-                   alt="Τι είναι το Minecraft Roleplay - PGG Legacy"
-                   class="blog-card-img" width="420" height="210"
-                   loading="eager" fetchpriority="high" decoding="async">
+              {% if post.image %}
+                <img src="{{ post.image }}" alt="{{ post.title }}" class="blog-card-img" width="420" height="210" loading="lazy" decoding="async">
+              {% else %}
+                <img src="/blog/media/blogbanner1.webp" alt="{{ post.title }}" class="blog-card-img" width="420" height="210" loading="lazy" decoding="async">
+              {% endif %}
             </div>
             <div class="blog-card-body">
-              <span class="blog-card-tag">Οδηγός</span>
-              <h2 class="blog-card-title">Τι είναι το Minecraft Roleplay;</h2>
-              <p class="blog-card-excerpt">
-                Μάθε τα πάντα για το Minecraft RP — τι σημαίνει να παίζεις ρόλο,
-                ποιοι είναι οι βασικοί κανόνες και γιατί το PGG Legacy είναι η
-                καλύτερη επιλογή για εσένα.
-              </p>
+              <span class="blog-card-tag">{{ post.tag | default: "Οδηγός" }}</span>
+              <h2 class="blog-card-title">{{ post.title }}</h2>
+              <p class="blog-card-excerpt">{{ post.description }}</p>
               <span class="blog-card-read-more" aria-hidden="true">Διάβασε περισσότερα →</span>
             </div>
           </a>
         </article>
-
-        <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
-          <a href="/blog/getting-started-guide/" class="blog-card-link">
-            <div class="blog-card-img-wrapper">
-              <img src="/blog/media/blogbanner2.webp"
-                   alt="Getting Started Guide - PGG Legacy"
-                   class="blog-card-img" width="420" height="210"
-                   loading="eager" decoding="async">
-            </div>
-            <div class="blog-card-body">
-              <span class="blog-card-tag">Getting Started</span>
-              <h2 class="blog-card-title">Getting Started Guide</h2>
-              <p class="blog-card-excerpt">
-                Νέος στον server; Αυτός ο οδηγός καλύπτει όλα όσα χρειάζεσαι
-                να ξέρεις — από το πώς να μπεις, μέχρι τα πρώτα σου βήματα
-                στον κόσμο του PGG Legacy.
-              </p>
-              <span class="blog-card-read-more" aria-hidden="true">Διάβασε περισσότερα →</span>
-            </div>
-          </a>
-        </article>
-
-        <article class="blog-card" data-aos="fade-up" data-aos-delay="300">
-          <a href="/blog/imerologio-epoxon/" class="blog-card-link">
-            <div class="blog-card-img-wrapper">
-              <img src="/blog/media/blogbanner3.webp"
-                   alt="Ημερολόγιο Εποχών και Events - PGG Legacy"
-                   class="blog-card-img" width="420" height="210"
-                   loading="lazy" decoding="async">
-            </div>
-            <div class="blog-card-body">
-              <span class="blog-card-tag">Οδηγός</span>
-              <h2 class="blog-card-title">Ημερολόγιο Εποχών &amp; Events</h2>
-              <p class="blog-card-excerpt">
-                Χριστούγεννα, Halloween, Πάσχα, Heatwave και πολλά άλλα!
-                Μάθε πώς αλλάζει ο κόσμος του PGG Legacy ανάλογα με την εποχή.
-              </p>
-              <span class="blog-card-read-more" aria-hidden="true">Διάβασε περισσότερα →</span>
-            </div>
-          </a>
-        </article>
-
-        <article class="blog-card" data-aos="fade-up" data-aos-delay="400">
-          <a href="/blog/game-commands/" class="blog-card-link">
-            <div class="blog-card-img-wrapper">
-              <img src="/blog/media/blogbanner4.webp"
-                   alt="Game Commands - Όλα τα Commands του PGG Legacy"
-                   class="blog-card-img" width="420" height="210"
-                   loading="lazy" decoding="async">
-            </div>
-            <div class="blog-card-body">
-              <span class="blog-card-tag">Οδηγός</span>
-              <h2 class="blog-card-title">Game Commands</h2>
-              <p class="blog-card-excerpt">
-                Πλήρης λίστα με όλα τα commands του PGG Legacy — μετακινήσεις,
-                επικοινωνία, ασφάλεια, roleplay και έκτακτη ανάγκη.
-              </p>
-              <span class="blog-card-read-more" aria-hidden="true">Διάβασε περισσότερα →</span>
-            </div>
-          </a>
-        </article>
-
-        <article class="blog-card" data-aos="fade-up" data-aos-delay="500">
-          <a href="/blog/alagi-skin/" class="blog-card-link">
-            <div class="blog-card-img-wrapper">
-              <img src="/blog/media/blogbanner5.webp"
-                   alt="Πώς να αλλάξεις Skin στον PGG Legacy"
-                   class="blog-card-img" width="420" height="210"
-                   loading="lazy" decoding="async">
-            </div>
-            <div class="blog-card-body">
-              <span class="blog-card-tag">Οδηγός</span>
-              <h2 class="blog-card-title">Πώς να αλλάξεις Skin</h2>
-              <p class="blog-card-excerpt">
-                Μάθε πώς να βάλεις custom skin στον PGG Legacy — μέσω URL ή
-                username, βήμα-βήμα οδηγός για cracked και premium παίκτες.
-              </p>
-              <span class="blog-card-read-more" aria-hidden="true">Διάβασε περισσότερα →</span>
-            </div>
-          </a>
-        </article>
-
+        {% endfor %}
       </div>
     </section>
 
@@ -349,8 +181,6 @@
       <a href="/privacy">Privacy Policy</a>
     </p>
   </footer>
-
-  <!-- ΔΕΝ υπάρχει hardcoded cookie banner - το δημιουργεί το script.js -->
 
   <script src="/js/script.js" defer></script>
   <script src="/blog/blog.js" defer></script>
