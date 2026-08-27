@@ -17,8 +17,10 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
       - { label: "Τίτλος Άρθρου", name: "title", widget: "string" }
-      - { label: "Ημερομηνία Δημοσίευσης", name: "date", widget: "datetime", default: "", date_format: "YYYY-MM-DD", time_format: false }
-      - { label: "Εικόνα Εξωφύλλου", name: "cover", widget: "image", required: false }
+      - { label: "Ημερομηνία Δημοσίευσης", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Tag / Κατηγορία", name: "tag", widget: "string", default: "Οδηγός" }
+      - { label: "Εικόνα Εξωφύλλου", name: "image", widget: "image", required: false }
       - { label: "Σύντομη Περιγραφή", name: "description", widget: "text" }
       - { label: "Περιεχόμενο Άρθρου", name: "body", widget: "markdown" }
