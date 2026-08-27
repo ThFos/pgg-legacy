@@ -81,3 +81,25 @@ pgg-legacy-main/
 ├── map/                     # Σελίδα Live Map
 ├── police/                  # Σελίδα Αιτήσεων Αστυνομίας
 └── privacy/                 # Σελίδα Πολιτικής Απορρήτου
+```
+
+---
+
+## 🛠️ Tech Stack & Integration APIs
+
+### Frontend
+- **HTML5 & CSS3** (Vanilla, CSS Variables, Flexbox/Grid)
+- **JavaScript (Vanilla ES6)**
+- **Space Grotesk Font** (Google Fonts)
+
+### External APIs & Web Services
+- **mcstatus.io** — Live Server Status
+- **Render.com** — Custom Leaderboard API Backend
+- **Web3Forms** — Email Dispatcher για τις αιτήσεις Αστυνομίας
+- **mc-heads.net** — Player Head Avatars Render API
+- **Dynmap** — Live Server Map Streaming
+- **Google Analytics (GA4)** — Ανώνυμα στατιστικά επισκεψιμότητας
+
+---
+
+© PGG Legacy — All rights reserved.
