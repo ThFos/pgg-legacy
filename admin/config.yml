@@ -2,20 +2,23 @@ backend:
   name: github
   repo: ThFos/pgg-legacy
   branch: main
-  base_url: https://pgg-oauth.onrender.com # Το OAuth backend στο Render
+  base_url: https://pgg-oauth.onrender.com
 
-media_folder: "media/blog"
-public_folder: "/media/blog"
+media_folder: "blog/media"
+public_folder: "/blog/media"
 
 collections:
   - name: "blog"
     label: "Άρθρα Blog"
     folder: "blog"
+    path: "{{slug}}/index"
+    extension: "md"
+    format: "yaml-frontmatter"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
       - { label: "Τίτλος Άρθρου", name: "title", widget: "string" }
-      - { label: "Ημερομηνία Δημοσίευσης", name: "date", widget: "datetime" }
+      - { label: "Ημερομηνία Δημοσίευσης", name: "date", widget: "datetime", default: "", date_format: "YYYY-MM-DD", time_format: false }
       - { label: "Εικόνα Εξωφύλλου", name: "cover", widget: "image", required: false }
       - { label: "Σύντομη Περιγραφή", name: "description", widget: "text" }
       - { label: "Περιεχόμενο Άρθρου", name: "body", widget: "markdown" }
