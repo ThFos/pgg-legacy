@@ -27,6 +27,13 @@
 
   <!-- Blog Articles -->
   <url>
+    <loc>https://pgglegacy.gr/blog/h-clio-einai-gia-ton-poutso-oute-gia-auto-den-einai/</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://pgglegacy.gr/blog/αλλαγή-skin/</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
