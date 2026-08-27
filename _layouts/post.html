@@ -5,13 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
-  <!-- GA & Contentsquare: Φορτώνουν ΔΥΝΑΜΙΚΑ ΜΟΝΟ αν έχει δοθεί consent -->
+  <!-- GA & Dynamic Script Consent -->
   <script>
     (function() {
       var consent = null;
       try { consent = localStorage.getItem('pgg_cookie_consent'); } catch(e) {}
       if (consent === 'accepted') {
-        // Google Analytics
         window._gaLoaded = true;
         var s = document.createElement('script');
         s.async = true;
@@ -23,7 +22,6 @@
         gtag('js', new Date());
         gtag('config', 'G-49NVHWZZV8', { anonymize_ip: true });
 
-        // Contentsquare
         var cs = document.createElement('script');
         cs.async = true;
         cs.src = 'https://t.contentsquare.net/uxa/25a3809d633eb.js';
@@ -68,23 +66,36 @@
 
   <link rel="icon" type="image/png" href="/media/favicon.png">
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD (Διορθωμένο & Πλήρες) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": {{ page.title | jsonify }},
+    "description": {{ page.description | default: page.title | jsonify }},
     "image": "{{ page.image | absolute_url }}",
     "url": "{{ page.url | absolute_url }}",
     "datePublished": "{{ page.date | date_to_xmlschema }}",
     "dateModified": "{{ page.date | date_to_xmlschema }}",
     "inLanguage": "el-GR",
-    "author": { "@type": "Organization", "name": "{{ page.author | default: 'PGG Legacy' }}", "url": "https://pgglegacy.gr" },
-    "publisher": {
-      "@type": "Organization", "name": "PGG Legacy", "url": "https://pgglegacy.gr",
-      "logo": { "@type": "ImageObject", "url": "https://pgglegacy.gr/media/logo.svg" }
+    "author": { 
+      "@type": "Organization", 
+      "name": "{{ page.author | default: 'PGG Legacy' }}", 
+      "url": "https://pgglegacy.gr" 
     },
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ page.url | absolute_url }}" }
+    "publisher": {
+      "@type": "Organization", 
+      "name": "PGG Legacy", 
+      "url": "https://pgglegacy.gr",
+      "logo": { 
+        "@type": "ImageObject", 
+        "url": "https://pgglegacy.gr/media/logo.svg" 
+      }
+    },
+    "mainEntityOfPage": { 
+      "@type": "WebPage", 
+      "@id": "{{ page.url | absolute_url }}" 
+    }
   }
   </script>
 
@@ -109,48 +120,111 @@
   <link rel="stylesheet" href="/blog/blog.css">
 
   <style>
-    /* Cookie Banner Critical CSS */
+    /* ── Cookie Banner Critical CSS ── */
     #cookie-banner {
       position: fixed;
-      bottom: 0; left: 0; right: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       z-index: 99998;
       background: rgba(18, 17, 23, 0.97);
       border-top: 1px solid rgba(107, 45, 216, 0.5);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       padding: 1.2rem 2rem;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 1.5rem; flex-wrap: wrap;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
       font-family: 'Space Grotesk', sans-serif;
       box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.5);
       transform: translateY(100%);
       transition: transform 0.4s ease;
     }
-    #cookie-banner.cookie-visible { transform: translateY(0); }
-    .cookie-text { flex: 1; min-width: 200px; font-size: 0.9rem; color: rgba(255, 255, 255, 0.85); line-height: 1.6; }
+    #cookie-banner.cookie-visible {
+      transform: translateY(0);
+    }
+    .cookie-text {
+      flex: 1;
+      min-width: 200px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.6;
+    }
     .cookie-text strong { color: #fff; font-weight: 700; }
-    .cookie-text a { color: #a855f7; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
+    .cookie-text a {
+      color: #a855f7;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.2s;
+    }
     .cookie-text a:hover { color: #c084fc; }
-    .cookie-buttons { display: flex; gap: 0.75rem; flex-shrink: 0; flex-wrap: wrap; }
+    .cookie-buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
     .cookie-btn-accept {
-      padding: 0.6rem 1.4rem; background: #6b2dd8; color: #fff; border: none; border-radius: 0.6rem;
-      font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 700; cursor: pointer;
+      padding: 0.6rem 1.4rem;
+      background: #6b2dd8;
+      color: #fff;
+      border: none;
+      border-radius: 0.6rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
       transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 3px 12px rgba(107, 45, 216, 0.4); white-space: nowrap;
+      box-shadow: 0 3px 12px rgba(107, 45, 216, 0.4);
+      white-space: nowrap;
     }
-    .cookie-btn-accept:hover, .cookie-btn-accept:focus-visible { background: #7c3aed; transform: translateY(-1px); box-shadow: 0 5px 16px rgba(107, 45, 216, 0.55); }
+    .cookie-btn-accept:hover,
+    .cookie-btn-accept:focus-visible {
+      background: #7c3aed;
+      transform: translateY(-1px);
+      box-shadow: 0 5px 16px rgba(107, 45, 216, 0.55);
+    }
     .cookie-btn-decline {
-      padding: 0.6rem 1.2rem; background: transparent; color: rgba(255, 255, 255, 0.6); border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 0.6rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 600; cursor: pointer;
-      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease; white-space: nowrap;
+      padding: 0.6rem 1.2rem;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 0.6rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+      white-space: nowrap;
     }
-    .cookie-btn-decline:hover, .cookie-btn-decline:focus-visible { background: rgba(255, 255, 255, 0.06); color: #fff; border-color: rgba(255, 255, 255, 0.35); }
+    .cookie-btn-decline:hover,
+    .cookie-btn-decline:focus-visible {
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.35);
+    }
     @media (max-width: 600px) {
-      #cookie-banner { padding: 1rem 1.2rem; flex-direction: column; align-items: flex-start; gap: 1rem; }
-      .cookie-buttons { width: 100%; justify-content: flex-start; }
-      .cookie-btn-accept, .cookie-btn-decline { flex: 1; text-align: center; }
+      #cookie-banner {
+        padding: 1rem 1.2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .cookie-buttons {
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .cookie-btn-accept,
+      .cookie-btn-decline {
+        flex: 1;
+        text-align: center;
+      }
     }
-    @media (prefers-reduced-motion: reduce) { #cookie-banner { transition: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      #cookie-banner { transition: none; }
+    }
   </style>
 
   <script data-goatcounter="https://pgglegacy.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -250,6 +324,7 @@
     </div>
   </div>
 
+  <!-- Footer με προσθήκη Privacy Policy -->
   <footer class="copyright_div">
     <p class="copyright">
       &copy; <span id="copyright-year"></span> PGG Legacy — All rights reserved. | <a href="/privacy">Privacy Policy</a>
