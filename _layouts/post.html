@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+  {% if page.image %}
+  <link rel="preload" href="{{ page.image }}" as="image" fetchpriority="high">
+  {% endif %}
+
+  <title>{{ page.title }} | PGG Legacy Blog</title>
+  <meta name="description" content="{{ page.description | default: page.title }}">
+  {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="{{ page.author | default: 'PGG Legacy' }}">
+  <meta name="theme-color" content="#1a1921">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:title" content="{{ page.title }} | PGG Legacy Blog">
+  <meta property="og:description" content="{{ page.description | default: page.title }}">
+  {% if page.image %}<meta property="og:image" content="{{ page.image | absolute_url }}">{% endif %}
+  <meta property="og:site_name" content="PGG Legacy">
+  <meta property="og:locale" content="el_GR">
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  <meta property="article:author" content="{{ page.author | default: 'PGG Legacy' }}">
+  <meta property="article:section" content="{{ page.tag | default: 'Οδηγός' }}">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{ page.url | absolute_url }}">
+  <meta name="twitter:title" content="{{ page.title }} | PGG Legacy Blog">
+  <meta name="twitter:description" content="{{ page.description | default: page.title }}">
+  {% if page.image %}<meta name="twitter:image" content="{{ page.image | absolute_url }}">{% endif %}
+
+  <link rel="icon" type="image/png" href="/media/favicon.png">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ page.title | toJson }},
+    "image": "{{ page.image | absolute_url }}",
+    "url": "{{ page.url | absolute_url }}",
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.date | date_to_xmlschema }}",
+    "inLanguage": "el-GR",
+    "author": { "@type": "Organization", "name": "{{ page.author | default: 'PGG Legacy' }}", "url": "https://pgglegacy.gr" },
+    "publisher": {
+      "@type": "Organization", "name": "PGG Legacy", "url": "https://pgglegacy.gr",
+      "logo": { "@type": "ImageObject", "url": "https://pgglegacy.gr/media/logo.svg" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ page.url | absolute_url }}" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Αρχική", "item": "https://pgglegacy.gr/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog",   "item": "https://pgglegacy.gr/blog/" },
+      { "@type": "ListItem", "position": 3, "name": {{ page.title | toJson }}, "item": "{{ page.url | absolute_url }}" }
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+  <link rel="stylesheet" href="/css/cursor.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/blog/blog.css">
+
+  <style>
+    /* Cookie Banner Critical CSS */
+    #cookie-banner {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 99998;
+      background: rgba(18, 17, 23, 0.97);
+      border-top: 1px solid rgba(107, 45, 216, 0.5);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 1.2rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1.5rem; flex-wrap: wrap;
+      font-family: 'Space Grotesk', sans-serif;
+      box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.5);
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+    #cookie-banner.cookie-visible { transform: translateY(0); }
+    .cookie-text { flex: 1; min-width: 200px; font-size: 0.9rem; color: rgba(255, 255, 255, 0.85); line-height: 1.6; }
+    .cookie-text strong { color: #fff; font-weight: 700; }
+    .cookie-text a { color: #a855f7; text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
+    .cookie-text a:hover { color: #c084fc; }
+    .cookie-buttons { display: flex; gap: 0.75rem; flex-shrink: 0; flex-wrap: wrap; }
+    .cookie-btn-accept {
+      padding: 0.6rem 1.4rem; background: #6b2dd8; color: #fff; border: none; border-radius: 0.6rem;
+      font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 700; cursor: pointer;
+      transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 3px 12px rgba(107, 45, 216, 0.4); white-space: nowrap;
+    }
+    .cookie-btn-accept:hover, .cookie-btn-accept:focus-visible { background: #7c3aed; transform: translateY(-1px); box-shadow: 0 5px 16px rgba(107, 45, 216, 0.55); }
+    .cookie-btn-decline {
+      padding: 0.6rem 1.2rem; background: transparent; color: rgba(255, 255, 255, 0.6); border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 0.6rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 600; cursor: pointer;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease; white-space: nowrap;
+    }
+    .cookie-btn-decline:hover, .cookie-btn-decline:focus-visible { background: rgba(255, 255, 255, 0.06); color: #fff; border-color: rgba(255, 255, 255, 0.35); }
+    @media (max-width: 600px) {
+      #cookie-banner { padding: 1rem 1.2rem; flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .cookie-buttons { width: 100%; justify-content: flex-start; }
+      .cookie-btn-accept, .cookie-btn-decline { flex: 1; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) { #cookie-banner { transition: none; } }
+  </style>
+
+  <script data-goatcounter="https://pgglegacy.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+  <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- Desktop Navbar -->
+  <nav class="desktop_navbar" aria-label="Κύριο μενού">
+    <a href="/" aria-label="PGG Legacy - Αρχική">
+      <img class="desktop_navbar_logo_img" src="/media/logo_small.svg" alt="PGG Legacy Logo" width="152" height="40" fetchpriority="high">
+    </a>
+    <a href="/#rules"      class="desktop_navbar_link">Rules</a>
+    <a href="/#discord"    class="desktop_navbar_link">Community</a>
+    <a href="/#about"      class="desktop_navbar_link">About Us</a>
+    <a href="/map"          class="desktop_navbar_link">Server Map</a>
+    <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
+    <a href="/police"      class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
+    <div class="desktop_navbar_link2_div">
+      <a href="/#join" class="desktop_navbar_link2">Join Us!</a>
+    </div>
+  </nav>
+
+  <!-- Mobile Navbar -->
+  <nav class="mobile_navbar" aria-label="Κινητό μενού">
+    <a href="/" class="mobile_navbar_logo_img_a" aria-label="PGG Legacy - Αρχική">
+      <img class="mobile_navbar_logo_img" src="/media/logo_small.svg" alt="PGG Legacy Logo" width="152" height="40">
+    </a>
+    <button class="icon" aria-expanded="false" aria-controls="mobile_navbar_links" aria-label="Άνοιγμα μενού πλοήγησης">
+      <svg id="menuIcon" viewBox="0 0 24 24" width="24" height="24" fill="white" aria-hidden="true" focusable="false">
+        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+      </svg>
+    </button>
+    <div id="mobile_navbar_links" role="menu">
+      <a class="mobile_navbar_link" href="/#rules"      role="menuitem">Rules</a>
+      <a class="mobile_navbar_link" href="/#discord"    role="menuitem">Community</a>
+      <a class="mobile_navbar_link" href="/#about"      role="menuitem">About Us</a>
+      <a class="mobile_navbar_link" href="/map"          role="menuitem">Server Map</a>
+      <a class="mobile_navbar_link nav-highlight-blue"  href="/leaderboard" role="menuitem">Leaderboard</a>
+      <a class="mobile_navbar_link nav-highlight-gold"  href="/police"      role="menuitem">Police Apps</a>
+      <a class="mobile_navbar_link" href="/#join"        role="menuitem">Join Us</a>
+    </div>
+  </nav>
+
+  <main class="mainflex">
+    <article class="blog-article-wrapper">
+
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb">
+        <ol class="blog-breadcrumb-list">
+          <li><a href="/">Αρχική</a></li>
+          <li aria-hidden="true">›</li>
+          <li><a href="/blog/">Blog</a></li>
+          <li aria-hidden="true">›</li>
+          <li aria-current="page">{{ page.title }}</li>
+        </ol>
+      </nav>
+
+      <header class="blog-article-header" data-aos="fade-up">
+        <span class="blog-card-tag">{{ page.tag | default: "Οδηγός" }}</span>
+        <h1 class="blog-article-title">{{ page.title }}</h1>
+        <div class="blog-article-meta">
+          <span>Από <strong>{{ page.author | default: "PGG Legacy" }}</strong></span>
+          <span>·</span>
+          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d/%m/%Y" }}</time>
+        </div>
+      </header>
+
+      {% if page.image %}
+      <img src="{{ page.image }}"
+           alt="{{ page.title }} - PGG Legacy"
+           class="blog-article-banner"
+           width="900" height="400"
+           loading="eager" fetchpriority="high" decoding="sync"
+           data-aos="fade-up" data-aos-delay="100">
+      {% endif %}
+
+      <!-- Εδώ εισάγεται αυτόματα το κείμενο από το Decap CMS -->
+      <div class="blog-article-content" data-aos="fade-up" data-aos-delay="200">
+        {{ content }}
+      </div>
+
+      <div class="blog-back-link">
+        <a href="/blog/">← Πίσω στο Blog</a>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="copyright_div">
+    <p class="copyright">
+      &copy; <span id="copyright-year"></span> PGG Legacy — All rights reserved.
+    </p>
+  </footer>
+
+  <script src="/js/script.js" defer></script>
+  <script src="/blog/blog.js" defer></script>
+</body>
+</html>
