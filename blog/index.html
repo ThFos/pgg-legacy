@@ -153,24 +153,26 @@
     <!-- Dynamic Articles Grid -->
     <section class="blog-index-section" aria-label="Άρθρα Blog">
       <div class="blog-grid">
-        {% for post in site.blog %}
-        <article class="blog-card" data-aos="fade-up">
-          <a href="{{ post.url }}" class="blog-card-link">
-            <div class="blog-card-img-wrapper">
-              {% if post.image %}
-                <img src="{{ post.image }}" alt="{{ post.title }}" class="blog-card-img" width="420" height="210" loading="lazy" decoding="async">
-              {% else %}
-                <img src="/blog/media/blogbanner1.webp" alt="{{ post.title }}" class="blog-card-img" width="420" height="210" loading="lazy" decoding="async">
-              {% endif %}
-            </div>
-            <div class="blog-card-body">
-              <span class="blog-card-tag">{{ post.tag | default: "Οδηγός" }}</span>
-              <h2 class="blog-card-title">{{ post.title }}</h2>
-              <p class="blog-card-excerpt">{{ post.description }}</p>
-              <span class="blog-card-read-more" aria-hidden="true">Διάβασε περισσότερα →</span>
-            </div>
-          </a>
-        </article>
+        {% for post in site.pages %}
+          {% if post.path contains 'blog/' and post.path != 'blog/index.html' and post.title %}
+          <article class="blog-card" data-aos="fade-up">
+            <a href="{{ post.url }}" class="blog-card-link">
+              <div class="blog-card-img-wrapper">
+                {% if post.image %}
+                  <img src="{{ post.image }}" alt="{{ post.title }}" class="blog-card-img" width="420" height="210" loading="lazy" decoding="async">
+                {% else %}
+                  <img src="/blog/media/blogbanner1.webp" alt="{{ post.title }}" class="blog-card-img" width="420" height="210" loading="lazy" decoding="async">
+                {% endif %}
+              </div>
+              <div class="blog-card-body">
+                <span class="blog-card-tag">{{ post.tag | default: "Οδηγός" }}</span>
+                <h2 class="blog-card-title">{{ post.title }}</h2>
+                <p class="blog-card-excerpt">{{ post.description }}</p>
+                <span class="blog-card-read-more" aria-hidden="true">Διάβασε περισσότερα →</span>
+              </div>
+            </a>
+          </article>
+          {% endif %}
         {% endfor %}
       </div>
     </section>
