@@ -34,11 +34,11 @@
 - **GDPR & Privacy Compliant** — Custom Cookie Consent Banner κατόπιν συγκατάθεσης.
 - **SEO & Accessibility** — Πλήρη Open Graph, Twitter Cards, `sitemap.xml`, `robots.txt` και υποστήριξη `prefers-reduced-motion`.
 
-### 📖 Blog & Guides
-- Οδηγός **Minecraft Roleplay (IC vs OOC, Κανόνες)**.
-- **Getting Started Guide** για νέους παίκτες.
-- **Ημερολόγιο Εποχών & Events** (Winter Frost, Heatwave, Spooky October, Christmas κ.ά.).
-- Πλήρης λίστα **Game Commands** & Οδηγός **Αλλαγής Skin**.
+### 📖 Blog & Content Management (CMS)
+- **Decap CMS Integration** — Πλήρες headless CMS διαχειριστικό περιβάλλον (`/admin`) με GitHub OAuth authentication.
+- **Live Custom Preview** — Real-time προεπισκόπηση των άρθρων με φόρτωση των πραγματικών CSS & fonts του site μέσα στο CMS.
+- **Markdown & Frontmatter Support** — Αυτόματη παραγωγή structured άρθρων με tags, metadata και εικόνες εξωφύλλου.
+- **Οδηγοί & Events** — Καλύπτει RP οδηγούς (IC/OOC), Getting Started, Events (Winter Frost, Spooky October κ.ά.) και Game Commands.
 
 ### 🗺️ Live Dynamic Map
 - Ενσωματωμένος real-time χάρτης του server μέσω **Dynmap** σε πλήρη οθόνη.
@@ -61,6 +61,9 @@ pgg-legacy-main/
 ├── index.html               # Αρχική σελίδα
 ├── robots.txt               # Οδηγίες για search engine crawlers
 ├── sitemap.xml              # XML Sitemap για SEO
+├── admin/                   # Decap CMS Admin Panel
+│   ├── index.html           # CMS Entrypoint & Custom Preview Templates
+│   └── config.yml           # CMS Configurations & Collection Schemas
 ├── css/                     # Στυλ ιστοσελίδας (Modular CSS)
 │   ├── base.css             # Μεταβλητές, reset & typography
 │   ├── hero.css             # Hero section & IP copier
@@ -76,7 +79,8 @@ pgg-legacy-main/
 ├── blog/                    # Blog section
 │   ├── index.html           # Λίστα άρθρων
 │   ├── blog.js              # Blog specific JS
-│   └── [article-folders]/   # Άρθρα blog (RP guide, commands, κλπ.)
+│   ├── media/               # Εικόνες & Banners άρθρων
+│   └── [article-folders]/   # Άρθρα blog (Markdown / HTML)
 ├── leaderboard/             # Σελίδα Leaderboard
 ├── map/                     # Σελίδα Live Map
 ├── police/                  # Σελίδα Αιτήσεων Αστυνομίας
@@ -94,7 +98,7 @@ pgg-legacy-main/
 
 ### External APIs & Web Services
 - **mcstatus.io** — Live Server Status
-- **Render.com** — Custom Leaderboard API Backend
+- **Render.com** — Custom Leaderboard API Backend & Decap CMS OAuth Gateway
 - **Web3Forms** — Email Dispatcher για τις αιτήσεις Αστυνομίας
 - **mc-heads.net** — Player Head Avatars Render API
 - **Dynmap** — Live Server Map Streaming
