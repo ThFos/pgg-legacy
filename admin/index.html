@@ -8,5 +8,12 @@
 <body>
   <!-- Decap CMS Core -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <!-- Φόρτωση Styles στο Preview Window -->
+  <script>
+    CMS.registerPreviewStyle("https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap");
+    CMS.registerPreviewStyle("/css/base.css");
+    CMS.registerPreviewStyle("/blog/blog.css");
+  </script>
 </body>
 </html>
