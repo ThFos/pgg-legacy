@@ -1,8 +1,8 @@
 ---
 layout: post
-title: test sitemap
+title: test sitemap v2
 date: 2026-08-27
 tag: Οδηγός
-description: test sitemap
+description: test sitemap v2
 ---
-test sitemap
+test sitemap v2
