@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Τι είναι το Minecraft Roleplay;"
 description: "Μάθε τι είναι το Minecraft Roleplay, πώς λειτουργεί το IC vs OOC, ποιοι είναι οι βασικοί κανόνες και γιατί ο PGG Legacy είναι η καλύτερη επιλογή για ελληνικό Minecraft RP."
 date: 2026-04-14
