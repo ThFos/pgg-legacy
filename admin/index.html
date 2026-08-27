@@ -10,25 +10,38 @@
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
   <script>
-    // 1. Φόρτωση CSS
+    // 1. Φόρτωση CSS στο Preview Window
     CMS.registerPreviewStyle("https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap");
     CMS.registerPreviewStyle("/css/base.css");
     CMS.registerPreviewStyle("/blog/blog.css");
 
-    // 2. Custom Preview Template με το HTML δομή του site
+    // 2. Custom Preview Template
     var BlogPreview = createClass({
       render: function() {
         var entry = this.props.entry;
         var title = entry.getIn(['data', 'title']);
         var tag = entry.getIn(['data', 'tag']);
+        var date = entry.getIn(['data', 'date']);
         var image = entry.getIn(['data', 'image']);
         var body = this.props.widgetFor('body');
+
+        // Μορφοποίηση ημερομηνίας σε ελληνική μορφή
+        var formattedDate = date ? new Date(date).toLocaleDateString('el-GR', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+        }) : '';
 
         return h('main', { className: 'mainflex' },
           h('article', { className: 'blog-article-wrapper' },
             h('header', { className: 'blog-article-header' },
               tag ? h('span', { className: 'blog-card-tag' }, tag) : null,
-              h('h1', { className: 'blog-article-title' }, title)
+              h('h1', { className: 'blog-article-title' }, title),
+              h('div', { className: 'blog-article-meta' },
+                h('span', null, 'Από ', h('strong', null, 'PGG Legacy')),
+                formattedDate ? h('span', null, ' · ') : null,
+                formattedDate ? h('time', null, formattedDate) : null
+              )
             ),
             image ? h('img', { 
               src: this.props.getAsset(image).toString(), 
@@ -40,7 +53,7 @@
       }
     });
 
-    // Δήλωση του template στην collection του blog
+    // Δήλωση του template στην collection "blog"
     CMS.registerPreviewTemplate("blog", BlogPreview);
   </script>
 </body>
