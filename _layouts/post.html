@@ -34,7 +34,7 @@
   <link rel="dns-prefetch" href="https://www.google-analytics.com">
   <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
   {% if page.image %}
-  <link rel="preload" href="{{ page.image }}" as="image" fetchpriority="high">
+  <link rel="preload" href="{{ page.image | relative_url }}" as="image" fetchpriority="high">
   {% endif %}
 
   <title>{{ page.title }} | PGG Legacy Blog</title>
@@ -294,7 +294,7 @@
       </header>
 
       {% if page.image %}
-      <img src="{{ page.image }}"
+      <img src="{{ page.image | relative_url }}"
            alt="{{ page.title }} - PGG Legacy"
            class="blog-article-banner"
            width="900" height="400"
