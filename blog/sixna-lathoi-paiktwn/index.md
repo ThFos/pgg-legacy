@@ -3,7 +3,7 @@ layout: post
 title: FAQ & Συχνά Λάθη Νέων Παικτών
 date: 2026-08-31
 tag: FAQ
-image: /blog/συχνά-λάθη-παικτών/faq-banner.webp
+image: /blog/sixna-lathoi-paiktwn/faq-banner.webp
 description: Απαντήσεις στις πιο συχνές ερωτήσεις και τα βασικότερα λάθη που
   πρέπει να αποφύγουν οι νέοι παίκτες στον PGG Legacy.
 ---
