@@ -100,3 +100,8 @@ description: Μάθε πώς λειτουργεί το σύστημα εποχώ
 ## 🛒 Merchant Monday *(Κάθε Δευτέρα)*
 
 Κάθε Δευτέρα, ειδικοί Wandering Traders καταφθάνουν στο Spawn με σπάνια αντικείμενα και ειδικές προσφορές!
+
+<div class="blog-cta-box">
+  <p>Μπες στον server και δοκίμασέ το!</p>
+  <strong class="blog-cta-ip">play.PGGlegacy.gr</strong>
+</div>
