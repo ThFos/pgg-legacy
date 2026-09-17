@@ -580,9 +580,7 @@ function initCookies() {
 
   if (consent === 'accepted') {
     loadGoogleAnalytics();
-    // ΔΕΝ κάνουμε return — συνεχίζουμε για να δέσουμε το reset btn
   } else if (consent === null || consent === undefined || consent === '') {
-    // Χωρίς αποθηκευμένη επιλογή → εμφάνισε banner
     var banner = cookieCreateBanner();
     document.body.appendChild(banner);
     cookieAttachEvents();
@@ -590,18 +588,24 @@ function initCookies() {
       cookieShowBanner(banner);
     }, 600);
   }
-  // consent === 'declined' → κάνουμε τίποτα, αλλά ΔΕΝ κάνουμε return
 }
 
-/* ── Reset Button Listener — ΠΑΝΤΑ ενεργό, ανεξάρτητα από consent ── */
+/* ── Reset Button Listener ── */
 function initResetCookieBtn() {
   var btn = document.getElementById('reset-cookies-btn');
-  if (!btn) return; // Δεν υπάρχει σε άλλες σελίδες — OK
+  if (!btn) return;
 
   btn.addEventListener('click', function(e) {
     e.preventDefault();
     window.resetCookieConsent();
   });
+}
+
+/* ── Service Worker Registration ── */
+function initServiceWorker() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(function() {});
+  }
 }
 
 /* ================================================================
@@ -618,7 +622,8 @@ document.addEventListener('DOMContentLoaded', function() {
   initPoliceAppLogic();
   initLeaderboardLogic();
   initCookies();
-  initResetCookieBtn(); // ← ΝΕΟ: πάντα τρέχει, βρίσκει το κουμπί αν υπάρχει
+  initResetCookieBtn();
+  initServiceWorker();
 
   setTimeout(fetchPlayerCount, 1000);
 });
