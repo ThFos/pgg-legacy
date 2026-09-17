@@ -13,24 +13,29 @@ def to_rfc822(date_str):
     except Exception:
         return datetime.now().strftime("%a, %d %b %Y %H:%M:%S GMT")
 
-def get_frontmatter_field(field_name, content):
-    """Εξάγει με ακρίβεια πεδία από το frontmatter χωρίς να κόβει τα ενδιάμεσα εισαγωγικά."""
-    # 1. Διπλά εισαγωγικά: field: "value"
-    match = re.search(rf'^{field_name}:\s*"(.*?)"\s*$', content, re.MULTILINE)
-    if match:
-        return match.group(1).strip()
-    
-    # 2. Μονά εισαγωγικά: field: 'value'
-    match = re.search(rf"^{field_name}:\s*'(.*?)'\s*$", content, re.MULTILINE)
-    if match:
-        return match.group(1).strip()
+def parse_frontmatter(content):
+    """Διαβάζει σωστά ολόκληρο το YAML frontmatter ακόμα και αν εκτείνεται σε πολλές γραμμές."""
+    data = {}
+    parts = content.split("---")
+    if len(parts) >= 3:
+        fm_block = parts[1]
+        current_key = None
+        current_val = []
         
-    # 3. Χωρίς εισαγωγικά: field: value
-    match = re.search(rf"^{field_name}:\s*(.+)$", content, re.MULTILINE)
-    if match:
-        return match.group(1).strip().strip('"\'')
-        
-    return ""
+        for line in fm_block.splitlines():
+            if ":" in line and not line.startswith(" "):
+                if current_key:
+                    data[current_key] = " ".join(current_val).strip().strip('"\'')
+                key, val = line.split(":", 1)
+                current_key = key.strip()
+                current_val = [val.strip()]
+            elif current_key and line.strip():
+                current_val.append(line.strip())
+                
+        if current_key:
+            data[current_key] = " ".join(current_val).strip().strip('"\'')
+            
+    return data
 
 static_pages = [
     {"comment": "Αρχική Σελίδα", "loc": "/", "lastmod": today, "changefreq": "weekly", "priority": "1.0"},
@@ -70,19 +75,18 @@ if os.path.exists(blog_dir):
             try:
                 with open(full_path, "r", encoding="utf-8") as f:
                     content = f.read()
+                    fm = parse_frontmatter(content)
                     
-                    parsed_date = get_frontmatter_field("date", content)
-                    date_match = re.search(r"(\d{4}-\d{2}-\d{2})", parsed_date)
-                    if date_match:
-                        article_date = date_match.group(1)
-                        
-                    parsed_title = get_frontmatter_field("title", content)
-                    if parsed_title:
-                        article_title = parsed_title
+                    if "date" in fm and fm["date"]:
+                        date_match = re.search(r"(\d{4}-\d{2}-\d{2})", fm["date"])
+                        if date_match:
+                            article_date = date_match.group(1)
+                            
+                    if "title" in fm and fm["title"]:
+                        article_title = fm["title"]
 
-                    parsed_desc = get_frontmatter_field("description", content)
-                    if parsed_desc:
-                        article_desc = parsed_desc
+                    if "description" in fm and fm["description"]:
+                        article_desc = fm["description"]
             except Exception:
                 pass
 
