@@ -24,22 +24,34 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # 1. Εκτέλεση Jekyll Build (Μετατρέπει τα Liquid tags σε HTML στον φάκελο ./_site)
+      - name: Build Jekyll Site
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: '.'
+          destination: './_site'
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
+      # 2. Minification πάνω στα έτοιμα HTML/CSS/JS του φακέλου ./_site
       - name: Minify CSS, JS & HTML
         run: |
           npm install -g clean-css-cli terser html-minifier-terser
-          find . -type f -name "*.css" -not -path "*/.*" -exec cleancss -o {} {} \;
-          find . -type f -name "*.js" -not -path "*/.*" -exec terser {} --compress --mangle -o {} \;
-          find . -type f -name "*.html" -not -path "*/.*" -exec html-minifier-terser --collapse-whitespace --remove-comments -o {} {} \;
+          find ./_site -type f -name "*.css" -not -path "*/.*" -exec cleancss -o {} {} \;
+          find ./_site -type f -name "*.js" -not -path "*/.*" -exec terser {} --compress --mangle -o {} \;
+          find ./_site -type f -name "*.html" -not -path "*/.*" -exec html-minifier-terser --collapse-whitespace --remove-comments -o {} {} \;
 
+      # 3. Ανέβασμα του παραγόμενου φακέλου ./_site στο GitHub Pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: './_site'
 
       - name: Deploy to GitHub Pages
         id: deployment
