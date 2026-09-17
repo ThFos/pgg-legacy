@@ -1,4 +1,5 @@
 {
+  "id": "/",
   "name": "PGG Legacy",
   "short_name": "PGG Legacy",
   "description": "Ελληνικός Minecraft RP Server",
@@ -12,13 +13,41 @@
       "src": "/media/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/media/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "/media/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/media/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/media/banner.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "PGG Legacy Desktop"
+    },
+    {
+      "src": "/media/banner.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "PGG Legacy Mobile"
     }
   ]
 }
