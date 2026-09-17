@@ -1,6 +1,6 @@
 ---
 layout: post
-title: test
+title: Τεστ
 date: 2026-09-18
 tag: Οδηγόςtest
 description: testtesttesttesttesttesttesttesttest
