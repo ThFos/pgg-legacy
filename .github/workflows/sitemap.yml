@@ -29,7 +29,18 @@ jobs:
         run: python scripts/generate_sitemap.py
 
       - name: Commit & Push sitemap.xml & feed.xml
+        id: auto_commit
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: auto-update sitemap.xml & feed.xml [skip ci]"
           file_pattern: "sitemap.xml feed.xml"
+
+      - name: Send Discord Notification
+        if: steps.auto_commit.outputs.changes_detected == 'true'
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d '{"content": "📢 **Νέο άρθρο στο PGG Legacy Blog!**\nΔείτε όλες τις λεπτομέρειες εδώ: https://pgglegacy.gr/blog/"}' \
+               $DISCORD_WEBHOOK
