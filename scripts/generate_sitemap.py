@@ -1,5 +1,6 @@
 import os
 import re
+import html
 from datetime import datetime
 
 today = datetime.now().strftime("%Y-%m-%d")
@@ -32,11 +33,9 @@ if os.path.exists(blog_dir):
             full_path = os.path.join(root, file)
             rel_file = os.path.relpath(full_path, blog_dir).replace("\\", "/")
             
-            # Παράβλεψη του αρχείου αρχικής του blog (blog/index.md)
             if rel_file in ["index.md", "index.html"]:
                 continue
             
-            # Υπολογισμός του slug είτε πρόκειται για blog/folder/index.md είτε για blog/post.md
             if file in ["index.md", "index.html"]:
                 slug = os.path.dirname(rel_file).strip("/")
             else:
@@ -89,9 +88,9 @@ xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.site
 
 def add_url(p):
     if "comment" in p and p["comment"]:
-        xml.append(f"  <!-- {p['comment']} -->")
+        xml.append(f"  <!-- {html.escape(p['comment'])} -->")
     xml.append("  <url>")
-    xml.append(f"    <loc>{base_url}{p['loc']}</loc>")
+    xml.append(f"    <loc>{html.escape(base_url + p['loc'])}</loc>")
     xml.append(f"    <lastmod>{p['lastmod']}</lastmod>")
     xml.append(f"    <changefreq>{p['changefreq']}</changefreq>")
     xml.append(f"    <priority>{p['priority']}</priority>")
@@ -130,14 +129,16 @@ rss = [
 
 for article in blog_articles:
     rfc_date = to_rfc822(article["lastmod"])
-    full_url = f"{base_url}{article['loc']}"
+    full_url = html.escape(f"{base_url}{article['loc']}")
+    esc_title = html.escape(article['title'])
+    esc_desc = html.escape(article['description'])
     
     rss.append("    <item>")
-    rss.append(f"      <title>{article['title']}</title>")
+    rss.append(f"      <title>{esc_title}</title>")
     rss.append(f"      <link>{full_url}</link>")
     rss.append(f"      <guid>{full_url}</guid>")
-    if article['description']:
-        rss.append(f"      <description>{article['description']}</description>")
+    if esc_desc:
+        rss.append(f"      <description>{esc_desc}</description>")
     rss.append(f"      <pubDate>{rfc_date}</pubDate>")
     rss.append("    </item>\n")
 
