@@ -1,6 +1,8 @@
 import os
 import re
 import html
+import json
+import urllib.request
 from datetime import datetime
 
 today = datetime.now().strftime("%Y-%m-%d")
@@ -36,6 +38,39 @@ def parse_frontmatter(content):
             data[current_key] = " ".join(current_val).strip().strip('"\'')
             
     return data
+
+def send_discord_notification(article):
+    webhook_url = os.environ.get("DISCORD_WEBHOOK")
+    if not webhook_url:
+        print("DISCORD_WEBHOOK environment variable not set. Skipping Discord notification.")
+        return
+
+    full_url = f"{base_url}{article['loc']}"
+    payload = {
+        "content": "📢 **Νέο άρθρο στο PGG Legacy Blog!**",
+        "embeds": [
+            {
+                "title": article["title"],
+                "url": full_url,
+                "description": article["description"] if article["description"] else "Διαβάστε το νέο μας άρθρο στο blog!",
+                "color": 1710369,  # Hex #1a1921
+                "footer": {
+                    "text": "PGG Legacy Blog"
+                }
+            }
+        ]
+    }
+
+    req = urllib.request.Request(
+        webhook_url,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json", "User-Agent": "Mozilla/5.0"}
+    )
+    try:
+        with urllib.request.urlopen(req) as response:
+            print(f"Discord notification sent successfully! Status: {response.status}")
+    except Exception as e:
+        print(f"Failed to send Discord notification: {e}")
 
 static_pages = [
     {"comment": "Αρχική Σελίδα", "loc": "/", "lastmod": today, "changefreq": "weekly", "priority": "1.0"},
@@ -171,3 +206,8 @@ rss.append("</rss>")
 
 with open("feed.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(rss))
+
+# --- 3. Discord Notification for Latest Article ---
+if blog_articles:
+    latest_article = sorted(blog_articles, key=lambda x: x["lastmod"], reverse=True)[0]
+    send_discord_notification(latest_article)
