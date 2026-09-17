@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Getting Started Guide
+slug: getting-started-guide
 date: 2026-04-15
 tag: Getting Started
 image: https://pgglegacy.gr/blog/media/blogbanner2.webp
