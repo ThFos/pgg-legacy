@@ -376,14 +376,14 @@
       </svg>
     </button>
     <div id="mobile_navbar_links" role="menu">
-      <a class="mobile_navbar_link" href="#rules"       role="menuitem">Rules</a>
-      <a class="mobile_navbar_link" href="#discord"     role="menuitem">Community</a>
-      <a class="mobile_navbar_link" href="#about"       role="menuitem">About Us</a>
+      <a class="mobile_navbar_link" href="#rules"        role="menuitem">Rules</a>
+      <a class="mobile_navbar_link" href="#discord"      role="menuitem">Community</a>
+      <a class="mobile_navbar_link" href="#about"        role="menuitem">About Us</a>
       <a class="mobile_navbar_link" href="/blog/"        role="menuitem">Blog</a>
       <a class="mobile_navbar_link" href="/map"          role="menuitem">Server Map</a>
       <a class="mobile_navbar_link nav-highlight-blue" href="/leaderboard" role="menuitem">Leaderboard</a>
       <a class="mobile_navbar_link nav-highlight-gold" href="/police"      role="menuitem">Police Apps</a>
-      <a class="mobile_navbar_link" href="#join"        role="menuitem">Join Us</a>
+      <a class="mobile_navbar_link" href="#join"         role="menuitem">Join Us</a>
     </div>
   </nav>
 
@@ -699,6 +699,11 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Αυτόματη ενημέρωση έτους στο footer
+      var yearEl = document.getElementById('copyright-year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // Lazy load posters στα videos
       var lazyVideos = document.querySelectorAll('video.main2_feature_img[data-poster]');
       if (!('IntersectionObserver' in window)) {
         lazyVideos.forEach(function(v) { v.poster = v.dataset.poster; });
