@@ -177,7 +177,7 @@ layout: null
       <a class="mobile_navbar_link" href="/#rules"      role="menuitem">Rules</a>
       <a class="mobile_navbar_link" href="/#discord"    role="menuitem">Community</a>
       <a class="mobile_navbar_link" href="/#about"      role="menuitem">About Us</a>
-      <a class="mobile_navbar_link nav-highlight-purple" href="/blog/"        role="menuitem">Blog</a>
+      <a class="mobile_navbar_link nav-highlight-purple" href="/blog/" role="menuitem">Blog</a>
       <a class="mobile_navbar_link" href="/map"          role="menuitem">Server Map</a>
       <a class="mobile_navbar_link nav-highlight-blue"  href="/leaderboard" role="menuitem">Leaderboard</a>
       <a class="mobile_navbar_link nav-highlight-gold"  href="/police"      role="menuitem">Police Apps</a>
@@ -199,9 +199,8 @@ layout: null
     <section class="blog-index-section" aria-label="Άρθρα Blog">
       <div class="blog-grid">
 
-        {% assign blog_posts = site.pages | where_exp: "p", "p.dir contains '/blog/'" %}
-        {% assign blog_posts = blog_posts | where_exp: "p", "p.name != 'index.md'" %}
-        {% assign blog_posts = blog_posts | where_exp: "p", "p.name != 'index.html'" %}
+        {% assign blog_posts = site.pages | where_exp: "p", "p.name == 'index.md'" %}
+        {% assign blog_posts = blog_posts | where_exp: "p", "p.dir contains '/blog/'" %}
         {% assign blog_posts = blog_posts | sort: "date" | reverse %}
 
         {% for post in blog_posts %}
