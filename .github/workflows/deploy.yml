@@ -24,8 +24,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       - name: Minify CSS, JS & HTML
-        uses: nolanlawson/minify-action@v1
+        run: |
+          npm install -g clean-css-cli terser html-minifier-terser
+          find . -type f -name "*.css" -not -path "*/.*" -exec cleancss -o {} {} \;
+          find . -type f -name "*.js" -not -path "*/.*" -exec terser {} --compress --mangle -o {} \;
+          find . -type f -name "*.html" -not -path "*/.*" -exec html-minifier-terser --collapse-whitespace --remove-comments -o {} {} \;
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
