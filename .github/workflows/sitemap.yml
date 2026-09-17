@@ -1,12 +1,15 @@
 name: Generate Custom Sitemap & Feed
 
 on:
+  workflow_dispatch: # Σου επιτρέπει να το τρέχεις χειροκίνητα από το GitHub Actions tab
   push:
     branches:
       - main
     paths:
       - 'blog/**'
       - '**.html'
+      - 'scripts/**'
+      - '.github/workflows/**'
 
 jobs:
   sitemap:
