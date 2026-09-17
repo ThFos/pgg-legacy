@@ -11,6 +11,7 @@ collections:
   - name: "blog"
     label: "Άρθρα Blog"
     folder: "blog"
+    path: "{{slug}}/index"
     extension: "md"
     format: "yaml-frontmatter"
     create: true
