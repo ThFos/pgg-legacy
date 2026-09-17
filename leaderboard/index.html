@@ -443,11 +443,12 @@
       <img class="desktop_navbar_logo_img" src="/media/logo_small.svg"
            alt="PGG Legacy Logo" width="152" height="40" fetchpriority="high">
     </a>
-    <a href="/#rules"      class="desktop_navbar_link">Rules</a>
-    <a href="/#discord"    class="desktop_navbar_link">Community</a>
-    <a href="/#about"      class="desktop_navbar_link">About Us</a>
+    <a href="#rules"       class="desktop_navbar_link">Rules</a>
+    <a href="#discord"     class="desktop_navbar_link">Community</a>
+    <a href="#about"       class="desktop_navbar_link">About Us</a>
+    <a href="/blog/"       class="desktop_navbar_link">Blog</a>
     <a href="/map"          class="desktop_navbar_link">Server Map</a>
-    <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue" aria-current="page">Leaderboard</a>
+    <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
     <a href="/police"      class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
     <div class="desktop_navbar_link2_div">
       <a href="/#join" class="desktop_navbar_link2">Join Us!</a>
@@ -468,14 +469,15 @@
         <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
       </svg>
     </button>
-    <div id="mobile_navbar_links" role="menu">
-      <a class="mobile_navbar_link" href="/#rules"        role="menuitem">Rules</a>
-      <a class="mobile_navbar_link" href="/#discord"      role="menuitem">Community</a>
-      <a class="mobile_navbar_link" href="/#about"        role="menuitem">About Us</a>
-      <a class="mobile_navbar_link" href="/map"          role="menuitem">Server Map</a>
-      <a class="mobile_navbar_link nav-highlight-blue"  href="/leaderboard" role="menuitem" aria-current="page">Leaderboard</a>
-      <a class="mobile_navbar_link nav-highlight-gold"  href="/police"      role="menuitem">Police Apps</a>
-      <a class="mobile_navbar_link" href="/#join"        role="menuitem">Join Us</a>
+        <div id="mobile_navbar_links" role="menu">
+      <a class="mobile_navbar_link" href="#rules"       role="menuitem">Rules</a>
+      <a class="mobile_navbar_link" href="#discord"     role="menuitem">Community</a>
+      <a class="mobile_navbar_link" href="#about"       role="menuitem">About Us</a>
+      <a class="mobile_navbar_link" href="/blog/"        role="menuitem">Blog</a>
+      <a class="mobile_navbar_link" href="/map"         role="menuitem">Server Map</a>
+      <a class="mobile_navbar_link nav-highlight-blue" href="/leaderboard" role="menuitem">Leaderboard</a>
+      <a class="mobile_navbar_link nav-highlight-gold" href="/police"      role="menuitem">Police Apps</a>
+      <a class="mobile_navbar_link" href="#join"        role="menuitem">Join Us</a>
     </div>
   </nav>
 
@@ -535,8 +537,18 @@
     </p>
   </footer>
 
-  <!-- AOS -->
+  <!-- AOS Script -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          duration: 800,
+          once: true
+        });
+      }
+    });
+  </script>
 
   <!-- Main script (navbar, cursor, cookies, year) -->
   <script src="/js/script.js" defer></script>
@@ -657,10 +669,20 @@
       const endpoint = mode === 'weekly'
         ? `${API_BASE}/leaderboard/weekly`
         : `${API_BASE}/leaderboard/alltime`;
-      const res = await fetch(endpoint, { cache: 'default' });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json();
-      return Array.isArray(data) ? data : (data.players ?? []);
+
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 12000);
+
+      try {
+        const res = await fetch(endpoint, { cache: 'default', signal: controller.signal });
+        clearTimeout(timeoutId);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        return Array.isArray(data) ? data : (data.players ?? []);
+      } catch (err) {
+        clearTimeout(timeoutId);
+        throw err;
+      }
     }
 
     async function loadMode(mode) {
