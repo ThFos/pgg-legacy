@@ -5,9 +5,10 @@ from datetime import datetime
 today = datetime.now().strftime("%Y-%m-%d")
 base_url = "https://pgglegacy.gr"
 
+# Όλα τα static paths έχουν πλέον trailing slash (/)
 static_pages = [
     {"comment": "Αρχική Σελίδα", "loc": "/", "lastmod": today, "changefreq": "weekly", "priority": "1.0"},
-    {"comment": "Πολιτική Απορρήτου (Privacy Policy)", "loc": "/privacy", "lastmod": today, "changefreq": "monthly", "priority": "0.3"},
+    {"comment": "Πολιτική Απορρήτου (Privacy Policy)", "loc": "/privacy/", "lastmod": today, "changefreq": "monthly", "priority": "0.3"},
     {"comment": "Blog Index", "loc": "/blog/", "lastmod": today, "changefreq": "weekly", "priority": "0.8"},
 ]
 
@@ -45,10 +46,11 @@ if os.path.exists(blog_dir):
                         "priority": "0.7"
                     })
 
+# Προστέθηκε trailing slash (/) και σε όλα τα υπόλοιπα pages
 other_pages = [
-    {"comment": "Leaderboard", "loc": "/leaderboard", "lastmod": today, "changefreq": "hourly", "priority": "0.9"},
-    {"comment": "Police Applications", "loc": "/police", "lastmod": today, "changefreq": "weekly", "priority": "0.5"},
-    {"comment": "Server Map", "loc": "/map", "lastmod": today, "changefreq": "monthly", "priority": "0.7"},
+    {"comment": "Leaderboard", "loc": "/leaderboard/", "lastmod": today, "changefreq": "hourly", "priority": "0.9"},
+    {"comment": "Police Applications", "loc": "/police/", "lastmod": today, "changefreq": "weekly", "priority": "0.5"},
+    {"comment": "Server Map", "loc": "/map/", "lastmod": today, "changefreq": "monthly", "priority": "0.7"},
 ]
 
 xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n']
