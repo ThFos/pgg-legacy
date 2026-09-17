@@ -11,13 +11,11 @@ collections:
   - name: "blog"
     label: "Άρθρα Blog"
     folder: "blog"
-    path: "{{slug}}/index"
     extension: "md"
     format: "yaml-frontmatter"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
       - { label: "Τίτλος Άρθρου", name: "title", widget: "string" }
       - { label: "Ημερομηνία Δημοσίευσης", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
       - { label: "Tag / Κατηγορία", name: "tag", widget: "string", default: "Οδηγός" }
