@@ -5,7 +5,6 @@ from datetime import datetime
 today = datetime.now().strftime("%Y-%m-%d")
 base_url = "https://pgglegacy.gr"
 
-# Helper για μετατροπή YYYY-MM-DD σε RFC-822 (απαιτείται από το RSS)
 def to_rfc822(date_str):
     try:
         dt = datetime.strptime(date_str, "%Y-%m-%d")
@@ -13,14 +12,12 @@ def to_rfc822(date_str):
     except Exception:
         return datetime.now().strftime("%a, %d %b %Y %H:%M:%S GMT")
 
-# --- Static Pages ---
 static_pages = [
     {"comment": "Αρχική Σελίδα", "loc": "/", "lastmod": today, "changefreq": "weekly", "priority": "1.0"},
     {"comment": "Πολιτική Απορρήτου (Privacy Policy)", "loc": "/privacy/", "lastmod": today, "changefreq": "monthly", "priority": "0.3"},
     {"comment": "Blog Index", "loc": "/blog/", "lastmod": today, "changefreq": "weekly", "priority": "0.8"},
 ]
 
-# --- Dynamic Blog Articles Parsing ---
 blog_articles = []
 blog_dir = "blog"
 
@@ -29,48 +26,57 @@ if os.path.exists(blog_dir):
         if "media" in root.split(os.sep):
             continue
         for file in files:
-            if file.endswith((".md", ".html")) and root != blog_dir:
-                rel_path = os.path.relpath(root, blog_dir).replace("\\", "/")
-                slug = rel_path.strip("/")
-                if not slug or slug == ".":
-                    continue
-                
-                filepath = os.path.join(root, file)
-                article_date = today
-                article_title = slug.replace("-", " ").title()
-                article_desc = ""
-                
-                try:
-                    with open(filepath, "r", encoding="utf-8") as f:
-                        content = f.read()
+            if not file.endswith((".md", ".html")):
+                continue
+            
+            full_path = os.path.join(root, file)
+            rel_file = os.path.relpath(full_path, blog_dir).replace("\\", "/")
+            
+            # Παράβλεψη του αρχείου αρχικής του blog (blog/index.md)
+            if rel_file in ["index.md", "index.html"]:
+                continue
+            
+            # Υπολογισμός του slug είτε πρόκειται για blog/folder/index.md είτε για blog/post.md
+            if file in ["index.md", "index.html"]:
+                slug = os.path.dirname(rel_file).strip("/")
+            else:
+                slug = os.path.splitext(rel_file)[0].strip("/")
+            
+            if not slug or slug == ".":
+                continue
+            
+            article_date = today
+            article_title = slug.split("/")[-1].replace("-", " ").title()
+            article_desc = ""
+            
+            try:
+                with open(full_path, "r", encoding="utf-8") as f:
+                    content = f.read()
+                    
+                    date_match = re.search(r"date:\s*[\"']?(\d{4}-\d{2}-\d{2})", content)
+                    if date_match:
+                        article_date = date_match.group(1)
                         
-                        # Parsing Date
-                        date_match = re.search(r"date:\s*[\"']?(\d{4}-\d{2}-\d{2})", content)
-                        if date_match:
-                            article_date = date_match.group(1)
-                            
-                        # Parsing Title
-                        title_match = re.search(r"title:\s*[\"']?([^\"'\n]+)", content)
-                        if title_match:
-                            article_title = title_match.group(1).strip()
+                    title_match = re.search(r"title:\s*[\"']?([^\"'\n]+)", content)
+                    if title_match:
+                        article_title = title_match.group(1).strip()
 
-                        # Parsing Description
-                        desc_match = re.search(r"description:\s*[\"']?([^\"'\n]+)", content)
-                        if desc_match:
-                            article_desc = desc_match.group(1).strip()
-                except Exception:
-                    pass
+                    desc_match = re.search(r"description:\s*[\"']?([^\"'\n]+)", content)
+                    if desc_match:
+                        article_desc = desc_match.group(1).strip()
+            except Exception:
+                pass
 
-                url_path = f"/blog/{slug}/"
-                if not any(a["loc"] == url_path for a in blog_articles):
-                    blog_articles.append({
-                        "loc": url_path,
-                        "title": article_title,
-                        "description": article_desc,
-                        "lastmod": article_date,
-                        "changefreq": "monthly",
-                        "priority": "0.7"
-                    })
+            url_path = f"/blog/{slug}/"
+            if not any(a["loc"] == url_path for a in blog_articles):
+                blog_articles.append({
+                    "loc": url_path,
+                    "title": article_title,
+                    "description": article_desc,
+                    "lastmod": article_date,
+                    "changefreq": "monthly",
+                    "priority": "0.7"
+                })
 
 other_pages = [
     {"comment": "Leaderboard", "loc": "/leaderboard/", "lastmod": today, "changefreq": "hourly", "priority": "0.9"},
@@ -78,7 +84,7 @@ other_pages = [
     {"comment": "Server Map", "loc": "/map/", "lastmod": today, "changefreq": "monthly", "priority": "0.7"},
 ]
 
-# ─── 1. ΔΗΜΙΟΥΡΓΙΑ SITEMAP.XML ───
+# --- 1. Sitemap Generation ---
 xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n']
 
 def add_url(p):
@@ -107,7 +113,7 @@ xml.append("</urlset>")
 with open("sitemap.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
 
-# ─── 2. ΔΗΜΙΟΥΡΓΙΑ FEED.XML (RSS 2.0) ───
+# --- 2. RSS Feed Generation ---
 now_rfc = datetime.now().strftime("%a, %d %b %Y %H:%M:%S GMT")
 
 rss = [
