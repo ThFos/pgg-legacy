@@ -11,7 +11,7 @@
 
   <!-- Πολιτική Απορρήτου (Privacy Policy) -->
   <url>
-    <loc>https://pgglegacy.gr/privacy</loc>
+    <loc>https://pgglegacy.gr/privacy/</loc>
     <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
@@ -70,7 +70,7 @@
 
   <!-- Leaderboard -->
   <url>
-    <loc>https://pgglegacy.gr/leaderboard</loc>
+    <loc>https://pgglegacy.gr/leaderboard/</loc>
     <lastmod>2026-09-17</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -78,7 +78,7 @@
 
   <!-- Police Applications -->
   <url>
-    <loc>https://pgglegacy.gr/police</loc>
+    <loc>https://pgglegacy.gr/police/</loc>
     <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -86,7 +86,7 @@
 
   <!-- Server Map -->
   <url>
-    <loc>https://pgglegacy.gr/map</loc>
+    <loc>https://pgglegacy.gr/map/</loc>
     <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
