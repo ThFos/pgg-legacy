@@ -5,12 +5,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
-  <!-- GA & Dynamic Script Consent -->
+  <!-- GA & Contentsquare: Φορτώνουν ΔΥΝΑΜΙΚΑ ΜΟΝΟ αν έχει δοθεί consent -->
   <script>
     (function() {
       var consent = null;
       try { consent = localStorage.getItem('pgg_cookie_consent'); } catch(e) {}
       if (consent === 'accepted') {
+        // Google Analytics
         window._gaLoaded = true;
         var s = document.createElement('script');
         s.async = true;
@@ -22,6 +23,7 @@
         gtag('js', new Date());
         gtag('config', 'G-49NVHWZZV8', { anonymize_ip: true });
 
+        // Contentsquare
         var cs = document.createElement('script');
         cs.async = true;
         cs.src = 'https://t.contentsquare.net/uxa/25a3809d633eb.js';
@@ -66,7 +68,7 @@
 
   <link rel="icon" type="image/png" href="/media/favicon.png">
 
-  <!-- Schema.org JSON-LD (Διορθωμένο & Πλήρες) -->
+  <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -227,7 +229,9 @@
     }
   </style>
 
-  <script data-goatcounter="https://pgglegacy.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <!-- GoatCounter Analytics (Ανώνυμο, χωρίς cookies, GDPR Compliant) -->
+  <script data-goatcounter="https://pgglegacy.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
   <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
@@ -326,7 +330,6 @@
     </div>
   </div>
 
-  <!-- Footer με προσθήκη Privacy Policy -->
   <footer class="copyright_div">
     <p class="copyright">
       &copy; <span id="copyright-year"></span> PGG Legacy — All rights reserved. | <a href="/privacy">Privacy Policy</a>
