@@ -5,6 +5,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
+  <!-- PWA & Web Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#1a1921">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="PGG Legacy">
+  <link rel="apple-touch-icon" href="/media/icon-192.png">
+
   <!-- GA & Contentsquare: Φορτώνουν ΔΥΝΑΜΙΚΑ ΜΟΝΟ αν έχει δοθεί consent -->
   <script>
     (function() {
@@ -42,7 +50,6 @@
   <meta name="keywords" content="PGG Legacy, Minecraft server greek, ελληνικός minecraft server, minecraft rp server, minecraft smp greece, play.pgglegacy.gr">
   <meta name="robots" content="index, follow">
   <meta name="author" content="PGG Legacy">
-  <meta name="theme-color" content="#1a1921">
   <link rel="canonical" href="https://pgglegacy.gr/">
 
   <meta property="og:type" content="website">
@@ -330,7 +337,7 @@
 
   <!-- GoatCounter Analytics (Ανώνυμο χωρίς cookies) -->
   <script data-goatcounter="https://pgglegacy.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+          async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
   <div class="custom-cursor" id="cursor" aria-hidden="true"></div>
@@ -342,9 +349,9 @@
       <img class="desktop_navbar_logo_img" src="/media/logo_small.svg"
            alt="PGG Legacy Logo" width="152" height="40" fetchpriority="high">
     </a>
-    <a href="#rules"       class="desktop_navbar_link">Rules</a>
-    <a href="#discord"     class="desktop_navbar_link">Community</a>
-    <a href="#about"       class="desktop_navbar_link">About Us</a>
+    <a href="#rules"      class="desktop_navbar_link">Rules</a>
+    <a href="#discord"    class="desktop_navbar_link">Community</a>
+    <a href="#about"      class="desktop_navbar_link">About Us</a>
     <a href="/blog/"       class="desktop_navbar_link">Blog</a>
     <a href="/map"          class="desktop_navbar_link">Server Map</a>
     <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
@@ -373,7 +380,7 @@
       <a class="mobile_navbar_link" href="#discord"     role="menuitem">Community</a>
       <a class="mobile_navbar_link" href="#about"       role="menuitem">About Us</a>
       <a class="mobile_navbar_link" href="/blog/"        role="menuitem">Blog</a>
-      <a class="mobile_navbar_link" href="/map"         role="menuitem">Server Map</a>
+      <a class="mobile_navbar_link" href="/map"          role="menuitem">Server Map</a>
       <a class="mobile_navbar_link nav-highlight-blue" href="/leaderboard" role="menuitem">Leaderboard</a>
       <a class="mobile_navbar_link nav-highlight-gold" href="/police"      role="menuitem">Police Apps</a>
       <a class="mobile_navbar_link" href="#join"        role="menuitem">Join Us</a>
@@ -669,6 +676,17 @@
       </div>
     </section>
   </main>
+
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Δήλωση Cookies">
+    <p class="cookie-text">
+      <strong>Χρησιμοποιούμε cookies</strong> για τη βελτίωση της εμπειρίας πλοήγησης και τη συλλογή στατιστικών. Διαβάστε την <a href="/privacy">Πολιτική Απορρήτου</a>.
+    </p>
+    <div class="cookie-buttons">
+      <button id="cookie-accept" class="cookie-btn-accept" type="button">Αποδοχή</button>
+      <button id="cookie-decline" class="cookie-btn-decline" type="button">Απόρριψη</button>
+    </div>
+  </div>
 
   <footer class="copyright_div">
     <p class="copyright">
