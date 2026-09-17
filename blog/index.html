@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <!DOCTYPE html>
 <html lang="el">
 <head>
@@ -44,6 +47,13 @@
   <meta name="author" content="PGG Legacy">
   <meta name="theme-color" content="#1a1921">
   <link rel="canonical" href="https://pgglegacy.gr/blog/">
+
+  <!-- Web Manifest & PWA Support -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="PGG Legacy">
+  <link rel="apple-touch-icon" href="/media/icon-192.png">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -188,12 +198,21 @@
     <!-- Dynamic Articles Grid -->
     <section class="blog-index-section" aria-label="Άρθρα Blog">
       <div class="blog-grid">
-        {% for post in site.pages %}
-          {% if post.path contains 'blog/' and post.path != 'blog/index.html' and post.title %}
+
+        {% assign blog_posts = site.pages | where_exp: "p", "p.name == 'index.md'" %}
+        {% assign blog_posts = blog_posts | where_exp: "p", "p.dir contains '/blog/'" %}
+        {% assign blog_posts = blog_posts | sort: "date" | reverse %}
+
+        {% for post in blog_posts %}
           <article class="blog-card" data-aos="fade-up">
             <a href="{{ post.url }}" class="blog-card-link">
               <div class="blog-card-img-wrapper">
-                <img src="{{ post.image | default: '/blog/media/blogbanner1.webp' }}" alt="{{ post.title }}" class="blog-card-img" width="420" height="210" loading="lazy" decoding="async">
+                <img src="{{ post.image | default: '/blog/media/blogbanner1.webp' }}"
+                     alt="{{ post.title }}"
+                     class="blog-card-img"
+                     width="420" height="210"
+                     loading="lazy"
+                     decoding="async">
               </div>
               <div class="blog-card-body">
                 <span class="blog-card-tag">{{ post.tag | default: "Οδηγός" }}</span>
@@ -203,8 +222,8 @@
               </div>
             </a>
           </article>
-          {% endif %}
         {% endfor %}
+
       </div>
     </section>
 
