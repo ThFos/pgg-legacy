@@ -5,15 +5,25 @@ from datetime import datetime
 today = datetime.now().strftime("%Y-%m-%d")
 base_url = "https://pgglegacy.gr"
 
-# Όλα τα static paths έχουν πλέον trailing slash (/)
+# Helper για μετατροπή YYYY-MM-DD σε RFC-822 (απαιτείται από το RSS)
+def to_rfc822(date_str):
+    try:
+        dt = datetime.strptime(date_str, "%Y-%m-%d")
+        return dt.strftime("%a, %d %b %Y 00:00:00 GMT")
+    except Exception:
+        return datetime.now().strftime("%a, %d %b %Y %H:%M:%S GMT")
+
+# --- Static Pages ---
 static_pages = [
     {"comment": "Αρχική Σελίδα", "loc": "/", "lastmod": today, "changefreq": "weekly", "priority": "1.0"},
     {"comment": "Πολιτική Απορρήτου (Privacy Policy)", "loc": "/privacy/", "lastmod": today, "changefreq": "monthly", "priority": "0.3"},
     {"comment": "Blog Index", "loc": "/blog/", "lastmod": today, "changefreq": "weekly", "priority": "0.8"},
 ]
 
+# --- Dynamic Blog Articles Parsing ---
 blog_articles = []
 blog_dir = "blog"
+
 if os.path.exists(blog_dir):
     for root, dirs, files in os.walk(blog_dir):
         if "media" in root.split(os.sep):
@@ -27,13 +37,27 @@ if os.path.exists(blog_dir):
                 
                 filepath = os.path.join(root, file)
                 article_date = today
+                article_title = slug.replace("-", " ").title()
+                article_desc = ""
                 
                 try:
                     with open(filepath, "r", encoding="utf-8") as f:
                         content = f.read()
-                        match = re.search(r"date:\s*[\"']?(\d{4}-\d{2}-\d{2})", content)
-                        if match:
-                            article_date = match.group(1)
+                        
+                        # Parsing Date
+                        date_match = re.search(r"date:\s*[\"']?(\d{4}-\d{2}-\d{2})", content)
+                        if date_match:
+                            article_date = date_match.group(1)
+                            
+                        # Parsing Title
+                        title_match = re.search(r"title:\s*[\"']?([^\"'\n]+)", content)
+                        if title_match:
+                            article_title = title_match.group(1).strip()
+
+                        # Parsing Description
+                        desc_match = re.search(r"description:\s*[\"']?([^\"'\n]+)", content)
+                        if desc_match:
+                            article_desc = desc_match.group(1).strip()
                 except Exception:
                     pass
 
@@ -41,18 +65,20 @@ if os.path.exists(blog_dir):
                 if not any(a["loc"] == url_path for a in blog_articles):
                     blog_articles.append({
                         "loc": url_path,
+                        "title": article_title,
+                        "description": article_desc,
                         "lastmod": article_date,
                         "changefreq": "monthly",
                         "priority": "0.7"
                     })
 
-# Προστέθηκε trailing slash (/) και σε όλα τα υπόλοιπα pages
 other_pages = [
     {"comment": "Leaderboard", "loc": "/leaderboard/", "lastmod": today, "changefreq": "hourly", "priority": "0.9"},
     {"comment": "Police Applications", "loc": "/police/", "lastmod": today, "changefreq": "weekly", "priority": "0.5"},
     {"comment": "Server Map", "loc": "/map/", "lastmod": today, "changefreq": "monthly", "priority": "0.7"},
 ]
 
+# ─── 1. ΔΗΜΙΟΥΡΓΙΑ SITEMAP.XML ───
 xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n']
 
 def add_url(p):
@@ -80,3 +106,37 @@ xml.append("</urlset>")
 
 with open("sitemap.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
+
+# ─── 2. ΔΗΜΙΟΥΡΓΙΑ FEED.XML (RSS 2.0) ───
+now_rfc = datetime.now().strftime("%a, %d %b %Y %H:%M:%S GMT")
+
+rss = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+    '  <channel>',
+    '    <title>PGG Legacy Blog</title>',
+    f'    <link>{base_url}/blog/</link>',
+    '    <description>Νέα, οδηγοί και ανακοινώσεις του PGG Legacy Minecraft Server</description>',
+    '    <language>el-gr</language>',
+    f'    <lastBuildDate>{now_rfc}</lastBuildDate>',
+    f'    <atom:link href="{base_url}/feed.xml" rel="self" type="application/rss+xml" />\n'
+]
+
+for article in blog_articles:
+    rfc_date = to_rfc822(article["lastmod"])
+    full_url = f"{base_url}{article['loc']}"
+    
+    rss.append("    <item>")
+    rss.append(f"      <title>{article['title']}</title>")
+    rss.append(f"      <link>{full_url}</link>")
+    rss.append(f"      <guid>{full_url}</guid>")
+    if article['description']:
+        rss.append(f"      <description>{article['description']}</description>")
+    rss.append(f"      <pubDate>{rfc_date}</pubDate>")
+    rss.append("    </item>\n")
+
+rss.append("  </channel>")
+rss.append("</rss>")
+
+with open("feed.xml", "w", encoding="utf-8") as f:
+    f.write("\n".join(rss))
