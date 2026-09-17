@@ -5,7 +5,7 @@
     <link>https://pgglegacy.gr/blog/</link>
     <description>Νέα, οδηγοί και ανακοινώσεις του PGG Legacy Minecraft Server</description>
     <language>el-gr</language>
-    <lastBuildDate>Thu, 17 Sep 2026 21:05:04 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2026 21:06:38 GMT</lastBuildDate>
     <atom:link href="https://pgglegacy.gr/feed.xml" rel="self" type="application/rss+xml" />
 
     <item>
@@ -54,6 +54,14 @@
       <guid>https://pgglegacy.gr/blog/game-commands/</guid>
       <description>Πλήρης λίστα με όλα τα commands του PGG Legacy — μετακινήσεις, επικοινωνία, ασφάλεια, roleplay και έκτακτη ανάγκη.</description>
       <pubDate>Sun, 26 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>test</title>
+      <link>https://pgglegacy.gr/blog/test/</link>
+      <guid>https://pgglegacy.gr/blog/test/</guid>
+      <description>testtesttesttesttesttesttesttesttest</description>
+      <pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate>
     </item>
 
   </channel>
