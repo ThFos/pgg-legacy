@@ -46,19 +46,26 @@ def send_discord_notification(article):
         return
 
     full_url = f"{base_url}{article['loc']}"
+    
+    embed_data = {
+        "title": article["title"],
+        "url": full_url,
+        "description": article["description"] if article["description"] else "Διαβάστε το νέο μας άρθρο στο blog!",
+        "color": 1710369,  # Hex #1a1921
+        "footer": {
+            "text": "PGG Legacy Blog"
+        }
+    }
+
+    # Προσθήκη της εικόνας με τη σωστή δομή που απαιτεί το Discord API
+    if "image" in article and article["image"]:
+        embed_data["image"] = {
+            "url": article["image"]
+        }
+
     payload = {
         "content": "📢 **Νέο άρθρο στο PGG Legacy Blog!**",
-        "embeds": [
-            {
-                "title": article["title"],
-                "url": full_url,
-                "description": article["description"] if article["description"] else "Διαβάστε το νέο μας άρθρο στο blog!",
-                "color": 1710369,  # Hex #1a1921
-                "footer": {
-                    "text": "PGG Legacy Blog"
-                }
-            }
-        ]
+        "embeds": [embed_data]
     }
 
     req = urllib.request.Request(
@@ -106,6 +113,7 @@ if os.path.exists(blog_dir):
             article_date = today
             article_title = slug.split("/")[-1].replace("-", " ").title()
             article_desc = ""
+            article_img = ""
             
             try:
                 with open(full_path, "r", encoding="utf-8") as f:
@@ -122,6 +130,9 @@ if os.path.exists(blog_dir):
 
                     if "description" in fm and fm["description"]:
                         article_desc = fm["description"]
+
+                    if "image" in fm and fm["image"]:
+                        article_img = fm["image"]
             except Exception:
                 pass
 
@@ -131,6 +142,7 @@ if os.path.exists(blog_dir):
                     "loc": url_path,
                     "title": article_title,
                     "description": article_desc,
+                    "image": article_img,
                     "lastmod": article_date,
                     "changefreq": "monthly",
                     "priority": "0.7"
