@@ -57,10 +57,18 @@ def send_discord_notification(article):
         }
     }
 
-    # Προσθήκη της εικόνας με τη σωστή δομή που απαιτεί το Discord API
+    # Διόρθωση και μετατροπή της εικόνας σε απόλυτο URL
     if "image" in article and article["image"]:
+        img_path = article["image"].strip()
+        if img_path.startswith("http://") or img_path.startswith("https://"):
+            img_url = img_path
+        elif img_path.startswith("/"):
+            img_url = f"{base_url}{img_path}"
+        else:
+            img_url = f"{base_url}{article['loc']}{img_path.lstrip('./')}"
+            
         embed_data["image"] = {
-            "url": article["image"]
+            "url": img_url
         }
 
     payload = {
