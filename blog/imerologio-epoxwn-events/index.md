@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Ημερολόγιο Εποχών & Events
+slug: imerologio-epoxwn-events
 date: 2026-04-16
 tag: Οδηγός
 image: https://pgglegacy.gr/blog/media/blogbanner3.webp
