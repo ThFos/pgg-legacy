@@ -13,6 +13,25 @@ def to_rfc822(date_str):
     except Exception:
         return datetime.now().strftime("%a, %d %b %Y %H:%M:%S GMT")
 
+def get_frontmatter_field(field_name, content):
+    """Εξάγει με ακρίβεια πεδία από το frontmatter χωρίς να κόβει τα ενδιάμεσα εισαγωγικά."""
+    # 1. Διπλά εισαγωγικά: field: "value"
+    match = re.search(rf'^{field_name}:\s*"(.*?)"\s*$', content, re.MULTILINE)
+    if match:
+        return match.group(1).strip()
+    
+    # 2. Μονά εισαγωγικά: field: 'value'
+    match = re.search(rf"^{field_name}:\s*'(.*?)'\s*$", content, re.MULTILINE)
+    if match:
+        return match.group(1).strip()
+        
+    # 3. Χωρίς εισαγωγικά: field: value
+    match = re.search(rf"^{field_name}:\s*(.+)$", content, re.MULTILINE)
+    if match:
+        return match.group(1).strip().strip('"\'')
+        
+    return ""
+
 static_pages = [
     {"comment": "Αρχική Σελίδα", "loc": "/", "lastmod": today, "changefreq": "weekly", "priority": "1.0"},
     {"comment": "Πολιτική Απορρήτου (Privacy Policy)", "loc": "/privacy/", "lastmod": today, "changefreq": "monthly", "priority": "0.3"},
@@ -52,17 +71,18 @@ if os.path.exists(blog_dir):
                 with open(full_path, "r", encoding="utf-8") as f:
                     content = f.read()
                     
-                    date_match = re.search(r"date:\s*[\"']?(\d{4}-\d{2}-\d{2})", content)
+                    parsed_date = get_frontmatter_field("date", content)
+                    date_match = re.search(r"(\d{4}-\d{2}-\d{2})", parsed_date)
                     if date_match:
                         article_date = date_match.group(1)
                         
-                    title_match = re.search(r"title:\s*[\"']?([^\"'\n]+)", content)
-                    if title_match:
-                        article_title = title_match.group(1).strip()
+                    parsed_title = get_frontmatter_field("title", content)
+                    if parsed_title:
+                        article_title = parsed_title
 
-                    desc_match = re.search(r"description:\s*[\"']?([^\"'\n]+)", content)
-                    if desc_match:
-                        article_desc = desc_match.group(1).strip()
+                    parsed_desc = get_frontmatter_field("description", content)
+                    if parsed_desc:
+                        article_desc = parsed_desc
             except Exception:
                 pass
 
