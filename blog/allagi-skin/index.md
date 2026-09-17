@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Πώς να αλλάξεις Skin στον PGG Legacy
+slug: allagi-skin
 date: 2026-04-18
 tag: Οδηγός
 image: https://pgglegacy.gr/blog/media/blogbanner5.webp
