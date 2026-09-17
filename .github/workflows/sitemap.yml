@@ -1,4 +1,4 @@
-name: Generate Custom Sitemap
+name: Generate Custom Sitemap & Feed
 
 on:
   push:
@@ -25,8 +25,8 @@ jobs:
       - name: Run Sitemap Generator
         run: python scripts/generate_sitemap.py
 
-      - name: Commit & Push sitemap.xml
+      - name: Commit & Push sitemap.xml & feed.xml
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: auto-update sitemap.xml [skip ci]"
-          file_pattern: "sitemap.xml"
+          commit_message: "chore: auto-update sitemap.xml & feed.xml [skip ci]"
+          file_pattern: "sitemap.xml feed.xml"
