@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Game Commands — Πλήρης Λίστα
+slug: game-commands
 date: 2026-04-26
 tag: Οδηγός
 image: https://pgglegacy.gr/blog/media/blogbanner4.webp
