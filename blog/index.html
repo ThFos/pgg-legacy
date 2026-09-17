@@ -203,7 +203,7 @@ layout: null
         {% assign blog_posts = blog_posts | where_exp: "p", "p.name != 'index.md'" %}
         {% assign blog_posts = blog_posts | where_exp: "p", "p.name != 'index.html'" %}
         {% assign blog_posts = blog_posts | sort: "date" | reverse %}
-        
+
         {% for post in blog_posts %}
           <article class="blog-card" data-aos="fade-up">
             <a href="{{ post.url }}" class="blog-card-link">
