@@ -1,6 +1,7 @@
 ---
 layout: post
 title: FAQ & Συχνά Λάθη Νέων Παικτών
+slug: sixna-lathoi-paiktwn
 date: 2026-08-31
 tag: FAQ
 image: /blog/sixna-lathoi-paiktwn/faq-banner.webp
