@@ -37,14 +37,14 @@
   "screenshots": [
     {
       "src": "/media/banner.png",
-      "sizes": "1280x720",
+      "sizes": "1200x630",
       "type": "image/png",
       "form_factor": "wide",
       "label": "PGG Legacy Desktop"
     },
     {
       "src": "/media/banner.png",
-      "sizes": "750x1334",
+      "sizes": "1200x630",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "PGG Legacy Mobile"
