@@ -11,14 +11,19 @@ collections:
   - name: "blog"
     label: "Άρθρα Blog"
     folder: "blog"
-    path: "{{slug}}/index"
+    path: "{{fields.slug}}/index"
     extension: "md"
     format: "yaml-frontmatter"
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.slug}}"
     fields:
       - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
       - { label: "Τίτλος Άρθρου", name: "title", widget: "string" }
+      - label: "URL Slug (Αγγλικά)"
+        name: "slug"
+        widget: "string"
+        hint: "Μόνο αγγλικά, παύλες αντί για κενά. π.χ. gia-klamata-h-kai-oxi"
+        pattern: ['^[a-z0-9-]+$', "Μόνο μικρά αγγλικά γράμματα και παύλες"]
       - { label: "Ημερομηνία Δημοσίευσης", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
       - { label: "Tag / Κατηγορία", name: "tag", widget: "string", default: "Οδηγός" }
       - { label: "Εικόνα Εξωφύλλου", name: "image", widget: "image", required: false }
