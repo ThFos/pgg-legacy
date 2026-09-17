@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Τι είναι το Minecraft Roleplay;
+slug: ti-einai-minecraft-rp
 date: 2026-04-14
 tag: Οδηγός
 image: https://pgglegacy.gr/blog/media/blogbanner1.webp
