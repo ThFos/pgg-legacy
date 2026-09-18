@@ -8,18 +8,86 @@ image: https://pgglegacy.gr/blog/media/blogbanner5.webp
 description: Μάθε πώς να βάλεις custom skin στον PGG Legacy Minecraft server —
   μέσω URL ή username, βήμα-βήμα οδηγός για cracked και premium παίκτες.
 ---
-Στον PGG Legacy server μπορείς εύκολα να αλλάξεις το skin σου είτε χρησιμοποιώντας το όνομα ενός premium παίκτη είτε απευθείας με direct URL εικόνας.
+Στον PGG Legacy μπορείς να παίζεις με **οποιοδήποτε skin** θέλεις — ακόμα και αν χρησιμοποιείς cracked account. Το σύστημα skin του server υποστηρίζει αλλαγή απευθείας μέσα από το παιχνίδι, χωρίς να χρειαστεί να βγεις.
 
-## 🎨 Αλλαγή Skin μέσω εντολής in-game
+**Κατηγορίες:** 
+[Μέθοδος URL](#method-url) • [Μέθοδος Username](#method-username) • [Επαναφορά Skin](#skin-reset) • [Tips & Μορφή](#skin-tips) • [Εντολές](#skin-commands)
 
-* **Μέσω Username:** Πληκτρολόγησε `/skin <Username>` για να πάρεις το skin κάποιου premium παίκτη.
-* **Μέσω Direct URL:** Πληκτρολόγησε `/skin url <URL>` με έναν άμεσο σύνδεσμο εικόνας PNG.
+## 🔗 <span id="method-url"></span>Μέθοδος 1: Μέσω URL
 
-## 🔄 Επαναφορά στο αρχικό Skin
+Αν έχεις το skin σου ανεβασμένο online (π.χ. από το NameMC ή οποιοδήποτε image host), χρησιμοποίησε αυτή τη μέθοδο:
 
-Αν θέλεις να επαναφέρεις το προεπιλεγμένο σου skin, χρησιμοποίησε την εντολή `/skin clear`.
+1. Βρες το **direct URL** της εικόνας του skin σου (.png)
+2. Συνδέσου στον server: **play.PGGlegacy.gr**
+3. Γράψε στο chat: `/skin url [το URL σου]`
+4. Το skin σου αλλάζει αυτόματα!
+
+<div class="blog-info-box">
+  <span class="blog-info-icon">💡</span>
+  <div>
+    <strong>Παράδειγμα:</strong> <code>/skin url https://i.imgur.com/example.png</code><br>
+    Βεβαιώσου ότι το URL τελειώνει σε <strong>.png</strong> και είναι direct link — όχι σελίδα gallery.
+  </div>
+</div>
+
+## 👤 <span id="method-username"></span>Μέθοδος 2: Μέσω Username
+
+Αν θέλεις να χρησιμοποιήσεις το skin ενός άλλου Minecraft παίκτη, μπορείς να το αντιγράψεις απευθείας:
+
+1. Βρες το **Minecraft username** που έχει το skin που θέλεις (π.χ. από το NameMC)
+2. Συνδέσου στον server
+3. Γράψε: `/skin set [username]` ή `/skin [username]`
+4. Το skin του παίκτη εφαρμόζεται στον χαρακτήρα σου!
+
+<div class="blog-info-box">
+  <span class="blog-info-icon">💡</span>
+  <div>
+    <strong>Παράδειγμα:</strong> <code>/skin set Notch</code><br>
+    Αυτό θα εφαρμόσει το skin του παίκτη <em>Notch</em> στον χαρακτήρα σου.
+  </div>
+</div>
+
+## 🔄 <span id="skin-reset"></span>Επαναφορά στο αρχικό Skin
+
+Αν θέλεις να αφαιρέσεις το custom skin και να επαναφέρεις το προεπιλεγμένο σου skin, η διαδικασία είναι απλή:
+
+* Πληκτρολόγησε στο chat την εντολή: <code>/skin clear</code>
+
+## 📐 <span id="skin-tips"></span>Tips & Απαιτήσεις Μορφής
+
+<div class="blog-info-box" style="border-color: rgba(255, 204, 0, 0.3); background-color: rgba(255, 204, 0, 0.05);">
+  <span class="blog-info-icon">⚠️</span>
+  <div>
+    Τα skins πρέπει να είναι <strong>64×64 pixels</strong> ή <strong>64×32 pixels</strong> (classic format) σε μορφή PNG. Άλλες διαστάσεις δεν γίνονται δεκτές.
+  </div>
+</div>
+
+### 🌐 Πού να βρεις Skins
+* [NameMC.com](https://namemc.com/minecraft-skins) — Τεράστια συλλογή με χιλιάδες skins
+* [MinecraftSkins.com](https://www.minecraftskins.com/) — Εναλλακτικό site με πολλές επιλογές
+
+### 📤 Πού να ανεβάσεις το PNG σου
+* [Imgur.com](https://imgur.com/) — Δωρεάν image hosting, δίνει direct .png link
+* Οποιοσδήποτε image host που παρέχει **direct link** που τελειώνει σε `.png`
+
+<div class="blog-info-box">
+  <span class="blog-info-icon">💡</span>
+  <div>
+    <strong>Γρήγορη διαδικασία:</strong> Κατέβασε skin → Ανέβασε στο Imgur → Δεξί κλικ στην εικόνα → "Copy image address" → Χρησιμοποίησε το link στο <code>/skin url [link]</code>
+  </div>
+</div>
+
+## 📋 <span id="skin-commands"></span>Εντολές Skin — Γρήγορη Αναφορά
+
+| Command | Χρήση |
+| --- | --- |
+| ` /skin url [URL]` | Αλλαγή skin μέσω direct URL εικόνας (.png) |
+| ` /skin set [username]` | Αντιγραφή skin από άλλον Minecraft παίκτη |
+| ` /skin [username]` | Εναλλακτική εντολή αντιγραφής skin |
+| ` /skin clear` | Επαναφορά στο αρχικό/προεπιλεγμένο skin |
 
 <div class="blog-cta-box">
-  <p>Μπες στον server και δοκίμασέ το!</p>
+  <p>Δοκίμασε το νέο σου skin στον server!</p>
   <strong class="blog-cta-ip">play.PGGlegacy.gr</strong>
+  <a href="/blog/getting-started-guide/" class="discord-btn" style="margin-top: 1rem; display: inline-block;">Getting Started Guide →</a>
 </div>
