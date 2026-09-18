@@ -18,7 +18,7 @@ description: Μάθε τι είναι το Minecraft Roleplay, πώς λειτο
   <a href="#ic-ooc">IC vs OOC</a>
   <a href="#rules-rp">Βασικοί Κανόνες</a>
   <a href="#why-pgg">Γιατί PGG Legacy</a>
-  <a href="#Custom Skin">custom-skin</a>
+  <a href="#custom-skin">Custom Skin</a>
 </div>
 
 ## 🎭 <span id="ic-ooc"></span>IC vs OOC — Η Βασική Διαφορά
