@@ -10,8 +10,16 @@ description: Πλήρης λίστα με όλα τα commands του PGG Legacy
 ---
 Παρακάτω θα βρεις την πλήρη λίστα με όλα τα διαθέσιμα commands στον PGG Legacy, οργανωμένα ανά κατηγορία.
 
-**Κατηγορίες:** 
-[Μετακινήσεις](#cmd-travel) • [Modes & Περιβάλλον](#cmd-modes) • [Επικοινωνία](#cmd-chat) • [Ασφάλεια](#cmd-safety) • [Roleplay](#cmd-rp) • [Έκτακτη Ανάγκη](#cmd-emergency) • [Skin](#cmd-skin)
+<div class="cmd-quicknav">
+  <span>Περιεχόμενα:</span>
+  <a href="#cmd-travel">Μετακινήσεις</a>
+  <a href="#cmd-modes">Modes & Περιβάλλον</a>
+  <a href="#cmd-chat">Επικοινωνία</a>
+  <a href="#cmd-safety">Ασφάλεια</a>
+  <a href="#cmd-rp">Roleplay</a>
+  <a href="#cmd-emergency">Έκτακτη Ανάγκη</a>
+  <a href="#cmd-skin">Skin</a>
+</div>
 
 ## 🗺️ <span id="cmd-travel"></span>Μετακινήσεις
 
