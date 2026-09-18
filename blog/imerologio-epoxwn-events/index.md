@@ -10,10 +10,21 @@ description: Μάθε πώς λειτουργεί το σύστημα εποχώ
 ---
 Ένα από τα πιο μοναδικά χαρακτηριστικά του PGG Legacy είναι το **σύστημα εποχών και events σε πραγματικό χρόνο**. Ο κόσμος αλλάζει ανάλογα με την εποχή του χρόνου, φέρνοντας μοναδικά events, ειδικούς κανόνες και αποκλειστικά rewards.
 
-**Κατηγορίες:** 
-[Μετακινήσεις](#cmd-travel) • [Modes & Περιβάλλον](#cmd-modes) • [Επικοινωνία](#cmd-chat) • [Ασφάλεια](#cmd-safety) • [Roleplay](#cmd-rp) • [Έκτακτη Ανάγκη](#cmd-emergency) • [Skin](#cmd-skin)
+<div class="cmd-quicknav">
+  <span>Περιεχόμενα:</span>
+  <a href="#event-calendar">Ημερολόγιο</a>
+  <a href="#event-newyear">Καλή Χρονιά</a>
+  <a href="#event-winter">Winter Harvest</a>
+  <a href="#event-easter">Πάσχα</a>
+  <a href="#event-heatwave">Heatwave</a>
+  <a href="#event-spooky">Spooky October</a>
+  <a href="#event-halloween">Halloween</a>
+  <a href="#event-xmas">Χριστούγεννα</a>
+  <a href="#event-merchant">Merchant Monday</a>
+  <a href="#event-morning">Lucky Morning</a>
+</div>
 
-## 📅 Ετήσιο Ημερολόγιο Events
+<h2 id="event-calendar">📅 Ετήσιο Ημερολόγιο Events</h2>
 
 | Περίοδος | Event | Διάρκεια |
 | :--- | :--- | :--- |
@@ -27,7 +38,7 @@ description: Μάθε πώς λειτουργεί το σύστημα εποχώ
 | Κάθε Δευτέρα | 🛒 Merchant Monday | Εβδομαδιαίο |
 | Καθημερινά | 🌅 Lucky Morning | Καθημερινό |
 
-## 🎆 Καλή Χρονιά! *(1 Ιανουαρίου)*
+<h2 id="event-newyear">🎆 Καλή Χρονιά! *(1 Ιανουαρίου)*</h2>
 
 Η αλλαγή του χρόνου γιορτάζεται με πυροτεχνήματα σε όλο τον κόσμο!
 
@@ -35,7 +46,7 @@ description: Μάθε πώς λειτουργεί το σύστημα εποχώ
 * 🏘️ Κατευθύνσου σε κοντινό χωριό για τις γιορτές
 * 🌐 Ανακοίνωση στον server: *"Καλή χρονιά!"*
 
-## ❄️ Winter Harvest Frost *(1–31 Ιανουαρίου)*
+<h2 id="event-winter">❄️ Winter Harvest Frost *(1–31 Ιανουαρίου)*</h2>
 
 Ο παγετός του Ιανουαρίου επηρεάζει τις καλλιέργειες!
 
@@ -43,7 +54,7 @@ description: Μάθε πώς λειτουργεί το σύστημα εποχώ
 * 🌾 **Tip:** Αποθήκευσε τρόφιμα πριν ξεκινήσει ο Ιανουάριος
 * 💰 Τα τρόφιμα γίνονται πιο **πολύτιμα στο market**
 
-## 🐣 Πάσχα *(20–24 Απριλίου)*
+<h2 id="event-easter">🐣 Πάσχα *(20–24 Απριλίου)*</h2>
 
 Ο κόσμος γεμίζει από κρυμμένα πασχαλινά αυγά με rewards!
 
@@ -59,7 +70,7 @@ description: Μάθε πώς λειτουργεί το σύστημα εποχώ
   <span>🎪 Name Tag</span><span>🐴 Saddle</span><span>🌾 Hay Bales</span>
 </div>
 
-## 🔥 The Great Heatwave *(1–31 Ιουλίου)*
+<h2 id="event-heatwave">🔥 The Great Heatwave *(1–31 Ιουλίου)*</h2>
 
 Ο ήλιος του Ιουλίου καίει τα πάντα!
 
@@ -67,7 +78,7 @@ description: Μάθε πώς λειτουργεί το σύστημα εποχώ
 * 💧 **Tip:** Τα αποθέματα νερού γίνονται πολύτιμα
 * 🌡️ Ανακοίνωση στον server: *"Ο ήλιος καίει τα πάντα!"*
 
-## 🎃 Spooky October *(1–31 Οκτωβρίου)*
+<h2 id="event-spooky">🎃 Spooky October *(1–31 Οκτωβρίου)*</h2>
 
 Όλος ο Οκτώβριος είναι αφιερωμένος στο τρόμο!
 
@@ -76,7 +87,7 @@ description: Μάθε πώς λειτουργεί το σύστημα εποχώ
 * 🌑 **Tip:** Εξοπλίσου καλά πριν φύγεις τη νύχτα
 * 🎃 Ιδανική εποχή για **RP horror scenarios**
 
-## 👻 Halloween *(31 Οκτ – 2 Νοε)*
+<h2 id="event-halloween">👻 Halloween *(31 Οκτ – 2 Νοε)*</h2>
 
 Το Halloween φέρνει τις πιο επικίνδυνες νύχτες του χρόνου!
 
@@ -96,7 +107,7 @@ description: Μάθε πώς λειτουργεί το σύστημα εποχώ
   </div>
 </div>
 
-## 🎄 Χριστούγεννα *(25–28 Δεκεμβρίου)*
+<h2 id="event-xmas">🎄 Χριστούγεννα *(25–28 Δεκεμβρίου)*</h2>
 
 Τα Χριστούγεννα είναι η πιο γιορταστική εποχή του server!
 
@@ -113,7 +124,7 @@ description: Μάθε πώς λειτουργεί το σύστημα εποχώ
   <span>⚗️ Nether Wart</span><span>🔱 Blaze Rod</span><span>⭐ Magma Cream</span>
 </div>
 
-## 🛒 Merchant Monday *(Κάθε Δευτέρα)*
+<h2 id="event-merchant">🛒 Merchant Monday *(Κάθε Δευτέρα)*</h2>
 
 Κάθε Δευτέρα, ειδικοί Wandering Traders καταφθάνουν σε όλο τον κόσμο με σπάνια αντικείμενα και ειδικές προσφορές!
 
@@ -121,7 +132,7 @@ description: Μάθε πώς λειτουργεί το σύστημα εποχώ
 * ⏰ Παραμένουν για **24 ώρες** (24.000 ticks)
 * 💰 Ιδανική ευκαιρία για σπάνια items
 
-## 🌅 Lucky Morning *(Καθημερινά)*
+<h2 id="event-morning">🌅 Lucky Morning *(Καθημερινά)*</h2>
 
 Κάθε πρωί, κάθε παίκτης που είναι online λαμβάνει ένα δώρο για την καλή αρχή της μέρας!
 
