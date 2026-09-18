@@ -13,8 +13,13 @@ description: Μάθε τι είναι το Minecraft Roleplay, πώς λειτο
 
 Αντί να παίζεις Minecraft ως συνήθως, φαντάσου ότι ζεις μέσα σε έναν κόσμο με οικονομία, αστυνομία, εγκλήματα, φιλίες, εχθρότητες και δράμα — όλα δημιουργημένα από τους ίδιους τους παίκτες, σε πραγματικό χρόνο.
 
-**Περιεχόμενα:** 
-[IC vs OOC](#ic-ooc) • [Βασικοί Κανόνες](#rules-rp) • [Γιατί PGG Legacy](#why-pgg) • [Custom Skin](#custom-skin)
+<div class="cmd-quicknav">
+  <span>Περιεχόμενα:</span>
+  <a href="#ic-ooc">IC vs OOC</a>
+  <a href="#rules-rp">Βασικοί Κανόνες</a>
+  <a href="#why-pgg">Γιατί PGG Legacy</a>
+  <a href="#Custom Skin">custom-skin</a>
+</div>
 
 ## 🎭 <span id="ic-ooc"></span>IC vs OOC — Η Βασική Διαφορά
 
