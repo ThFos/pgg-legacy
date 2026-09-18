@@ -10,10 +10,16 @@ description: Μάθε πώς να βάλεις custom skin στον PGG Legacy M
 ---
 Στον PGG Legacy μπορείς να παίζεις με **οποιοδήποτε skin** θέλεις — ακόμα και αν χρησιμοποιείς cracked account. Το σύστημα skin του server υποστηρίζει αλλαγή απευθείας μέσα από το παιχνίδι, χωρίς να χρειαστεί να βγεις.
 
-**Κατηγορίες:** 
-[Μέθοδος URL](#method-url) • [Μέθοδος Username](#method-username) • [Επαναφορά Skin](#skin-reset) • [Tips & Μορφή](#skin-tips) • [Εντολές](#skin-commands)
+<div class="cmd-quicknav">
+  <span>Περιεχόμενα:</span>
+  <a href="#method-url">Μέσω URL</a>
+  <a href="#method-username">Μέσω Username</a>
+  <a href="#skin-reset">Επαναφορά Skin</a>
+  <a href="#skin-tips">Tips &amp; Μορφή</a>
+  <a href="#skin-commands">Εντολές</a>
+</div>
 
-## 🔗 <span id="method-url"></span>Μέθοδος 1: Μέσω URL
+<h2 id="method-url">🔗 Μέθοδος 1: Μέσω URL</h2>
 
 Αν έχεις το skin σου ανεβασμένο online (π.χ. από το NameMC ή οποιοδήποτε image host), χρησιμοποίησε αυτή τη μέθοδο:
 
@@ -30,7 +36,7 @@ description: Μάθε πώς να βάλεις custom skin στον PGG Legacy M
   </div>
 </div>
 
-## 👤 <span id="method-username"></span>Μέθοδος 2: Μέσω Username
+<h2 id="method-username">👤 Μέθοδος 2: Μέσω Username</h2>
 
 Αν θέλεις να χρησιμοποιήσεις το skin ενός άλλου Minecraft παίκτη, μπορείς να το αντιγράψεις απευθείας:
 
@@ -47,13 +53,13 @@ description: Μάθε πώς να βάλεις custom skin στον PGG Legacy M
   </div>
 </div>
 
-## 🔄 <span id="skin-reset"></span>Επαναφορά στο αρχικό Skin
+<h2 id="skin-reset">🔄 Επαναφορά στο αρχικό Skin</h2>
 
 Αν θέλεις να αφαιρέσεις το custom skin και να επαναφέρεις το προεπιλεγμένο σου skin, η διαδικασία είναι απλή:
 
 * Πληκτρολόγησε στο chat την εντολή: <code>/skin clear</code>
 
-## 📐 <span id="skin-tips"></span>Tips & Απαιτήσεις Μορφής
+<h2 id="skin-tips">📐 Tips &amp; Απαιτήσεις Μορφής</h2>
 
 <div class="blog-info-box" style="border-color: rgba(255, 204, 0, 0.3); background-color: rgba(255, 204, 0, 0.05);">
   <span class="blog-info-icon">⚠️</span>
@@ -77,7 +83,7 @@ description: Μάθε πώς να βάλεις custom skin στον PGG Legacy M
   </div>
 </div>
 
-## 📋 <span id="skin-commands"></span>Εντολές Skin — Γρήγορη Αναφορά
+<h2 id="skin-commands">📋 Εντολές Skin — Γρήγορη Αναφορά</h2>
 
 | Command | Χρήση |
 | --- | --- |
