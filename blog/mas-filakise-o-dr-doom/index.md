@@ -2,7 +2,7 @@
 layout: post
 title: "Minecraft Roleplay: Η Άνοδος του Dr. Doom & Η Σκοτεινή Κατάληψη της Πόλης"
 date: 2026-09-20
-tag: Οδηγός
+tag: Βίντεο
 image: dr-doom-episode-1.webp
 description: Ο Doctor Doom καταλαμβάνει την πόλη και υποδουλώνει τους κατοίκους.
   Δείτε την ανάλυση της πλοκής και το σχέδιο απόδρασης!
