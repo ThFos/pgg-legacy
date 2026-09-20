@@ -12,8 +12,6 @@ collections:
     label: "Άρθρα Blog"
     folder: "blog"
     path: "{{slug}}/index"
-    media_folder: ""
-    public_folder: "/blog/{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
     create: true
