@@ -3,7 +3,7 @@ layout: post
 title: "Minecraft Roleplay: Η Άνοδος του Dr. Doom & Η Σκοτεινή Κατάληψη της Πόλης"
 date: 2026-09-20
 tag: Βίντεο
-image: μας-φυλακισε-ο-dr-doom-στο-minecraft-.webp
+image: mas-filakiso-o-dr-doom.webp
 description: "Σε αυτό το συναρπαστικό επεισόδιο Minecraft Roleplay, η ύποπτη
   ησυχία μιας άλλοτε ζωντανής πόλης αποκαλύπτει μια σκοτεινή απειλή: ο
   επιβλητικός Doctor Doom (Victor Vom) καταλαμβάνει την περιοχή μέσα σε μία
