@@ -204,10 +204,20 @@ layout: null
         {% assign blog_posts = blog_posts | sort: "date" | reverse %}
 
         {% for post in blog_posts %}
+          {% assign card_img = '/blog/media/blogbanner1.webp' %}
+          {% if post.image %}
+            {% assign first_char = post.image | slice: 0 %}
+            {% if first_char == '/' or post.image contains '://' %}
+              {% assign card_img = post.image %}
+            {% else %}
+              {% assign card_img = post.url | append: post.image %}
+            {% endif %}
+          {% endif %}
+
           <article class="blog-card" data-aos="fade-up">
             <a href="{{ post.url }}" class="blog-card-link">
               <div class="blog-card-img-wrapper">
-                <img src="{{ post.image | default: '/blog/media/blogbanner1.webp' }}"
+                <img src="{{ card_img }}"
                      alt="{{ post.title }}"
                      class="blog-card-img"
                      width="420" height="210"
