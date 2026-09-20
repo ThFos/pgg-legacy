@@ -2,3 +2,6 @@ collections:
   blog:
     output: true
     permalink: /blog/:slug/
+
+include:
+  - blog/media
