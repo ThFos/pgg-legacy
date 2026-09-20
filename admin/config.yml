@@ -4,6 +4,9 @@ backend:
   branch: main
   base_url: https://pgg-oauth.onrender.com
 
+media_folder: "blog/media"
+public_folder: "/blog/media"
+
 collections:
   - name: "blog"
     label: "Άρθρα Blog"
