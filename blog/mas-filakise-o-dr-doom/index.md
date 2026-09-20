@@ -1,6 +1,6 @@
 ---
 layout: post
-title: mas-filakise-o-dr-doom
+title: "Minecraft Roleplay: Η Άνοδος του Dr. Doom & Η Σκοτεινή Κατάληψη της Πόλης"
 date: 2026-09-20
 tag: Οδηγός
 image: dr-doom-ep-1.webp
