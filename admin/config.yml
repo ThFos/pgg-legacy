@@ -16,8 +16,8 @@ collections:
     format: "yaml-frontmatter"
     create: true
     slug: "{{slug}}"
-    media_folder: "/blog/media"
-    public_folder: "/blog/media"
+    media_folder: "blog/media"    # ← ΧΩΡΙΣ / στην αρχή (relative)
+    public_folder: "/blog/media"  # ← ΜΕ / στην αρχή (absolute)
     fields:
       - { label: "Layout",                 name: "layout",      widget: "hidden",   default: "post" }
       - { label: "Τίτλος Άρθρου",          name: "title",       widget: "string" }
