@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2        # ← ΜΟΝΟ ΑΥΤΟ ΠΡΟΣΤΕΘΗΚΕ - χρειάζεται για git diff HEAD~1
 
       - name: Set up Python
         uses: actions/setup-python@v5
