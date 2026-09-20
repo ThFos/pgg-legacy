@@ -36,7 +36,7 @@
   <link rel="dns-prefetch" href="https://www.google-analytics.com">
   <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
   {% if page.image %}
-  <link rel="preload" href="{{ page.image | relative_url }}" as="image" fetchpriority="high">
+  <link rel="preload" href="{{ page.image | absolute_url }}" as="image" fetchpriority="high">
   {% endif %}
 
   <title>{{ page.title }} | PGG Legacy Blog</title>
@@ -80,23 +80,23 @@
     "datePublished": "{{ page.date | date_to_xmlschema }}",
     "dateModified": "{{ page.date | date_to_xmlschema }}",
     "inLanguage": "el-GR",
-    "author": { 
-      "@type": "Organization", 
-      "name": "{{ page.author | default: 'PGG Legacy' }}", 
-      "url": "https://pgglegacy.gr" 
+    "author": {
+      "@type": "Organization",
+      "name": "{{ page.author | default: 'PGG Legacy' }}",
+      "url": "https://pgglegacy.gr"
     },
     "publisher": {
-      "@type": "Organization", 
-      "name": "PGG Legacy", 
+      "@type": "Organization",
+      "name": "PGG Legacy",
       "url": "https://pgglegacy.gr",
-      "logo": { 
-        "@type": "ImageObject", 
-        "url": "https://pgglegacy.gr/media/logo.svg" 
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://pgglegacy.gr/media/logo.svg"
       }
     },
-    "mainEntityOfPage": { 
-      "@type": "WebPage", 
-      "@id": "{{ page.url | absolute_url }}" 
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ page.url | absolute_url }}"
     }
   }
   </script>
@@ -246,7 +246,7 @@
     <a href="/#discord"    class="desktop_navbar_link">Community</a>
     <a href="/#about"      class="desktop_navbar_link">About Us</a>
     <a href="/blog/"       class="desktop_navbar_link nav-highlight-purple" aria-current="page">Blog</a>
-    <a href="/map"          class="desktop_navbar_link">Server Map</a>
+    <a href="/map"         class="desktop_navbar_link">Server Map</a>
     <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
     <a href="/police"      class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
     <div class="desktop_navbar_link2_div">
@@ -268,7 +268,7 @@
       <a class="mobile_navbar_link" href="/#rules"      role="menuitem">Rules</a>
       <a class="mobile_navbar_link" href="/#discord"    role="menuitem">Community</a>
       <a class="mobile_navbar_link" href="/#about"      role="menuitem">About Us</a>
-      <a class="mobile_navbar_link nav-highlight-purple" href="/blog/"        role="menuitem">Blog</a>
+      <a class="mobile_navbar_link nav-highlight-purple" href="/blog/"       role="menuitem">Blog</a>
       <a class="mobile_navbar_link" href="/map"          role="menuitem">Server Map</a>
       <a class="mobile_navbar_link nav-highlight-blue"  href="/leaderboard" role="menuitem">Leaderboard</a>
       <a class="mobile_navbar_link nav-highlight-gold"  href="/police"      role="menuitem">Police Apps</a>
@@ -300,7 +300,7 @@
       </header>
 
       {% if page.image %}
-      <img src="{{ page.image | relative_url }}"
+      <img src="{{ page.image | absolute_url }}"
            alt="{{ page.title }} - PGG Legacy"
            class="blog-article-banner"
            width="900" height="400"
