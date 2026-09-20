@@ -4,25 +4,22 @@ backend:
   branch: main
   base_url: https://pgg-oauth.onrender.com
 
-media_folder: "blog/media"
-public_folder: "/blog/media"
-
 collections:
   - name: "blog"
     label: "Άρθρα Blog"
     folder: "blog"
     path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: "/blog/{{slug}}"
     extension: "md"
     format: "yaml-frontmatter"
     create: true
     slug: "{{slug}}"
-    media_folder: "blog/media"    # ← ΧΩΡΙΣ / στην αρχή (relative)
-    public_folder: "/blog/media"  # ← ΜΕ / στην αρχή (absolute)
     fields:
-      - { label: "Layout",                 name: "layout",      widget: "hidden",   default: "post" }
-      - { label: "Τίτλος Άρθρου",          name: "title",       widget: "string" }
-      - { label: "Ημερομηνία Δημοσίευσης", name: "date",        widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
-      - { label: "Tag / Κατηγορία",        name: "tag",         widget: "string",   default: "Οδηγός" }
-      - { label: "Εικόνα Εξωφύλλου",       name: "image",       widget: "image",    required: false }
-      - { label: "Σύντομη Περιγραφή",      name: "description", widget: "text" }
-      - { label: "Περιεχόμενο Άρθρου",     name: "body",        widget: "markdown" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "Τίτλος Άρθρου", name: "title", widget: "string" }
+      - { label: "Ημερομηνία Δημοσίευσης", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Tag / Κατηγορία", name: "tag", widget: "string", default: "Οδηγός" }
+      - { label: "Εικόνα Εξωφύλλου", name: "image", widget: "image", required: false }
+      - { label: "Σύντομη Περιγραφή", name: "description", widget: "text" }
+      - { label: "Περιεχόμενο Άρθρου", name: "body", widget: "markdown" }
