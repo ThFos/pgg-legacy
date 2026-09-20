@@ -1,3 +1,11 @@
+{% if page.image %}
+  {% assign first_char = page.image | slice: 0 %}
+  {% if first_char == '/' or page.image contains '://' %}
+    {% assign img_path = page.image %}
+  {% else %}
+    {% assign img_path = page.url | append: page.image %}
+  {% endif %}
+{% endif %}
 <!DOCTYPE html>
 <html lang="el">
 <head>
@@ -36,7 +44,7 @@
   <link rel="dns-prefetch" href="https://www.google-analytics.com">
   <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
   {% if page.image %}
-  <link rel="preload" href="{{ page.image | absolute_url }}" as="image" fetchpriority="high">
+  <link rel="preload" href="{{ img_path | absolute_url }}" as="image" fetchpriority="high">
   {% endif %}
 
   <title>{{ page.title }} | PGG Legacy Blog</title>
@@ -52,7 +60,7 @@
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:title" content="{{ page.title }} | PGG Legacy Blog">
   <meta property="og:description" content="{{ page.description | default: page.title }}">
-  {% if page.image %}<meta property="og:image" content="{{ page.image | absolute_url }}">{% endif %}
+  {% if page.image %}<meta property="og:image" content="{{ img_path | absolute_url }}">{% endif %}
   <meta property="og:site_name" content="PGG Legacy">
   <meta property="og:locale" content="el_GR">
   <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
@@ -64,7 +72,7 @@
   <meta name="twitter:url" content="{{ page.url | absolute_url }}">
   <meta name="twitter:title" content="{{ page.title }} | PGG Legacy Blog">
   <meta name="twitter:description" content="{{ page.description | default: page.title }}">
-  {% if page.image %}<meta name="twitter:image" content="{{ page.image | absolute_url }}">{% endif %}
+  {% if page.image %}<meta name="twitter:image" content="{{ img_path | absolute_url }}">{% endif %}
 
   <link rel="icon" type="image/png" href="/media/favicon.png">
 
@@ -75,7 +83,7 @@
     "@type": "BlogPosting",
     "headline": {{ page.title | jsonify }},
     "description": {{ page.description | default: page.title | jsonify }},
-    "image": "{{ page.image | absolute_url }}",
+    {% if page.image %}"image": "{{ img_path | absolute_url }}",{% endif %}
     "url": "{{ page.url | absolute_url }}",
     "datePublished": "{{ page.date | date_to_xmlschema }}",
     "dateModified": "{{ page.date | date_to_xmlschema }}",
@@ -246,7 +254,7 @@
     <a href="/#discord"    class="desktop_navbar_link">Community</a>
     <a href="/#about"      class="desktop_navbar_link">About Us</a>
     <a href="/blog/"       class="desktop_navbar_link nav-highlight-purple" aria-current="page">Blog</a>
-    <a href="/map"         class="desktop_navbar_link">Server Map</a>
+    <a href="/map"          class="desktop_navbar_link">Server Map</a>
     <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
     <a href="/police"      class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
     <div class="desktop_navbar_link2_div">
@@ -300,7 +308,7 @@
       </header>
 
       {% if page.image %}
-      <img src="{{ page.image | absolute_url }}"
+      <img src="{{ img_path | absolute_url }}"
            alt="{{ page.title }} - PGG Legacy"
            class="blog-article-banner"
            width="900" height="400"
