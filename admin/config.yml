@@ -4,6 +4,10 @@ backend:
   branch: main
   base_url: https://pgg-oauth.onrender.com
 
+# Υποχρεωτικό global fallback για το CMS schema
+media_folder: "blog/media"
+public_folder: "/blog/media"
+
 collections:
   - name: "blog"
     label: "Άρθρα Blog"
