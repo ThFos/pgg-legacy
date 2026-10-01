@@ -5,8 +5,16 @@
     <link>https://pgglegacy.gr/blog/</link>
     <description>Νέα, οδηγοί και ανακοινώσεις του PGG Legacy Minecraft Server</description>
     <language>el-gr</language>
-    <lastBuildDate>Sun, 20 Sep 2026 18:51:05 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 22:26:08 GMT</lastBuildDate>
     <atom:link href="https://pgglegacy.gr/feed.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+      <title>Game Commands — Πλήρης Λίστα</title>
+      <link>https://pgglegacy.gr/blog/game-commands/</link>
+      <guid>https://pgglegacy.gr/blog/game-commands/</guid>
+      <description>Πλήρης λίστα με όλα τα commands του PGG Legacy — μετακινήσεις,</description>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
 
     <item>
       <title>Minecraft Roleplay: Η Άνοδος του Dr. Doom</title>
@@ -22,14 +30,6 @@
       <guid>https://pgglegacy.gr/blog/sixna-lathoi-paiktwn/</guid>
       <description>Απαντήσεις στις πιο συχνές ερωτήσεις και τα βασικότερα λάθη που</description>
       <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-
-    <item>
-      <title>Game Commands — Πλήρης Λίστα</title>
-      <link>https://pgglegacy.gr/blog/game-commands/</link>
-      <guid>https://pgglegacy.gr/blog/game-commands/</guid>
-      <description>Πλήρης λίστα με όλα τα commands του PGG Legacy — μετακινήσεις,</description>
-      <pubDate>Sun, 26 Apr 2026 00:00:00 GMT</pubDate>
     </item>
 
     <item>
