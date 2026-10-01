@@ -2,7 +2,7 @@
 layout: post
 title: Game Commands — Πλήρης Λίστα
 slug: game-commands
-date: 2026-04-26
+date: 2026-10-02
 tag: Οδηγός
 image: https://pgglegacy.gr/blog/media/blogbanner4.webp
 description: Πλήρης λίστα με όλα τα commands του PGG Legacy — μετακινήσεις,
@@ -19,6 +19,7 @@ description: Πλήρης λίστα με όλα τα commands του PGG Legacy
   <a href="#cmd-rp">Roleplay</a>
   <a href="#cmd-emergency">Έκτακτη Ανάγκη</a>
   <a href="#cmd-skin">Skin</a>
+  <a href="#cmd-quests">Quests</a>
 </div>
 
 ## 🗺️ <span id="cmd-travel"></span>Μετακινήσεις
@@ -80,6 +81,26 @@ description: Πλήρης λίστα με όλα τα commands του PGG Legacy
 | ---------------------- | ---------------------------------- |
 | `/skin url [URL]`      | Αλλαγή skin μέσω direct URL (.png) |
 | `/skin set [username]` | Αντιγραφή skin από άλλον παίκτη    |
+
+## 📜 <span id="cmd-quests"></span>Quests
+
+| Command                                | Περιγραφή                                                  |
+| -------------------------------------- | ---------------------------------------------------------- |
+| `/quest`                               | Εμφάνιση τρέχουσας προόδου                                 |
+| `/quest start <miner/hunter/mobkiller>` | Ξεκινάει το επιλεγμένο quest                               |
+| `/quest stop`                          | Ακύρωση του ενεργού quest (η πρόοδος χάνεται)             |
+
+### ⚔️ Κατηγορίες Quests
+* ⛏️ **Miner:** Σπάσε Stone, Deepslate & Ores (Iron, Gold, Diamond).
+* 🏹 **Hunter:** Σκότωσε ζώα (Cows, Pigs, Sheep, Chickens).
+* 💀 **Mobkiller:** Σκότωσε εχθρικά mobs (Zombies, Skeletons, Creepers, Endermen κ.ά.).
+
+### 💎 Επιβραβεύσεις & Progression
+* Κάθε κατηγορία διαθέτει **5 Levels** αυξανόμενης δυσκολίας.
+* Για κάθε Level που ολοκληρώνεις κερδίζεις **Level × 5 Diamonds**!
+* Φτάσε στο Level 5 για να ανακηρυχθείς **OP Master** της κατηγορίας.
+
+> 📌 **Tip:** Μπορείτε να χρησιμοποιείτε και τις ειδικές πινακίδες `[Quest]` στον κόσμο κάνοντας δεξί κλικ!
 
 <div class="blog-info-box">
   <span class="blog-info-icon">💡</span>
