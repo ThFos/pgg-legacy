@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Proximity Voice Chat
+title: "Proximity Voice Chat: Πώς Λειτουργεί & Οδηγός Χρήσης"
 date: 2026-10-05
 tag: Οδηγός
 image: pvc_banner.webp
