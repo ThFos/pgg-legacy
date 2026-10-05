@@ -85,7 +85,7 @@ To **Proximity Voice Chat** του server μας χρησιμοποιεί προ
 <div class="blog-cta-box">
   <p>Έτοιμος να μιλήσεις με τους συμπαίκτες σου;</p>
   <strong class="blog-cta-ip">play.PGGlegacy.gr</strong>
-  <a href="/blog/commands-guide/" class="blog-cta-btn">
+  <a href="/blog/game-commands/" class="blog-cta-btn">
     Δες όλα τα Commands →
   </a>
 </div>
