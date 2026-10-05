@@ -2,7 +2,7 @@
 layout: post
 title: "Proximity Voice Chat: Πώς Λειτουργεί & Οδηγός Χρήσης"
 date: 2026-10-05
-tag: Οδηγός
+tag: Οδηγός / FAQ
 image: pvc_banner.webp
 description: Μάθετε πώς λειτουργεί το νέο Web-Based Proximity Voice Chat στο PGG
   Legacy! 3D ήχος, wall occlusion & σύνδεση μέσω browser χωρίς mods. Γράψτε /vc
