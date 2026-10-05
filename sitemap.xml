@@ -27,6 +27,13 @@
 
   <!-- Blog Articles -->
   <url>
+    <loc>https://pgglegacy.gr/blog/proximity-voice-chat/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://pgglegacy.gr/blog/game-commands/</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
