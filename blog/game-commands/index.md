@@ -43,12 +43,13 @@ description: Πλήρης λίστα με όλα τα commands του PGG Legacy
 
 ## 💬 <span id="cmd-chat"></span>Επικοινωνία
 
-| Command                   | Περιγραφή                 |
-| ------------------------- | ------------------------- |
-| `/msg [παίκτης] [μήνυμα]` | Ιδιωτικό μήνυμα           |
-| `/r [μήνυμα]`             | Απάντηση στο τελευταίο DM |
-| `/anon [μήνυμα]`          | Ανώνυμο μήνυμα (RP)       |
-| `/ooc [μήνυμα]`           | Out Of Character chat     |
+| Command                   | Περιγραφή                                    |
+| ------------------------- | -------------------------------------------- |
+| `/msg [παίκτης] [μήνυμα]` | Ιδιωτικό μήνυμα                              |
+| `/r [μήνυμα]`             | Απάντηση στο τελευταίο DM                    |
+| `/anon [μήνυμα]`          | Ανώνυμο μήνυμα (RP)                          |
+| `/ooc [μήνυμα]`           | Out Of Character chat                        |
+| `/vc`                     | Σύνδεση στο Web-Based Proximity Voice Chat   |
 
 ## 🔒 <span id="cmd-safety"></span>Ασφάλεια & Προστασία
 
@@ -91,14 +92,14 @@ description: Πλήρης λίστα με όλα τα commands του PGG Legacy
 | `/quest stop`                          | Ακύρωση του ενεργού quest (η πρόοδος χάνεται)             |
 
 ### ⚔️ Κατηγορίες Quests
-* ⛏️ **Miner:** Σπάσε Stone, Deepslate & Ores (Iron, Gold, Diamond).
-* 🏹 **Hunter:** Σκότωσε ζώα (Cows, Pigs, Sheep, Chickens).
-* 💀 **Mobkiller:** Σκότωσε εχθρικά mobs (Zombies, Skeletons, Creepers, Endermen κ.ά.).
+- ⛏️ **Miner:** Σπάσε Stone, Deepslate & Ores (Iron, Gold, Diamond).
+- 🏹 **Hunter:** Σκότωσε ζώα (Cows, Pigs, Sheep, Chickens).
+- 💀 **Mobkiller:** Σκότωσε εχθρικά mobs (Zombies, Skeletons, Creepers, Endermen κ.ά.).
 
 ### 💎 Επιβραβεύσεις & Progression
-* Κάθε κατηγορία διαθέτει **5 Levels** αυξανόμενης δυσκολίας.
-* Για κάθε Level που ολοκληρώνεις κερδίζεις **Level × 5 Diamonds**!
-* Φτάσε στο Level 5 για να ανακηρυχθείς **OP Master** της κατηγορίας.
+- Κάθε κατηγορία διαθέτει **5 Levels** αυξανόμενης δυσκολίας.
+- Για κάθε Level που ολοκληρώνεις κερδίζεις **Level × 5 Diamonds**!
+- Φτάσε στο Level 5 για να ανακηρυχθείς **OP Master** της κατηγορίας.
 
 > 📌 **Tip:** Μπορείτε να χρησιμοποιείτε και τις ειδικές πινακίδες `[Quest]` στον κόσμο κάνοντας δεξί κλικ!
 
