@@ -8,8 +8,6 @@ description: Μάθετε πώς λειτουργεί το νέο Web-Based Prox
   Legacy! 3D ήχος, wall occlusion & σύνδεση μέσω browser χωρίς mods. Γράψτε /vc
   και μπείτε!
 ---
-# 🎙️ Proximity Voice Chat: Πώς Λειτουργεί & Οδηγός Χρήσης
-
 Ανακαλύψτε το νέο **Web-Based Proximity Voice Chat** του **PGG Legacy**! Μιλήστε ζωντανά με τους συμπαίκτες σας μέσα στον server με βάση την απόστασή σας, χωρίς να χρειάζεται να κατεβάσετε κανένα εξωτερικό mod ή client plugin.
 
 <div class="cmd-quicknav">
