@@ -1,5 +1,5 @@
 /* ================================================================
-   ANIMATIONS — Keyframes & AOS Fallback (Optimized)
+   ANIMATIONS — Keyframes & AOS Fallback
    ================================================================ */
 
 @keyframes pulsate {
@@ -30,7 +30,7 @@
   50%       { opacity: 0.7; }
 }
 
-/* ── AOS Fallback (χωρίς βιβλιοθήκη) ────────────────────────── */
+/* ── AOS Fallback ────────────────────────── */
 [data-aos] {
   opacity: 0;
   transition: opacity 0.8s ease, transform 0.8s ease;

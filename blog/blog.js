@@ -1,6 +1,5 @@
 /* ==========================================================================
    PGG LEGACY — blog.js
-   ΣΗΜΑΝΤΙΚΟ: Φορτώνεται ΜΕΤΑ το script.js
    ========================================================================== */
 'use strict';
 
@@ -44,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  /* ── 4. Smooth scroll για blog internal anchors ────────────────────────── */
+  /* ── 4. Smooth scroll  ──────────────────────────────────────────────────── */
   document.querySelectorAll('.cmd-quicknav a, .blog-breadcrumb a').forEach(function(link) {
     var href = link.getAttribute('href') || '';
     if (href.startsWith('#')) {
@@ -58,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /* ── 5. CMS Markdown Parser & Loader ───────────────────────────────────── */
   
-  // Helper: Διαχωρισμός YAML Frontmatter & Markdown
   function parseFrontmatter(text) {
     var match = text.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
     if (!match) return { meta: {}, body: text };
@@ -79,7 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
     return { meta: meta, body: body };
   }
 
-  // Φόρτωση και προβολή μεμονωμένου άρθρου (αν υπάρχει container #blog-article-content)
   var articleContainer = document.getElementById('blog-article-content');
   if (articleContainer) {
     var articlePath = articleContainer.getAttribute('data-md-path');
@@ -89,13 +86,11 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(function(mdText) {
           var parsed = parseFrontmatter(mdText);
           
-          // Ενημέρωση τίτλου & ημερομηνίας αν υπάρχουν elements
           var titleEl = document.getElementById('article-title');
           var dateEl = document.getElementById('article-date');
           if (titleEl && parsed.meta.title) titleEl.textContent = parsed.meta.title;
           if (dateEl && parsed.meta.date) dateEl.textContent = new Date(parsed.meta.date).toLocaleDateString('el-GR');
 
-          // Μετατροπή Markdown σε HTML μέσω της βιβλιοθήκης marked
           if (typeof marked !== 'undefined') {
             articleContainer.innerHTML = marked.parse(parsed.body);
           } else {

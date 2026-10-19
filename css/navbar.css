@@ -169,7 +169,7 @@ body.menu-open {
   background: var(--accent2-transp);
 }
 
-/* ── Responsive Rules (Απόκρυψη Desktop Navbar σε Mobile) ──────────────── */
+/* ── Responsive Rules ──────────────── */
 @media (max-width: 768px) {
   .desktop_navbar {
     display: none !important;

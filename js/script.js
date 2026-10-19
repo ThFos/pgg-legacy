@@ -1,5 +1,5 @@
 /* ================================================================
-   PGG LEGACY — script.js (Optimized for Lighthouse & GDPR)
+   PGG LEGACY — script.js
    ================================================================ */
 'use strict';
 
@@ -260,7 +260,7 @@ function initLazyVideos() {
   });
 }
 
-/* ── Police Form Logic ───────────────────────────────────────── */
+/* ── Police Form ───────────────────────────────────────── */
 function initPoliceAppLogic() {
   var form = document.querySelector('.police-form');
   if (!form) return;
@@ -560,7 +560,7 @@ function cookieAttachEvents() {
   if (d) d.addEventListener('click', cookieDecline);
 }
 
-/* ── Reset Cookie Consent (καλείται από το κουμπί στη σελίδα Privacy) ── */
+/* ── Reset Cookie Consent ── */
 window.resetCookieConsent = function() {
   try { localStorage.removeItem(COOKIE_KEY); } catch(e) {}
 
