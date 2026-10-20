@@ -56,3 +56,18 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # 4. Καθαρισμός Cloudflare cache ώστε οι αλλαγές να φαίνονται άμεσα
+      - name: Purge Cloudflare Cache
+        run: |
+          response=$(curl -s -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CF_ZONE_ID }}/purge_cache" \
+            -H "Authorization: Bearer ${{ secrets.CF_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data '{"purge_everything":true}')
+          echo "$response"
+          success=$(echo "$response" | jq -r '.success')
+          if [ "$success" != "true" ]; then
+            echo "❌ Cloudflare cache purge failed!"
+            exit 1
+          fi
+          echo "✅ Cloudflare cache purged successfully!"
