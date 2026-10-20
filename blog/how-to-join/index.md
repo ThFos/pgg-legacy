@@ -31,7 +31,13 @@ description: "Πώς να μπεις στον PGG Legacy Minecraft Server: Ελ�
 - Αντιγράψτε (**Copy**) την επίσημη **Minecraft Server IP**: `play.PGGlegacy.gr`.
 - Πατήστε τον σύνδεσμο για να συνδεθείτε στον [Discord Server](https://discord.gg/Ks7NtXhtwV) της ελληνικής κοινότητάς μας.
 
-<img src="https://pgglegacy.gr/blog/media/step1-ip-discord.webp" alt="Αντιγραφή PGG Legacy Minecraft Server IP play.PGGlegacy.gr και Είσοδος στο Discord" loading="lazy" style="display: block; margin: 20px auto; max-width: 100%; border-radius: 8px;" />
+<img 
+  src="/blog/media/step1-ip-discord.webp" 
+  alt="Αντιγραφή PGG Legacy Minecraft Server IP play.PGGlegacy.gr και Είσοδος στο Discord"
+  loading="lazy"
+  decoding="async"
+  width="800" height="450"
+  style="display: block; margin: 20px auto; max-width: 100%; border-radius: 8px;" />
 
 <p style="text-align:center; font-size: 0.9rem; color: #888;">Αντιγραφή της IP από το site και είσοδος στο Discord server.</p>
 
@@ -43,7 +49,13 @@ description: "Πώς να μπεις στον PGG Legacy Minecraft Server: Ελ�
 - Επιλέξτε την έκδοση **Java Edition 1.20.1**.
 - Πατήστε **Play** (Έναρξη).
 
-<img src="https://pgglegacy.gr/blog/media/step2-version-select.webp" alt="Επιλογή Έκδοσης Minecraft 1.20.1 Java Edition στον Launcher" loading="lazy" style="display: block; margin: 20px auto; max-width: 100%; border-radius: 8px;" />
+<img 
+  src="/blog/media/step2-version-select.webp" 
+  alt="Επιλογή Έκδοσης Minecraft 1.20.1 Java Edition στον Launcher"
+  loading="lazy"
+  decoding="async"
+  width="800" height="450"
+  style="display: block; margin: 20px auto; max-width: 100%; border-radius: 8px;" />
 
 <p style="text-align:center; font-size: 0.9rem; color: #888;">Επιλογή της σωστής έκδοσης Minecraft (1.20.1) πριν τη σύνδεση.</p>
 
@@ -56,7 +68,13 @@ description: "Πώς να μπεις στον PGG Legacy Minecraft Server: Ελ�
 - Πατήστε **Join Server** για να συνδεθείτε.
 - Κατά την πρώτη είσοδο, θα εμφανιστεί στην οθόνη ένας **μοναδικός κωδικός επιβεβαίωσης (Verification Code)**. Κάντε **Copy** αυτόν τον κωδικό.
 
-<img src="https://pgglegacy.gr/blog/media/step3-join-code.webp" alt="Σύνδεση στον PGG Legacy Server και Αντιγραφή Κωδικού Ταυτοποίησης" loading="lazy" style="display: block; margin: 20px auto; max-width: 100%; border-radius: 8px;" />
+<img 
+  src="/blog/media/step3-join-code.webp" 
+  alt="Σύνδεση στον PGG Legacy Server και Αντιγραφή Κωδικού Ταυτοποίησης"
+  loading="lazy"
+  decoding="async"
+  width="800" height="450"
+  style="display: block; margin: 20px auto; max-width: 100%; border-radius: 8px;" />
 
 <p style="text-align:center; font-size: 0.9rem; color: #888;">Ο κωδικός verification εμφανίζεται αυτόματα κατά την πρώτη σύνδεση.</p>
 
@@ -68,7 +86,13 @@ description: "Πώς να μπεις στον PGG Legacy Minecraft Server: Ελ�
 - Βρείτε το **PGG Legacy Bot** στη δεξιά λίστα μελών του Discord server μας.
 - Στείλτε στο bot σε **Προσωπικό Μήνυμα (DM)** τον κωδικό επιβεβαίωσης που αντιγράψατε από το παιχνίδι.
 
-<img src="https://pgglegacy.gr/blog/media/step4-bot-dm.webp" alt="Αποστολή Κωδικού Verification στο PGG Legacy Discord Bot" loading="lazy" style="display: block; margin: 20px auto; max-width: 100%; border-radius: 8px;" />
+<img 
+  src="/blog/media/step4-bot-dm.webp" 
+  alt="Αποστολή Κωδικού Verification στο PGG Legacy Discord Bot"
+  loading="lazy"
+  decoding="async"
+  width="800" height="450"
+  style="display: block; margin: 20px auto; max-width: 100%; border-radius: 8px;" />
 
 <p style="text-align:center; font-size: 0.9rem; color: #888;">Αποστολή του κωδικού στο bot μέσω προσωπικού μηνύματος.</p>
 
