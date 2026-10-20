@@ -73,7 +73,7 @@ description: "Πώς να μπεις στον PGG Legacy Minecraft Server: Ελ�
 <p style="text-align:center; font-size: 0.9rem; color: #888;">Αποστολή του κωδικού στο bot μέσω προσωπικού μηνύματος.</p>
 
 > ⚠️ **Αντιμετωπίζεις πρόβλημα;**
-> Αν το bot δεν σου απαντήσει, βεβαιώσου ότι επιτρέπεις μηνύματα (DMs) από members του server στις ρυθμίσεις απορρήτου του Discord. Αν το πρόβλημα συνεχίζεται, ρώτα εναν admin.
+> Αν το bot δεν σου απαντήσει, βεβαιώσου ότι επιτρέπεις μηνύματα (DMs) από members του server στις ρυθμίσεις απορρήτου του Discord. Αν το πρόβλημα συνεχίζεται, ρώτα έναν admin.
 
 ---
 
@@ -108,3 +108,102 @@ description: "Πώς να μπεις στον PGG Legacy Minecraft Server: Ελ�
   <strong class="blog-cta-ip">play.PGGlegacy.gr</strong>
   <a href="https://discord.gg/Ks7NtXhtwV" target="_blank" rel="noopener noreferrer" class="discord-btn" style="margin-top: 1rem; display: inline-block;">Μπες στο Discord →</a>
 </div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HowTo",
+      "name": "Πώς να Συνδεθείς στον PGG Legacy Minecraft Server",
+      "description": "Οδηγός βήμα-βήμα για σύνδεση στον PGG Legacy Minecraft Server, Java Edition 1.20.1, με ταυτοποίηση μέσω Discord Bot.",
+      "image": "https://pgglegacy.gr/blog/media/how-to-join-pgglegacy-minecraft-server-banner.webp",
+      "totalTime": "PT2M",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "EUR",
+        "value": "0"
+      },
+      "supply": [
+        { "@type": "HowToSupply", "name": "Minecraft Java Edition (Έκδοση 1.20.1)" },
+        { "@type": "HowToSupply", "name": "Λογαριασμός Discord" }
+      ],
+      "tool": [
+        { "@type": "HowToTool", "name": "Minecraft Launcher" },
+        { "@type": "HowToTool", "name": "Discord Εφαρμογή" }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Πάρτε την IP & Μπείτε στο Discord",
+          "text": "Επισκεφθείτε το pgglegacy.gr, αντιγράψτε την Server IP (play.PGGlegacy.gr) και μπείτε στον Discord server μας.",
+          "url": "https://pgglegacy.gr/blog/how-to-join/#step1",
+          "image": "https://pgglegacy.gr/blog/media/step1-ip-discord.webp"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Ανοίξτε το Minecraft στην Έκδοση 1.20.1",
+          "text": "Ανοίξτε τον Minecraft Launcher, επιλέξτε Java Edition 1.20.1 και πατήστε Play.",
+          "url": "https://pgglegacy.gr/blog/how-to-join/#step2",
+          "image": "https://pgglegacy.gr/blog/media/step2-version-select.webp"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Προσθέστε τον Server & Πάρτε τον Κωδικό",
+          "text": "Πηγαίνετε στο Multiplayer, κάντε Add Server, επικολλήστε την IP και πατήστε Join Server για να λάβετε τον κωδικό verification.",
+          "url": "https://pgglegacy.gr/blog/how-to-join/#step3",
+          "image": "https://pgglegacy.gr/blog/media/step3-join-code.webp"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Ταυτοποίηση στο Discord Bot",
+          "text": "Στείλτε Προσωπικό Μήνυμα (DM) στο PGG Legacy Bot στο Discord με τον κωδικό verification που λάβατε.",
+          "url": "https://pgglegacy.gr/blog/how-to-join/#step4",
+          "image": "https://pgglegacy.gr/blog/media/step4-bot-dm.webp"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Παίζει ο PGG Legacy σε Bedrock Edition ή κινητό;",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Όχι, ο server λειτουργεί αποκλειστικά σε Minecraft Java Edition, έκδοση 1.20.1."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Τι κάνω αν δεν μου εμφανίζεται κωδικός verification;",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Βγες και ξαναμπές στον server (Disconnect → Join Server ξανά)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Το PGG Legacy Bot δεν απαντάει στο DM μου, τι κάνω;",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Βεβαιωθείτε ότι έχετε ενεργοποιημένα τα DMs από members του server, στις ρυθμίσεις απορρήτου του Discord."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Χρειάζεται να πληρώσω για να παίξω στον PGG Legacy;",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Όχι, η σύνδεση και η διαδικασία ταυτοποίησης είναι εντελώς δωρεάν."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
