@@ -8,8 +8,6 @@ description: "Πώς να μπεις στον PGG Legacy Minecraft Server: Ελ�
   Java 1.20.1, Discord verification. Αναλυτικός οδηγός σύνδεσης βήμα-βήμα με
   εικόνες."
 ---
-# 🚀 PGG Legacy Minecraft Server (Java 1.20.1)
-
 Ψάχνεις τον καλύτερο **Ελληνικό Minecraft Roleplay Server**; Ο **PGG Legacy** προσφέρει μια μοναδική εμπειρία **Minecraft RP & Survival** στην έκδοση **Java Edition 1.20.1**, με Proximity Voice Chat, custom plugins και ενεργή ελληνική κοινότητα.
 
 Αν αναρωτιέσαι **πώς να μπεις στον Minecraft server** μας, ακολούθησε τα παρακάτω απλά βήματα και ξεκίνα το παιχνίδι σε λιγότερο από 2 λεπτά!
