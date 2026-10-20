@@ -1,6 +1,6 @@
 ---
 layout: post
-title: how-to-join
+title: Πώς να Συνδεθείς στον PGG Legacy Minecraft Server
 date: 2026-10-20
 tag: Οδηγός
 image: how-to-join-pgglegacy-minecraft-server-banner.webp
