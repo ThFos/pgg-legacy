@@ -590,67 +590,66 @@
       list.innerHTML = `<p class="leaderboard-msg">Δεν βρέθηκαν δεδομένα.</p>`;
     }
 
-    function renderRows(players) {
-      list.setAttribute('aria-busy', 'false');
-      list.innerHTML = '';
-      if (!players || players.length === 0) { renderEmpty(); return; }
+  function renderRows(players) {
+    list.setAttribute('aria-busy', 'false');
+    list.innerHTML = '';
+    if (!players || players.length === 0) { renderEmpty(); return; }
 
-      const fragment = document.createDocumentFragment();
-      players.forEach((player, i) => {
-        const row = document.createElement('div');
-        row.className = `lb-row rank-${i + 1 <= 3 ? i + 1 : 'other'}`;
-        row.setAttribute('role', 'listitem');
-        row.style.animationDelay = `${i * 60}ms`;
+    const fragment = document.createDocumentFragment();
+    players.forEach((player, i) => {
+      const row = document.createElement('div');
+      row.className = `lb-row rank-${i + 1 <= 3 ? i + 1 : 'other'}`;
+      row.setAttribute('role', 'listitem');
+      row.style.animationDelay = `${i * 60}ms`;
 
-        const img = document.createElement('img');
-        img.className = 'lb-avatar';
-        img.alt = `Avatar του ${player.name}`;
-        img.width = 44;
-        img.height = 44;
-        img.loading = 'lazy';
-        img.decoding = 'async';
-        img.src = AVATAR_URL(player.name);
-        img.onerror = function () {
-          this.src = '/media/default-avatar.png';
-          this.onerror = null;
-        };
+      const img = document.createElement('img');
+      img.className = 'lb-avatar';
+      img.alt = `Avatar του ${player.username}`;
+      img.width = 44;
+      img.height = 44;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.src = player.headUrl || AVATAR_URL(player.username);
+      img.onerror = function () {
+        this.src = '/media/default-avatar.png';
+        this.onerror = null;
+      };
 
-        const rank = document.createElement('span');
-        rank.className = `lb-rank ${rankClass(i)}`;
-        rank.textContent = rankLabel(i);
-        rank.setAttribute('aria-label', `Θέση ${i + 1}`);
+      const rank = document.createElement('span');
+      rank.className = `lb-rank ${rankClass(i)}`;
+      rank.textContent = rankLabel(i);
+      rank.setAttribute('aria-label', `Θέση ${i + 1}`);
 
-        const info = document.createElement('div');
-        info.className = 'lb-info';
+      const info = document.createElement('div');
+      info.className = 'lb-info';
 
-        const name = document.createElement('p');
-        name.className = 'lb-name';
-        name.textContent = player.name;
+      const name = document.createElement('p');
+      name.className = 'lb-name';
+      name.textContent = player.username;
 
-        const label = document.createElement('p');
-        label.className = 'lb-label';
-        label.textContent = currentMode === 'weekly'
-          ? 'Εβδομαδιαίο playtime'
-          : 'Συνολικό playtime';
+      const label = document.createElement('p');
+      label.className = 'lb-label';
+      label.textContent = currentMode === 'weekly'
+        ? 'Εβδομαδιαίο playtime'
+        : 'Συνολικό playtime';
 
-        info.appendChild(name);
-        info.appendChild(label);
+      info.appendChild(name);
+      info.appendChild(label);
 
-        const time = document.createElement('span');
-        time.className = 'lb-time';
-        const minutes = player.playtime_minutes ?? player.playtime ?? 0;
-        time.textContent = formatTime(minutes);
-        time.setAttribute('aria-label', `${formatTime(minutes)} παιχνιδιού`);
+      const time = document.createElement('span');
+      time.className = 'lb-time';
+      time.textContent = player.playtime || '—';
+      time.setAttribute('aria-label', `${player.playtime || '—'} παιχνιδιού`);
 
-        row.appendChild(rank);
-        row.appendChild(img);
-        row.appendChild(info);
-        row.appendChild(time);
-        fragment.appendChild(row);
-      });
+      row.appendChild(rank);
+      row.appendChild(img);
+      row.appendChild(info);
+      row.appendChild(time);
+      fragment.appendChild(row);
+    });
 
-      list.appendChild(fragment);
-    }
+    list.appendChild(fragment);
+  }
 
   async function fetchLeaderboard(mode) {
     const period = mode === 'weekly' ? 'weekly' : 'all';
