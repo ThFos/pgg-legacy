@@ -3,10 +3,6 @@
    ================================================================ */
 
 @media (max-width: 768px) {
-  /* Navbar */
-  .desktop_navbar { display: none; }
-  .mobile_navbar  { display: flex; }
-
   /* Hero */
   .main1 { padding-top: 5rem; }
 

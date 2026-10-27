@@ -126,7 +126,7 @@
       color: #fff;
     }
     body.menu-open { overflow: hidden; }
-    img { -webkit-user-drag: none; max-width: 100%; }
+    img { -webkit-user-drag: none; max-width: 100%; height: auto; }
     ul { list-style: none; }
     .sr-only {
       position: absolute; width: 1px; height: 1px; padding: 0;
@@ -192,7 +192,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 0 1rem;
-        background: rgba(18, 17, 23, 0.95);
+        background: rgba(18, 17, 23, 0.9);
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
         border-bottom: 1px solid var(--border-subtle);
@@ -209,7 +209,7 @@
         justify-content: center;
       }
 
-      /* Mobile Fullscreen Menu Overlay */
+      /* Mobile Fullscreen Menu Overlay (βασικό fallback πριν φορτώσει το navbar.css) */
       #mobile_navbar_links {
         display: none;
         position: fixed;
@@ -227,17 +227,14 @@
         overflow-y: auto;
       }
 
-      #mobile_navbar_links.is-open {
-        display: flex !important;
-      }
-
       .mobile_navbar_link {
         font-size: 1.2rem;
         color: #fff;
         text-decoration: none;
         font-weight: 600;
       }
-      
+
+      /* Σκόπιμη επανάληψη (critical-CSS pattern) — αποφεύγει flash αόρατου content πριν φορτώσει το responsive.css */
       [data-aos] { opacity: 1 !important; transform: none !important; }
     }
 
@@ -647,17 +644,6 @@
     </section>
   </main>
 
-  <!-- Cookie Banner -->
-  <div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Δήλωση Cookies">
-    <p class="cookie-text">
-      <strong>Χρησιμοποιούμε cookies</strong> για τη βελτίωση της εμπειρίας πλοήγησης και τη συλλογή στατιστικών. Διαβάστε την <a href="/privacy">Πολιτική Απορρήτου</a>.
-    </p>
-    <div class="cookie-buttons">
-      <button id="cookie-accept" class="cookie-btn-accept" type="button">Αποδοχή</button>
-      <button id="cookie-decline" class="cookie-btn-decline" type="button">Απόρριψη</button>
-    </div>
-  </div>
-
   <footer class="copyright_div">
     <p class="copyright">
       &copy; <span id="copyright-year"></span> PGG Legacy — All rights reserved. |
@@ -665,59 +651,7 @@
     </p>
   </footer>
 
+  <!-- script.js: cookies, cursor, mobile menu, copyright year -->
   <script src="/js/script.js" defer></script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-
-      var yearEl = document.getElementById('copyright-year');
-      if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-
-      var menuBtn = document.getElementById('mobile-menu-toggle');
-      var mobileLinks = document.getElementById('mobile_navbar_links');
-
-      if (menuBtn && mobileLinks) {
-        menuBtn.addEventListener('click', function() {
-          var isOpen = mobileLinks.classList.contains('is-open');
-          if (isOpen) {
-            mobileLinks.classList.remove('is-open');
-            menuBtn.setAttribute('aria-expanded', 'false');
-            document.body.classList.remove('menu-open');
-          } else {
-            mobileLinks.classList.add('is-open');
-            menuBtn.setAttribute('aria-expanded', 'true');
-            document.body.classList.add('menu-open');
-          }
-        });
-
-
-        var links = mobileLinks.querySelectorAll('a');
-        links.forEach(function(link) {
-          link.addEventListener('click', function() {
-            mobileLinks.classList.remove('is-open');
-            menuBtn.setAttribute('aria-expanded', 'false');
-            document.body.classList.remove('menu-open');
-          });
-        });
-      }
-
-
-      var lazyVideos = document.querySelectorAll('video.main2_feature_img[data-poster]');
-      if (!('IntersectionObserver' in window)) {
-        lazyVideos.forEach(function(v) { v.poster = v.dataset.poster; });
-        return;
-      }
-      var obs = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(function(entry) {
-          if (!entry.isIntersecting) return;
-          var v = entry.target;
-          v.poster = v.dataset.poster;
-          observer.unobserve(v);
-        });
-      }, { rootMargin: '150px' });
-      lazyVideos.forEach(function(v) { obs.observe(v); });
-    });
-  </script>
 </body>
 </html>

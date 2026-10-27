@@ -266,7 +266,7 @@
   <!-- Desktop Navbar -->
   <nav class="desktop_navbar" aria-label="Κύριο μενού">
     <a href="/" aria-label="PGG Legacy - Αρχική">
-      <img class="desktop_navbar_logo_img" src="../media/logo_small.svg"
+      <img class="desktop_navbar_logo_img" src="/media/logo_small.svg"
            alt="PGG Legacy Logo" width="152" height="40" fetchpriority="high">
     </a>
     <a href="#rules"       class="desktop_navbar_link">Rules</a>
@@ -275,7 +275,7 @@
     <a href="/blog/"       class="desktop_navbar_link">Blog</a>
     <a href="/map"          class="desktop_navbar_link">Server Map</a>
     <a href="/leaderboard" class="desktop_navbar_link nav-highlight-blue">Leaderboard</a>
-    <a href="/police"      class="desktop_navbar_link nav-highlight-gold">Police Applications</a>
+    <a href="/police"      class="desktop_navbar_link nav-highlight-gold" aria-current="page">Police Applications</a>
     <div class="desktop_navbar_link2_div">
       <a href="/#join" class="desktop_navbar_link2">Join Us!</a>
     </div>
@@ -284,7 +284,7 @@
   <!-- Mobile Navbar -->
   <nav class="mobile_navbar" aria-label="Κινητό μενού">
     <a href="/" class="mobile_navbar_logo_img_a" aria-label="PGG Legacy - Αρχική">
-      <img class="mobile_navbar_logo_img" src="../media/logo_small.svg"
+      <img class="mobile_navbar_logo_img" src="/media/logo_small.svg"
            alt="PGG Legacy Logo" width="152" height="40">
     </a>
     <button class="icon" aria-expanded="false"
@@ -302,7 +302,7 @@
       <a class="mobile_navbar_link" href="/blog/"        role="menuitem">Blog</a>
       <a class="mobile_navbar_link" href="/map"         role="menuitem">Server Map</a>
       <a class="mobile_navbar_link nav-highlight-blue" href="/leaderboard" role="menuitem">Leaderboard</a>
-      <a class="mobile_navbar_link nav-highlight-gold" href="/police"      role="menuitem">Police Apps</a>
+      <a class="mobile_navbar_link nav-highlight-gold"  href="/police" role="menuitem" aria-current="page">Police Apps</a>
       <a class="mobile_navbar_link" href="#join"        role="menuitem">Join Us</a>
     </div>
   </nav>
@@ -395,9 +395,6 @@
       <a href="/privacy">Privacy Policy</a>
     </p>
   </footer>
-
-  <!-- AOS Script -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
   <!-- Script.js -->
   <script src="../js/script.js" defer></script>

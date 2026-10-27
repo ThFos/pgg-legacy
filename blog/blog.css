@@ -2,15 +2,10 @@
    PGG LEGACY — blog.css
    ========================================================================== */
 
-/* ── Μεταβλητές ──────────────────── */
+/* ── Μεταβλητές (μόνο όσες ΔΕΝ υπάρχουν ήδη στο base.css) ────────────────── */
 :root {
-  --accent1:        #6b2dd8;
-  --accent2:        #521eb8;
-  --accent2-transp: rgba(82, 30, 184, 0.33);
   --background1:    #1a1921;
   --background2:    #121117;
-  --roundness:      0.75rem;
-  --transition-std: 0.3s ease;
 }
 
 /* ==========================================================================
@@ -604,21 +599,6 @@ kbd {
 .blog-steps-list li { margin-bottom: 0.6rem; }
 
 /* ==========================================================================
-   AOS ANIMATIONS
-   ========================================================================== */
-
-[data-aos] {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-[data-aos].aos-animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ==========================================================================
    RESPONSIVE
    ========================================================================== */
 
@@ -679,7 +659,6 @@ kbd {
 @media (prefers-reduced-motion: reduce) {
   .blog-card,
   .blog-card-img,
-  [data-aos],
   .cmd-quicknav a,
   .blog-back-link a,
   .blog-cta-btn,

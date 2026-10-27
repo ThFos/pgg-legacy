@@ -15,34 +15,28 @@ function initCopyrightYear() {
 
 /* ── AOS Animations ─────────────────────────────────────────── */
 function initAnimations() {
-  if (window.innerWidth <= 768) {
+  if (!('IntersectionObserver' in window)) {
     document.querySelectorAll('[data-aos]').forEach(function(el) {
       el.classList.add('aos-animate');
     });
     return;
   }
 
-  if ('IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var delay = entry.target.dataset.aosDelay || 0;
-          setTimeout(function() {
-            entry.target.classList.add('aos-animate');
-          }, parseInt(delay));
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var delay = entry.target.dataset.aosDelay || 0;
+        setTimeout(function() {
+          entry.target.classList.add('aos-animate');
+        }, parseInt(delay, 10));
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('[data-aos]').forEach(function(el) {
-      observer.observe(el);
-    });
-  } else {
-    document.querySelectorAll('[data-aos]').forEach(function(el) {
-      el.classList.add('aos-animate');
-    });
-  }
+  document.querySelectorAll('[data-aos]').forEach(function(el) {
+    observer.observe(el);
+  });
 }
 
 /* ── Custom Cursor ───────────────────────────────────────────── */
@@ -102,7 +96,6 @@ function initMobileMenu() {
   if (!btn || !menu) return;
   if (btn.dataset.menuInit) return;
   btn.dataset.menuInit = 'true';
-  btn.removeAttribute('onclick');
 
   btn.addEventListener('click', function(e) {
     e.preventDefault();
@@ -235,29 +228,36 @@ function fetchPlayerCount() {
     });
 }
 
-/* ── Lazy Video Loading ──────────────────────────────────────── */
+/* ── Lazy Video Loading (poster + source + autoplay σε ένα observer) ── */
 function initLazyVideos() {
-  if (!('IntersectionObserver' in window)) return;
+  var videos = document.querySelectorAll('video.main2_feature_img[preload="none"]');
+  if (!videos.length) return;
 
-  var videoObserver = new IntersectionObserver(function(entries) {
+  if (!('IntersectionObserver' in window)) {
+    videos.forEach(function(v) {
+      if (v.dataset.poster) v.poster = v.dataset.poster;
+    });
+    return;
+  }
+
+  var videoObserver = new IntersectionObserver(function(entries, observer) {
     entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        var video = entry.target;
-        video.querySelectorAll('source').forEach(function(source) {
-          if (source.dataset.src) {
-            source.src = source.dataset.src;
-          }
-        });
-        video.load();
-        video.play().catch(function() {});
-        videoObserver.unobserve(video);
-      }
+      if (!entry.isIntersecting) return;
+      var video = entry.target;
+
+      if (video.dataset.poster) video.poster = video.dataset.poster;
+
+      video.querySelectorAll('source').forEach(function(source) {
+        if (source.dataset.src) source.src = source.dataset.src;
+      });
+
+      video.load();
+      video.play().catch(function() {});
+      observer.unobserve(video);
     });
   }, { rootMargin: '200px' });
 
-  document.querySelectorAll('video[preload="none"]').forEach(function(video) {
-    videoObserver.observe(video);
-  });
+  videos.forEach(function(v) { videoObserver.observe(v); });
 }
 
 /* ── Police Form ───────────────────────────────────────── */
@@ -564,11 +564,9 @@ function cookieAttachEvents() {
 window.resetCookieConsent = function() {
   try { localStorage.removeItem(COOKIE_KEY); } catch(e) {}
 
-  // Αφαίρεσε τυχόν υπάρχον banner
   var existing = document.getElementById('cookie-banner');
   if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
 
-  // Δημιούργησε νέο banner, πρόσθεσε events και εμφάνισέ το
   var banner = cookieCreateBanner();
   document.body.appendChild(banner);
   cookieAttachEvents();

@@ -5,35 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
-  <!-- Dynamic Analytics Injection (GA & Contentsquare) -->
-  <script>
-    (function() {
-      var consent = null;
-      try { consent = localStorage.getItem('pgg_cookie_consent'); } catch(e) {}
-      if (consent === 'accepted') {
-        // Google Analytics
-        window._gaLoaded = true;
-        var sGA = document.createElement('script');
-        sGA.async = true;
-        sGA.src = 'https://www.googletagmanager.com/gtag/js?id=G-49NVHWZZV8';
-        document.head.appendChild(sGA);
-
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){ dataLayer.push(arguments); }
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', 'G-49NVHWZZV8', { anonymize_ip: true });
-
-        // Contentsquare
-        var sCS = document.createElement('script');
-        sCS.async = true;
-        sCS.src = 'https://t.contentsquare.net/uxa/25a3809d633eb.js';
-        document.head.appendChild(sCS);
-      }
-    })();
-  </script>
-
-  <title>PGG Legacy | Live Server Map</title>
   <meta name="description" content="Δείτε σε πραγματικό χρόνο τον live χάρτη του PGG Legacy Minecraft server!">
   <meta name="robots" content="index, follow">
   <meta name="author" content="PGG Legacy">
@@ -48,26 +19,40 @@
   <meta property="og:site_name" content="PGG Legacy">
   <meta property="og:locale" content="el_GR">
 
+  <title>PGG Legacy | Live Server Map</title>
+
   <link rel="preconnect" href="https://map.pgglegacy.gr" crossorigin>
   <link rel="dns-prefetch" href="https://map.pgglegacy.gr">
   <link rel="icon" type="image/png" href="../media/favicon.png">
   <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+
   <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'">
   <noscript>
     <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
   </noscript>
 
-  <link rel="stylesheet" href="../css/base.css">
-  <link rel="stylesheet" href="../css/navbar.css">
-  <link rel="stylesheet" href="../css/hero.css">
-  <link rel="stylesheet" href="../css/sections.css">
-  <link rel="stylesheet" href="../css/pages.css">
-  <link rel="stylesheet" href="../css/cursor.css">
-  <link rel="stylesheet" href="../css/animations.css">
-  <link rel="stylesheet" href="../css/responsive.css">
+  <!-- CSS (async loading pattern — ίδιο με index.html/police.html) -->
+  <link rel="stylesheet" href="../css/base.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="../css/navbar.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="../css/hero.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="../css/sections.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="../css/pages.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="../css/cursor.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="../css/animations.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="../css/responsive.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="../css/cookies.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="../css/cookies.css"></noscript>
+  <noscript>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/hero.css">
+    <link rel="stylesheet" href="../css/sections.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="../css/cursor.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/cookies.css">
+  </noscript>
 
   <!-- GoatCounter Analytics -->
   <script data-goatcounter="https://pgglegacy.goatcounter.com/count"
@@ -79,9 +64,9 @@
 
   <!-- Desktop Navbar -->
   <nav class="desktop_navbar" aria-label="Κύριο μενού">
-    <a href="/" aria-label="PGG Legacy - Αρχική">
+    <a href="/" aria-label="PGG Legacy – Αρχική">
       <img class="desktop_navbar_logo_img" src="../media/logo_small.svg"
-           alt="PGG Legacy Logo" width="152" height="40">
+           alt="PGG Legacy Logo" width="152" height="40" fetchpriority="high">
     </a>
     <a href="#rules"       class="desktop_navbar_link">Rules</a>
     <a href="#discord"     class="desktop_navbar_link">Community</a>
@@ -97,7 +82,7 @@
 
   <!-- Mobile Navbar -->
   <nav class="mobile_navbar" aria-label="Κινητό μενού">
-    <a href="/" class="mobile_navbar_logo_img_a" aria-label="PGG Legacy - Αρχική">
+    <a href="/" class="mobile_navbar_logo_img_a" aria-label="PGG Legacy – Αρχική">
       <img class="mobile_navbar_logo_img" src="../media/logo_small.svg"
            alt="PGG Legacy Logo" width="152" height="40">
     </a>
@@ -109,15 +94,15 @@
         <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
       </svg>
     </button>
-        <div id="mobile_navbar_links" role="menu">
-      <a class="mobile_navbar_link" href="#rules"       role="menuitem">Rules</a>
-      <a class="mobile_navbar_link" href="#discord"     role="menuitem">Community</a>
-      <a class="mobile_navbar_link" href="#about"       role="menuitem">About Us</a>
-      <a class="mobile_navbar_link" href="/blog/"        role="menuitem">Blog</a>
-      <a class="mobile_navbar_link nav-highlight-purple" href="/map"        role="menuitem" aria-current="page">Server Map</a>
+    <div id="mobile_navbar_links" role="menu">
+      <a class="mobile_navbar_link" href="#rules"   role="menuitem">Rules</a>
+      <a class="mobile_navbar_link" href="#discord" role="menuitem">Community</a>
+      <a class="mobile_navbar_link" href="#about"   role="menuitem">About Us</a>
+      <a class="mobile_navbar_link" href="/blog/"   role="menuitem">Blog</a>
+      <a class="mobile_navbar_link nav-highlight-purple" href="/map" role="menuitem" aria-current="page">Server Map</a>
       <a class="mobile_navbar_link nav-highlight-blue" href="/leaderboard" role="menuitem">Leaderboard</a>
-      <a class="mobile_navbar_link nav-highlight-gold" href="/police"      role="menuitem">Police Apps</a>
-      <a class="mobile_navbar_link" href="#join"        role="menuitem">Join Us</a>
+      <a class="mobile_navbar_link nav-highlight-gold" href="/police" role="menuitem">Police Apps</a>
+      <a class="mobile_navbar_link" href="#join" role="menuitem">Join Us</a>
     </div>
   </nav>
 
