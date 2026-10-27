@@ -652,51 +652,50 @@
       list.appendChild(fragment);
     }
 
-    async function fetchLeaderboard(mode) {
-      const endpoint = mode === 'weekly'
-        ? `${API_BASE}/leaderboard/weekly`
-        : `${API_BASE}/leaderboard/alltime`;
+  async function fetchLeaderboard(mode) {
+    const period = mode === 'weekly' ? 'weekly' : 'all';
+    const endpoint = `${API_BASE}/index.php?period=${period}`;
 
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 12000);
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 12000);
 
-      try {
-        const res = await fetch(endpoint, { cache: 'default', signal: controller.signal });
-        clearTimeout(timeoutId);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-        return Array.isArray(data) ? data : (data.players ?? []);
-      } catch (err) {
-        clearTimeout(timeoutId);
-        throw err;
-      }
+    try {
+      const res = await fetch(endpoint, { cache: 'default', signal: controller.signal });
+      clearTimeout(timeoutId);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      return Array.isArray(data) ? data : (data.players ?? []);
+    } catch (err) {
+      clearTimeout(timeoutId);
+      throw err;
     }
+  }
 
-    async function loadMode(mode) {
-      currentMode = mode;
-      btnW.classList.toggle('active', mode === 'weekly');
-      btnA.classList.toggle('active', mode === 'all');
-      btnW.setAttribute('aria-pressed', mode === 'weekly');
-      btnA.setAttribute('aria-pressed', mode === 'all');
+  async function loadMode(mode) {
+    currentMode = mode;
+    btnW.classList.toggle('active', mode === 'weekly');
+    btnA.classList.toggle('active', mode === 'all');
+    btnW.setAttribute('aria-pressed', mode === 'weekly');
+    btnA.setAttribute('aria-pressed', mode === 'all');
 
-      const cacheKey = mode === 'weekly' ? 'weekly' : 'all';
-      if (cache[cacheKey]) { renderRows(cache[cacheKey]); return; }
+    const cacheKey = mode === 'weekly' ? 'weekly' : 'all';
+    if (cache[cacheKey]) { renderRows(cache[cacheKey]); return; }
 
-      renderSkeletons();
-      try {
-        const players = await fetchLeaderboard(mode);
-        cache[cacheKey] = players;
-        renderRows(players);
-      } catch (err) {
-        console.error('[Leaderboard]', err);
-        renderError('⚠️ Αδυναμία φόρτωσης δεδομένων. Δοκιμάστε ξανά αργότερα.');
-      }
+    renderSkeletons();
+    try {
+      const players = await fetchLeaderboard(mode);
+      cache[cacheKey] = players;
+      renderRows(players);
+    } catch (err) {
+      console.error('[Leaderboard]', err);
+      renderError('⚠️ Αδυναμία φόρτωσης δεδομένων. Δοκιμάστε ξανά αργότερα.');
     }
+  }
 
-    btnW.addEventListener('click', () => { if (currentMode !== 'weekly') loadMode('weekly'); });
-    btnA.addEventListener('click', () => { if (currentMode !== 'all')    loadMode('all'); });
+  btnW.addEventListener('click', () => { if (currentMode !== 'weekly') loadMode('weekly'); });
+  btnA.addEventListener('click', () => { if (currentMode !== 'all')    loadMode('all'); });
 
-    loadMode('weekly');
+  loadMode('weekly');
   })();
   </script>
 </body>
